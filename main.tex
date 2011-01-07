@@ -1,0 +1,339 @@
+\documentclass[10pt,a4paper]{article}
+\title{L'arte di scrivere in \LaTeX{}\\
+  con\\
+  GNU Emacs \& AUC\TeX{}}
+
+% \title{Una introduzione a GNU Emacs \& AUC\TeX{}}
+% \title{}
+
+% \author{Orlando Iovino  \thanks{Curatore di \emacs{} \& \auctex{} per Windows} 
+% \and Pinco Pallino   \thanks{Curatore di \emacs{} \& \auctex{} per Linux}
+% \and Tizio Sempronio \thanks{Curatore di \emacs{} \& \auctex{} per Mac OS}}
+
+\author{Orlando Iovino\\(Windows)
+  \and Pinco Pallino\\(GNU/Linux)
+  \and Tizio Sempronio\\(Mac OS)}
+
+\usepackage{macro}
+
+\usepackage{lipsum} %%%%%%%%%%%%%%%% TEMP
+
+\begin{document}
+\maketitle
+\begin{abstract}\sffamily
+ % \lipsum[1] 
+\end{abstract}
+
+\begin{multicols}{2}
+  \tableofcontents
+\end{multicols}
+
+\section{Introduzione}
+\label{sec:intro}
+
+%\lipsum[1]
+
+\section{Installare \emacs}
+\label{sec:install}
+
+In questo paragrafo verranno date le informazioni necessarie per installare
+\emacs{} sui tre principali sistemi operativi, vale a dire: 
+\textsf{MicroSoft Windows (Xp, 7)},
+\textsf{GNU/Linux} e %%% Specificare?
+\textsf{Mac OS}.  %%% Specificare?
+
+
+\subsection*{\emacs{} per Windows}
+\label{sec:installwin}
+Per dirla tutta, in un sistema operativo MicroSoft Windows (Xp, Seven)
+non esiste una vera e propria installazione, pertanto per poter
+\emph{installare} ed usare \emacs{} in questo ambiente,
+è sufficiente procurarsi l'archivio contenente gli eseguibili del programma.
+
+Per questa guida si è fatto riferimento al mirror ufficiale
+(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}),
+da cui bisogna scaricare l'archivio compresso
+\href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.1-barebin-i386.zip}
+{\textsf{emacs-23.1-barebin-i386.zip}}.
+
+Una volta de-compresso, i file ottenuti devono essere copiati in una
+posizione di comodo. Una buona soluzione, per esempio, è data da:
+
+\begin{verbatim}
+C:/Programmi/Emacs/
+\end{verbatim}
+
+La cartella appena creata sarà così formata:
+\begin{center}\ttfamily
+ \begin{tabular}{lrl}
+  <DIR>&        & bin       \\
+       &  1.044 & BUGS      \\
+       & 35.147 & COPYING   \\
+  <DIR>&        & etc       \\
+  <DIR>&        & info      \\
+       & 36.533 & INSTALL   \\
+  <DIR>&        & leim      \\
+  <DIR>&        & lisp      \\
+       &  5.276 & README    \\
+       & 11.350 & README.W32\\
+  <DIR>&        & site-lisp \\
+ \end{tabular}
+\end{center}
+
+Per creare un collegamento nel menù \textsf{Start}, bisogna
+eseguire (doppio click) il file \emph{addpm.exe}. Attenzione però: con questa
+procedura non viene aggiunto il percorso degli eseguibili alla  
+variabile d'ambiente \textsf{PATH}. Quindi per poter lanciare 
+\emacs{} da qualunque posizione, qualora si faccia un forte uso del prompt dei
+comandi di Windows, questa operazione va fatta a mano.
+
+\subsection*{\emacs{} per GNU/Linux}
+\label{sec:installlinux}
+\emacs{} fa parte del progetto GNU quindi è presente in tutti i sistemi
+operativi della famiglia GNU/Linux. Se non è già installato, il metodo più
+semplice per ottenere \emacs{} in un sistema GNU/Linux è far riferimento al
+gestore pacchetti della propria distribuzione. Si possono naturalmente
+utilizzare i gestori di pacchetti a interfaccia grafica, riportiamo qui inoltre
+i comandi da terminale che possono essere eseguiti per installare \emacs{} in
+alcune delle principali distribuzioni: Debian e Ubuntu:
+\begin{verbatim}
+$ sudo apt-get install emacs
+\end{verbatim}
+Fedora:
+\begin{verbatim}
+$ sudo yum install emacs
+\end{verbatim}
+OpenSUSE: %chiedere a qualcuno
+\begin{verbatim}
+$ sudo ..... 
+\end{verbatim}
+
+Il metodo più difficile, per i non avvezzi all'uso del terminale, consiste nel
+compilare \emacs{} a partire dal codice sorgente, tuttavia non è intenzione di
+questa guida spiegare come fare ciò.
+
+Dopo averlo installato, \emacs{} potrà essere avviato facendo clic sul suo
+lanciatore oppure eseguendo da terminale il comando
+\begin{verbatim}
+$ emacs
+\end{verbatim}
+Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna aggiungere
+l'opzione \verb|-nw| oppure \verb|--no-window-system|:
+\begin{verbatim}
+$ emacs -nw
+\end{verbatim}
+Possono essere aggiunti come argomenti da linea di comando il percorso del file
+(o dei file) che si vogliono modificare:
+\begin{verbatim}
+$ emacs file1.tex file2.tex
+\end{verbatim}
+
+\subsection*{\emacs{} per Mac OS}
+\label{sec:installmac}
+
+\lipsum[1]
+
+\section{Installare \auctex}
+\label{sec:installauc}
+%%%Dire cosa è AUCTEX?
+\subsection*{\auctex{} per Windows}
+\label{sec:auctexwin}
+
+Le operazioni per rendere funzionante \auctex{} per \emacs{} in ambiente
+Windows sono ancora più semplici.
+
+Dal sito di riferimento di \auctex{} per Windows 
+(\href{%
+http://www.gnu.org/software/auctex/download-for-windows.html}%
+{\mano{} \auctex}), bisogna scaricare l'archivio \href{%
+http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
+{\textsf{auctex-11.86-e23.2-msw.zip}}, che altro non è che un insieme di
+pacchetti precompilati.
+
+Una volta de-compresso, è sufficiente copiare i file di tale archivio
+nel punto dove abbiamo messo \emacs{}, cioè
+\texttt{C:/Programmi/Emacs/}.
+
+ Si noterà che esiste già una cartella
+\textsf{site-lisp}: i file contenuti in  quella di \auctex{} vanno copiati
+nella omonima di \emacs. In quest'ultima, quindi, dovrebbero
+esserci cinque file in totale:
+
+\begin{center}\ttfamily
+ \begin{tabular}{lrl}
+  <DIR>&       &        auctex\\
+  <DIR>&       &  site-start.d\\
+       &    189& site-start.el\\
+       &    136&    subdirs.el\\
+       & 14.395&   tex-site.el\\
+ \end{tabular}
+\end{center}
+
+Aprendo successivamente \emacs{} si noterà qualche cambiamento
+non appena si passa alla modalità \textsf{tex-mode} o a quella \textsf{latex-mode}.
+
+\subsection*{\auctex{} per GNU/Linux}
+\label{sec:auctexlinux}
+
+Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come già detto
+per \emacs, per installare \auctex{} si consiglia di utilizzare il gestore
+pacchetti della propria distribuzione. Ecco i comandi da usare nelle principali
+distribuzioni: Debian:
+\begin{verbatim}
+$ sudo apt-get install auctex
+\end{verbatim}
+Fedora:
+\begin{verbatim}
+$ sudo yum install emacs-auctex
+\end{verbatim}
+OpenSUSE: % chiedere a qualcuno il nome del comando
+\begin{verbatim}
+$ sudo .... emacs-auctex
+\end{verbatim}
+
+
+\subsection*{\auctex{} per Mac OS}
+\label{sec:auctexmac}
+
+\lipsum[1]
+
+\section{Personalizzare \emacs e \auctex}
+\label{sec:personal}
+
+\lipsum[1]
+
+\section{Ref\TeX{}}
+\label{sec:reftex}
+
+
+\lipsum[1]
+
+\section{Correttore ortografico}
+\label{sec:corr}
+Per abilitare \emacs{} a lavorare con la lingua italiana, bisogna
+installare il correttore ortografico. Le procedure, poiché differenti,
+vengono di seguito esposte per tutti e tre i sistemi operativi. 
+L'uso è ovviamente invariante. 
+
+Per poter fare una \emph{revisione} del proprio file, bisogna digitare:
+\begin{verbatim}
+M-x ispell
+\end{verbatim}
+in questo modo il dizionario proporrà di sequenza, la correzione
+dei termini che trova errati; un secondo modo, per scrivere
+correttamente, è attivare la modalità \emph{flyspell} (correzione al
+volo, interattiva). Se la si vuole
+attivare solo sul documento corrente basta andare in:
+\begin{verbatim}
+Tools > Spell Checking > Automatic spell checking (Flyspell)
+\end{verbatim}
+se invece la si vuole tenere sempre abilitata,
+basta aggiungere la riga:
+\begin{verbatim}
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+\end{verbatim}
+al proprio file \emph{.emacs}. Quando viene rilevata una parola
+potenzialmente sbagliata, questa verrà visualizzata in rosso. La
+correzione può essere fatta a mano o con la combinazione \verb!M-$!,
+la quale proporrà possibili soluzioni.
+
+\subsection*{Windows}
+\label{sec:aspellwin}
+Per installare il correttore ortografico in ambiente
+Windows, si può usare il programma \textsf{GNU Aspell}
+(\href{http://aspell.net/win32/}{\mano{} \textsf{GNU Aspell - Win32 version}}). L'ultima
+versione stabile per Windows, seppur datata Dicembre 2002, è la \textsf{0.50-3}.
+
+I file che bisogna procurarsi sono quelli che vengono di seguito
+riportati; si badi bene ad installarli nell'ordine in cui vengono dati:
+
+\begin{enumerate}
+\item l'installer completo \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
+{\textsf{Aspell-0-50-3-3-Setup.exe}} (che rappresenta il programma
+vero e proprio);
+\item il dizionario precompilato per l'italiano
+\href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
+{\textsf{Aspell-it-0.50-2-3.exe}}.
+\end{enumerate}
+
+Alla stessa pagina di questi file sono disponibili tanti altri
+dizionari precompilati, più o meno aggiornati, di altre lingue.
+
+Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
+percorso della cartella dove sono contenuti gli eseguibili di Aspell nella
+\textsf{PATH} di Windows. Secondo, aggiungere al proprio \emph{.emacs} le seguenti
+righe di codice:
+
+\begin{verbatim}
+(setq-default ispell-program-name "aspell")
+(setq-default ispell-extra-args '("--reverse"))
+(setq ispell-dictionary "italiano")
+\end{verbatim}
+dove la seconda riga di codice serve a \emph{fixare} dei problemi con le versioni
+precedenti.
+
+% (setq flyspell-use-meta-tab nil)
+%% DIRE A COSA SERVONO LE RIGHE
+
+\subsection*{GNU/Linux}
+\label{sec:aspelllinux}
+
+Il correttore ortografico GNU Aspell può essere installato facilmente su
+GNU/Linux utilizzando, come al solito, il gestore pacchetti della propria
+distribuzione. Il dizionario italiano di GNU Aspell si chiama \verb|aspell-it|
+quindi da terminale può essere installato in Debian con il comando
+\begin{verbatim}
+$ sudo apt-get install aspell-it
+\end{verbatim}
+in Fedora con
+\begin{verbatim}
+$ sudo yum install aspell-it
+\end{verbatim}
+mentre in OpenSUSE si può eseguire il comando: % chiedere qual è il comando
+\begin{verbatim}
+$ sudo ..... aspell-it
+\end{verbatim}
+
+\subsection*{Mac OS}
+\label{sec:aspellmac}
+
+\lipsum[1]
+
+\section{Autocomplete mode}
+\label{sec:auto}
+
+\lipsum[1]
+
+% Per GNU/Linux vedere
+% http://elubuntu.blogspot.com/2010/04/autocompletamento-in-emacs-2.html
+
+\section{Reference Card}
+\label{sec:refcard}
+
+Oltre alla vasta documentazione che si può reperire in rete, di 
+particolare utilità sono le \emph{Reference Card}, disponibili sia per
+\emacs{}, sia per \auctex{}.
+
+Si tratta, come è facile immaginare, di una sorta di riassunto in
+forma tabulare dei principali comandi per poter usare questi
+programmi,  eventualmente  da stampare, e tenere a portata di mano
+sulla  propria scrivania.
+
+Le reference card sono disponibili sia in rete, sia sul proprio
+computer una volta installati \emacs{} ed \auctex. Sul proprio
+computer dovrebbero esserci anche i sorgenti pronti per essere compilati.
+
+\section{Conclusioni}
+\label{sec:fine}
+
+\lipsum[1]
+
+
+%% METTERE LA BIBLIOGRAFIA
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

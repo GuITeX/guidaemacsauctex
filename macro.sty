@@ -1,0 +1,29 @@
+\ProvidesPackage{macro}
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{textcomp}
+\RequirePackage[latin1]{inputenc}
+\RequirePackage[english,italian]{babel}
+\RequirePackage{fourier}
+\RequirePackage{microtype}
+\RequirePackage[margin=4cm]{geometry} % ................. MODIFICA
+\RequirePackage{multicol}
+\RequirePackage{indentfirst} %........................... AGGIUNTA
+\RequirePackage{pifont} % .......( pifont per bbding )... MODIFICA
+
+\RequirePackage{xcolor}
+\RequirePackage{listings}
+\lstset{language=Lisp,%
+        basicstyle=\scriptsize\ttfamily,%
+        commentstyle=\color{red!90},%
+        frame=single}
+\RequirePackage{hyperref}
+
+\providecommand{\emacs}{\textsf{GNU Emacs}} % ........... MODIFICA
+\providecommand{\auctex}{\textsf{AUC\TeX{}}} % .......... MODIFICA
+\providecommand{\mano}{\ding{42}} % \ding42 per HandRight MODIFICA
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
