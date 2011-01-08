@@ -1,3 +1,11 @@
 .*log
-.*pdf.*aux.*out.*toc.*toc.*blg
-.*bbl.*blx.bib
+
+.*pdf
+.*aux
+.*out
+.*toc
+.*toc
+.*blg
+
+.*bbl
+.*blx.bib
