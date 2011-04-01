@@ -44,7 +44,6 @@ In questo paragrafo verranno date le informazioni necessarie per installare
 \textsf{GNU/Linux} e %%% Specificare?
 \textsf{Mac OS}.  %%% Specificare?
 
-
 \subsection*{\emacs{} per Windows}
 \label{sec:installwin}
 Per dirla tutta, in un sistema operativo MicroSoft Windows (Xp, Seven)
@@ -61,9 +60,9 @@ da cui bisogna scaricare l'archivio compresso
 Una volta de-compresso, i file ottenuti devono essere copiati in una
 posizione di comodo. Una buona soluzione, per esempio, è data da:
 
-\begin{verbatim}
+\begin{Verbatim}
 C:/Programmi/Emacs/
-\end{verbatim}
+\end{Verbatim}
 
 La cartella appena creata sarà così formata:
 \begin{center}\ttfamily
@@ -98,17 +97,17 @@ gestore pacchetti della propria distribuzione. Si possono naturalmente
 utilizzare i gestori di pacchetti a interfaccia grafica, riportiamo qui inoltre
 i comandi da terminale che possono essere eseguiti per installare \emacs{} in
 alcune delle principali distribuzioni: Debian e Ubuntu:
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo apt-get install emacs
-\end{verbatim}
+\end{Verbatim}
 Fedora:
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo yum install emacs
-\end{verbatim}
+\end{Verbatim}
 OpenSUSE: %chiedere a qualcuno
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo ..... 
-\end{verbatim}
+\end{Verbatim}
 
 Il metodo più difficile, per i non avvezzi all'uso del terminale, consiste nel
 compilare \emacs{} a partire dal codice sorgente, tuttavia non è intenzione di
@@ -116,19 +115,19 @@ questa guida spiegare come fare ciò.
 
 Dopo averlo installato, \emacs{} potrà essere avviato facendo clic sul suo
 lanciatore oppure eseguendo da terminale il comando
-\begin{verbatim}
+\begin{Verbatim}
 $ emacs
-\end{verbatim}
+\end{Verbatim}
 Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna aggiungere
 l'opzione \verb|-nw| oppure \verb|--no-window-system|:
-\begin{verbatim}
+\begin{Verbatim}
 $ emacs -nw
-\end{verbatim}
+\end{Verbatim}
 Possono essere aggiunti come argomenti da linea di comando il percorso del file
 (o dei file) che si vogliono modificare:
-\begin{verbatim}
+\begin{Verbatim}
 $ emacs file1.tex file2.tex
-\end{verbatim}
+\end{Verbatim}
 
 \subsection*{\emacs{} per Mac OS}
 \label{sec:installmac}
@@ -181,17 +180,17 @@ Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come già detto
 per \emacs, per installare \auctex{} si consiglia di utilizzare il gestore
 pacchetti della propria distribuzione. Ecco i comandi da usare nelle principali
 distribuzioni: Debian:
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo apt-get install auctex
-\end{verbatim}
+\end{Verbatim}
 Fedora:
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo yum install emacs-auctex
-\end{verbatim}
+\end{Verbatim}
 OpenSUSE: % chiedere a qualcuno il nome del comando
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo .... emacs-auctex
-\end{verbatim}
+\end{Verbatim}
 
 
 \subsection*{\auctex{} per Mac OS}
@@ -217,22 +216,22 @@ vengono di seguito esposte per tutti e tre i sistemi operativi.
 L'uso è ovviamente invariante. 
 
 Per poter fare una \emph{revisione} del proprio file, bisogna digitare:
-\begin{verbatim}
+\begin{Verbatim}
 M-x ispell
-\end{verbatim}
+\end{Verbatim}
 in questo modo il dizionario proporrà in sequenza, la correzione
 dei termini che trova errati; un secondo modo, per scrivere
 correttamente, è attivare la modalità \emph{flyspell} (correzione al
 volo, interattiva). Se la si vuole
 attivare solo sul documento corrente basta andare in:
-\begin{verbatim}
+\begin{Verbatim}
 Tools > Spell Checking > Automatic spell checking (Flyspell)
-\end{verbatim}
+\end{Verbatim}
 se invece la si vuole tenere sempre abilitata,
 basta aggiungere la riga:
-\begin{verbatim}
+\begin{Verbatim}
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-\end{verbatim}
+\end{Verbatim}
 al proprio file \emph{.emacs}. Quando viene rilevata una parola
 potenzialmente sbagliata, questa verrà visualizzata in rosso. La
 correzione può essere fatta a mano o con la combinazione \verb!M-$!,
@@ -265,11 +264,11 @@ percorso della cartella dove sono contenuti gli eseguibili di Aspell nella
 \textsf{PATH} di Windows. Secondo, aggiungere al proprio \emph{.emacs} le seguenti
 righe di codice:
 
-\begin{verbatim}
+\begin{Verbatim}
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-extra-args '("--reverse"))
 (setq ispell-dictionary "italiano")
-\end{verbatim}
+\end{Verbatim}
 dove la seconda riga di codice serve a \emph{fixare} dei problemi con le versioni
 precedenti.
 
@@ -280,17 +279,17 @@ Il correttore ortografico GNU Aspell può essere installato facilmente su
 GNU/Linux utilizzando, come al solito, il gestore pacchetti della propria
 distribuzione. Il dizionario italiano di GNU Aspell si chiama \verb|aspell-it|
 quindi da terminale può essere installato in Debian con il comando
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo apt-get install aspell-it
-\end{verbatim}
+\end{Verbatim}
 in Fedora con
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo yum install aspell-it
-\end{verbatim}
+\end{Verbatim}
 mentre in OpenSUSE si può eseguire il comando: % chiedere qual è il comando
-\begin{verbatim}
+\begin{Verbatim}
 $ sudo ..... aspell-it
-\end{verbatim}
+\end{Verbatim}
 
 \subsection*{Mac OS}
 \label{sec:aspellmac}
