@@ -296,6 +296,113 @@ $ sudo zypper install aspell-it
 
 \textcolor{red!50}{\lipsum[1]}
 
+\section{Ricerca diretta-inversa}
+\label{sec:ricdirinv}
+
+Una delle  principali funzioni che spesso l'utente  \LaTeX{} cerca nel
+proprio editor, è quella della ricerca inversa-diretta, molto utile in
+fase di revisione finale del proprio documento, e specie quando il
+documento è abbastanza corposo.
+
+Alcuni editor di  testo hanno un visualizzatore integrato preconfigurato  
+per la  ricerca dal  sorgente al  pdf e  viceversa, come  per
+esempio \TeX works; altri,  come \emacs, richiedono alcuni passaggi per
+arrivare allo scopo.
+
+Le procedure  per abilitare tale funzione  in \emacs{} variano  per i tre
+sistemi  operativi, ma non  solo: variano  anche i  visualizzatori che
+permettono tale funzione. In [rif. Pantieri-Gordini] vengono citate le
+cosiddette \emph{coppie vincenti} adatte allo scopo.
+
+In ambiente  Windows, l'unico visualizzatore  capace di fare  questo è
+SumatraPDF, in  ambiente Linux si può  usare [\ldots],
+mentre in ambiente Mac OS si usa [\ldots].
+
+\subsection*{Ricerca diretta-inversa su Windows}
+\label{sec:fiswin}
+\textcolor{red}{%
+Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che
+da tempo segue il programma \emacs{} su Windows [\ldots]}
+
+Per i sistemi operativi Windows il solo visualizzatore capace di
+interagire con il file sorgente \textsf{.tex} creato con \emacs{} è SumatraPDF
+(\href{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{\mano{}~SumatraPDF}).
+
+
+Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
+supporta questa funzionalità, o meglio, non è ancora accessibile
+all'utente, pertanto, dopo averlo installato si può
+procedere nel seguente modo:
+\begin{enumerate}
+\item si scarica l'eseguibile \textsf{SumatraPDF-TeX}
+  (\href{http://william.famille-blum.org/software/sumatra/}{\mano{}~SumatraPDF
+    for \TeX\ users}) di William Blum
+  che ha sviluppato appunto la funzionalità di ricerca diretta-inversa
+  e fornito un modo per accedervi;
+\item si rinomina l'eseguibile SumatraPDF-TeX in SumatraPDF;
+\item si copia tale file nella cartella dove è contenuto quello
+  installato precedentemente.
+\end{enumerate}
+
+A queste operazioni segue la configurazione di \textsf{SumatraPDF} e di \emacs,
+mediante il proprio file \emph{.emacs}.
+
+Per la ricerca inversa si deve aprire SumatraPDF, andare in
+\texttt{Impostazioni > Opzioni...} e digitare la riga
+\begin{verbatim}
+C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
+\end{verbatim}
+in \emph{Set inverse search command-line}.
+
+Per la ricerca diretta invece, si deve scaricare lo script
+\textsf{sumatra-forward} (\href{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}{\mano{}~sumatra-forward.el})
+e copiarlo in una cartella accessibile ad \emacs{} (l'autore delle note
+l'ha posizionato in \texttt{C:/Programmi/emacs/bin/site-lisp}), per
+poi richiamarlo all'interno del proprio file \emph{.init} con la riga
+\begin{verbatim}
+(require 'sumatra-forward)
+\end{verbatim}
+ed infine accertarsi di avere nella cartella degli eseguibili di
+\emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da
+[].
+
+Fatto questo resta da far capire ad \emacs{} che si vuole la ricera
+diretta inversa, e per farlo si possono scrivere nel proprio \emph{.init}
+file, le seguenti righe:
+\begin{verbatim}
+(custom-set-variables
+ '(TeX-source-correlate-method (quote synctex))
+ '(TeX-source-correlate-mode t)
+ '(TeX-source-correlate-start-server t)
+)
+\end{verbatim}
+
+Per la ricerca inversa basta premere il tasto \textsf{F8} e nel
+visualizzatore verrà evidenziata la riga corrispondente; per le
+ricerca diretta invece, basta fare doppio click nel visualizzatore e
+nel file .tex il cursore si sposterà all'inizio della riga che
+contiene quella parola.
+
+Si vuole infine dare un suggerimento al lettore, qualora \textsf{SumatraPDF}
+non sia il proprio visualizzatore preferito. Infatti è possibile
+impostare \textsf{SumatraPDF} come visualizzatore predefinito di \emacs{} e non
+del sistema operativo (lasciando magari \textsf{Adobe Reader}), aggiungendo le
+seguenti righe a quelle sopra descritte:
+\begin{verbatim}
+ '(TeX-view-program-list (quote (("SumatraPDF" "SumatraPDF %o"))))
+ '(TeX-view-program-selection (quote ((output-pdf "SumatraPDF") (output-dvi "Yap") (output-html "start"))))
+\end{verbatim}
+
+\subsection*{Ricerca diretta-inversa su GNU/Linux}
+\label{sec:fislinux}
+
+\textcolor{red}{\lipsum[1]}
+
+\subsection*{Ricerca diretta-inversa su Mac OS}
+\label{sec:fismac}
+
+\textcolor{red}{\lipsum[1]}
+
 \section{Autocomplete mode}
 \label{sec:auto}
 

@@ -1,13 +1,10 @@
 *.log
-
 *.pdf
 *.aux
 *.out
 *.toc
 *.blg
-
 *.bbl
 *.blx.bib
-
 
 auto/*
