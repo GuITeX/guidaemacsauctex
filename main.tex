@@ -13,17 +13,15 @@
 \begin{document} 
 \maketitle
 \begin{abstract}\sffamily
-Questo articolo nasce con l'intenzione di dare una breve panoramica
+\noindent Questo articolo nasce con l'intenzione di dare una breve panoramica
 all'uso di \emacs{} per \LaTeX{}, con l'ausilio di \auctex, per i
-principali sistemi operativi.
-
-Dopo una introduzione ai programmi, verranno esposte le modalità per
-poter installare e configurare \emacs{} e \auctex{} per poter scrivere
-documenti \LaTeX{}.
-
-L'articolo non ha la pretesa di essere un \emph{manuale}, bensì un
-piccolo tutorial per far avvicinare gli utenti di \LaTeX{} a questo
-programma, non così troppo complicato come spesso viene indicato.
+principali sistemi operativi. Dopo una introduzione ai programmi,
+verranno esposte le modalità per poter installare e configurare
+\emacs{} e \auctex{} per poter scrivere     
+documenti \LaTeX{}. L'articolo non ha la pretesa di essere un
+\emph{manuale}, bensì un piccolo tutorial per far avvicinare gli 
+utenti di \LaTeX{} a questo programma, non così troppo complicato 
+come spesso viene indicato.
 \end{abstract}
 
 \begin{multicols}{2}
@@ -325,9 +323,8 @@ Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che
 da tempo segue il programma \emacs{} su Windows [\ldots]}
 
 Per i sistemi operativi Windows il solo visualizzatore capace di
-interagire con il file sorgente \textsf{.tex} creato con \emacs{} è SumatraPDF
-(\href{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{\mano{}~SumatraPDF}).
-
+interagire con il file sorgente \textsf{.tex} creato con \emacs{} è
+\textsf{SumatraPDF} (\href{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{\mano{}~SumatraPDF}).
 
 Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
 supporta questa funzionalità, o meglio, non è ancora accessibile
@@ -356,7 +353,7 @@ in \emph{Set inverse search command-line}.
 
 Per la ricerca diretta invece, si deve scaricare lo script
 \textsf{sumatra-forward} (\href{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}{\mano{}~sumatra-forward.el})
-e copiarlo in una cartella accessibile ad \emacs{} (l'autore delle note
+e copiarlo in una cartella accessibile a \emacs{} (l'autore delle note
 l'ha posizionato in \texttt{C:/Programmi/emacs/bin/site-lisp}), per
 poi richiamarlo all'interno del proprio file \emph{.init} con la riga
 \begin{verbatim}
@@ -366,7 +363,7 @@ ed infine accertarsi di avere nella cartella degli eseguibili di
 \emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da
 [].
 
-Fatto questo resta da far capire ad \emacs{} che si vuole la ricera
+Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio \emph{.init}
 file, le seguenti righe:
 \begin{verbatim}
@@ -390,7 +387,10 @@ del sistema operativo (lasciando magari \textsf{Adobe Reader}), aggiungendo le
 seguenti righe a quelle sopra descritte:
 \begin{verbatim}
  '(TeX-view-program-list (quote (("SumatraPDF" "SumatraPDF %o"))))
- '(TeX-view-program-selection (quote ((output-pdf "SumatraPDF") (output-dvi "Yap") (output-html "start"))))
+ '(TeX-view-program-selection (quote (
+   (output-pdf "SumatraPDF") 
+   (output-dvi "Yap") 
+   (output-html "start"))))
 \end{verbatim}
 
 \subsection*{Ricerca diretta-inversa su GNU/Linux}
