@@ -6,5 +6,6 @@
 *.blg
 *.bbl
 *.blx.bib
+*.run
 
 auto/*
