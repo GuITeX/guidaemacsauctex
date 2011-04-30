@@ -4,8 +4,8 @@
 *.toc
 *.blg
 *.bbl
-*.blx.bib
-*.run
+*blx.bib
+*.run*
 main.pdf
 
 auto/*
