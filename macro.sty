@@ -4,19 +4,23 @@
 \RequirePackage{textcomp}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english,italian]{babel}
-\RequirePackage{fourier}
+\RequirePackage{mathpazo}
 \RequirePackage{microtype}
 \RequirePackage[margin=4cm]{geometry} 
 \RequirePackage{multicol}
 \RequirePackage{indentfirst}
 \RequirePackage{pifont}
-
+\RequirePackage{guit}
+\RequirePackage{graphicx}
 \RequirePackage{xcolor}
-\RequirePackage{listings}
-\lstset{language=Lisp,%
-        basicstyle=\scriptsize\ttfamily,%
-        commentstyle=\color{red!90},%
-        frame=single}
+
+\usepackage{fancyvrb}
+\fvset{xleftmargin=\the\parindent}
+
+\RequirePackage[babel]{csquotes}
+\RequirePackage[citestyle=authoryear-comp,backref,hyperref]{biblatex}
+\bibliography{biblio}
+
 \RequirePackage{hyperref}
 
 \providecommand{\emacs}{\textsf{GNU Emacs}}
