@@ -6,5 +6,6 @@
 *.bbl
 *.blx.bib
 *.run
+main.pdf
 
 auto/*
