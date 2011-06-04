@@ -441,8 +441,8 @@ permettono tale funzione. In~\parencite{arte:latex} vengono citate le
 cosiddette \emph{coppie vincenti} adatte allo scopo.
 
 In ambiente  Windows, l'unico visualizzatore  capace di fare  questo è
-SumatraPDF, \textcolor{red}{in  ambiente Linux si può  usare [\ldots],
-mentre in ambiente Mac OS si usa [\ldots]}.
+SumatraPDF, \textcolor{red}{in  ambiente Linux si può  usare [\ldots]},
+mentre in ambiente Mac OS si usa Skim.
 
 \subsection*{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
@@ -534,7 +534,53 @@ seguenti righe a quelle sopra descritte:
 \subsection*{Ricerca diretta-inversa su Mac OS}
 \label{sec:fismac}
 
-\textcolor{red}{\lipsum[1]}
+L'unico visualizzatore di file PDF per Mac OS X che supporta la
+ricerca diretta e inversa associato a \emacs{} è
+\href{http://skim-app.sourceforge.net/}{Skim}, già citato nel
+paragrafo~\ref{sec:auctexmac}, relativo all'installazione di \auctex{}.
+
+Dopo averlo installato occorre configurarlo impostando quanto segue
+nella pagina \emph{Sincronizza} delle preferenze:
+\begin{itemize}
+\item selezionare la checkbox \emph{Controlla cambiamenti del file}
+\item scrivere \verb!/Applications/Emacs.app/Contents/MacOS/bin/emacsclient!
+  nel campo \emph{Comando}
+\item scrivere \verb!--no-wait +%line "%file"! nel campo
+  \emph{Argomenti}
+\end{itemize}
+Nella figura~\ref{fig:skimpref} sono riportate le impostazioni corrette.
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{preferenze-Skim}
+  \caption{Preferenze di Skim per la ricerca diretta e inversa}
+  \label{fig:skimpref}
+\end{figure}
+
+La prima opzione fa sì che quando un file aperto in Skim viene
+modificato da un altro processo Skim chieda se deve essere ricaricato,
+scegliendo Automatico successivi aggiornamenti vengono ricaricati
+senza chiedere conferma.
+
+La configurazione di \emacs{} è analoga a quella degli altri sistemi operativi,
+occorre scrivere queste righe in \emph{.emacs}
+\begin{verbatim}
+(setq TeX-source-correlate-method 'synctex)
+(setq TeX-source-correlate-mode t)
+(setq TeX-source-correlate-start-server t)
+\end{verbatim}
+
+Per passare dal file .tex al .pdf si utilizza la combinazione di tasti
+\verb!C-c C-v!, per ritornare al file .tex bisogna fare click sulla
+parola che interessa tendendo premuto shift e cmd.
+
+Con alcune versioni di \emacs{} precedenti alla 23.3 resta in primo
+piano la finestra del visulizzatore, in tal caso è necessario
+aggiungere queste righe al file \emph{.emacs}
+\begin{verbatim}
+(defun ns-raise-emacs ()
+  (ns-do-applescript "tell application \"Emacs\" to activate"))
+(add-hook 'server-switch-hook 'ns-raise-emacs)
+\end{verbatim}
 
 \section{Skeleton mode}
 \label{sec:skelmode}
