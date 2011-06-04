@@ -393,7 +393,34 @@ $ sudo zypper install aspell-it
 \subsection*{Mac OS}
 \label{sec:aspellmac}
 
-\textcolor{red!50}{\lipsum[1]}
+Anche per Mac OS X è disponibile una versione di \textsf{GNU Aspell}
+(\href{http://cocoaspell.leuski.net/}{\mano{} cocoAspell})
+
+Dopo aver installato \href{http://people.ict.usc.edu/~leuski/%
+  cocoaspell/cocoAspell.2.1.dmg}{cocoAspell.2.1} si possono installare
+i dizionari delle lingue che interessano scaricandoli direttamente dal
+sito di (\href{ftp://ftp.gnu.org/gnu/aspell/dict/}{\textsf{GNU
+    Aspell}}), ad esempio il dizionario italiano è contenuto
+nell'archivio
+\href{ftp://ftp.gnu.org/gnu/aspell/dict/it/aspell6-it-2.2_20050523-0.tar.bz2}%
+{aspell6-it-2.2\_20050523-0.tar.bz2}.
+
+Dopo aver scaricato i dizionari bisogna estarre il contento
+dell'archivio in una cartella temporanea, aprire una sessione di
+terminale e portarsi nella cartella appena creata. I dizionari si installano
+dando i seguenti comandi
+\begin{verbatim}
+$ ./configure
+$ make
+$ sudo make install
+\end{verbatim}
+
+Come ultima cosa è necessario configurare \emacs aggiungendo al \emph{.emacs}
+le seguenti righe:
+\begin{verbatim}
+(setq-default ispell-program-name "aspell")
+(setq ispell-dictionary "italiano")
+\end{verbatim}
 
 \section{Ricerca diretta-inversa}
 \label{sec:ricdirinv}
