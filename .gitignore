@@ -6,5 +6,9 @@
 *.bbl
 *.blx.bib
 *.run
+*.run.xml
+*.synctex.gz
+*-blx.bib
+main.pdf
 
 auto/*
