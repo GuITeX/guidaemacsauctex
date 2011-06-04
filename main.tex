@@ -97,15 +97,18 @@ i comandi da terminale che possono essere eseguiti per installare \emacs{} in
 alcune delle principali distribuzioni: Debian e Ubuntu:
 \begin{Verbatim}
 $ sudo apt-get install emacs
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 Fedora:
 \begin{Verbatim}
 $ sudo yum install emacs
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 OpenSUSE:
 \begin{Verbatim}
 $ sudo zypper install emacs
-\end{Verbatim}%$ 
+\end{Verbatim}
+% $ 
 
 Il metodo più difficile, per i non avvezzi all'uso del terminale, consiste nel
 compilare \emacs{} a partire dal codice sorgente, tuttavia non è intenzione di
@@ -115,17 +118,20 @@ Dopo averlo installato, \emacs{} potrà essere avviato facendo clic sul suo
 lanciatore oppure eseguendo da terminale il comando
 \begin{Verbatim}
 $ emacs
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna aggiungere
 l'opzione \verb|-nw| oppure \verb|--no-window-system|:
 \begin{Verbatim}
 $ emacs -nw
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 Possono essere aggiunti come argomenti da linea di comando il percorso del file
 (o dei file) che si vogliono modificare:
 \begin{Verbatim}
 $ emacs file1.tex file2.tex
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 
 \subsection*{\emacs{} per Mac OS}
 Sul mirror ufficiale
@@ -209,21 +215,84 @@ pacchetti della propria distribuzione. Ecco i comandi da usare per
 installare da terminale il pacchetto nelle principali distribuzioni: Debian e Ubuntu:
 \begin{Verbatim}
 $ sudo apt-get install auctex
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 Fedora:
 \begin{Verbatim}
 $ sudo yum install emacs-auctex
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 OpenSUSE:
 \begin{Verbatim}
 $ sudo zypper install emacs-auctex
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 
 
 \subsection*{\auctex{} per Mac OS}
 \label{sec:auctexmac}
 
-\textcolor{red!50}{\lipsum[1]}
+Come per \emacs{} non è disponibile una versione di \auctex{} già
+compilata per Mac OS, in questo caso non esistono neppure versioni non
+ufficiali ed è quindi necessario utilizzare l'utility \texttt{make}.
+\texttt{make} viene installato insieme all'ambiente di sviluppo
+\href{http://developer.apple.com/technologies/tools/whats-new.html}%
+{Xcode}, chi non intende dedicare svariati GB di disco a un software
+utile soltanto a chi sviluppa software può sfuttare il fatto che
+\texttt{make} viene installato anche dal correttore ortografico
+\href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione
+è descritta nel paragrafo \ref{sec:aspellmac}.
+
+Dalla pagina relativa a Mac OS
+(\href{http://www.gnu.org/software/auctex/download-for-macosx.html}%
+{\mano{} \auctex}) bisogna scaricare l'archivio
+\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz}%
+{auctex-11.86.tar.gz}.
+
+Dopo aver estratto il contenuto dell'archivio in una cartella
+temporanea occorre aprire una sessione di terminale e portarsi nella
+cartella appena creata.
+
+Configurare \auctex{} con il comando
+\begin{verbatim}
+$ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
+  --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs\
+  --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/\
+  --without-texmf-dir
+\end{verbatim}
+sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando
+  il terminale non bisogna utilizzare i nomi localizzati delle
+  cartelle ma quelli reali, quindi \texttt{Application} è corretto
+  anche se si utilizza la versione italiana di Mac OS} la cartella in
+cui si trova Emacs, in questo modo tutti i file saranno contenuti nel
+bundle \texttt{Emacs.app}.
+
+Compilare e installare con il comando
+\begin{verbatim}
+$ make && make install
+\end{verbatim}
+
+Dopo l'installazione bisogna impostare i visualizzatori per i vari
+file creati con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
+\begin{verbatim}
+(setq TeX-view-program-list
+      '(("dvips and Skim" "%(o?)dvips %d -o &&\
+ /Applications/Skim.app/Contents/SharedSupport/displayline %n %f %b")
+        ("Skim"
+         "/Applications/Skim.app/Contents/SharedSupport/\
+displayline %n %o %b")
+        ("open" "open %o")))
+
+(setq TeX-view-program-selection 
+      '(((output-dvi style-pstricks) "dvips and Skim")
+        (output-dvi "Skim")
+        (output-pdf "Skim")
+        (output-html "open")))))
+\end{verbatim}
+Come visualizzatore principale si utilizza
+\href{http://skim-app.sourceforge.net/}{Skim} perché supporta la
+ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
+\emacs e Skim sono riportati nel paragrafo \ref{sec:fismac}.
 
 \section{Personalizzare \emacs{} e \auctex}
 \label{sec:personal}
@@ -308,15 +377,18 @@ distribuzione. Il dizionario italiano di GNU Aspell si chiama \verb|aspell-it|
 quindi da terminale può essere installato in Debian con il comando
 \begin{Verbatim}
 $ sudo apt-get install aspell-it
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 in Fedora con
 \begin{Verbatim}
 $ sudo yum install aspell-it
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 mentre in openSUSE si può eseguire il comando:
 \begin{Verbatim}
 $ sudo zypper install aspell-it
-\end{Verbatim}%$
+\end{Verbatim}
+% $
 
 \subsection*{Mac OS}
 \label{sec:aspellmac}
