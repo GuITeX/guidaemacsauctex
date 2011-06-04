@@ -128,9 +128,38 @@ $ emacs file1.tex file2.tex
 \end{Verbatim}
 
 \subsection*{\emacs{} per Mac OS}
-\label{sec:installmac}
+Sul mirror ufficiale
+(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}) non
+è presente una versione già compilata per Mac OS X, queste versioni
+sono rese disponibili da vari volontari come ad esempio il gestore del
+sito \href{http://emacsformacosx.com/}{Emacs For Mac OS X}. La
+procedura per l'installazione è quella consueta: scaricata la versione
+più recente si apre il file dmg (se non è già stato aperto
+automaticamente al termine del download) e si trascina Emacs nella
+cartella Applicazioni.
 
-\textcolor{red!50}{\lipsum[1]}
+In Mac OS le applicazioni avviate dall'interfaccia grafica non hanno
+accesso ai valori delle variabili d'ambiente, per rendere disponibile
+ad \emacs{} la variabile \texttt{PATH} è necessario dare da terminale
+il comando
+\begin{verbatim}
+$ defaults write ~/.MacOSX/environment PATH "$PATH"
+\end{verbatim}
+Le nuove impostazioni sono effettive dopo aver eseguito un logout e un
+successivo login.
+
+Il comando va ripetuto ogni volta che si installa qualche programma
+che modifica il valore di \texttt{PATH}, il caso che più probabilmente
+riguarda i lettori di questa guida è la distribuzione \TeX{}.
+
+Per gli utenti che usano la tastiera italiana è utile impostare il
+tasto \texttt{cmd} come \texttt{meta} e il tasto \texttt{alt} per
+scrivere i caratteri speciali, in particolare le parentesi quadre, le
+graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
+\begin{verbatim}
+(setq ns-command-modifier 'meta)
+(setq ns-alternate-modifier nil)
+\end{verbatim}
 
 \section{Installare \auctex}
 \label{sec:installauc}
@@ -587,3 +616,5 @@ computer dovrebbero esserci anche i sorgenti pronti per essere compilati.
 %%% coding: utf-8
 %%% TeX-master: t
 %%% End: 
+
+% LocalWords:  mirror OS For dmg
