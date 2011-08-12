@@ -8,7 +8,7 @@
 \date{\today}
 
 \usepackage{macro}
- 
+
 \usepackage{lipsum}
 
 \begin{document} 
@@ -29,7 +29,7 @@ come spesso viene indicato.
   \tableofcontents
 \end{multicols}
 
-\section{Introduzione a GNU Emacs \& AUC\TeX}
+\section{Introduzione}
 \label{sec:intro}
 
 \textcolor{red}{\lipsum[1]}
@@ -295,7 +295,9 @@ Come visualizzatore principale si utilizza
 ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
 \emacs e Skim sono riportati nel paragrafo \ref{sec:fismac}.
 
-\section{Personalizzare \emacs{} e \auctex}
+\section{Personalizzare \emacs{} }  % titolo cambiato per avere un
+                                % effetto migliore nell'indice, ma in
+                                % realtà non mi piace
 \label{sec:personal}
 
 \textcolor{red!50}{\lipsum[1]}
@@ -734,14 +736,18 @@ computer dovrebbero esserci anche i sorgenti pronti per essere compilati.
 \section{Conclusioni}
 \label{sec:fine}
 
-\textcolor{red!50}{\lipsum[1]}
+\textcolor{red}{\lipsum[1]}
 
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{section}{\bibname}
 \nocite{*}
 \printbibliography
-
+\vfill
+\addcontentsline{toc}{section}{Licenza}
+\section*{Licenza}
+\label{sec:lic}
+\textcolor{red}{\lipsum[1]}
 \end{document}
 
 %%% Local Variables: 

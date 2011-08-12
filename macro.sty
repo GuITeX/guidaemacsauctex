@@ -7,12 +7,17 @@
 \RequirePackage{mathpazo}
 \RequirePackage{microtype}
 \RequirePackage[margin=4cm]{geometry} 
-\RequirePackage{multicol}
+\RequirePackage[grid]{multicol}
 \RequirePackage{indentfirst}
 \RequirePackage{pifont}
 \RequirePackage{guit}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
+\RequirePackage{tocloft}
+
+\renewcommand{\cftsecfillnum}[1]{%
+\mbox{\normalfont\ \textbullet\ }\nobreak
+\mbox{\cftsecpagefont #1}\cftparfillskip\par}
 
 \usepackage{fancyvrb}
 \fvset{xleftmargin=\the\parindent}
@@ -23,7 +28,7 @@
 
 \RequirePackage{hyperref}
 
-\providecommand{\emacs}{\textsf{GNU Emacs}}
+\providecommand{\emacs}{\textsf{Emacs}}
 \providecommand{\auctex}{\textsf{AUC\TeX{}}}
 \providecommand{\mano}{\ding{42}}
 
