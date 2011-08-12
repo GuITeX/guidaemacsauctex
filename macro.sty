@@ -26,11 +26,26 @@
 \RequirePackage[citestyle=authoryear-comp,backref,hyperref]{biblatex}
 \bibliography{biblio}
 
-\RequirePackage{hyperref}
-
 \providecommand{\emacs}{\textsf{Emacs}}
 \providecommand{\auctex}{\textsf{AUC\TeX{}}}
 \providecommand{\mano}{\ding{42}}
+
+\providecommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
+\providecommand{\autorea}{Orlando Iovino}
+\providecommand{\autoreb}{Elrond}   % mettere nome e cognome
+\providecommand{\autorec}{matteo.l} % mettere nome e cognome
+\providecommand{\autori}{\autorea, \autoreb, \autorec}
+
+\RequirePackage{hyperref}
+\hypersetup{%
+  pdftitle={\titolo},
+  pdfauthor={\autori},
+  pdfsubject={Breve guida all'uso di GNU Emacs e AUCTeX per Windows,
+    GNU Linux e Mac OS},
+  pdfcreator={LaTeX}
+}
+
+
 
 %%% Local Variables:
 %%% mode: latex
