@@ -47,47 +47,44 @@ In questo paragrafo verranno date le informazioni necessarie per installare
 
 \subsection*{\emacs{} per Windows}
 \label{sec:installwin}
-Per dirla tutta, in un sistema operativo MicroSoft Windows (Xp, Seven)
-non esiste una vera e propria installazione, pertanto per poter
-\emph{installare} ed usare \emacs{} in questo ambiente,
-è sufficiente procurarsi l'archivio contenente gli eseguibili del programma.
+Per sistemi operativi Microsoft Windows non esiste una vera e propria
+procedura di installazione. \emacs{} si può utilizzare semplicemente
+procurandosi l'archivio che contiene gli eseguibili.
 
-Per questa guida si è fatto riferimento al mirror ufficiale
-(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}),
-da cui bisogna scaricare l'archivio compresso
+
+Dal sito ufficiale di \emacs{} per Windows %
+(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}) %
+si scarica l'archivio compresso %
 \href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.1-barebin-i386.zip}
-{\textsf{emacs-23.1-barebin-i386.zip}}.
-
-Una volta de-compresso, i file ottenuti devono essere copiati in una
-posizione di comodo. Una buona soluzione, per esempio, è data da:
-
+{\textsf{emacs-23.1-barebin-i386.zip}} e lo si decomprime in una
+posizione di comodo; una buona soluzione, per esempio, è decomprimere
+il suddetto archivio in:
 \begin{Verbatim}
-C:/Programmi/Emacs/
+C:/Programmi/emacs/
 \end{Verbatim}
-
 La cartella appena creata sarà così formata:
 \begin{center}\ttfamily
- \begin{tabular}{lrl}
-  <DIR>&        & bin       \\
-       &  1.044 & BUGS      \\
-       & 35.147 & COPYING   \\
-  <DIR>&        & etc       \\
-  <DIR>&        & info      \\
-       & 36.533 & INSTALL   \\
-  <DIR>&        & leim      \\
-  <DIR>&        & lisp      \\
-       &  5.276 & README    \\
-       & 11.350 & README.W32\\
-  <DIR>&        & site-lisp \\
+ \begin{tabular}{lrlcclrl}
+  <DIR> &        & bin    & & & <DIR> &        & leim       \\
+        & 1.044  & BUGS   & & & <DIR> &        & lisp       \\
+        & 35.147 & COPYING& & &       & 5.276  & README     \\
+  <DIR> &        & etc    & & &       & 11.350 & README.W32 \\
+  <DIR> &        & info   & & & <DIR> &        & site-lisp  \\
+        & 36.533 & INSTALL& & &       &        &            \\
  \end{tabular}
 \end{center}
 
-Per creare un collegamento nel menù \textsf{Start}, bisogna
-eseguire (doppio click) il file \emph{addpm.exe}. Attenzione però: con questa
-procedura non viene aggiunto il percorso degli eseguibili alla  
-variabile d'ambiente \textsf{PATH}. Quindi per poter lanciare 
-\emacs{} da qualunque posizione, qualora si faccia un forte uso del prompt dei
-comandi di Windows, questa operazione va fatta a mano.
+Se si vuole creare un collegamento di \emacs{} nel menù Start, è
+sufficiente un doppio clic sul file \emph{addpm.exe} contenuto nella cartella:
+\begin{Verbatim}
+C:/Programmi/emacs/bin
+\end{Verbatim}
+
+Se si vuole aggiungere il percorso degli eseguibili di \emacs{} nella
+variabile d'ambiente \emph{PATH}, per poter aprire Emacs da ogni
+posizione, bisogna farlo manualmente\footnote{Anche se non proprio in
+  stile \emph{Windows}, l'autore delle note trova davvero comodo l'uso
+del \emph{Prompt dei comandi.}}.
 
 \subsection*{\emacs{} per GNU/Linux}
 \label{sec:installlinux}
