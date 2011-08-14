@@ -40,6 +40,16 @@
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
 
+\makeatletter
+\newlength\dimfig
+\newcommand*\mettifigura[1]{%
+\par\noindent
+\setbox\z@\hbox{#1}%
+\dimfig=\wd\z@%
+\hangindent\dimfig\hangafter-2\relax
+\raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
+\makeatother
+
 \RequirePackage{hyperref}
 \hypersetup{%
   pdftitle={\titolo},
