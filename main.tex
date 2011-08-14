@@ -14,8 +14,7 @@
 
 \usepackage{lipsum}
 
-\begin{document} 
-\maketitle
+\begin{document}\maketitle
 \begin{abstract}
 \noindent In questo articolo vengono brevemente presentati il
 programma \emacs{} ed il pacchetto \auctex, per le principali
@@ -40,18 +39,11 @@ come spesso viene indicato.
 \section{Installare \emacs}
 \label{sec:install}
 
-In questo paragrafo verranno date le informazioni necessarie per installare
-\emacs{} sui tre principali sistemi operativi, vale a dire: 
-\textsf{MicroSoft Windows (Xp, 7)},
-\textsf{GNU/Linux} e %%% Specificare?
-\textsf{Mac OS}.  %%% Specificare?
-
-\subsection*{\emacs{} per Windows}
+\subsection{\emacs{} per Windows}
 \label{sec:installwin}
 Per sistemi operativi Microsoft Windows non esiste una vera e propria
 procedura di installazione. \emacs{} si può utilizzare semplicemente
 procurandosi l'archivio che contiene gli eseguibili.
-
 
 Dal sito ufficiale di \emacs{} per Windows %
 (\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}) %
@@ -87,7 +79,7 @@ posizione, bisogna farlo manualmente\footnote{Anche se non proprio in
   stile \emph{Windows}, l'autore delle note trova davvero comodo l'uso
 del \emph{Prompt dei comandi.}}.
 
-\subsection*{\emacs{} per GNU/Linux}
+\subsection{\emacs{} per GNU/Linux}
 \label{sec:installlinux}
 \emacs{} fa parte del progetto GNU quindi è presente in tutti i sistemi
 operativi della famiglia GNU/Linux. Se non è già installato, il metodo più
@@ -134,7 +126,7 @@ $ emacs file1.tex file2.tex
 \end{Verbatim}
 % $
 
-\subsection*{\emacs{} per Mac OS}
+\subsection{\emacs{} per Mac OS}
 Sul mirror ufficiale
 (\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}) non
 è presente una versione già compilata per Mac OS X, queste versioni
@@ -171,7 +163,7 @@ graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 \section{Installare \auctex}
 \label{sec:installauc}
 
-\subsection*{\auctex{} per Windows}
+\subsection{\auctex{} per Windows}
 \label{sec:auctexwin}
 
 Le operazioni per rendere funzionante \auctex{} per \emacs{} in ambiente
@@ -207,7 +199,7 @@ esserci cinque file in totale:
 Aprendo successivamente \emacs{} si noterà qualche cambiamento
 non appena si passa alla modalità \textsf{tex-mode} o a quella \textsf{latex-mode}.
 
-\subsection*{\auctex{} per GNU/Linux}
+\subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
 
 Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come già detto
@@ -230,7 +222,7 @@ $ sudo zypper install emacs-auctex
 % $
 
 
-\subsection*{\auctex{} per Mac OS}
+\subsection{\auctex{} per Mac OS}
 \label{sec:auctexmac}
 
 Come per \emacs{} non è disponibile una versione di \auctex{} già
@@ -331,7 +323,7 @@ potenzialmente sbagliata, questa verrà visualizzata in rosso. La
 correzione può essere fatta a mano o con la combinazione \verb!M-$!,
 la quale proporrà possibili soluzioni.
 
-\subsection*{Windows}
+\subsection{Windows}
 \label{sec:aspellwin}
 Per installare il correttore ortografico in ambiente
 Windows, si può usare il programma \textsf{GNU Aspell}
@@ -366,7 +358,7 @@ righe di codice:
 dove la seconda riga di codice serve a \emph{fixare} dei problemi con le versioni
 precedenti.
 
-\subsection*{GNU/Linux}
+\subsection{GNU/Linux}
 \label{sec:aspelllinux}
 
 Il correttore ortografico GNU Aspell può essere installato facilmente su
@@ -388,7 +380,7 @@ $ sudo zypper install aspell-it
 \end{Verbatim}
 % $
 
-\subsection*{Mac OS}
+\subsection{Mac OS}
 \label{sec:aspellmac}
 
 Anche per Mac OS X è disponibile una versione di \textsf{GNU Aspell}
@@ -442,7 +434,7 @@ In ambiente  Windows, l'unico visualizzatore  capace di fare  questo è
 SumatraPDF, \textcolor{red}{in  ambiente Linux si può  usare [\ldots]},
 mentre in ambiente Mac OS si usa Skim.
 
-\subsection*{Ricerca diretta-inversa su Windows}
+\subsection{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
 Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che
 da tempo segue il programma \emacs{} su Windows, in particolare i
@@ -524,12 +516,12 @@ seguenti righe a quelle sopra descritte:
    (output-html "start"))))
 \end{Verbatim}
 
-\subsection*{Ricerca diretta-inversa su GNU/Linux}
+\subsection{Ricerca diretta-inversa su GNU/Linux}
 \label{sec:fislinux}
 
 \textcolor{red}{\lipsum[1]}
 
-\subsection*{Ricerca diretta-inversa su Mac OS}
+\subsection{Ricerca diretta-inversa su Mac OS}
 \label{sec:fismac}
 
 L'unico visualizzatore di file PDF per Mac OS X che supporta la
@@ -583,7 +575,7 @@ aggiungere queste righe al file \emph{.emacs}
 \section{Skeleton mode}
 \label{sec:skelmode}
 
-\subsection*{Introduzione}
+\subsection{Introduzione}
 \label{skelintro}
 
 La \emph{skeleton mode} è uno speciale (ma potente) minilinguaggio,
@@ -629,7 +621,7 @@ Gli esempi appena mostrati sono veramente semplici e forse se ne
 potrebbe fare a meno, ma servono per far capire con quanta semplicità si
 possono \emph{automatizzare} certe operazioni.
 
-\subsection*{Templates}
+\subsection{Templates}
 \label{sec:skeltempl}
 
 Talvoltà può capitare di dover scrivere documenti che hanno una forma
@@ -745,15 +737,15 @@ computer dovrebbero esserci anche i sorgenti pronti per essere compilati.
 \printbibliography
 \vfill
 \phantomsection
-\addcontentsline{toc}{section}{Licenza}
+\addcontentsline{toc}{section}{Licenza d'uso}
 \section*{Licenza d'uso}
 \label{sec:lic}
-\noindent\begin{tabular}{@{}m{0.16\textwidth}m{0.84\textwidth}@{}}
+\noindent\begin{tabular}{@{}lm{0.84\textwidth}@{}}
 \includegraphics[width=0.16\textwidth]{by-nc-nd} &%
-Quest'opera è soggetta alla Creative Commons Public License versione 2.5
-o posteriore. L'enunciato integrale della Licenza in versione 2.5 è reperibile
+Quest'opera è soggetta alla Creative Commons Public License versione 3.0
+o posteriore. L'enunciato integrale della Licenza in versione 3.0 è reperibile
 all'indirizzo internet
-\url{http://creativecommons.org/licenses/by-nc-nd/2.5/deed.it}\\
+\url{http://creativecommons.org/licenses/by-nc-nd/3.0/deed.it}\\
 \end{tabular}
 \end{document}
 
