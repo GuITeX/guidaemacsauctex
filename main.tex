@@ -55,17 +55,23 @@ il suddetto archivio in:
 \begin{Verbatim}
 C:/Programmi/emacs/
 \end{Verbatim}
-La cartella appena creata sarà così formata:
-\begin{center}\ttfamily
- \begin{tabular}{lrlcclrl}
+La cartella appena creata contiene i file riportati in~\ref{tab:fileemacs}.
+\begin{table}[t]
+\centering
+\begingroup\ttfamily
+\begin{tabular}{lrlcclrl}
+\toprule
   <DIR> &        & bin    & & & <DIR> &        & leim       \\
         & 1.044  & BUGS   & & & <DIR> &        & lisp       \\
         & 35.147 & COPYING& & &       & 5.276  & README     \\
   <DIR> &        & etc    & & &       & 11.350 & README.W32 \\
   <DIR> &        & info   & & & <DIR> &        & site-lisp  \\
         & 36.533 & INSTALL& & &       &        &            \\
- \end{tabular}
-\end{center}
+\bottomrule
+\end{tabular}\endgroup
+\caption{Contenuto dell'archivio di \emacs{} per Windows}
+\phantomsection\label{tab:fileemacs}
+\end{table}
 
 Se si vuole creare un collegamento di \emacs{} nel menù Start, è
 sufficiente un doppio clic sul file \emph{addpm.exe} contenuto nella cartella:
@@ -166,38 +172,34 @@ graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 \subsection{\auctex{} per Windows}
 \label{sec:auctexwin}
 
-Le operazioni per rendere funzionante \auctex{} per \emacs{} in ambiente
-Windows sono ancora più semplici.
-
-Dal sito di riferimento di \auctex{} per Windows 
-(\href{%
+Dal sito ufficiale di \auctex{} per Windows (\href{%
 http://www.gnu.org/software/auctex/download-for-windows.html}%
-{\mano{} \auctex}), bisogna scaricare l'archivio \href{%
+{\mano{} \auctex}), si scarica l'archivio compresso \href{%
 http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
-{\textsf{auctex-11.86-e23.2-msw.zip}}, che altro non è che un insieme di
-pacchetti precompilati.
+{\textsf{auctex-11.86-e23.2-msw.zip}} e lo si decomprime in 
+\begin{Verbatim}
+C:/Programmi/emacs/
+\end{Verbatim}
+Sia nell'archivio di \auctex{} (tabella~\ref{tab:fileauc}), che quello di
+\emacs{} (tabella~\ref{tab:fileemacs}), posizionato in 
+precedenza nel percorso suddetto, vi è una cartella dal nome
+\texttt{site-lisp}: i file contenuti in queste cartelle vanno uniti in
+una sola cartella. 
 
-Una volta de-compresso, è sufficiente copiare i file di tale archivio
-nel punto dove abbiamo messo \emacs{}, cioè
-\texttt{C:/Programmi/Emacs/}.
-
- Si noterà che esiste già una cartella
-\textsf{site-lisp}: i file contenuti in  quella di \auctex{} vanno copiati
-nella omonima di \emacs. In quest'ultima, quindi, dovrebbero
-esserci cinque file in totale:
-
-\begin{center}\ttfamily
- \begin{tabular}{lrl}
-  <DIR>&       &        auctex\\
-  <DIR>&       &  site-start.d\\
-       &    189& site-start.el\\
-       &    136&    subdirs.el\\
-       & 14.395&   tex-site.el\\
- \end{tabular}
-\end{center}
-
-Aprendo successivamente \emacs{} si noterà qualche cambiamento
-non appena si passa alla modalità \textsf{tex-mode} o a quella \textsf{latex-mode}.
+\begin{table}[t]
+\centering
+\begingroup\ttfamily
+\begin{tabular}{ll}
+\toprule
+  <DIR> & doc       \\
+  <DIR> & info      \\
+  <DIR> & site-lisp \\
+  <DIR> & var       \\
+\bottomrule
+\end{tabular}\endgroup
+\caption{Contenuto dell'archivio di \auctex{} per Windows}
+\phantomsection\label{tab:fileauc}
+\end{table}
 
 \subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
