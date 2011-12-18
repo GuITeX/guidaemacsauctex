@@ -1,4 +1,3 @@
-
 \ProvidesPackage{macro}
 
 \RequirePackage[T1]{fontenc}
@@ -42,7 +41,6 @@
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
 
-\makeatletter
 \newlength\dimfig
 \newcommand*\mettifigura[1]{%
 \par\noindent
@@ -50,7 +48,6 @@
 \dimfig=\wd\z@%
 \hangindent\dimfig\hangafter-2\relax
 \raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
-\makeatother
 
 \RequirePackage{hyperref}
 \hypersetup{%
