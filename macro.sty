@@ -25,8 +25,13 @@
 \fvset{xleftmargin=\the\parindent}
 
 \RequirePackage[babel]{csquotes}
-\RequirePackage[citestyle=authoryear-comp,backref,hyperref]{biblatex}
-\bibliography{biblio}
+\RequirePackage[%
+  citestyle=authoryear-comp,%
+  backref,%
+  hyperref,%
+  backend=biber%
+]{biblatex}
+\addbibresource{biblio.bib}
 
 \providecommand{\emacs}{Emacs}
 \providecommand{\auctex}{AUC\TeX{}}
