@@ -1,0 +1,82 @@
+\ProvidesPackage{preambolo}
+
+% Per pdflatex
+% \RequirePackage[T1]{fontenc}
+% \RequirePackage{textcomp}
+% \RequirePackage[utf8]{inputenc}
+% \RequirePackage[english,italian]{babel}
+% \RequirePackage{fourier}
+% \RequirePackage{microtype}
+
+% Per xelatex
+\RequirePackage{fontspec}
+  \setmainfont[Ligatures=TeX]{XITS}
+  \setsansfont{Myriad Pro}
+\RequirePackage{polyglossia}
+  \setdefaultlanguage{italian}
+
+\RequirePackage[margin=3.5cm]{geometry}
+\RequirePackage{array}
+\RequirePackage[grid]{multicol}
+\RequirePackage{indentfirst}
+\RequirePackage{pifont}
+\RequirePackage{guit}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{xcolor}
+
+\RequirePackage[grid]{multicol}
+\setlength{\columnsep}{5ex}
+
+\RequirePackage[titles]{tocloft}
+\renewcommand{\cftdotsep}{3}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+
+\usepackage{fancyvrb}
+\fvset{%
+  %xleftmargin=\the\parindent
+}
+
+\RequirePackage{csquotes}
+\RequirePackage[%
+  citestyle=authoryear-comp,%
+  backref,%
+  hyperref,%
+  backend=biber%
+]{biblatex}
+\addbibresource{biblio.bib}
+
+\providecommand{\emacs}{Emacs}
+\providecommand{\auctex}{AUC\TeX{}}
+\providecommand{\mano}{\ding{43}}
+
+\providecommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
+\providecommand{\autorea}{Orlando Iovino}
+\providecommand{\autoreb}{\textcolor{red}{Elrond}}   % manca nome e cognome
+\providecommand{\autorec}{\textcolor{red}{matteo.l}} % manca nome e cognome
+\providecommand{\autori}{\autorea, \autoreb, \autorec}
+
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+\newlength\dimfig
+\newcommand*\mettifigura[1]{%
+\par\noindent
+\setbox\z@\hbox{#1}%
+\dimfig=\wd\z@%
+\hangindent\dimfig\hangafter-2\relax
+\raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
+
+\RequirePackage[unicode]{hyperref}
+\hypersetup{%
+  pdftitle={\titolo},
+  pdfauthor={\autori},
+  pdfsubject={Breve guida all'uso di GNU Emacs e AUCTeX per Windows,
+    GNU Linux e Mac OS},
+  pdfcreator={LaTeX}
+}
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8
+%%% End:
