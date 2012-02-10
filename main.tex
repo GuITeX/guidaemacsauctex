@@ -110,11 +110,11 @@ $ emacs file1.tex file2.tex
 
 \subsection{\emacs{} per Mac OS}
 
-Sul mirror ufficiale
+Sul mirror ufficiale %
 \sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs} non
 è presente una versione già compilata per Mac OS X, queste versioni
 sono rese disponibili da vari volontari come ad esempio il gestore del
-sito \sito{http://emacsformacosx.com/}{Emacs For Mac OS X}. La
+sito \sito{http://emacsformacosx.com/}{Emacs for Mac OS X}. La
 procedura per l'installazione è quella consueta: scaricata la versione
 più recente si apre il file dmg (se non è già stato aperto
 automaticamente al termine del download) e si trascina Emacs nella
@@ -124,9 +124,9 @@ In Mac OS le applicazioni avviate dall'interfaccia grafica non hanno
 accesso ai valori delle variabili d'ambiente, per rendere disponibile
 ad \emacs{} la variabile \texttt{PATH} è necessario dare da terminale
 il comando
-\begin{verbatim}
+\begin{Verbatim}
 $ defaults write ~/.MacOSX/environment PATH "$PATH"
-\end{verbatim}
+\end{Verbatim}
 Le nuove impostazioni sono effettive dopo aver eseguito un logout e un
 successivo login.
 
@@ -138,10 +138,10 @@ Per gli utenti che usano la tastiera italiana è utile impostare il
 tasto \texttt{cmd} come \texttt{meta} e il tasto \texttt{alt} per
 scrivere i caratteri speciali, in particolare le parentesi quadre, le
 graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
-\begin{verbatim}
+\begin{Verbatim}
 (setq ns-command-modifier 'meta)
 (setq ns-alternate-modifier nil)
-\end{verbatim}
+\end{Verbatim}
 
 \section{Installare \auctex}
 \label{sec:installauc}
@@ -151,8 +151,9 @@ graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 
 Dal sito ufficiale di \auctex{} per Windows %
 \sito{http://www.gnu.org/software/auctex/download-for-windows.html}%
-{\auctex}, si scarica l'archivio compresso \href{%
-  http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
+{\auctex\ For Windows}, %
+si scarica l'archivio compresso %
+\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
 {\textsf{auctex-11.86-e23.2-msw.zip}} e lo si decomprime in
 \begin{Verbatim}
 C:/Programmi/emacs/
@@ -161,21 +162,6 @@ Sia nell'archivio di \auctex{}, che quello di \emacs, posizionato in
 precedenza nel percorso suddetto, vi è una cartella dal nome
 \texttt{site-lisp}: i file contenuti in queste cartelle vanno uniti in
 una sola cartella. 
-
-\begin{table}[t]
-  \centering
-  \begingroup\ttfamily
-  \begin{tabular}{ll}
-    \toprule
-    <DIR> & doc       \\
-    <DIR> & info      \\
-    <DIR> & site-lisp \\
-    <DIR> & var       \\
-    \bottomrule
-  \end{tabular}\endgroup
-  \caption{Contenuto dell'archivio di \auctex{} per Windows}
-  \phantomsection\label{tab:fileauc}
-\end{table}
 
 \subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
@@ -217,7 +203,7 @@ utile soltanto a chi sviluppa software può sfuttare il fatto che
 
 Dalla pagina relativa a Mac OS
 \sito{http://www.gnu.org/software/auctex/download-for-macosx.html}%
-{\auctex} bisogna scaricare l'archivio
+{\auctex\ For Mac OS X} bisogna scaricare l'archivio
 \href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz}%
 {auctex-11.86.tar.gz}.
 
@@ -226,12 +212,12 @@ temporanea occorre aprire una sessione di terminale e portarsi nella
 cartella appena creata.
 
 Configurare \auctex{} con il comando
-\begin{verbatim}
+\begin{Verbatim}
 $ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
   --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs\
   --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/\
   --without-texmf-dir
-\end{verbatim}
+\end{Verbatim}
 sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando
   il terminale non bisogna utilizzare i nomi localizzati delle
   cartelle ma quelli reali, quindi \texttt{Application} è corretto
@@ -240,13 +226,13 @@ cui si trova Emacs, in questo modo tutti i file saranno contenuti nel
 bundle \texttt{Emacs.app}.
 
 Compilare e installare con il comando
-\begin{verbatim}
+\begin{Verbatim}
 $ make && make install
-\end{verbatim}
+\end{Verbatim}
 
 Dopo l'installazione bisogna impostare i visualizzatori per i vari
 file creati con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
-\begin{verbatim}
+\begin{Verbatim}
 (setq TeX-view-program-list
       '(("dvips and Skim" "%(o?)dvips %d -o &&\
  /Applications/Skim.app/Contents/SharedSupport/displayline %n %f %b")
@@ -260,13 +246,13 @@ displayline %n %o %b")
         (output-dvi "Skim")
         (output-pdf "Skim")
         (output-html "open")))))
-\end{verbatim}
+\end{Verbatim}
 Come visualizzatore principale si utilizza
 \href{http://skim-app.sourceforge.net/}{Skim} perché supporta la
 ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
 \emacs\ e Skim sono riportati nel paragrafo \ref{sec:fismac}.
 
-\section{Personalizzare \emacs{} } % titolo cambiato per avere un
+\section{Personalizzare \emacs{} \& \auctex} % titolo cambiato per avere un
 % effetto migliore nell'indice, ma in realtà non mi piace
 \label{sec:personal}
 
@@ -305,10 +291,9 @@ la quale proporrà possibili soluzioni.
 \subsection{Windows}
 \label{sec:aspellwin}
 Per installare il correttore ortografico in ambiente Windows, si può
-usare il programma \textsf{GNU Aspell}
-\sito{http://aspell.net/win32/}{ \textsf{GNU Aspell - Win32
-    version}}. L'ultima versione stabile per Windows, seppur datata
-Dicembre 2002, è la \textsf{0.50-3}.
+usare il programma GNU Aspell 
+\sito{http://aspell.net/win32/}{GNU Aspell - Win32 version}. L'ultima
+versione stabile per Windows, seppur datata Dicembre 2002, è la 0.50-3. 
 
 I file che bisogna procurarsi sono quelli che vengono di seguito
 riportati; si badi bene ad installarli nell'ordine in cui vengono
@@ -317,11 +302,11 @@ dati:
 \begin{enumerate}
 \item l'installer completo
   \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
-  {\textsf{Aspell-0-50-3-3-Setup.exe}} (che rappresenta il programma
+  {Aspell-0-50-3-3-Setup.exe} (che rappresenta il programma
   vero e proprio);
 \item il dizionario precompilato per l'italiano
   \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
-  {\textsf{Aspell-it-0.50-2-3.exe}}.
+  {Aspell-it-0.50-2-3.exe}.
 \end{enumerate}
 
 Alla stessa pagina di questi file sono disponibili tanti altri
@@ -382,18 +367,19 @@ Dopo aver scaricato i dizionari bisogna estarre il contento
 dell'archivio in una cartella temporanea, aprire una sessione di
 terminale e portarsi nella cartella appena creata. I dizionari si
 installano dando i seguenti comandi
-\begin{verbatim}
+\begin{Verbatim}
 $ ./configure
 $ make
 $ sudo make install
-\end{verbatim}
+\end{Verbatim}
+% $
 
-Come ultima cosa è necessario configurare \emacs aggiungendo al
+Come ultima cosa è necessario configurare \emacs\ aggiungendo al
 \emph{.emacs} le seguenti righe:
-\begin{verbatim}
+\begin{Verbatim}
 (setq-default ispell-program-name "aspell")
 (setq ispell-dictionary "italiano")
-\end{verbatim}
+\end{Verbatim}
 
 \section{Ricerca diretta-inversa}
 \label{sec:ricdirinv}
@@ -431,8 +417,9 @@ alla voce
 
 Per i sistemi operativi Windows il solo visualizzatore capace di
 interagire con il file sorgente \textsf{.tex} creato con \emacs{} è
-\textsf{SumatraPDF}
-\sito{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{SumatraPDF}.
+SumatraPDF %
+\sito{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}%
+{SumatraPDF}.
 
 Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
 supporta questa funzionalità, o meglio, non è ancora accessibile
@@ -449,8 +436,8 @@ diretta-inversa e fornito un modo per accedervi;
   installato precedentemente.
 \end{enumerate}
 
-A queste operazioni segue la configurazione di \textsf{SumatraPDF} e
-di \emacs, mediante il proprio file \emph{.emacs}.
+A queste operazioni segue la configurazione di SumatraPDF e di \emacs,
+mediante il proprio file \emph{.emacs}. 
 
 Per la ricerca inversa si deve aprire SumatraPDF, andare in
 \texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e
@@ -460,9 +447,10 @@ C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
 in \emph{Set inverse search command-line}.
 
-Per la ricerca diretta invece, si deve scaricare lo script
-\textsf{sumatra-forward}
-\sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}{sumatra-forward.el}
+Per la ricerca diretta si deve scaricare lo script
+sumatra-forward %
+\sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
+{sumatra-forward.el} %
 e copiarlo in una cartella accessibile a \emacs{} per esempio 
 \begin{Verbatim}
 C:/Programmi/emacs/bin/site-lisp
@@ -542,11 +530,11 @@ senza chiedere conferma.
 
 La configurazione di \emacs{} è analoga a quella degli altri sistemi
 operativi, occorre scrivere queste righe in \emph{.emacs}
-\begin{verbatim}
+\begin{Verbatim}
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
-\end{verbatim}
+\end{Verbatim}
 
 Per passare dal file .tex al .pdf si utilizza la combinazione di tasti
 \verb!C-c C-v!, per ritornare al file .tex bisogna fare click sulla
@@ -555,11 +543,11 @@ parola che interessa tendendo premuto shift e cmd.
 Con alcune versioni di \emacs{} precedenti alla 23.3 resta in primo
 piano la finestra del visulizzatore, in tal caso è necessario
 aggiungere queste righe al file \emph{.emacs}
-\begin{verbatim}
+\begin{Verbatim}
 (defun ns-raise-emacs ()
   (ns-do-applescript "tell application \"Emacs\" to activate"))
 (add-hook 'server-switch-hook 'ns-raise-emacs)
-\end{verbatim}
+\end{Verbatim}
 
 \section{Skeleton mode}
 \label{sec:skelmode}
@@ -730,13 +718,13 @@ compilati.
 \section*{Licenza d'uso}
 \label{sec:lic}
 
-\mettifigura{\includegraphics[height=17pt]{by-nc-sa}\hspace{2mm}}\noindent
+\mettifigura{\includegraphics[height=19pt]{by-nc-sa}\hspace{2mm}}\noindent
 Quest'opera è soggetta alla Creative Commons Public License versione
 3.0 o posteriore: Attribuzione - Non commerciale - Condividi allo
 stesso modo. L'enunciato integrale della Licenza in versione 3.0 è
 reperibile sul sito ufficiale
-(\href{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}{CC
-  By-Nc-Sa}).
+\sito{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}%
+     {CC By-Nc-Sa}.
 \end{document}
 
 %%% Local Variables: 

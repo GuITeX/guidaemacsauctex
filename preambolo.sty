@@ -4,9 +4,10 @@
 \RequirePackage{textcomp}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english,italian]{babel}
-\RequirePackage{txfonts}
-\RequirePackage[scaled=0.89]{helvet}
-\RequirePackage[scaled]{beramono}
+
+\renewcommand{\rmdefault}{ptm}
+\RequirePackage[scaled=0.890]{helvet}
+\RequirePackage[scaled=0.865]{beramono}
 \RequirePackage{microtype}
 
 \RequirePackage[%
@@ -24,14 +25,16 @@
 \RequirePackage{xcolor}
 
 \RequirePackage[grid]{multicol}
-\setlength{\columnsep}{5ex}
+\setlength{\columnsep}{3.5ex}
 
 \RequirePackage[titles]{tocloft}
-\renewcommand{\cftdotsep}{3.5}
+\renewcommand{\cftdotsep}{3}
 \renewcommand{\cftsecdotsep}{\cftdotsep}
 
 \usepackage{fancyvrb}
 \fvset{%
+  frame=single,%
+  fontsize=\small,%
   %xleftmargin=\the\parindent
 }
 
@@ -57,7 +60,11 @@
 
 \newcommand{\emacs}{Emacs}
 \newcommand{\auctex}{AUC\TeX{}}
-\newcommand{\sito}[2]{(\href{#1}{\Mundus\,\scshape#2})}
+\newcommand{\simbolo}{{\small\Mundus}}
+\newcommand{\sito}[2]{(\href{#1}{\simbolo\ \scshape#2})}
+\newcommand{\script}{}  % TODO
+\newcommand{\extname}{} % TODO
+\newcommand{\prgname}{} % TODO
 
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
