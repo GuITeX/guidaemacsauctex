@@ -7,11 +7,10 @@
 
 \usepackage{preambolo,lipsum}
 
-
 \begin{document}\maketitle
 \begin{abstract}
   \noindent In questo articolo vengono brevemente presentati il
-  programma \emacs{} ed il pacchetto \auctex per le principali
+  programma \emacs{} ed il pacchetto \auctex{} per le principali
   piattaforme: Windows, GNU/Linux e Mac OS. Dopo una introduzione ai
   programmi, verranno esposte le modalità per poter installare e
   configurare \emacs{} e \auctex{} per poter scrivere documenti
@@ -42,7 +41,7 @@ procedura di installazione. \emacs{} si può utilizzare semplicemente
 procurandosi l'archivio che contiene gli eseguibili.
 
 Dal sito ufficiale di \emacs{} per Windows %
-(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}) %
+\sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs\ for Windows} %
 si scarica l'archivio compresso %
 \href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.1-barebin-i386.zip}
 {\textsf{emacs-23.1-barebin-i386.zip}} e lo si decomprime in una
@@ -51,24 +50,6 @@ il suddetto archivio in:
 \begin{Verbatim}
 C:/Programmi/emacs/
 \end{Verbatim}
-La cartella appena creata contiene i file riportati
-in~\ref{tab:fileemacs}.
-\begin{table}[t]
-  \centering
-  \begingroup\ttfamily
-  \begin{tabular}{lrllrl}
-    \toprule
-    <DIR> &        & bin     & <DIR> &        & leim       \\
-          & 1.044  & BUGS    & <DIR> &        & lisp       \\
-          & 35.147 & COPYING &       & 5.276  & README     \\
-    <DIR> &        & etc     &       & 11.350 & README.W32 \\
-    <DIR> &        & info    & <DIR> &        & site-lisp  \\
-          & 36.533 & INSTALL &       &        &            \\
-    \bottomrule
-  \end{tabular}\endgroup
-  \caption{Contenuto dell'archivio di \emacs{} per Windows}
-  \phantomsection\label{tab:fileemacs}
-\end{table}
 
 Se si vuole creare un collegamento di \emacs{} nel menù Start, è
 sufficiente un doppio clic sul file \emph{addpm.exe} contenuto nella
@@ -129,12 +110,11 @@ $ emacs file1.tex file2.tex
 
 \subsection{\emacs{} per Mac OS}
 
-
 Sul mirror ufficiale
-(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}) non
+\sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs} non
 è presente una versione già compilata per Mac OS X, queste versioni
 sono rese disponibili da vari volontari come ad esempio il gestore del
-sito \href{http://emacsformacosx.com/}{Emacs For Mac OS X}. La
+sito \sito{http://emacsformacosx.com/}{Emacs For Mac OS X}. La
 procedura per l'installazione è quella consueta: scaricata la versione
 più recente si apre il file dmg (se non è già stato aperto
 automaticamente al termine del download) e si trascina Emacs nella
@@ -169,18 +149,18 @@ graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 \subsection{\auctex{} per Windows}
 \label{sec:auctexwin}
 
-Dal sito ufficiale di \auctex{} per Windows (\href{%
-  http://www.gnu.org/software/auctex/download-for-windows.html}%
-{\mano{} \auctex}), si scarica l'archivio compresso \href{%
+Dal sito ufficiale di \auctex{} per Windows %
+\sito{http://www.gnu.org/software/auctex/download-for-windows.html}%
+{\auctex}, si scarica l'archivio compresso \href{%
   http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
 {\textsf{auctex-11.86-e23.2-msw.zip}} e lo si decomprime in
 \begin{Verbatim}
 C:/Programmi/emacs/
 \end{Verbatim}
-Sia nell'archivio di \auctex{} (tabella~\ref{tab:fileauc}), che quello
-di \emacs{} (tabella~\ref{tab:fileemacs}), posizionato in precedenza
-nel percorso suddetto, vi è una cartella dal nome \texttt{site-lisp}:
-i file contenuti in queste cartelle vanno uniti in una sola cartella.
+Sia nell'archivio di \auctex{}, che quello di \emacs, posizionato in
+precedenza nel percorso suddetto, vi è una cartella dal nome
+\texttt{site-lisp}: i file contenuti in queste cartelle vanno uniti in
+una sola cartella. 
 
 \begin{table}[t]
   \centering
@@ -236,8 +216,8 @@ utile soltanto a chi sviluppa software può sfuttare il fatto che
 è descritta nel paragrafo \ref{sec:aspellmac}.
 
 Dalla pagina relativa a Mac OS
-(\href{http://www.gnu.org/software/auctex/download-for-macosx.html}%
-{\mano{} \auctex}) bisogna scaricare l'archivio
+\sito{http://www.gnu.org/software/auctex/download-for-macosx.html}%
+{\auctex} bisogna scaricare l'archivio
 \href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz}%
 {auctex-11.86.tar.gz}.
 
@@ -290,7 +270,7 @@ ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
 % effetto migliore nell'indice, ma in realtà non mi piace
 \label{sec:personal}
 
-\textcolor{red!50}{\lipsum[1]}
+\textcolor{red}{\lipsum[1]}
 
 \section{Correttore ortografico}
 \label{sec:corr}
@@ -326,8 +306,8 @@ la quale proporrà possibili soluzioni.
 \label{sec:aspellwin}
 Per installare il correttore ortografico in ambiente Windows, si può
 usare il programma \textsf{GNU Aspell}
-(\href{http://aspell.net/win32/}{\mano{} \textsf{GNU Aspell - Win32
-    version}}). L'ultima versione stabile per Windows, seppur datata
+\sito{http://aspell.net/win32/}{ \textsf{GNU Aspell - Win32
+    version}}. L'ultima versione stabile per Windows, seppur datata
 Dicembre 2002, è la \textsf{0.50-3}.
 
 I file che bisogna procurarsi sono quelli che vengono di seguito
@@ -387,7 +367,7 @@ $ sudo zypper install aspell-it
 \label{sec:aspellmac}
 
 Anche per Mac OS X è disponibile una versione di \textsf{GNU Aspell}
-(\href{http://cocoaspell.leuski.net/}{\mano{} cocoAspell})
+\sito{http://cocoaspell.leuski.net/}{cocoAspell}
 
 Dopo aver installato \href{http://people.ict.usc.edu/~leuski/%
   cocoaspell/cocoAspell.2.1.dmg}{cocoAspell.2.1} si possono installare
@@ -431,9 +411,9 @@ richiedono alcuni passaggi per arrivare allo scopo.
 Le procedure per abilitare tale funzione in \emacs{} variano per i tre
 sistemi operativi, ma non solo, variano anche i visualizzatori che
 permettono tale funzione infatti in ambiente Windows, l'unico
-visualizzatore capace di fare questo è SumatraPDF, \textcolor{red}{in
-  ambiente Linux si può usare [\ldots]}, mentre in ambiente Mac OS si
-usa Skim. 
+visualizzatore capace di fare questo è SumatraPDF,
+\textcolor{red}{in ambiente Linux si può usare [\ldots]}, mentre in
+ambiente Mac OS si usa Skim. 
 
 \subsection{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
@@ -452,18 +432,18 @@ alla voce
 Per i sistemi operativi Windows il solo visualizzatore capace di
 interagire con il file sorgente \textsf{.tex} creato con \emacs{} è
 \textsf{SumatraPDF}
-(\href{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{\mano{}~SumatraPDF}).
+\sito{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{SumatraPDF}.
 
 Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
 supporta questa funzionalità, o meglio, non è ancora accessibile
 all'utente, pertanto, dopo averlo installato si può procedere nel
 seguente modo:
 \begin{enumerate}
-\item si scarica l'eseguibile \textsf{SumatraPDF-TeX}
-  (\href{http://william.famille-blum.org/software/sumatra/}{\mano{}~SumatraPDF
-    for \TeX\ users}) di William Blum che ha sviluppato appunto la
-  funzionalità di ricerca diretta-inversa e fornito un modo per
-  accedervi;
+\item si scarica l'eseguibile Sumatra-\TeX{} %
+\sito{http://william.famille-blum.org/software/sumatra/}%
+     {SumatraPDF for \TeX\ users}
+di William Blum che ha sviluppato appunto la funzionalità di ricerca
+diretta-inversa e fornito un modo per accedervi;
 \item si rinomina l'eseguibile SumatraPDF-TeX in SumatraPDF;
 \item si copia tale file nella cartella dove è contenuto quello
   installato precedentemente.
@@ -482,17 +462,18 @@ in \emph{Set inverse search command-line}.
 
 Per la ricerca diretta invece, si deve scaricare lo script
 \textsf{sumatra-forward}
-(\href{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}{\mano{}~sumatra-forward.el})
-e copiarlo in una cartella accessibile a \emacs{} (l'autore delle note
-l'ha posizionato in \texttt{C:/Programmi/emacs/bin/site-lisp}), per
-poi richiamarlo all'interno del proprio file \emph{.init} con la riga
+\sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}{sumatra-forward.el}
+e copiarlo in una cartella accessibile a \emacs{} per esempio 
+\begin{Verbatim}
+C:/Programmi/emacs/bin/site-lisp
+\end{Verbatim}
+ per poi richiamarlo all'interno del proprio file \emph{.init} con la riga
 \begin{Verbatim}
 (require 'sumatra-forward)
 \end{Verbatim}
 ed infine accertarsi di avere nella cartella degli eseguibili di
 \emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da
-(\href{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}{\mano{}
-  \textsf{ddeclient}})
+\sito{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}{ddeclient}.
 
 Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio
@@ -600,7 +581,10 @@ Ad un livello successivo, si può anche usare questo linguaggio per
 creare dei veri e propri \emph{templates}. Lo vedremo più avanti.
 
 Per semplicità, per mostrarne l'uso, vengono di seguito riportati
-degli esempi presi da una discussione sul forum del \guit. I codici si
+degli esempi presi da una discussione sul forum del GuIT %% Il simbolo
+                                %% del pacchetto da dei warning
+
+I codici si
 commentano quasi da soli:
 \begin{Verbatim}
 (define-skeleton TeX-dollar-sign-skeleton "Make a pair of dollar
@@ -689,7 +673,7 @@ si vuole usare la combinazione \verb!C-c l!, bisogna scrivere nel file
 
 Ulteriori approfondimenti (oltre a quelli a cui si perviene con
 \verb!C-h i d m Autotype!) si possono reperire on-line alla pagina di
-riferimento (\mano{}
+riferimento (
 \href{http://www.emacswiki.org/emacs/SkeletonMode}{Skeleton Mode}).
 
 \section{Reference Card}
@@ -751,14 +735,13 @@ Quest'opera è soggetta alla Creative Commons Public License versione
 3.0 o posteriore: Attribuzione - Non commerciale - Condividi allo
 stesso modo. L'enunciato integrale della Licenza in versione 3.0 è
 reperibile sul sito ufficiale
-(\mano{}~\href{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}{CC
+(\href{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}{CC
   By-Nc-Sa}).
 \end{document}
 
 %%% Local Variables: 
 %%% mode: latex
 %%% coding: utf-8
-%%% TeX-engine: xetex
 %%% TeX-master: t
 %%% End: 
 
