@@ -4,8 +4,11 @@
 *.toc
 *.blg
 *.bbl
-*blx.bib
-*.run*
+*.blx.bib
+*.run
+*.run.xml
+*.synctex.gz
+*-blx.bib
 main.pdf
 
 auto/*

@@ -1,232 +1,285 @@
-\documentclass[10pt,a4paper]{article}
+\listfiles
+\documentclass[11pt,a4paper]{article}
 
-\title{Una introduzione a GNU Emacs \& AUC\TeX{}}
-\author{Orlando Iovino\\(Windows)
-  \and Pinco Pallino\\(GNU/Linux)
-  \and Tizio Sempronio\\(Mac OS)}
+\title{\titolo}
+\author{\autorea \and \autoreb \and \autorec}
 \date{\today}
 
-\usepackage{macro}
- 
-\usepackage{lipsum}
+\usepackage{preambolo,lipsum}
 
-\begin{document} 
-\maketitle
-\begin{abstract}\sffamily
-\noindent Questo articolo nasce con l'intenzione di dare una breve panoramica
-all'uso di \emacs{} per \LaTeX{}, con l'ausilio di \auctex, per i
-principali sistemi operativi. Dopo una introduzione ai programmi,
-verranno esposte le modalità per poter installare e configurare
-\emacs{} e \auctex{} per poter scrivere     
-documenti \LaTeX{}. L'articolo non ha la pretesa di essere un
-\emph{manuale}, bensì un piccolo tutorial per far avvicinare gli 
-utenti di \LaTeX{} a questo programma, non così troppo complicato 
-come spesso viene indicato.
+\begin{document}\maketitle
+\begin{abstract}
+  \noindent In questo articolo vengono brevemente presentati il
+  programma \emacs{} ed il pacchetto \auctex{} per le principali
+  piattaforme: Windows, GNU/Linux e Mac OS. Dopo una introduzione ai
+  programmi, verranno esposte le modalità per poter installare e
+  configurare \emacs{} e \auctex{} per poter scrivere documenti
+  \LaTeX{}. L'articolo non ha la pretesa di essere un \emph{manuale},
+  bensì un piccolo tutorial per far avvicinare gli utenti di \LaTeX{}
+  a questo programma, non così troppo complicato come spesso viene
+  indicato.
 \end{abstract}
 
 \begin{multicols}{2}
   \tableofcontents
 \end{multicols}
 
-\section{Introduzione a GNU Emacs \& AUC\TeX}
+\section{Introduzione}
 \label{sec:intro}
 
-\textcolor{red!50}{\lipsum[1]}
+\textcolor{red}{\lipsum[1]}
 
 \section{Installare \emacs}
 \label{sec:install}
 
-In questo paragrafo verranno date le informazioni necessarie per installare
-\emacs{} sui tre principali sistemi operativi, vale a dire: 
-\textsf{MicroSoft Windows (Xp, 7)},
-\textsf{GNU/Linux} e %%% Specificare?
-\textsf{Mac OS}.  %%% Specificare?
-
-\subsection*{\emacs{} per Windows}
+\subsection{\emacs{} per Windows}
 \label{sec:installwin}
-Per dirla tutta, in un sistema operativo MicroSoft Windows (Xp, Seven)
-non esiste una vera e propria installazione, pertanto per poter
-\emph{installare} ed usare \emacs{} in questo ambiente,
-è sufficiente procurarsi l'archivio contenente gli eseguibili del programma.
 
-Per questa guida si è fatto riferimento al mirror ufficiale
-(\href{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\mano{} \emacs}),
-da cui bisogna scaricare l'archivio compresso
+
+Per sistemi operativi Microsoft Windows non esiste una vera e propria
+procedura di installazione. \emacs{} si può utilizzare semplicemente
+procurandosi l'archivio che contiene gli eseguibili.
+
+Dal sito ufficiale di \emacs{} per Windows %
+\sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs\ for Windows} %
+si scarica l'archivio compresso %
 \href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.1-barebin-i386.zip}
-{\textsf{emacs-23.1-barebin-i386.zip}}.
-
-Una volta de-compresso, i file ottenuti devono essere copiati in una
-posizione di comodo. Una buona soluzione, per esempio, è data da:
-
+{\textsf{emacs-23.1-barebin-i386.zip}} e lo si decomprime in una
+posizione di comodo; una buona soluzione, per esempio, è decomprimere
+il suddetto archivio in:
 \begin{Verbatim}
-C:/Programmi/Emacs/
+C:/Programmi/emacs/
 \end{Verbatim}
 
-La cartella appena creata sarà così formata:
-\begin{center}\ttfamily
- \begin{tabular}{lrl}
-  <DIR>&        & bin       \\
-       &  1.044 & BUGS      \\
-       & 35.147 & COPYING   \\
-  <DIR>&        & etc       \\
-  <DIR>&        & info      \\
-       & 36.533 & INSTALL   \\
-  <DIR>&        & leim      \\
-  <DIR>&        & lisp      \\
-       &  5.276 & README    \\
-       & 11.350 & README.W32\\
-  <DIR>&        & site-lisp \\
- \end{tabular}
-\end{center}
+Se si vuole creare un collegamento di \emacs{} nel menù Start, è
+sufficiente un doppio clic sul file \emph{addpm.exe} contenuto nella
+cartella:
+\begin{Verbatim}
+C:/Programmi/emacs/bin
+\end{Verbatim}
 
-Per creare un collegamento nel menù \textsf{Start}, bisogna
-eseguire (doppio click) il file \emph{addpm.exe}. Attenzione però: con questa
-procedura non viene aggiunto il percorso degli eseguibili alla  
-variabile d'ambiente \textsf{PATH}. Quindi per poter lanciare 
-\emacs{} da qualunque posizione, qualora si faccia un forte uso del prompt dei
-comandi di Windows, questa operazione va fatta a mano.
-
-\subsection*{\emacs{} per GNU/Linux}
+\subsection{\emacs{} per GNU/Linux}
 \label{sec:installlinux}
-\emacs{} fa parte del progetto GNU quindi è presente in tutti i sistemi
-operativi della famiglia GNU/Linux. Se non è già installato, il metodo più
-semplice per ottenere \emacs{} in un sistema GNU/Linux è far riferimento al
-gestore pacchetti della propria distribuzione. Si possono naturalmente
-utilizzare i gestori di pacchetti a interfaccia grafica, riportiamo qui inoltre
-i comandi da terminale che possono essere eseguiti per installare \emacs{} in
-alcune delle principali distribuzioni: Debian e Ubuntu:
+
+
+\emacs{} fa parte del progetto GNU quindi è presente in tutti i
+sistemi operativi della famiglia GNU/Linux. Se non è già installato,
+il metodo più semplice per ottenere \emacs{} in un sistema GNU/Linux è
+far riferimento al gestore pacchetti della propria distribuzione. Si
+possono naturalmente utilizzare i gestori di pacchetti a interfaccia
+grafica, riportiamo qui inoltre i comandi da terminale che possono
+essere eseguiti per installare \emacs{} in alcune delle principali
+distribuzioni: Debian e Ubuntu:
 \begin{Verbatim}
 $ sudo apt-get install emacs
 \end{Verbatim}
+% $
 Fedora:
 \begin{Verbatim}
 $ sudo yum install emacs
 \end{Verbatim}
+% $
 OpenSUSE:
 \begin{Verbatim}
 $ sudo zypper install emacs
-\end{Verbatim} 
+\end{Verbatim}
+% $
 
-Il metodo più difficile, per i non avvezzi all'uso del terminale, consiste nel
-compilare il codice sorgente di \emacs{}, tuttavia non è intenzione di questa
-guida spiegare come fare ciò.
+Il metodo più difficile, per i non avvezzi all'uso del terminale,
+consiste nel compilare \emacs{} a partire dal codice sorgente,
+tuttavia non è intenzione di questa guida spiegare come fare ciò.
 
-Dopo averlo installato, \emacs{} potrà essere avviato facendo clic sul suo
-lanciatore oppure eseguendo da terminale il comando
+Dopo averlo installato, \emacs{} potrà essere avviato facendo clic sul
+suo lanciatore oppure eseguendo da terminale il comando
 \begin{Verbatim}
 $ emacs
 \end{Verbatim}
-Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna aggiungere
-l'opzione \verb|-nw| oppure \verb|--no-window-system|:
+% $
+Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna
+aggiungere l'opzione \verb|-nw| oppure \verb|--no-window-system|:
 \begin{Verbatim}
 $ emacs -nw
 \end{Verbatim}
-Possono essere aggiunti come argomenti da linea di comando il percorso del file
-(o dei file) che si vogliono modificare:
+% $
+Possono essere aggiunti come argomenti da linea di comando il percorso
+del file (o dei file) che si vogliono modificare:
 \begin{Verbatim}
 $ emacs file1.tex file2.tex
 \end{Verbatim}
+% $
 
-\subsection*{\emacs{} per Mac OS}
-\label{sec:installmac}
+\subsection{\emacs{} per Mac OS}
 
-\textcolor{red!50}{\lipsum[1]}
+Sul mirror ufficiale %
+\sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs} non
+è presente una versione già compilata per Mac OS X, queste versioni
+sono rese disponibili da vari volontari come ad esempio il gestore del
+sito \sito{http://emacsformacosx.com/}{Emacs for Mac OS X}. La
+procedura per l'installazione è quella consueta: scaricata la versione
+più recente si apre il file dmg (se non è già stato aperto
+automaticamente al termine del download) e si trascina Emacs nella
+cartella Applicazioni.
+
+In Mac OS le applicazioni avviate dall'interfaccia grafica non hanno
+accesso ai valori delle variabili d'ambiente, per rendere disponibile
+ad \emacs{} la variabile \texttt{PATH} è necessario dare da terminale
+il comando
+\begin{Verbatim}
+$ defaults write ~/.MacOSX/environment PATH "$PATH"
+\end{Verbatim}
+Le nuove impostazioni sono effettive dopo aver eseguito un logout e un
+successivo login.
+
+Il comando va ripetuto ogni volta che si installa qualche programma
+che modifica il valore di \texttt{PATH}, il caso che più probabilmente
+riguarda i lettori di questa guida è la distribuzione \TeX{}.
+
+Per gli utenti che usano la tastiera italiana è utile impostare il
+tasto \texttt{cmd} come \texttt{meta} e il tasto \texttt{alt} per
+scrivere i caratteri speciali, in particolare le parentesi quadre, le
+graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
+\begin{Verbatim}
+(setq ns-command-modifier 'meta)
+(setq ns-alternate-modifier nil)
+\end{Verbatim}
 
 \section{Installare \auctex}
 \label{sec:installauc}
 
-\subsection*{\auctex{} per Windows}
+\subsection{\auctex{} per Windows}
 \label{sec:auctexwin}
 
-Le operazioni per rendere funzionante \auctex{} per \emacs{} in ambiente
-Windows sono ancora più semplici.
+Dal sito ufficiale di \auctex{} per Windows %
+\sito{http://www.gnu.org/software/auctex/download-for-windows.html}%
+{\auctex\ For Windows}, %
+si scarica l'archivio compresso %
+\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
+{\textsf{auctex-11.86-e23.2-msw.zip}} e lo si decomprime in
+\begin{Verbatim}
+C:/Programmi/emacs/
+\end{Verbatim}
+Sia nell'archivio di \auctex{}, che quello di \emacs, posizionato in
+precedenza nel percorso suddetto, vi è una cartella dal nome
+\texttt{site-lisp}: i file contenuti in queste cartelle vanno uniti in
+una sola cartella. 
 
-Dal sito di riferimento di \auctex{} per Windows 
-(\href{%
-http://www.gnu.org/software/auctex/download-for-windows.html}%
-{\mano{} \auctex}), bisogna scaricare l'archivio \href{%
-http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
-{\textsf{auctex-11.86-e23.2-msw.zip}}, che altro non è che un insieme di
-pacchetti precompilati.
-
-Una volta de-compresso, è sufficiente copiare i file di tale archivio
-nel punto dove abbiamo messo \emacs{}, cioè
-\texttt{C:/Programmi/Emacs/}.
-
- Si noterà che esiste già una cartella
-\textsf{site-lisp}: i file contenuti in  quella di \auctex{} vanno copiati
-nella omonima di \emacs. In quest'ultima, quindi, dovrebbero
-esserci cinque file in totale:
-
-\begin{center}\ttfamily
- \begin{tabular}{lrl}
-  <DIR>&       &        auctex\\
-  <DIR>&       &  site-start.d\\
-       &    189& site-start.el\\
-       &    136&    subdirs.el\\
-       & 14.395&   tex-site.el\\
- \end{tabular}
-\end{center}
-
-Aprendo successivamente \emacs{} si noterà qualche cambiamento
-non appena si passa alla modalità \textsf{tex-mode} o a quella \textsf{latex-mode}.
-
-\subsection*{\auctex{} per GNU/Linux}
+\subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
 
-Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come già detto
-per \emacs, per installare \auctex{} si consiglia di utilizzare il gestore
-pacchetti della propria distribuzione. Ecco i comandi da usare per
-installare da terminale il pacchetto nelle principali distribuzioni: Debian e Ubuntu:
+Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come
+già detto per \emacs, per installare \auctex{} si consiglia di
+utilizzare il gestore pacchetti della propria distribuzione. Ecco i
+comandi da usare per installare da terminale il pacchetto nelle
+principali distribuzioni: Debian e Ubuntu:
 \begin{Verbatim}
 $ sudo apt-get install auctex
 \end{Verbatim}
+% $
 Fedora:
 \begin{Verbatim}
 $ sudo yum install emacs-auctex
 \end{Verbatim}
+% $
 OpenSUSE:
 \begin{Verbatim}
 $ sudo zypper install emacs-auctex
 \end{Verbatim}
+% $
 
 
-\subsection*{\auctex{} per Mac OS}
+\subsection{\auctex{} per Mac OS}
 \label{sec:auctexmac}
 
-\textcolor{red!50}{\lipsum[1]}
+Come per \emacs{} non è disponibile una versione di \auctex{} già
+compilata per Mac OS, in questo caso non esistono neppure versioni non
+ufficiali ed è quindi necessario utilizzare l'utility \texttt{make}.
+\texttt{make} viene installato insieme all'ambiente di sviluppo
+\href{http://developer.apple.com/technologies/tools/whats-new.html}%
+{Xcode}, chi non intende dedicare svariati GB di disco a un software
+utile soltanto a chi sviluppa software può sfuttare il fatto che
+\texttt{make} viene installato anche dal correttore ortografico
+\href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione
+è descritta nel paragrafo \ref{sec:aspellmac}.
 
-\section{Personalizzare \emacs{} e \auctex}
+Dalla pagina relativa a Mac OS
+\sito{http://www.gnu.org/software/auctex/download-for-macosx.html}%
+{\auctex\ For Mac OS X} bisogna scaricare l'archivio
+\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz}%
+{auctex-11.86.tar.gz}.
+
+Dopo aver estratto il contenuto dell'archivio in una cartella
+temporanea occorre aprire una sessione di terminale e portarsi nella
+cartella appena creata.
+
+Configurare \auctex{} con il comando
+\begin{Verbatim}
+$ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
+  --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs\
+  --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/\
+  --without-texmf-dir
+\end{Verbatim}
+sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando
+  il terminale non bisogna utilizzare i nomi localizzati delle
+  cartelle ma quelli reali, quindi \texttt{Application} è corretto
+  anche se si utilizza la versione italiana di Mac OS} la cartella in
+cui si trova Emacs, in questo modo tutti i file saranno contenuti nel
+bundle \texttt{Emacs.app}.
+
+Compilare e installare con il comando
+\begin{Verbatim}
+$ make && make install
+\end{Verbatim}
+
+Dopo l'installazione bisogna impostare i visualizzatori per i vari
+file creati con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
+\begin{Verbatim}
+(setq TeX-view-program-list
+      '(("dvips and Skim" "%(o?)dvips %d -o &&\
+ /Applications/Skim.app/Contents/SharedSupport/displayline %n %f %b")
+        ("Skim"
+         "/Applications/Skim.app/Contents/SharedSupport/\
+displayline %n %o %b")
+        ("open" "open %o")))
+
+(setq TeX-view-program-selection 
+      '(((output-dvi style-pstricks) "dvips and Skim")
+        (output-dvi "Skim")
+        (output-pdf "Skim")
+        (output-html "open")))))
+\end{Verbatim}
+Come visualizzatore principale si utilizza
+\href{http://skim-app.sourceforge.net/}{Skim} perché supporta la
+ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
+\emacs\ e Skim sono riportati nel paragrafo \ref{sec:fismac}.
+
+\section{Personalizzare \emacs{} \& \auctex} % titolo cambiato per avere un
+% effetto migliore nell'indice, ma in realtà non mi piace
 \label{sec:personal}
 
-\textcolor{red!50}{\lipsum[1]}
-
-\section{Ref\TeX{}}
-\label{sec:reftex}
-
-\textcolor{red!50}{\lipsum[1]}
+\textcolor{red}{\lipsum[1]}
 
 \section{Correttore ortografico}
 \label{sec:corr}
 Per abilitare \emacs{} a lavorare con la lingua italiana, bisogna
 installare il correttore ortografico. Le procedure, poiché differenti,
-vengono di seguito esposte per tutti e tre i sistemi operativi. 
-L'uso è ovviamente invariante. 
+vengono di seguito esposte per tutti e tre i sistemi operativi.  L'uso
+è ovviamente invariante.
 
-Per poter fare una \emph{revisione} del proprio file, bisogna digitare:
+Per poter fare una \emph{revisione} del proprio file, bisogna
+digitare:
 \begin{Verbatim}
 M-x ispell
 \end{Verbatim}
-in questo modo il dizionario proporrà in sequenza, la correzione
-dei termini che trova errati; un secondo modo, per scrivere
-correttamente, è attivare la modalità \emph{flyspell} (correzione al
-volo, interattiva). Se la si vuole
-attivare solo sul documento corrente basta andare in:
+in questo modo il dizionario proporrà in sequenza, la correzione dei
+termini che trova errati; un secondo modo, per scrivere correttamente,
+è attivare la modalità \emph{flyspell} (correzione al volo,
+interattiva). Se la si vuole attivare solo sul documento corrente
+basta andare in:
 \begin{Verbatim}
 Tools > Spell Checking > Automatic spell checking (Flyspell)
 \end{Verbatim}
-se invece la si vuole tenere sempre abilitata,
-basta aggiungere la riga:
+se invece la si vuole tenere sempre abilitata, basta aggiungere la
+riga:
 \begin{Verbatim}
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 \end{Verbatim}
@@ -235,145 +288,186 @@ potenzialmente sbagliata, questa verrà visualizzata in rosso. La
 correzione può essere fatta a mano o con la combinazione \verb!M-$!,
 la quale proporrà possibili soluzioni.
 
-\subsection*{Windows}
+\subsection{Windows}
 \label{sec:aspellwin}
-Per installare il correttore ortografico in ambiente
-Windows, si può usare il programma \textsf{GNU Aspell}
-(\href{http://aspell.net/win32/}{\mano{} \textsf{GNU Aspell - Win32 version}}). L'ultima
-versione stabile per Windows, seppur datata Dicembre 2002, è la \textsf{0.50-3}.
+Per installare il correttore ortografico in ambiente Windows, si può
+usare il programma GNU Aspell 
+\sito{http://aspell.net/win32/}{GNU Aspell - Win32 version}. L'ultima
+versione stabile per Windows, seppur datata Dicembre 2002, è la 0.50-3. 
 
 I file che bisogna procurarsi sono quelli che vengono di seguito
-riportati; si badi bene ad installarli nell'ordine in cui vengono dati:
+riportati; si badi bene ad installarli nell'ordine in cui vengono
+dati:
 
 \begin{enumerate}
-\item l'installer completo \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
-{\textsf{Aspell-0-50-3-3-Setup.exe}} (che rappresenta il programma
-vero e proprio);
+\item l'installer completo
+  \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
+  {Aspell-0-50-3-3-Setup.exe} (che rappresenta il programma
+  vero e proprio);
 \item il dizionario precompilato per l'italiano
-\href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
-{\textsf{Aspell-it-0.50-2-3.exe}}.
+  \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
+  {Aspell-it-0.50-2-3.exe}.
 \end{enumerate}
 
 Alla stessa pagina di questi file sono disponibili tanti altri
 dizionari precompilati, più o meno aggiornati, di altre lingue.
 
-Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
-percorso della cartella dove sono contenuti gli eseguibili di Aspell nella
-\textsf{PATH} di Windows. Secondo, aggiungere al proprio \emph{.emacs} le seguenti
-righe di codice:
+Resta qualche altra operazione da fare. Come prima cosa si deve
+copiare il percorso della cartella dove sono contenuti gli eseguibili
+di Aspell nella \textsf{PATH} di Windows. Secondo, aggiungere al
+proprio \emph{.emacs} le seguenti righe di codice:
 
 \begin{Verbatim}
-(setq-default ispell-program-name "aspell")
-(setq-default ispell-extra-args '("--reverse"))
+(setq-default ispell-program-name "aspell") 
+(setq-default ispell-extra-args '("--reverse")) 
 (setq ispell-dictionary "italiano")
 \end{Verbatim}
-dove la seconda riga di codice serve a \emph{fixare} dei problemi con le versioni
-precedenti.
+dove la seconda riga di codice serve a \emph{fixare} dei problemi con
+le versioni precedenti.
 
-\subsection*{GNU/Linux}
+\subsection{GNU/Linux}
 \label{sec:aspelllinux}
 
-Il correttore ortografico GNU Aspell può essere installato facilmente su
-GNU/Linux utilizzando, come al solito, il gestore pacchetti della propria
-distribuzione. Il dizionario italiano di GNU Aspell si chiama \verb|aspell-it|
-quindi da terminale può essere installato in Debian con il comando
+Il correttore ortografico GNU Aspell può essere installato facilmente
+su GNU/Linux utilizzando, come al solito, il gestore pacchetti della
+propria distribuzione. Il dizionario italiano di GNU Aspell si chiama
+\verb|aspell-it| quindi da terminale può essere installato in Debian
+con il comando
 \begin{Verbatim}
 $ sudo apt-get install aspell-it
 \end{Verbatim}
+% $
 in Fedora con
 \begin{Verbatim}
 $ sudo yum install aspell-it
 \end{Verbatim}
+% $
 mentre in openSUSE si può eseguire il comando:
 \begin{Verbatim}
 $ sudo zypper install aspell-it
 \end{Verbatim}
+% $
 
-\subsection*{Mac OS}
+\subsection{Mac OS}
 \label{sec:aspellmac}
 
-\textcolor{red!50}{\lipsum[1]}
+Anche per Mac OS X è disponibile una versione di \textsf{GNU Aspell}
+\sito{http://cocoaspell.leuski.net/}{cocoAspell}
+
+Dopo aver installato \href{http://people.ict.usc.edu/~leuski/%
+  cocoaspell/cocoAspell.2.1.dmg}{cocoAspell.2.1} si possono installare
+i dizionari delle lingue che interessano scaricandoli direttamente dal
+sito di (\href{ftp://ftp.gnu.org/gnu/aspell/dict/}{\textsf{GNU
+    Aspell}}), ad esempio il dizionario italiano è contenuto
+nell'archivio
+\href{ftp://ftp.gnu.org/gnu/aspell/dict/it/aspell6-it-2.2_20050523-0.tar.bz2}%
+{aspell6-it-2.2\_20050523-0.tar.bz2}.
+
+Dopo aver scaricato i dizionari bisogna estarre il contento
+dell'archivio in una cartella temporanea, aprire una sessione di
+terminale e portarsi nella cartella appena creata. I dizionari si
+installano dando i seguenti comandi
+\begin{Verbatim}
+$ ./configure
+$ make
+$ sudo make install
+\end{Verbatim}
+% $
+
+Come ultima cosa è necessario configurare \emacs\ aggiungendo al
+\emph{.emacs} le seguenti righe:
+\begin{Verbatim}
+(setq-default ispell-program-name "aspell")
+(setq ispell-dictionary "italiano")
+\end{Verbatim}
 
 \section{Ricerca diretta-inversa}
 \label{sec:ricdirinv}
 
-Una delle  principali funzioni che spesso l'utente  \LaTeX{} cerca nel
-proprio editor, è quella della ricerca inversa-diretta, molto utile in
-fase di revisione finale del proprio documento, e specie quando il
-documento è abbastanza corposo.
+Una delle principali funzioni che spesso l'utente \LaTeX{} cerca nel
+proprio editor, è quella della ricerca diretta-inversa, molto utile in
+fase di revisione finale del proprio documento, e specie quando
+quest'ultimo abbastanza corposo.
 
-Alcuni editor di  testo hanno un visualizzatore integrato preconfigurato  
-per la  ricerca dal  sorgente al  pdf e  viceversa, come  per
-esempio \TeX works; altri,  come \emacs, richiedono alcuni passaggi per
-arrivare allo scopo.
+Alcuni editor di testo hanno un visualizzatore integrato
+preconfigurato per effettuare la ricerca dal sorgente tex al file pdf
+e viceversa, come per esempio \TeX works; altri, come \emacs,
+richiedono alcuni passaggi per arrivare allo scopo.
 
-Le procedure  per abilitare tale funzione  in \emacs{} variano  per i tre
-sistemi  operativi, ma non  solo: variano  anche i  visualizzatori che
-permettono tale funzione. In~\parencite{arte:latex} vengono citate le
-cosiddette \emph{coppie vincenti} adatte allo scopo.
+Le procedure per abilitare tale funzione in \emacs{} variano per i tre
+sistemi operativi, ma non solo, variano anche i visualizzatori che
+permettono tale funzione infatti in ambiente Windows, l'unico
+visualizzatore capace di fare questo è SumatraPDF,
+\textcolor{red}{in ambiente Linux si può usare [\ldots]}, mentre in
+ambiente Mac OS si usa Skim. 
 
-In ambiente  Windows, l'unico visualizzatore  capace di fare  questo è
-SumatraPDF, \textcolor{red}{in  ambiente Linux si può  usare [\ldots],
-mentre in ambiente Mac OS si usa [\ldots]}.
-
-\subsection*{Ricerca diretta-inversa su Windows}
+\subsection{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
-Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che
-da tempo segue il programma \emacs{} su Windows, in particolare i
+Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug
+che da tempo segue il programma \emacs{} su Windows, in particolare i
 sistemi Windows Vista e Seven (su Xp non dovrebbero esserci problemi),
-ovvero il problema che si ha quando si abilita il server 
-in emacs. % Specificare?
+ovvero il problema che si ha quando si abilita il server in
+emacs. % Specificare?
 
 La soluzione a tale problema è riportata in~\parencite{emacsW32:wiki}
-alla voce \href{http://www.emacswiki.org/emacs/EmacsW32#toc49}{\emph{Waiting for Emacs server to start" is ownership problem on ~/.emacs.d/server}}.
+alla voce
+\href{http://www.emacswiki.org/emacs/EmacsW32#toc49}{\emph{Waiting for
+    Emacs server to start" is ownership problem on
+    ~/.emacs.d/server}}.
 
 Per i sistemi operativi Windows il solo visualizzatore capace di
 interagire con il file sorgente \textsf{.tex} creato con \emacs{} è
-\textsf{SumatraPDF} (\href{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}{\mano{}~SumatraPDF}).
+SumatraPDF %
+\sito{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}%
+{SumatraPDF}.
 
 Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
 supporta questa funzionalità, o meglio, non è ancora accessibile
-all'utente, pertanto, dopo averlo installato si può
-procedere nel seguente modo:
+all'utente, pertanto, dopo averlo installato si può procedere nel
+seguente modo:
 \begin{enumerate}
-\item si scarica l'eseguibile \textsf{SumatraPDF-TeX}
-  (\href{http://william.famille-blum.org/software/sumatra/}{\mano{}~SumatraPDF
-    for \TeX\ users}) di William Blum
-  che ha sviluppato appunto la funzionalità di ricerca diretta-inversa
-  e fornito un modo per accedervi;
+\item si scarica l'eseguibile Sumatra-\TeX{} %
+\sito{http://william.famille-blum.org/software/sumatra/}%
+     {SumatraPDF for \TeX\ users}
+di William Blum che ha sviluppato appunto la funzionalità di ricerca
+diretta-inversa e fornito un modo per accedervi;
 \item si rinomina l'eseguibile SumatraPDF-TeX in SumatraPDF;
 \item si copia tale file nella cartella dove è contenuto quello
   installato precedentemente.
 \end{enumerate}
 
-A queste operazioni segue la configurazione di \textsf{SumatraPDF} e di \emacs,
-mediante il proprio file \emph{.emacs}.
+A queste operazioni segue la configurazione di SumatraPDF e di \emacs,
+mediante il proprio file \emph{.emacs}. 
 
 Per la ricerca inversa si deve aprire SumatraPDF, andare in
-\texttt{Impostazioni > Opzioni...} e digitare la riga
+\texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e
+digitare la riga 
 \begin{Verbatim}
 C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
 in \emph{Set inverse search command-line}.
 
-Per la ricerca diretta invece, si deve scaricare lo script
-\textsf{sumatra-forward} (\href{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}{\mano{}~sumatra-forward.el})
-e copiarlo in una cartella accessibile a \emacs{} (l'autore delle note
-l'ha posizionato in \texttt{C:/Programmi/emacs/bin/site-lisp}), per
-poi richiamarlo all'interno del proprio file \emph{.init} con la riga
+Per la ricerca diretta si deve scaricare lo script
+sumatra-forward %
+\sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
+{sumatra-forward.el} %
+e copiarlo in una cartella accessibile a \emacs{} per esempio 
+\begin{Verbatim}
+C:/Programmi/emacs/bin/site-lisp
+\end{Verbatim}
+ per poi richiamarlo all'interno del proprio file \emph{.init} con la riga
 \begin{Verbatim}
 (require 'sumatra-forward)
 \end{Verbatim}
 ed infine accertarsi di avere nella cartella degli eseguibili di
 \emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da
-(\href{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}{\mano{}
-  \textsf{ddeclient}})
+\sito{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}{ddeclient}.
 
 Fatto questo resta da far capire a \emacs{} che si vuole la ricera
-diretta inversa, e per farlo si possono scrivere nel proprio \emph{.init}
-file, le seguenti righe:
+diretta inversa, e per farlo si possono scrivere nel proprio
+\emph{.init} file, le seguenti righe:
 \begin{Verbatim}
-(setq TeX-source-correlate-method (quote synctex))
+(setq TeX-source-correlate-method (quote synctex)) 
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
 \end{Verbatim}
@@ -384,39 +478,86 @@ ricerca diretta invece, basta fare doppio click nel visualizzatore e
 nel file .tex il cursore si sposterà all'inizio della riga che
 contiene quella parola.
 
-Si vuole infine dare un suggerimento al lettore, qualora \textsf{SumatraPDF}
-non sia il proprio visualizzatore preferito. Infatti è possibile
-impostare \textsf{SumatraPDF} come visualizzatore predefinito di \emacs{} e non
-del sistema operativo (lasciando magari \textsf{Adobe Reader}), aggiungendo le
-seguenti righe a quelle sopra descritte:
+Si vuole infine dare un suggerimento al lettore, qualora
+\textsf{SumatraPDF} non sia il proprio visualizzatore
+preferito. Infatti è possibile impostare \textsf{SumatraPDF} come
+visualizzatore predefinito di \emacs{} e non del sistema operativo
+(lasciando magari \textsf{Adobe Reader}), aggiungendo le seguenti
+righe a quelle sopra descritte:
 \begin{Verbatim}
-(setq TeX-view-program-list (quote (
-   ("SumatraPDF" "SumatraPDF %o"))))
-(setq TeX-view-program-selection (quote (
-   (output-pdf "SumatraPDF") 
-   (output-dvi "Yap") 
-   (output-html "start"))))
+(setq TeX-view-program-list (quote (("SumatraPDF" "SumatraPDF %o"))))
+(setq TeX-view-program-selection (quote ( (output-pdf "SumatraPDF")
+(output-dvi "Yap") (output-html "start"))))
 \end{Verbatim}
 
-\subsection*{Ricerca diretta-inversa su GNU/Linux}
+\subsection{Ricerca diretta-inversa su GNU/Linux}
 \label{sec:fislinux}
 
 \textcolor{red}{\lipsum[1]}
 
-\subsection*{Ricerca diretta-inversa su Mac OS}
+\subsection{Ricerca diretta-inversa su Mac OS}
 \label{sec:fismac}
 
-\textcolor{red}{\lipsum[1]}
+L'unico visualizzatore di file PDF per Mac OS X che supporta la
+ricerca diretta e inversa associato a \emacs{} è
+\href{http://skim-app.sourceforge.net/}{Skim}, già citato nel
+paragrafo~\ref{sec:auctexmac}, relativo all'installazione di
+\auctex{}.
+
+Dopo averlo installato occorre configurarlo impostando quanto segue
+nella pagina \emph{Sincronizza} delle preferenze:
+\begin{itemize}
+\item selezionare la checkbox \emph{Controlla cambiamenti del file}
+\item scrivere
+  \verb!/Applications/Emacs.app/Contents/MacOS/bin/emacsclient!  nel
+  campo \emph{Comando}
+\item scrivere \verb!--no-wait +%line "%file"! nel campo
+  \emph{Argomenti}
+\end{itemize}
+Nella figura~\ref{fig:skimpref} sono riportate le impostazioni
+corrette.
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\textwidth]{preferenze-Skim}
+  \caption{Preferenze di Skim per la ricerca diretta e inversa}
+  \label{fig:skimpref}
+\end{figure}
+
+La prima opzione fa sì che quando un file aperto in Skim viene
+modificato da un altro processo Skim chieda se deve essere ricaricato,
+scegliendo Automatico successivi aggiornamenti vengono ricaricati
+senza chiedere conferma.
+
+La configurazione di \emacs{} è analoga a quella degli altri sistemi
+operativi, occorre scrivere queste righe in \emph{.emacs}
+\begin{Verbatim}
+(setq TeX-source-correlate-method 'synctex)
+(setq TeX-source-correlate-mode t)
+(setq TeX-source-correlate-start-server t)
+\end{Verbatim}
+
+Per passare dal file .tex al .pdf si utilizza la combinazione di tasti
+\verb!C-c C-v!, per ritornare al file .tex bisogna fare click sulla
+parola che interessa tendendo premuto shift e cmd.
+
+Con alcune versioni di \emacs{} precedenti alla 23.3 resta in primo
+piano la finestra del visulizzatore, in tal caso è necessario
+aggiungere queste righe al file \emph{.emacs}
+\begin{Verbatim}
+(defun ns-raise-emacs ()
+  (ns-do-applescript "tell application \"Emacs\" to activate"))
+(add-hook 'server-switch-hook 'ns-raise-emacs)
+\end{Verbatim}
 
 \section{Skeleton mode}
 \label{sec:skelmode}
 
-\subsection*{Introduzione}
+\subsection{Introduzione}
 \label{skelintro}
 
 La \emph{skeleton mode} è uno speciale (ma potente) minilinguaggio,
 scritto in Elisp (un dialetto di Lisp) ed incluso di default in
-\emacs. Maggiori informazioni si possono ottenere digitando 
+\emacs. Maggiori informazioni si possono ottenere digitando
 \verb!C-h i d m Autotype! in \emacs.
 
 La \emph{skeleton mode} permette in maniera molto semplice di crearsi
@@ -428,22 +569,19 @@ Ad un livello successivo, si può anche usare questo linguaggio per
 creare dei veri e propri \emph{templates}. Lo vedremo più avanti.
 
 Per semplicità, per mostrarne l'uso, vengono di seguito riportati
-degli esempi presi da una discussione sul forum del \guit. I codici si
+degli esempi presi da una discussione sul forum del GuIT %% Il simbolo
+                                %% del pacchetto da dei warning
+
+I codici si
 commentano quasi da soli:
 \begin{Verbatim}
-(define-skeleton TeX-dollar-sign-skeleton
-  "Make a pair of dollar signs and leave point inside" nil
-  "$"_"$"
-)
+(define-skeleton TeX-dollar-sign-skeleton "Make a pair of dollar
+  signs and leave point inside" nil "$"_"$" )
 
-(global-set-key (kbd "C-x e") 'Tex-dollar-sign-skeleton) 
+(global-set-key (kbd "C-x e") 'Tex-dollar-sign-skeleton)
 
-(define-skeleton TeX-square-skeleton
-  "Make a pair of square brackets and leave point inside" nil
-  "\\[" \n
-  _\n
-  "\\]"
-)
+(define-skeleton TeX-square-skeleton "Make a pair of square brackets
+  and leave point inside" nil "\\[" \n _\n "\\]" )
 
 (global-set-key (kbd "C-x s") 'TeX-square-skeleton
 \end{Verbatim}
@@ -454,10 +592,10 @@ vero e proprio. Infine con \verb!global-set-key! viene creata una
 combinazione di tasti personali per richiamare lo \emph{scheletro}.
 
 Gli esempi appena mostrati sono veramente semplici e forse se ne
-potrebbe fare a meno, ma servono per far capire con quanta semplicità si
-possono \emph{automatizzare} certe operazioni.
+potrebbe fare a meno, ma servono per far capire con quanta semplicità
+si possono \emph{automatizzare} certe operazioni.
 
-\subsection*{Templates}
+\subsection{Templates}
 \label{sec:skeltempl}
 
 Talvoltà può capitare di dover scrivere documenti che hanno una forma
@@ -479,42 +617,41 @@ incluso nel documento va appunto nel file \emph{.emacs}. Un prototipo
 semplice potrebbe essere il seguente:
 
 \begin{Verbatim}
-(define-skeleton LaTeX-skeleton-letter
-    "Inserts a Latex letter skeleton into current buffer.
-     This only makes sense for empty buffers."
-      "Destinatario: "
-      "\\documentclass[a4paper,10pt]{letter}\n"
-      "\\usepackage[T1]{fontenc}\n"
-      "\\usepackage[latin1]{inputenc}\n"
-      "\\usepackage[italian]{babel}\n"
-      "\\name{Pinco Pallino}\n"
-      "\\address{Via Marco Polo 32\\\\ Napoli 80100\\\\ Italy}\n"
-      "\\begin{document}\n"
-      "\\begin{letter}{" str | " *** Destinatario *** " "}\n"
-      "\\opening{" _ "}\n\n"
-      "\\closing{Cordialmente}\n"
-      "\\end{letter}\n"
-      "\\end{document}\n")
+(define-skeleton LaTeX-skeleton-letter "Inserts a Latex letter
+skeleton into current buffer.  This only makes sense for empty
+buffers."  "Destinatario: "
+"\\documentclass[a4paper,10pt]{letter}\n"
+"\\usepackage[T1]{fontenc}\n" 
+"\\usepackage[utf8]{inputenc}\n"
+"\\usepackage[italian]{babel}\n" 
+"\\name{Pinco Pallino}\n"
+"\\address{Via Marco Polo 32\\\\ Napoli 80100\\\\ Italy}\n"
+"\\begin{document}\n" 
+"\\begin{letter}{" str | " *** Destinatario  *** " "}\n" 
+"\\opening{" _ "}\n\n" 
+"\\closing{Cordialmente}\n"
+"\\end{letter}\n" 
+"\\end{document}\n")
 \end{Verbatim}
 
 Come già detto dopo aver dichiarato il nome dello \emph{scheletro}
 seguono una o due (o a piacere) righe di commento. La riga:
 \begin{Verbatim}
-"Destinatario: " 
+"Destinatario: "
 \end{Verbatim}
 è una riga di prompt che userà il \emph{minibuffer} per interagire con
 l'utente quando verrà letto (o trovato) il simbolo \verb!str! nel
 codice; il valore inserito dall'utente verrà proprio sostituito a
 \verb!str!.
 
-Il simbolo '\_' indica la posizione dove verrà posto il cursore
-quando il codice \emph{skeleton} è completamente inserito. 
+Il simbolo '\_' indica la posizione dove verrà posto il cursore quando
+il codice \emph{skeleton} è completamente inserito.
 
 Il codice che si vuole inserire va sempre tra due doppi apici, i
 comandi vanno preceduti da un \emph{backslash} e per ritornare a capo
 si usa \verb!\n!.
 
-Infine, come precedentemente detto,    si può richiamare il \emph{codice
+Infine, come precedentemente detto, si può richiamare il \emph{codice
   pronto uso} con una combinazione di tasti personale, ad esempio se
 si vuole usare la combinazione \verb!C-c l!, bisogna scrivere nel file
 \emph{.emacs}:
@@ -524,16 +661,8 @@ si vuole usare la combinazione \verb!C-c l!, bisogna scrivere nel file
 
 Ulteriori approfondimenti (oltre a quelli a cui si perviene con
 \verb!C-h i d m Autotype!) si possono reperire on-line alla pagina di
-riferimento (\mano{}
+riferimento (
 \href{http://www.emacswiki.org/emacs/SkeletonMode}{Skeleton Mode}).
-
-\section{Autocomplete mode}
-\label{sec:auto}
-
-\textcolor{red!50}{\lipsum[1]}
-
-% Per GNU/Linux vedere
-% http://elubuntu.blogspot.com/2010/04/autocompletamento-in-emacs-2.html
 
 \section{Reference Card}
 \label{sec:refcard}
@@ -542,44 +671,60 @@ Oltre alla vasta documentazione che si può reperire in rete ed ai
 manuali ufficiali, di particolare utilità sono le \emph{Reference
   Card}, disponibili sia per \emacs{}, sia per \auctex{}.
 
-Si tratta di un elenco delle principali funzionalità e dei comandi 
-a queste associate per poter, all'occorrenza, ricordare e trovare
+Si tratta di un elenco delle principali funzionalità e dei comandi a
+queste associate per poter, all'occorrenza, ricordare e trovare
 velocemente quello che serve.
 
 Il tutto è riportato in maniera ordinata e concisa in una sorta di
-forma tabulare, eventualmente  da stampare, e tenere a portata di mano
+forma tabulare, eventualmente da stampare, e tenere a portata di mano
 sulla propria scrivania.
 
 Le reference card sono disponibili sia in rete, sia sul proprio
 computer una volta installati \emacs{} ed \auctex. Sul proprio
-computer dovrebbero esserci anche i sorgenti pronti per essere compilati.
+computer dovrebbero esserci anche i sorgenti pronti per essere
+compilati.
 
 \begin{figure}[t]
-  \centering
-  \unitlength=0.005\textwidth
-  \begin{picture}(200,120)
-    \put(0,0){\framebox(94,120){\includegraphics[width=0.51\textwidth]{refemacs}}}
-    \put(95,0){\rotatebox{90}{\sffamily\tiny Immagine estratta da
-        \href{http://www.ps.uni-saarland.de/courses/prog-ws10/downloads/emacs_refcard.pdf}{GNU
-          Emacs Reference Card}}}
-    \put(100,0){\framebox(94,120){\includegraphics[width=0.51\textwidth]{refauctex}}}
-    \put(195,0){\rotatebox{90}{\sffamily\tiny Immagine estratta da
-        \href{http://devcheatsheet.com/static/pdf/auctex-ref.pdf}{AUC\TeX{}
-          Reference Card}}}
+ \centering 
+ \unitlength=0.005\textwidth
+ \begin{picture}(200,120)
+  \put(0,0){\framebox(94,120){%
+   \includegraphics[width=0.51\textwidth]{refemacs}}}
+  \put(95,0){\rotatebox{90}{\tiny Immagine estratta da
+   \href{http://www.ps.uni-saarland.de/courses/prog-ws10/downloads/emacs_re
+     fcard.pdf}{GNU Emacs Reference Card}}}
+  \put(100,0){\framebox(94,120){%
+   \includegraphics[width=0.51\textwidth]{refauctex}}}
+  \put(195,0){\rotatebox{90}{\tiny Immagine estratta da
+   \href{http://devcheatsheet.com/static/pdf/auctex-ref.pdf}{AUC\TeX{}
+     Reference Card}}}
   \end{picture}
 \end{figure}
 
 \section{Conclusioni}
 \label{sec:fine}
 
-\textcolor{red!50}{\lipsum[1]}
+\textcolor{red}{\lipsum[1]}
 
-\cleardoublepage
-\phantomsection
+\clearpage
+\phantomsection 
 \addcontentsline{toc}{section}{\bibname}
 \nocite{*}
 \printbibliography
 
+\vfill
+\phantomsection
+\addcontentsline{toc}{section}{Licenza d'uso}
+\section*{Licenza d'uso}
+\label{sec:lic}
+
+\mettifigura{\includegraphics[height=19pt]{by-nc-sa}\hspace{2mm}}\noindent
+Quest'opera è soggetta alla Creative Commons Public License versione
+3.0 o posteriore: Attribuzione - Non commerciale - Condividi allo
+stesso modo. L'enunciato integrale della Licenza in versione 3.0 è
+reperibile sul sito ufficiale
+\sito{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}%
+     {CC By-Nc-Sa}.
 \end{document}
 
 %%% Local Variables: 
@@ -587,3 +732,5 @@ computer dovrebbero esserci anche i sorgenti pronti per essere compilati.
 %%% coding: utf-8
 %%% TeX-master: t
 %%% End: 
+
+% LocalWords:  mirror OS For dmg
