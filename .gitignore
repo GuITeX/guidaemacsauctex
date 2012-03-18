@@ -10,6 +10,7 @@
 *.run.xml
 *.synctex.gz
 *-blx.bib
+*.fdb_latexmk
 main.pdf
 
 auto/*
