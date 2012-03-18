@@ -4,6 +4,7 @@
 *.toc
 *.blg
 *.bbl
+*.bcf
 *.blx.bib
 *.run
 *.run.xml
