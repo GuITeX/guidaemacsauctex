@@ -4,11 +4,13 @@
 *.toc
 *.blg
 *.bbl
+*.bcf
 *.blx.bib
 *.run
 *.run.xml
 *.synctex.gz
 *-blx.bib
+*.fdb_latexmk
 main.pdf
 
 auto/*
