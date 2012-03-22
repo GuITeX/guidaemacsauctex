@@ -29,6 +29,43 @@
 
 \textcolor{red}{\lipsum[1]}
 
+Lo sviluppo di \emacs{} è iniziato negli anni 1970 ai laboratori di Intelligenza
+Artificiale del MIT, cioè molto prima che si diffondesse l'informatica che
+conosciamo oggi.  Ciò comporta che \emacs{} utilizza una terminologia spesso
+diversa da quella utilizzata dalla stragrande maggioranza degli altri programmi
+che usiamo quotidianamente.  Per questo motivo non bisogna sorprendersi se
+l'operazione di \emph{tagliare} del testo (generalmente indicata in inglese con
+\emph{cutting}) in \emacs{} viene chiamata \emph{killing} e la successiva
+operazione di \emph{incollare} il testo copiato (in inglese \emph{pasting})
+viene chiamata \emph{yanking}.
+
+\emacs{} è famoso per rendere possibile l'esecuzione di qualsiasi operazione
+usando solo la tastiera, cioè senza l'ausilio del mouse.  A ogni comando può
+essere associata una combinazione di tasti.  In questa guida seguiremo la
+notazione diffusa nel mondo di \emacs{} per indicare i tasti.  Quindi il tasto
+\verb!Control! verrà indicato con \verb!C!, l'\verb!Invio! viene indicato con
+\verb!RET!, mentre \verb!M! indica il tasto \verb!Meta!.  Sulle odierne tastiere
+questo tasto è scomparso, si può ottenere lo stesso risultato con il tasto
+\verb!Alt! oppure premendo e rilasciando il tasto \verb!Esc!.  Un trattino fra
+due tasti all'interno di una combinazione di tasti indica che i tasti vanno
+premuti contemporaneamente.  Così, quando si dirà che per eseguire un comando
+bisogna usare la combinazione \verb!M-x! si dovranno premere contemporaneamente
+il tasto \verb!Alt! e la lettera \verb!x! oppure premere il tasto \verb!Esc!,
+rilasciarlo e premere la lettera \verb!x!.
+
+Il manuale di \emacs{} può essere consultato all'interno dello stesso editor di
+testo con le combinazioni di tasti \verb!C-h r! (premere contemporaneamente il
+tasto \verb!Control! e la lettera \verb!h!, rilasciare questi tasti e premere la
+lettera \verb!r!) oppure \verb!C-h i d m Emacs RET! (premere contemporaneamente
+il tasto \verb!Control! e la lettera \verb!h!, rilasciare questi tasti e premere
+la lettera \verb!i!, poi la lettera \verb!d!, poi la lettera \verb!m!, poi
+scrivere \verb!Emacs! quindi premere il tasto \verb!Invio!).  Se si preferisce,
+il manuale può anche essere consultato dal menu
+\begin{Verbatim}
+Help > Read the Emacs Manual
+\end{Verbatim}
+
+
 \section{Installare \emacs}
 \label{sec:install}
 
@@ -43,8 +80,8 @@ procurandosi l'archivio che contiene gli eseguibili.
 Dal sito ufficiale di \emacs{} per Windows %
 \sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs\ for Windows} %
 si scarica l'archivio compresso %
-\href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.1-barebin-i386.zip}
-{\textsf{emacs-23.1-barebin-i386.zip}} e lo si decomprime in una
+\href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.4-barebin-i386.zip}
+{\textsf{emacs-23.4-barebin-i386.zip}} e lo si decomprime in una
 posizione di comodo; una buona soluzione, per esempio, è decomprimere
 il suddetto archivio in:
 \begin{Verbatim}
@@ -96,7 +133,7 @@ $ emacs
 \end{Verbatim}
 % $
 Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna
-aggiungere l'opzione \verb|-nw| oppure \verb|--no-window-system|:
+aggiungere l'opzione \texttt{-nw} oppure \texttt{--no-window-system}:
 \begin{Verbatim}
 $ emacs -nw
 \end{Verbatim}
@@ -161,7 +198,7 @@ C:/Programmi/emacs/
 Sia nell'archivio di \auctex{}, che quello di \emacs, posizionato in
 precedenza nel percorso suddetto, vi è una cartella dal nome
 \texttt{site-lisp}: i file contenuti in queste cartelle vanno uniti in
-una sola cartella. 
+una sola cartella.
 
 \subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
@@ -241,22 +278,155 @@ file creati con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
 displayline %n %o %b")
         ("open" "open %o")))
 
-(setq TeX-view-program-selection 
+(setq TeX-view-program-selection
       '(((output-dvi style-pstricks) "dvips and Skim")
         (output-dvi "Skim")
         (output-pdf "Skim")
-        (output-html "open")))))
+        (output-html "open")))
 \end{Verbatim}
 Come visualizzatore principale si utilizza
 \href{http://skim-app.sourceforge.net/}{Skim} perché supporta la
 ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
-\emacs\ e Skim sono riportati nel paragrafo \ref{sec:fismac}.
+\emacs{} e Skim sono riportati nel paragrafo \ref{sec:fismac}.
 
 \section{Personalizzare \emacs{} \& \auctex} % titolo cambiato per avere un
 % effetto migliore nell'indice, ma in realtà non mi piace
 \label{sec:personal}
 
-\textcolor{red}{\lipsum[1]}
+Una delle caratteristiche principali di \emacs{}
+è che è un editor di testo personalizzabile in ogni suo aspetto ed espandibile,
+in modo da renderlo adatto alle proprie esigenze.  In questo paragrafo vedremo
+alcune delle personalizzazioni che possono risultare utili quando si lavora con
+documenti \LaTeX{}.
+Il linguaggio utilizzato per espandere \emacs{}
+è l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.
+
+Per modificare le impostazioni relative alla gestione nativa di \TeX{}
+da parte di \emacs{}
+è possibile usare la funzione \verb!M-x customize-group RET tex RET!.  In questo
+modo si aprirà un buffer nel quale sarà possibile modificare, tramite
+l'interfaccia, le opzioni desiderate.  Per modificare in particolare \auctex{}
+è possibile usare la funzione \verb!M-x customize-group RET AUCTeX RET!.
+
+Di seguito saranno suggerite alcune porzioni di codice Elisp che permettono di
+personalizzare \emacs{}
+e che vanno inserite nel file di inizializzazione \verb!~/.emacs!.  Per rendere
+effettive le modifiche bisogna riavviare \emacs{}.
+
+Se si usa \auctex{},
+è possibile inserire macro nei propri documenti \LaTeX{}
+con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{}
+conosce le macro dei principali pacchetti \LaTeX{}
+e permette quindi l'autocompletamento con il tasto TAB.  Inoltre conosce gli
+argomenti e le opzioni che queste macro accettano, infatti usando
+\verb!C-c RET frac RET! nel documento si otterrà \verb!\frac{}{}!
+e il cursore si posizionerà all'interno del primo paio di parentesi graffe.
+Allo stesso modo, usando \verb!C-c RET sqrt RET! verrà richiesto l'ordine
+\verb!n! della radice da inserire (premere direttamente \verb!RET! per non
+inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in modo che \auctex{}
+conosca quali pacchetti \LaTeX{} sono stati caricati bisogna permettergli di
+effettuare il parsing dei propri documenti e questo è possibile aggiungendo nel
+proprio file \verb!.emacs! il seguente codice
+\begin{Verbatim}
+(setq TeX-parse-self t) ; Attiva parsing al caricamento.
+(setq TeX-auto-save t) ; Attiva parsing al salvataggio.
+\end{Verbatim}
+In questo modo verrà creata una cartella chiamata \verb!auto! nella stessa
+directory in cui si trova il documento nella quale verranno registrate le
+informazioni relative al proprio documento \LaTeX{},
+se non si desidera affollamento nelle proprie cartelle si potrebbe non voler
+attivare queste due opzioni.
+
+Come detto, \auctex{}
+conosce le macro dei pacchetti principali, ma naturalmente non conosce tutte i
+pacchetti.  Possiamo, però, fargli conoscere delle macro aggiuntive da
+utilizzare solo quando viene caricato nel documento \LaTeX{}
+il pacchetto che fornisce le relative macro.  Per esempio, \auctex{}
+non conosce le macro messe a disposizione dal pacchetto \verb!siunitx!.  Con
+il seguente codice da aggiungere nel file \verb!.emacs! apprenderà che questo
+pacchetto fornisce i comandi \verb!SI!, \verb!si! e \verb!num! di cui il
+primo accetta due argomenti, gli ultimi due solo uno:
+\begin{Verbatim}
+(eval-after-load "tex"
+  '(TeX-add-style-hook
+    "siunitx"
+    (lambda ()
+      (TeX-add-symbols
+       '("SI"  2)
+       '("si"  1)
+       '("num" 1)))))
+\end{Verbatim}
+A volte in un documento \LaTeX{}
+non si carica un certo pacchetto \verb!A! poiché è automaticamente caricato da
+un altro pacchetto \verb!B! che viene esplicitamente caricato.  In questi casi,
+però, \auctex{}
+potrebbe non rendersi conto che il pacchetto \verb!A! è stato effettivamente
+caricato e non fornirebbe le funzioni di autocompletamento per le macro del
+pacchetto \verb!A!, se è uno di quelli supportati.  Per ovviare a questo
+problema è possibile inserire il seguente codice nel file di inizializzazione
+\begin{Verbatim}
+(eval-after-load "tex"
+  '(TeX-add-style-hook
+    "B"
+    (lambda ()
+      (TeX-run-style-hooks "B"))))
+\end{Verbatim}
+Per esempio, il pacchetto \verb!kpfonts! carica automaticamente il pacchetto
+\verb!amsmath! e non è quindi necessario inserire nel proprio sorgente \LaTeX{}
+l'istruzione \verb!\usepackage{amsmath}!.  Per far sapere ad \auctex{}
+questa situazione si userà il codice
+\begin{Verbatim}
+(eval-after-load "tex"
+  '(TeX-add-style-hook
+    "kpfonts"
+    (lambda ()
+      (TeX-run-style-hooks "amsmath"))))
+\end{Verbatim}
+
+Se si è soliti suddividere i propri documenti \LaTeX{}
+in più file da includere nel file principale con i comandi \verb!\input! o
+\verb!\include! può essere utile aggiungere al file \verb!.emacs!
+\begin{Verbatim}
+(setq-default TeX-master nil)
+\end{Verbatim}
+In questo modo, all'apertura dei documenti \LaTeX{}
+\emacs{}
+chiederà qual è il file principale associato e sul quale saranno eseguiti i
+comandi di compilazione.
+
+Se si usa spesso \LaTeX{}
+per comporre documenti matematici potrebbe essere utile attivare la modalità
+\verb!LaTeX-math-mode! con \verb!C-c ~! oppure con il comando
+\verb!M-x LaTeX-math-mode!.  In questo modo, per esempio, per inserire il
+simbolo \verb!\alpha! si potrà usare la scorciatoia \verb!` a!.  L'elenco delle
+altre scorciatoie per inserire i simboli può essere consultato dal menu
+\verb!Math! nella barra dei menu.  Per attivare automaticamente questa modalità
+ogni volta che si apre un documento \LaTeX{} bisogna aggiungere
+\begin{Verbatim}
+(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
+\end{Verbatim}
+al proprio \verb!.emacs!.
+
+Il codice
+\begin{Verbatim}
+(setq TeX-electric-sub-and-superscript t)
+\end{Verbatim}
+aggiunto al proprio \verb!.emacs!, permette di inserire automaticamente una
+coppia di parentesi graffe \verb!{}! quando si scrivono i simboli \verb!_! e
+\verb!^! in modalità matematica.
+
+Normalmente, quando si preme \verb!RET! in un sorgente \LaTeX{}
+viene semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la
+nuova linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
+\verb!RET!.  Si può però fare in modo che si ottenga questo risultato anche
+premendo normalmente \verb!RET! aggiungendo il seguente codice al file di
+inizializzazione
+\begin{Verbatim}
+(setq TeX-newline-function 'newline-and-indent)
+\end{Verbatim}
+Se si mette \verb!reindent-then-newline-and-indent! al posto di
+\verb!newline-and-indent! si avrà, in più, l'effetto che la riga attuale viene
+indentata.
 
 \section{Correttore ortografico}
 \label{sec:corr}
@@ -291,9 +461,9 @@ la quale proporrà possibili soluzioni.
 \subsection{Windows}
 \label{sec:aspellwin}
 Per installare il correttore ortografico in ambiente Windows, si può
-usare il programma GNU Aspell 
+usare il programma GNU Aspell
 \sito{http://aspell.net/win32/}{GNU Aspell - Win32 version}. L'ultima
-versione stabile per Windows, seppur datata Dicembre 2002, è la 0.50-3. 
+versione stabile per Windows, seppur datata Dicembre 2002, è la 0.50-3.
 
 I file che bisogna procurarsi sono quelli che vengono di seguito
 riportati; si badi bene ad installarli nell'ordine in cui vengono
@@ -318,8 +488,8 @@ di Aspell nella \textsf{PATH} di Windows. Secondo, aggiungere al
 proprio \emph{.emacs} le seguenti righe di codice:
 
 \begin{Verbatim}
-(setq-default ispell-program-name "aspell") 
-(setq-default ispell-extra-args '("--reverse")) 
+(setq-default ispell-program-name "aspell")
+(setq-default ispell-extra-args '("--reverse"))
 (setq ispell-dictionary "italiano")
 \end{Verbatim}
 dove la seconda riga di codice serve a \emph{fixare} dei problemi con
@@ -331,7 +501,7 @@ le versioni precedenti.
 Il correttore ortografico GNU Aspell può essere installato facilmente
 su GNU/Linux utilizzando, come al solito, il gestore pacchetti della
 propria distribuzione. Il dizionario italiano di GNU Aspell si chiama
-\verb|aspell-it| quindi da terminale può essere installato in Debian
+\texttt{aspell-it} quindi da terminale può essere installato in Debian
 con il comando
 \begin{Verbatim}
 $ sudo apt-get install aspell-it
@@ -399,7 +569,7 @@ sistemi operativi, ma non solo, variano anche i visualizzatori che
 permettono tale funzione infatti in ambiente Windows, l'unico
 visualizzatore capace di fare questo è SumatraPDF,
 \textcolor{red}{in ambiente Linux si può usare [\ldots]}, mentre in
-ambiente Mac OS si usa Skim. 
+ambiente Mac OS si usa Skim.
 
 \subsection{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
@@ -437,11 +607,11 @@ diretta-inversa e fornito un modo per accedervi;
 \end{enumerate}
 
 A queste operazioni segue la configurazione di SumatraPDF e di \emacs,
-mediante il proprio file \emph{.emacs}. 
+mediante il proprio file \emph{.emacs}.
 
 Per la ricerca inversa si deve aprire SumatraPDF, andare in
 \texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e
-digitare la riga 
+digitare la riga
 \begin{Verbatim}
 C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
@@ -451,7 +621,7 @@ Per la ricerca diretta si deve scaricare lo script
 sumatra-forward %
 \sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
 {sumatra-forward.el} %
-e copiarlo in una cartella accessibile a \emacs{} per esempio 
+e copiarlo in una cartella accessibile a \emacs{} per esempio
 \begin{Verbatim}
 C:/Programmi/emacs/bin/site-lisp
 \end{Verbatim}
@@ -467,7 +637,7 @@ Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio
 \emph{.init} file, le seguenti righe:
 \begin{Verbatim}
-(setq TeX-source-correlate-method (quote synctex)) 
+(setq TeX-source-correlate-method (quote synctex))
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
 \end{Verbatim}
@@ -621,16 +791,16 @@ semplice potrebbe essere il seguente:
 skeleton into current buffer.  This only makes sense for empty
 buffers."  "Destinatario: "
 "\\documentclass[a4paper,10pt]{letter}\n"
-"\\usepackage[T1]{fontenc}\n" 
+"\\usepackage[T1]{fontenc}\n"
 "\\usepackage[utf8]{inputenc}\n"
-"\\usepackage[italian]{babel}\n" 
+"\\usepackage[italian]{babel}\n"
 "\\name{Pinco Pallino}\n"
 "\\address{Via Marco Polo 32\\\\ Napoli 80100\\\\ Italy}\n"
-"\\begin{document}\n" 
-"\\begin{letter}{" str | " *** Destinatario  *** " "}\n" 
-"\\opening{" _ "}\n\n" 
+"\\begin{document}\n"
+"\\begin{letter}{" str | " *** Destinatario  *** " "}\n"
+"\\opening{" _ "}\n\n"
 "\\closing{Cordialmente}\n"
-"\\end{letter}\n" 
+"\\end{letter}\n"
 "\\end{document}\n")
 \end{Verbatim}
 
@@ -685,7 +855,7 @@ computer dovrebbero esserci anche i sorgenti pronti per essere
 compilati.
 
 \begin{figure}[t]
- \centering 
+ \centering
  \unitlength=0.005\textwidth
  \begin{picture}(200,120)
   \put(0,0){\framebox(94,120){%
@@ -707,7 +877,7 @@ compilati.
 \textcolor{red}{\lipsum[1]}
 
 \clearpage
-\phantomsection 
+\phantomsection
 \addcontentsline{toc}{section}{\bibname}
 \nocite{*}
 \printbibliography
@@ -727,10 +897,11 @@ reperibile sul sito ufficiale
      {CC By-Nc-Sa}.
 \end{document}
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% coding: utf-8
 %%% TeX-master: t
-%%% End: 
+%%% fill-column: 80
+%%% End:
 
 % LocalWords:  mirror OS For dmg

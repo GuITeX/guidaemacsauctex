@@ -23,21 +23,6 @@
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}
 \RequirePackage{xcolor}
-\RequirePackage{eso-pic}
-\renewcommand\AtPageLowerLeft[1]{\AtPageUpperLeft{%
- \put(0,\LenToUnit{-0.99\paperheight}){#1}}}
-
-\AddToShipoutPictureBG{%
-  \AtPageLowerLeft{%
-    \rotatebox{90}{%
-      \parbox[][5ex][c]{\paperwidth}{%
-        \textcolor{red}{\Large\sffamily%
-          \titolo: \autorea, \autoreb, \autorec\ --- BOZZA:~\the\year%
-        }%
-      }%
-    }%
-  }%
-}%
 
 \RequirePackage[grid]{multicol}
 \setlength{\columnsep}{3.5ex}
@@ -59,11 +44,11 @@
 
 \newcommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
 \newcommand{\autorea}{Orlando Iovino}
-\newcommand{\autoreb}{\textcolor{red}{Elrond}}   % manca nome e cognome
+\newcommand{\autoreb}{Mosè Giordano}
 \newcommand{\autorec}{\textcolor{red}{matteo.l}} % manca nome e cognome
 \newcommand{\autori}{\autorea, \autoreb, \autorec}
 
-\RequirePackage[linktocpage=true]{hyperref}
+\RequirePackage[unicode]{hyperref}
 \hypersetup{%
   pdftitle  ={\titolo},%
   pdfauthor ={\autori},%

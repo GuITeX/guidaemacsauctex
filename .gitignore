@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.log
 *.aux
 *.out
@@ -12,3 +13,21 @@
 main.pdf
 
 auto/*
+=======
+*.log
+*.aux
+*.out
+*.toc
+*.blg
+*.bbl
+*.bcf
+*.blx.bib
+*.run
+*.run.xml
+*.synctex.gz
+*-blx.bib
+*.fdb_latexmk
+main.pdf
+
+auto/*
+>>>>>>> 10f9ac1b34c237f0c1c1f4a050a7985e6f602836
