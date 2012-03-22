@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+*.log
+*.aux
+*.out
+*.toc
+*.blg
+*.bbl
+*.blx.bib
+*.run
+*.run.xml
+*.synctex.gz
+*-blx.bib
+main.pdf
+
+auto/*
+=======
 *.log
 *.aux
 *.out
@@ -14,3 +30,7 @@
 main.pdf
 
 auto/*
+<<<<<<< HEAD
+=======
+>>>>>>> 10f9ac1b34c237f0c1c1f4a050a7985e6f602836
+>>>>>>> Elrond

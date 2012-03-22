@@ -29,6 +29,43 @@
 
 \textcolor{red}{\lipsum[1]}
 
+Lo sviluppo di \emacs{} è iniziato negli anni 1970 ai laboratori di Intelligenza
+Artificiale del MIT, cioè molto prima che si diffondesse l'informatica che
+conosciamo oggi.  Ciò comporta che \emacs{} utilizza una terminologia spesso
+diversa da quella utilizzata dalla stragrande maggioranza degli altri programmi
+che usiamo quotidianamente.  Per questo motivo non bisogna sorprendersi se
+l'operazione di \emph{tagliare} del testo (generalmente indicata in inglese con
+\emph{cutting}) in \emacs{} viene chiamata \emph{killing} e la successiva
+operazione di \emph{incollare} il testo copiato (in inglese \emph{pasting})
+viene chiamata \emph{yanking}.
+
+\emacs{} è famoso per rendere possibile l'esecuzione di qualsiasi operazione
+usando solo la tastiera, cioè senza l'ausilio del mouse.  A ogni comando può
+essere associata una combinazione di tasti.  In questa guida seguiremo la
+notazione diffusa nel mondo di \emacs{} per indicare i tasti.  Quindi il tasto
+\verb!Control! verrà indicato con \verb!C!, l'\verb!Invio! viene indicato con
+\verb!RET!, mentre \verb!M! indica il tasto \verb!Meta!.  Sulle odierne tastiere
+questo tasto è scomparso, si può ottenere lo stesso risultato con il tasto
+\verb!Alt! oppure premendo e rilasciando il tasto \verb!Esc!.  Un trattino fra
+due tasti all'interno di una combinazione di tasti indica che i tasti vanno
+premuti contemporaneamente.  Così, quando si dirà che per eseguire un comando
+bisogna usare la combinazione \verb!M-x! si dovranno premere contemporaneamente
+il tasto \verb!Alt! e la lettera \verb!x! oppure premere il tasto \verb!Esc!,
+rilasciarlo e premere la lettera \verb!x!.
+
+Il manuale di \emacs{} può essere consultato all'interno dello stesso editor di
+testo con le combinazioni di tasti \verb!C-h r! (premere contemporaneamente il
+tasto \verb!Control! e la lettera \verb!h!, rilasciare questi tasti e premere la
+lettera \verb!r!) oppure \verb!C-h i d m Emacs RET! (premere contemporaneamente
+il tasto \verb!Control! e la lettera \verb!h!, rilasciare questi tasti e premere
+la lettera \verb!i!, poi la lettera \verb!d!, poi la lettera \verb!m!, poi
+scrivere \verb!Emacs! quindi premere il tasto \verb!Invio!).  Se si preferisce,
+il manuale può anche essere consultato dal menu
+\begin{Verbatim}
+Help > Read the Emacs Manual
+\end{Verbatim}
+
+
 \section{Installare \emacs}
 \label{sec:install}
 
@@ -261,6 +298,7 @@ Una delle caratteristiche principali di \emacs{}
 in modo da renderlo adatto alle proprie esigenze.  In questo paragrafo vedremo
 alcune delle personalizzazioni che possono risultare utili quando si lavora con
 documenti \LaTeX{}.
+<<<<<<< HEAD
 
 Per modificare le impostazioni relative alla gestione nativa di \TeX{}
 da parte di \emacs{}
@@ -291,11 +329,46 @@ conosca quali pacchetti \LaTeX{}
 sono stati caricati bisogna permettergli di effettuare il parsing dei propri
 documenti e questo è possibile aggiungendo nel proprio file \texttt{.emacs} il
 seguente codice
+=======
+Il linguaggio utilizzato per espandere \emacs{}
+è l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.
+
+Per modificare le impostazioni relative alla gestione nativa di \TeX{}
+da parte di \emacs{}
+è possibile usare la funzione \verb!M-x customize-group RET tex RET!.  In questo
+modo si aprirà un buffer nel quale sarà possibile modificare, tramite
+l'interfaccia, le opzioni desiderate.  Per modificare in particolare \auctex{}
+è possibile usare la funzione \verb!M-x customize-group RET AUCTeX RET!.
+
+Di seguito saranno suggerite alcune porzioni di codice Elisp che permettono di
+personalizzare \emacs{}
+e che vanno inserite nel file di inizializzazione \verb!~/.emacs!.  Per rendere
+effettive le modifiche bisogna riavviare \emacs{}.
+
+Se si usa \auctex{},
+è possibile inserire macro nei propri documenti \LaTeX{}
+con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{}
+conosce le macro dei principali pacchetti \LaTeX{}
+e permette quindi l'autocompletamento con il tasto TAB.  Inoltre conosce gli
+argomenti e le opzioni che queste macro accettano, infatti usando
+\verb!C-c RET frac RET! nel documento si otterrà \verb!\frac{}{}!
+e il cursore si posizionerà all'interno del primo paio di parentesi graffe.
+Allo stesso modo, usando \verb!C-c RET sqrt RET! verrà richiesto l'ordine
+\verb!n! della radice da inserire (premere direttamente \verb!RET! per non
+inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in modo che \auctex{}
+conosca quali pacchetti \LaTeX{} sono stati caricati bisogna permettergli di
+effettuare il parsing dei propri documenti e questo è possibile aggiungendo nel
+proprio file \verb!.emacs! il seguente codice
+>>>>>>> Elrond
 \begin{Verbatim}
 (setq TeX-parse-self t) ; Attiva parsing al caricamento.
 (setq TeX-auto-save t) ; Attiva parsing al salvataggio.
 \end{Verbatim}
+<<<<<<< HEAD
 In questo modo verrà creata una cartella chiamata \texttt{auto} nella stessa
+=======
+In questo modo verrà creata una cartella chiamata \verb!auto! nella stessa
+>>>>>>> Elrond
 directory in cui si trova il documento nella quale verranno registrate le
 informazioni relative al proprio documento \LaTeX{},
 se non si desidera affollamento nelle proprie cartelle si potrebbe non voler
@@ -306,9 +379,15 @@ conosce le macro dei pacchetti principali, ma naturalmente non conosce tutte i
 pacchetti.  Possiamo, però, fargli conoscere delle macro aggiuntive da
 utilizzare solo quando viene caricato nel documento \LaTeX{}
 il pacchetto che fornisce le relative macro.  Per esempio, \auctex{}
+<<<<<<< HEAD
 non conosce le macro messe a disposizione dal pacchetto \texttt{siunitx}.  Con
 il seguente codice da aggiungere nel file \texttt{.emacs} apprenderà che questo
 pacchetto fornisce i comandi \texttt{SI}, \texttt{si} e \texttt{num} di cui il
+=======
+non conosce le macro messe a disposizione dal pacchetto \verb!siunitx!.  Con
+il seguente codice da aggiungere nel file \verb!.emacs! apprenderà che questo
+pacchetto fornisce i comandi \verb!SI!, \verb!si! e \verb!num! di cui il
+>>>>>>> Elrond
 primo accetta due argomenti, gli ultimi due solo uno:
 \begin{Verbatim}
 (eval-after-load "tex"
@@ -321,12 +400,21 @@ primo accetta due argomenti, gli ultimi due solo uno:
        '("num" 1)))))
 \end{Verbatim}
 A volte in un documento \LaTeX{}
+<<<<<<< HEAD
 non si carica un certo pacchetto \texttt{A} poiché è automaticamente caricato da
 un altro pacchetto \texttt{B} che viene esplicitamente caricato.  In questi
 casi, però, \auctex{}
 potrebbe non rendersi conto che il pacchetto \texttt{A} è stato effettivamente
 caricato e non fornirebbe le funzioni di autocompletamento per le macro del
 pacchetto \texttt{A}, se è uno di quelli supportati.  Per ovviare a questo
+=======
+non si carica un certo pacchetto \verb!A! poiché è automaticamente caricato da
+un altro pacchetto \verb!B! che viene esplicitamente caricato.  In questi casi,
+però, \auctex{}
+potrebbe non rendersi conto che il pacchetto \verb!A! è stato effettivamente
+caricato e non fornirebbe le funzioni di autocompletamento per le macro del
+pacchetto \verb!A!, se è uno di quelli supportati.  Per ovviare a questo
+>>>>>>> Elrond
 problema è possibile inserire il seguente codice nel file di inizializzazione
 \begin{Verbatim}
 (eval-after-load "tex"
@@ -335,11 +423,18 @@ problema è possibile inserire il seguente codice nel file di inizializzazione
     (lambda ()
       (TeX-run-style-hooks "B"))))
 \end{Verbatim}
+<<<<<<< HEAD
 Per esempio, il pacchetto \texttt{kpfonts} carica automaticamente il pacchetto
 \texttt{amsmath} e non è quindi necessario inserire nel proprio sorgente
 \LaTeX{}
 l'istruzione \texttt{\textbackslash{}usepackage\{amsmath\}}.  Per far sapere ad
 \auctex{} questa situazione si userà il codice
+=======
+Per esempio, il pacchetto \verb!kpfonts! carica automaticamente il pacchetto
+\verb!amsmath! e non è quindi necessario inserire nel proprio sorgente \LaTeX{}
+l'istruzione \verb!\usepackage{amsmath}!.  Per far sapere ad \auctex{}
+questa situazione si userà il codice
+>>>>>>> Elrond
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -349,9 +444,14 @@ l'istruzione \texttt{\textbackslash{}usepackage\{amsmath\}}.  Per far sapere ad
 \end{Verbatim}
 
 Se si è soliti suddividere i propri documenti \LaTeX{}
+<<<<<<< HEAD
 in più file da includere nel file principale con i comandi
 \texttt{\textbackslash{}input} o \texttt{\textbackslash{}include} può essere
 utile aggiungere al file \texttt{.emacs}
+=======
+in più file da includere nel file principale con i comandi \verb!\input! o
+\verb!\include! può essere utile aggiungere al file \verb!.emacs!
+>>>>>>> Elrond
 \begin{Verbatim}
 (setq-default TeX-master nil)
 \end{Verbatim}
@@ -362,6 +462,7 @@ comandi di compilazione.
 
 Se si usa spesso \LaTeX{}
 per comporre documenti matematici potrebbe essere utile attivare la modalità
+<<<<<<< HEAD
 \texttt{LaTeX-math-mode} con \texttt{C-c \textasciitilde} oppure con il comando
 \texttt{M-x LaTeX-math-mode}.  In questo modo, per esempio, per inserire il
 simbolo \texttt{\textbackslash{}alpha} si potrà usare la scorciatoia
@@ -373,11 +474,24 @@ bisogna aggiungere
 (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
 \end{Verbatim}
 al proprio \texttt{.emacs}.
+=======
+\verb!LaTeX-math-mode! con \verb!C-c ~! oppure con il comando
+\verb!M-x LaTeX-math-mode!.  In questo modo, per esempio, per inserire il
+simbolo \verb!\alpha! si potrà usare la scorciatoia \verb!` a!.  L'elenco delle
+altre scorciatoie per inserire i simboli può essere consultato dal menu
+\verb!Math! nella barra dei menu.  Per attivare automaticamente questa modalità
+ogni volta che si apre un documento \LaTeX{} bisogna aggiungere
+\begin{Verbatim}
+(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
+\end{Verbatim}
+al proprio \verb!.emacs!.
+>>>>>>> Elrond
 
 Il codice
 \begin{Verbatim}
 (setq TeX-electric-sub-and-superscript t)
 \end{Verbatim}
+<<<<<<< HEAD
 aggiunto al proprio \texttt{.emacs}, permette di inserire automaticamente una
 coppia di parentesi graffe \texttt{\{\}} quando si scrivono i simboli
 \texttt{\_} e \texttt{\textasciicircum} in modalità matematica.
@@ -387,13 +501,30 @@ viene semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la
 nuova linea sia automaticamente indentata bisogna premere \texttt{C-j} invece di
 \texttt{RET}.  Si può però fare in modo che si ottenga questo risultato anche
 premendo normalmente \texttt{RET} aggiungendo il seguente codice al file di
+=======
+aggiunto al proprio \verb!.emacs!, permette di inserire automaticamente una
+coppia di parentesi graffe \verb!{}! quando si scrivono i simboli \verb!_! e
+\verb!^! in modalità matematica.
+
+Normalmente, quando si preme \verb!RET! in un sorgente \LaTeX{}
+viene semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la
+nuova linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
+\verb!RET!.  Si può però fare in modo che si ottenga questo risultato anche
+premendo normalmente \verb!RET! aggiungendo il seguente codice al file di
+>>>>>>> Elrond
 inizializzazione
 \begin{Verbatim}
 (setq TeX-newline-function 'newline-and-indent)
 \end{Verbatim}
+<<<<<<< HEAD
 Se si mette \texttt{reindent-then-newline-and-indent} al posto di
 \texttt{'newline-and-indent} si avrà, in più, l'effetto che la riga attuale
 viene indentata.
+=======
+Se si mette \verb!reindent-then-newline-and-indent! al posto di
+\verb!newline-and-indent! si avrà, in più, l'effetto che la riga attuale viene
+indentata.
+>>>>>>> Elrond
 
 \section{Correttore ortografico}
 \label{sec:corr}
@@ -868,6 +999,10 @@ reperibile sul sito ufficiale
 %%% mode: latex
 %%% coding: utf-8
 %%% TeX-master: t
+<<<<<<< HEAD
+=======
+%%% fill-column: 80
+>>>>>>> Elrond
 %%% End:
 
 % LocalWords:  mirror OS For dmg
