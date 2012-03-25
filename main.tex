@@ -298,38 +298,6 @@ Una delle caratteristiche principali di \emacs{}
 in modo da renderlo adatto alle proprie esigenze.  In questo paragrafo vedremo
 alcune delle personalizzazioni che possono risultare utili quando si lavora con
 documenti \LaTeX{}.
-<<<<<<< HEAD
-
-Per modificare le impostazioni relative alla gestione nativa di \TeX{}
-da parte di \emacs{}
-è possibile usare la funzione \texttt{M-x customize-group RET tex RET}.  In
-questo modo si aprirà un buffer nel quale sarà possibile modificare, tramite
-l'interfaccia, le opzioni desiderate.  Per modificare in particolare \auctex{}
-è possibile usare la funzione \texttt{M-x customize-group RET AUCTeX RET}.
-
-Di seguito saranno suggerite alcune porzioni di codice che permettono di
-personalizzare \emacs{}
-e che vanno inserite nel file di inizializzazione
-\texttt{\textasciitilde/.emacs}.  Per rendere effettive le modifiche bisogna
-riavviare \emacs{}.
-
-Se si usa \auctex{},
-è possibile inserire macro nei propri documenti \LaTeX{}
-con \texttt{C-c RET}.  La comodità di questa funzione è che \auctex{}
-conosce le macro dei principali pacchetti \LaTeX{}
-e permette quindi l'autocompletamento con il tasto TAB.  Inoltre conosce gli
-argomenti e le opzioni che queste macro accettano, infatti usando
-\texttt{C-c RET frac RET} nel documento si otterrà
-\texttt{\textbackslash{}frac\{\}\{\}} e il cursore si posizionerà all'interno
-del primo paio di parentesi graffe.  Allo stesso modo, usando
-\texttt{C-c RET sqrt RET} verrà richiesto l'ordine \texttt{n} della radice da
-inserire (premere direttamente \texttt{RET} per non inserire nulla) e si otterrà
-\texttt{\textbackslash{}sqrt[n]\{\}}.  Per fare in modo che \auctex{}
-conosca quali pacchetti \LaTeX{}
-sono stati caricati bisogna permettergli di effettuare il parsing dei propri
-documenti e questo è possibile aggiungendo nel proprio file \texttt{.emacs} il
-seguente codice
-=======
 Il linguaggio utilizzato per espandere \emacs{}
 è l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.
 
@@ -359,16 +327,11 @@ inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in modo che \auctex{}
 conosca quali pacchetti \LaTeX{} sono stati caricati bisogna permettergli di
 effettuare il parsing dei propri documenti e questo è possibile aggiungendo nel
 proprio file \verb!.emacs! il seguente codice
->>>>>>> Elrond
 \begin{Verbatim}
 (setq TeX-parse-self t) ; Attiva parsing al caricamento.
 (setq TeX-auto-save t) ; Attiva parsing al salvataggio.
 \end{Verbatim}
-<<<<<<< HEAD
-In questo modo verrà creata una cartella chiamata \texttt{auto} nella stessa
-=======
 In questo modo verrà creata una cartella chiamata \verb!auto! nella stessa
->>>>>>> Elrond
 directory in cui si trova il documento nella quale verranno registrate le
 informazioni relative al proprio documento \LaTeX{},
 se non si desidera affollamento nelle proprie cartelle si potrebbe non voler
@@ -379,15 +342,9 @@ conosce le macro dei pacchetti principali, ma naturalmente non conosce tutte i
 pacchetti.  Possiamo, però, fargli conoscere delle macro aggiuntive da
 utilizzare solo quando viene caricato nel documento \LaTeX{}
 il pacchetto che fornisce le relative macro.  Per esempio, \auctex{}
-<<<<<<< HEAD
-non conosce le macro messe a disposizione dal pacchetto \texttt{siunitx}.  Con
-il seguente codice da aggiungere nel file \texttt{.emacs} apprenderà che questo
-pacchetto fornisce i comandi \texttt{SI}, \texttt{si} e \texttt{num} di cui il
-=======
 non conosce le macro messe a disposizione dal pacchetto \verb!siunitx!.  Con
 il seguente codice da aggiungere nel file \verb!.emacs! apprenderà che questo
 pacchetto fornisce i comandi \verb!SI!, \verb!si! e \verb!num! di cui il
->>>>>>> Elrond
 primo accetta due argomenti, gli ultimi due solo uno:
 \begin{Verbatim}
 (eval-after-load "tex"
@@ -400,21 +357,12 @@ primo accetta due argomenti, gli ultimi due solo uno:
        '("num" 1)))))
 \end{Verbatim}
 A volte in un documento \LaTeX{}
-<<<<<<< HEAD
-non si carica un certo pacchetto \texttt{A} poiché è automaticamente caricato da
-un altro pacchetto \texttt{B} che viene esplicitamente caricato.  In questi
-casi, però, \auctex{}
-potrebbe non rendersi conto che il pacchetto \texttt{A} è stato effettivamente
-caricato e non fornirebbe le funzioni di autocompletamento per le macro del
-pacchetto \texttt{A}, se è uno di quelli supportati.  Per ovviare a questo
-=======
 non si carica un certo pacchetto \verb!A! poiché è automaticamente caricato da
 un altro pacchetto \verb!B! che viene esplicitamente caricato.  In questi casi,
 però, \auctex{}
 potrebbe non rendersi conto che il pacchetto \verb!A! è stato effettivamente
 caricato e non fornirebbe le funzioni di autocompletamento per le macro del
 pacchetto \verb!A!, se è uno di quelli supportati.  Per ovviare a questo
->>>>>>> Elrond
 problema è possibile inserire il seguente codice nel file di inizializzazione
 \begin{Verbatim}
 (eval-after-load "tex"
@@ -423,18 +371,10 @@ problema è possibile inserire il seguente codice nel file di inizializzazione
     (lambda ()
       (TeX-run-style-hooks "B"))))
 \end{Verbatim}
-<<<<<<< HEAD
-Per esempio, il pacchetto \texttt{kpfonts} carica automaticamente il pacchetto
-\texttt{amsmath} e non è quindi necessario inserire nel proprio sorgente
-\LaTeX{}
-l'istruzione \texttt{\textbackslash{}usepackage\{amsmath\}}.  Per far sapere ad
-\auctex{} questa situazione si userà il codice
-=======
 Per esempio, il pacchetto \verb!kpfonts! carica automaticamente il pacchetto
 \verb!amsmath! e non è quindi necessario inserire nel proprio sorgente \LaTeX{}
 l'istruzione \verb!\usepackage{amsmath}!.  Per far sapere ad \auctex{}
 questa situazione si userà il codice
->>>>>>> Elrond
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -444,14 +384,8 @@ questa situazione si userà il codice
 \end{Verbatim}
 
 Se si è soliti suddividere i propri documenti \LaTeX{}
-<<<<<<< HEAD
-in più file da includere nel file principale con i comandi
-\texttt{\textbackslash{}input} o \texttt{\textbackslash{}include} può essere
-utile aggiungere al file \texttt{.emacs}
-=======
 in più file da includere nel file principale con i comandi \verb!\input! o
 \verb!\include! può essere utile aggiungere al file \verb!.emacs!
->>>>>>> Elrond
 \begin{Verbatim}
 (setq-default TeX-master nil)
 \end{Verbatim}
@@ -462,19 +396,6 @@ comandi di compilazione.
 
 Se si usa spesso \LaTeX{}
 per comporre documenti matematici potrebbe essere utile attivare la modalità
-<<<<<<< HEAD
-\texttt{LaTeX-math-mode} con \texttt{C-c \textasciitilde} oppure con il comando
-\texttt{M-x LaTeX-math-mode}.  In questo modo, per esempio, per inserire il
-simbolo \texttt{\textbackslash{}alpha} si potrà usare la scorciatoia
-\texttt{` a}.  L'elenco delle altre scorciatoie per inserire i simboli può
-essere consultato dal menu \texttt{Math} nella barra dei menu.  Per attivare
-automaticamente questa modalità ogni volta che si apre un documento \LaTeX{}
-bisogna aggiungere
-\begin{Verbatim}
-(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
-\end{Verbatim}
-al proprio \texttt{.emacs}.
-=======
 \verb!LaTeX-math-mode! con \verb!C-c ~! oppure con il comando
 \verb!M-x LaTeX-math-mode!.  In questo modo, per esempio, per inserire il
 simbolo \verb!\alpha! si potrà usare la scorciatoia \verb!` a!.  L'elenco delle
@@ -485,23 +406,11 @@ ogni volta che si apre un documento \LaTeX{} bisogna aggiungere
 (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
 \end{Verbatim}
 al proprio \verb!.emacs!.
->>>>>>> Elrond
 
 Il codice
 \begin{Verbatim}
 (setq TeX-electric-sub-and-superscript t)
 \end{Verbatim}
-<<<<<<< HEAD
-aggiunto al proprio \texttt{.emacs}, permette di inserire automaticamente una
-coppia di parentesi graffe \texttt{\{\}} quando si scrivono i simboli
-\texttt{\_} e \texttt{\textasciicircum} in modalità matematica.
-
-Normalmente, quando si preme \texttt{RET} in un sorgente \LaTeX{}
-viene semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la
-nuova linea sia automaticamente indentata bisogna premere \texttt{C-j} invece di
-\texttt{RET}.  Si può però fare in modo che si ottenga questo risultato anche
-premendo normalmente \texttt{RET} aggiungendo il seguente codice al file di
-=======
 aggiunto al proprio \verb!.emacs!, permette di inserire automaticamente una
 coppia di parentesi graffe \verb!{}! quando si scrivono i simboli \verb!_! e
 \verb!^! in modalità matematica.
@@ -511,20 +420,13 @@ viene semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la
 nuova linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
 \verb!RET!.  Si può però fare in modo che si ottenga questo risultato anche
 premendo normalmente \verb!RET! aggiungendo il seguente codice al file di
->>>>>>> Elrond
 inizializzazione
 \begin{Verbatim}
 (setq TeX-newline-function 'newline-and-indent)
 \end{Verbatim}
-<<<<<<< HEAD
-Se si mette \texttt{reindent-then-newline-and-indent} al posto di
-\texttt{'newline-and-indent} si avrà, in più, l'effetto che la riga attuale
-viene indentata.
-=======
 Se si mette \verb!reindent-then-newline-and-indent! al posto di
 \verb!newline-and-indent! si avrà, in più, l'effetto che la riga attuale viene
 indentata.
->>>>>>> Elrond
 
 \section{Correttore ortografico}
 \label{sec:corr}
@@ -983,7 +885,7 @@ compilati.
 \vfill
 \phantomsection
 \addcontentsline{toc}{section}{Licenza d'uso}
-\section*{Licenza d'uso}
+\section*{Licenza d'uso \& Colophon}
 \label{sec:lic}
 
 \mettifigura{\includegraphics[height=19pt]{by-nc-sa}\hspace{2mm}}\noindent
@@ -992,17 +894,23 @@ Quest'opera è soggetta alla Creative Commons Public License versione
 stesso modo. L'enunciato integrale della Licenza in versione 3.0 è
 reperibile sul sito ufficiale
 \sito{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}%
-     {CC By-Nc-Sa}.
+     {CC By-Nc-Sa}.\\
+
+\mettifigura{%
+  \includegraphics[height=19pt, width=54.3pt]{gitlogo}\hspace{2mm}}\noindent 
+La realizzazione di questo lavoro a sei mani si è resa possibile grazie al
+sistema di controllo di versione Git~\sito{http://git-scm.com/}{Git - Fast
+  Version Control System}. È gradita la segnalazione di errori o refusi.Per
+poter collaborare si può clonare il progetto tramite il sito Gitorius con 
+\verb!git clone git://gitorious.org/emacs-tutorial/emacs-tutorial.git!
 \end{document}
 
 %%% Local Variables:
 %%% mode: latex
 %%% coding: utf-8
 %%% TeX-master: t
-<<<<<<< HEAD
-=======
 %%% fill-column: 80
->>>>>>> Elrond
 %%% End:
 
-% LocalWords:  mirror OS For dmg
+% LocalWords:  mirror OS For dmg Git Fast Version Control System clonare git
+% LocalWords:  clone
