@@ -7,7 +7,7 @@
 
 \renewcommand{\rmdefault}{ptm}
 \RequirePackage[scaled=0.890]{helvet}
-\RequirePackage[scaled=0.865]{beramono}
+\RequirePackage[scaled=0.850]{beramono}
 \RequirePackage{microtype}
 
 \RequirePackage[%
@@ -43,12 +43,15 @@
 \addbibresource{biblio.bib}
 
 \newcommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
-\newcommand{\autorea}{Orlando Iovino}
-\newcommand{\autoreb}{Mosè Giordano}
+\newcommand{\autoreb}{Orlando Iovino}
+\newcommand{\autorea}{Mosè Giordano}
 \newcommand{\autorec}{\textcolor{red}{matteo.l}} % manca nome e cognome
 \newcommand{\autori}{\autorea, \autoreb, \autorec}
 
-\RequirePackage[unicode]{hyperref}
+\RequirePackage[%
+  unicode,%
+  linktocpage=true,%
+]{hyperref}
 \hypersetup{%
   pdftitle  ={\titolo},%
   pdfauthor ={\autori},%

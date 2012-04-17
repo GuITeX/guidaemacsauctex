@@ -195,19 +195,17 @@ si scarica l'archivio compresso %
 \begin{Verbatim}
 C:/Programmi/emacs/
 \end{Verbatim}
-Sia nell'archivio di \auctex{}, che quello di \emacs, posizionato in
-precedenza nel percorso suddetto, vi è una cartella dal nome
-\texttt{site-lisp}: i file contenuti in queste cartelle vanno uniti in
-una sola cartella.
+Sia nell'archivio di \auctex{}, che quello di \emacs, posizionato in precedenza
+nel percorso suddetto, vi è una cartella dal nome \emph{site-lisp}: i file
+contenuti in queste cartelle vanno uniti in una sola cartella.
 
 \subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
 
-Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come
-già detto per \emacs, per installare \auctex{} si consiglia di
-utilizzare il gestore pacchetti della propria distribuzione. Ecco i
-comandi da usare per installare da terminale il pacchetto nelle
-principali distribuzioni: Debian e Ubuntu:
+Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come già detto
+per \emacs, per installare \auctex{} si consiglia di utilizzare il gestore
+pacchetti della propria distribuzione. Ecco i comandi da usare per installare da
+terminale il pacchetto nelle principali distribuzioni: Debian e Ubuntu:
 \begin{Verbatim}
 $ sudo apt-get install auctex
 \end{Verbatim}
@@ -227,16 +225,16 @@ $ sudo zypper install emacs-auctex
 \subsection{\auctex{} per Mac OS}
 \label{sec:auctexmac}
 
-Come per \emacs{} non è disponibile una versione di \auctex{} già
-compilata per Mac OS, in questo caso non esistono neppure versioni non
-ufficiali ed è quindi necessario utilizzare l'utility \texttt{make}.
-\texttt{make} viene installato insieme all'ambiente di sviluppo
+Come per \emacs{} non è disponibile una versione di \auctex{} già compilata per
+Mac OS, in questo caso non esistono neppure versioni non ufficiali ed è quindi
+necessario utilizzare l'utility \texttt{make}.  \texttt{make} viene installato
+insieme all'ambiente di sviluppo
 \href{http://developer.apple.com/technologies/tools/whats-new.html}%
-{Xcode}, chi non intende dedicare svariati GB di disco a un software
-utile soltanto a chi sviluppa software può sfuttare il fatto che
-\texttt{make} viene installato anche dal correttore ortografico
-\href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione
-è descritta nel paragrafo \ref{sec:aspellmac}.
+{Xcode}, chi non intende dedicare svariati GB di disco a un software utile
+soltanto a chi sviluppa software può sfuttare il fatto che \texttt{make} viene
+installato anche dal correttore ortografico
+\href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione è
+descritta nel paragrafo \ref{sec:aspellmac}.
 
 Dalla pagina relativa a Mac OS
 \sito{http://www.gnu.org/software/auctex/download-for-macosx.html}%
@@ -244,9 +242,8 @@ Dalla pagina relativa a Mac OS
 \href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz}%
 {auctex-11.86.tar.gz}.
 
-Dopo aver estratto il contenuto dell'archivio in una cartella
-temporanea occorre aprire una sessione di terminale e portarsi nella
-cartella appena creata.
+Dopo aver estratto il contenuto dell'archivio in una cartella temporanea occorre
+aprire una sessione di terminale e portarsi nella cartella appena creata.
 
 Configurare \auctex{} con il comando
 \begin{Verbatim}
@@ -255,29 +252,28 @@ $ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
   --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/\
   --without-texmf-dir
 \end{Verbatim}
-sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando
-  il terminale non bisogna utilizzare i nomi localizzati delle
-  cartelle ma quelli reali, quindi \texttt{Application} è corretto
-  anche se si utilizza la versione italiana di Mac OS} la cartella in
-cui si trova Emacs, in questo modo tutti i file saranno contenuti nel
-bundle \texttt{Emacs.app}.
+% $
+sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando il
+  terminale non bisogna utilizzare i nomi localizzati delle cartelle ma quelli
+  reali, quindi \texttt{Application} è corretto anche se si utilizza la versione
+  italiana di Mac OS} la cartella in cui si trova Emacs, in questo modo tutti i
+file saranno contenuti nel bundle \texttt{Emacs.app}.
 
 Compilare e installare con il comando
 \begin{Verbatim}
 $ make && make install
 \end{Verbatim}
+%$
 
-Dopo l'installazione bisogna impostare i visualizzatori per i vari
-file creati con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
+Dopo l'installazione bisogna impostare i visualizzatori per i vari file creati
+con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
 \begin{Verbatim}
 (setq TeX-view-program-list
       '(("dvips and Skim" "%(o?)dvips %d -o &&\
- /Applications/Skim.app/Contents/SharedSupport/displayline %n %f %b")
-        ("Skim"
-         "/Applications/Skim.app/Contents/SharedSupport/\
+  /Applications/Skim.app/Contents/SharedSupport/displayline %n %f %b")
+         ("Skim" "/Applications/Skim.app/Contents/SharedSupport/\
 displayline %n %o %b")
         ("open" "open %o")))
-
 (setq TeX-view-program-selection
       '(((output-dvi style-pstricks) "dvips and Skim")
         (output-dvi "Skim")
@@ -285,85 +281,79 @@ displayline %n %o %b")
         (output-html "open")))
 \end{Verbatim}
 Come visualizzatore principale si utilizza
-\href{http://skim-app.sourceforge.net/}{Skim} perché supporta la
-ricerca diretta e inversa dal pdf, i dettagli sulla configurazione di
-\emacs{} e Skim sono riportati nel paragrafo \ref{sec:fismac}.
+\href{http://skim-app.sourceforge.net/}{Skim} perché supporta la ricerca diretta
+e inversa dal pdf, i dettagli sulla configurazione di \emacs{} e Skim sono
+riportati nel paragrafo \ref{sec:fismac}.
 
 \section{Personalizzare \emacs{} \& \auctex} % titolo cambiato per avere un
 % effetto migliore nell'indice, ma in realtà non mi piace
 \label{sec:personal}
 
-Una delle caratteristiche principali di \emacs{}
-è che è un editor di testo personalizzabile in ogni suo aspetto ed espandibile,
-in modo da renderlo adatto alle proprie esigenze.  In questo paragrafo vedremo
-alcune delle personalizzazioni che possono risultare utili quando si lavora con
-documenti \LaTeX{}.
-Il linguaggio utilizzato per espandere \emacs{}
-è l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.
+Una delle caratteristiche principali di \emacs{} è che è un editor di testo
+personalizzabile in ogni suo aspetto ed espandibile, in modo da renderlo adatto
+alle proprie esigenze.  In questo paragrafo vedremo alcune delle
+personalizzazioni che possono risultare utili quando si lavora con documenti
+\LaTeX{}.  Il linguaggio utilizzato per espandere \emacs{} è l'Elisp, un
+dialetto del Lisp sviluppato appositamente per \emacs{}.
 
-Per modificare le impostazioni relative alla gestione nativa di \TeX{}
-da parte di \emacs{}
-è possibile usare la funzione \verb!M-x customize-group RET tex RET!.  In questo
-modo si aprirà un buffer nel quale sarà possibile modificare, tramite
-l'interfaccia, le opzioni desiderate.  Per modificare in particolare \auctex{}
-è possibile usare la funzione \verb!M-x customize-group RET AUCTeX RET!.
+Per modificare le impostazioni relative alla gestione nativa di \TeX{} da parte
+di \emacs{} è possibile usare la funzione
+\verb!M-x customize-group RET tex RET!.  In questo modo si aprirà un buffer nel quale sarà possibile modificare,
+tramite l'interfaccia, le opzioni desiderate.  Per modificare in particolare
+\auctex{} è possibile usare la funzione
+\verb!M-x customize-group RET AUCTeX RET!.
 
 Di seguito saranno suggerite alcune porzioni di codice Elisp che permettono di
-personalizzare \emacs{}
-e che vanno inserite nel file di inizializzazione \verb!~/.emacs!.  Per rendere
-effettive le modifiche bisogna riavviare \emacs{}.
+personalizzare \emacs{} e che vanno inserite nel file di inizializzazione
+\verb!~/.emacs!.  Per rendere effettive le modifiche bisogna riavviare \emacs{}.
 
-Se si usa \auctex{},
-è possibile inserire macro nei propri documenti \LaTeX{}
-con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{}
-conosce le macro dei principali pacchetti \LaTeX{}
-e permette quindi l'autocompletamento con il tasto TAB.  Inoltre conosce gli
-argomenti e le opzioni che queste macro accettano, infatti usando
-\verb!C-c RET frac RET! nel documento si otterrà \verb!\frac{}{}!
-e il cursore si posizionerà all'interno del primo paio di parentesi graffe.
-Allo stesso modo, usando \verb!C-c RET sqrt RET! verrà richiesto l'ordine
-\verb!n! della radice da inserire (premere direttamente \verb!RET! per non
-inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in modo che \auctex{}
-conosca quali pacchetti \LaTeX{} sono stati caricati bisogna permettergli di
-effettuare il parsing dei propri documenti e questo è possibile aggiungendo nel
-proprio file \verb!.emacs! il seguente codice
+Se si usa \auctex{}, è possibile inserire macro nei propri documenti \LaTeX{}
+con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{} conosce le
+macro dei principali pacchetti \LaTeX{} e permette quindi l'autocompletamento
+con il tasto TAB.  Inoltre conosce gli argomenti e le opzioni che queste macro
+accettano, infatti usando \verb!C-c RET frac RET! nel documento si otterrà
+\verb!\frac{}{}!  e il cursore si posizionerà all'interno del primo paio di
+parentesi graffe.  Allo stesso modo, usando \verb!C-c RET sqrt RET! verrà
+richiesto l'ordine \verb!n! della radice da inserire (premere direttamente
+\verb!RET! per non inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in
+modo che \auctex{} conosca quali pacchetti \LaTeX{} sono stati caricati bisogna
+permettergli di effettuare il parsing dei propri documenti e questo è possibile
+aggiungendo nel proprio file \verb!.emacs! il seguente codice
 \begin{Verbatim}
 (setq TeX-parse-self t) ; Attiva parsing al caricamento.
-(setq TeX-auto-save t) ; Attiva parsing al salvataggio.
+(setq TeX-auto-save  t) ; Attiva parsing al salvataggio.
 \end{Verbatim}
 In questo modo verrà creata una cartella chiamata \verb!auto! nella stessa
 directory in cui si trova il documento nella quale verranno registrate le
-informazioni relative al proprio documento \LaTeX{},
-se non si desidera affollamento nelle proprie cartelle si potrebbe non voler
-attivare queste due opzioni.
+informazioni relative al proprio documento \LaTeX{}, se non si desidera
+affollamento nelle proprie cartelle si potrebbe non voler attivare queste due
+opzioni.
 
-Come detto, \auctex{}
-conosce le macro dei pacchetti principali, ma naturalmente non conosce tutte i
-pacchetti.  Possiamo, però, fargli conoscere delle macro aggiuntive da
-utilizzare solo quando viene caricato nel documento \LaTeX{}
-il pacchetto che fornisce le relative macro.  Per esempio, \auctex{}
-non conosce le macro messe a disposizione dal pacchetto \verb!siunitx!.  Con
-il seguente codice da aggiungere nel file \verb!.emacs! apprenderà che questo
-pacchetto fornisce i comandi \verb!SI!, \verb!si! e \verb!num! di cui il
-primo accetta due argomenti, gli ultimi due solo uno:
+Come detto, \auctex{} conosce le macro dei pacchetti principali, ma naturalmente
+non conosce tutte i pacchetti.  Possiamo, però, fargli conoscere delle macro
+aggiuntive da utilizzare solo quando viene caricato nel documento \LaTeX{} il
+pacchetto che fornisce le relative macro.  Per esempio, \auctex{} non conosce le
+macro messe a disposizione dal pacchetto \verb!siunitx!.  Con il seguente codice
+da aggiungere nel file \verb!.emacs! apprenderà che questo pacchetto fornisce i
+comandi \verb!SI!, \verb!si! e \verb!num! di cui il primo accetta due argomenti,
+gli ultimi due solo uno:
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
     "siunitx"
     (lambda ()
       (TeX-add-symbols
-       '("SI"  2)
-       '("si"  1)
+       '("SI" 2)
+       '("si" 1)
        '("num" 1)))))
 \end{Verbatim}
-A volte in un documento \LaTeX{}
-non si carica un certo pacchetto \verb!A! poiché è automaticamente caricato da
-un altro pacchetto \verb!B! che viene esplicitamente caricato.  In questi casi,
-però, \auctex{}
-potrebbe non rendersi conto che il pacchetto \verb!A! è stato effettivamente
-caricato e non fornirebbe le funzioni di autocompletamento per le macro del
-pacchetto \verb!A!, se è uno di quelli supportati.  Per ovviare a questo
-problema è possibile inserire il seguente codice nel file di inizializzazione
+A volte in un documento \LaTeX{} non si carica un certo pacchetto \verb!A!
+poiché è automaticamente caricato da un altro pacchetto \verb!B! che viene
+esplicitamente caricato.  In questi casi, però, \auctex{} potrebbe non rendersi
+conto che il pacchetto \verb!A! è stato effettivamente caricato e non fornirebbe
+le funzioni di autocompletamento per le macro del pacchetto \verb!A!, se è uno
+di quelli supportati.  Per ovviare a questo problema è possibile inserire il
+seguente codice nel file di inizializzazione
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -373,8 +363,8 @@ problema è possibile inserire il seguente codice nel file di inizializzazione
 \end{Verbatim}
 Per esempio, il pacchetto \verb!kpfonts! carica automaticamente il pacchetto
 \verb!amsmath! e non è quindi necessario inserire nel proprio sorgente \LaTeX{}
-l'istruzione \verb!\usepackage{amsmath}!.  Per far sapere ad \auctex{}
-questa situazione si userà il codice
+l'istruzione \verb!\usepackage{amsmath}!.  Per far sapere ad \auctex{} questa
+situazione si userà il codice
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -383,23 +373,21 @@ questa situazione si userà il codice
       (TeX-run-style-hooks "amsmath"))))
 \end{Verbatim}
 
-Se si è soliti suddividere i propri documenti \LaTeX{}
-in più file da includere nel file principale con i comandi \verb!\input! o
-\verb!\include! può essere utile aggiungere al file \verb!.emacs!
+Se si è soliti suddividere i propri documenti \LaTeX{} in più file da includere
+nel file principale con i comandi \verb!\input! o \verb!\include! può essere
+utile aggiungere al file \verb!.emacs!
 \begin{Verbatim}
 (setq-default TeX-master nil)
 \end{Verbatim}
-In questo modo, all'apertura dei documenti \LaTeX{}
-\emacs{}
-chiederà qual è il file principale associato e sul quale saranno eseguiti i
-comandi di compilazione.
+In questo modo, all'apertura dei documenti \LaTeX{} \emacs{} chiederà qual è il
+file principale associato e sul quale saranno eseguiti i comandi di
+compilazione.
 
-Se si usa spesso \LaTeX{}
-per comporre documenti matematici potrebbe essere utile attivare la modalità
-\verb!LaTeX-math-mode! con \verb!C-c ~! oppure con il comando
-\verb!M-x LaTeX-math-mode!.  In questo modo, per esempio, per inserire il
-simbolo \verb!\alpha! si potrà usare la scorciatoia \verb!` a!.  L'elenco delle
-altre scorciatoie per inserire i simboli può essere consultato dal menu
+Se si usa spesso \LaTeX{} per comporre documenti matematici potrebbe essere
+utile attivare la modalità \verb!LaTeX-math-mode! con \verb!C-c ~! oppure con il
+comando \verb!M-x LaTeX-math-mode!.  In questo modo, per esempio, per inserire
+il simbolo \verb!\alpha! si potrà usare la scorciatoia \verb!` a!.  L'elenco
+delle altre scorciatoie per inserire i simboli può essere consultato dal menu
 \verb!Math! nella barra dei menu.  Per attivare automaticamente questa modalità
 ogni volta che si apre un documento \LaTeX{} bisogna aggiungere
 \begin{Verbatim}
@@ -415,9 +403,9 @@ aggiunto al proprio \verb!.emacs!, permette di inserire automaticamente una
 coppia di parentesi graffe \verb!{}! quando si scrivono i simboli \verb!_! e
 \verb!^! in modalità matematica.
 
-Normalmente, quando si preme \verb!RET! in un sorgente \LaTeX{}
-viene semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la
-nuova linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
+Normalmente, quando si preme \verb!RET! in un sorgente \LaTeX{} viene
+semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la nuova
+linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
 \verb!RET!.  Si può però fare in modo che si ottenga questo risultato anche
 premendo normalmente \verb!RET! aggiungendo il seguente codice al file di
 inizializzazione
@@ -430,38 +418,37 @@ indentata.
 
 \section{Correttore ortografico}
 \label{sec:corr}
-Per abilitare \emacs{} a lavorare con la lingua italiana, bisogna
-installare il correttore ortografico. Le procedure, poiché differenti,
-vengono di seguito esposte per tutti e tre i sistemi operativi.  L'uso
-è ovviamente invariante.
 
-Per poter fare una \emph{revisione} del proprio file, bisogna
-digitare:
-\begin{Verbatim}
-M-x ispell
-\end{Verbatim}
-in questo modo il dizionario proporrà in sequenza, la correzione dei
-termini che trova errati; un secondo modo, per scrivere correttamente,
-è attivare la modalità \emph{flyspell} (correzione al volo,
-interattiva). Se la si vuole attivare solo sul documento corrente
-basta andare in:
-\begin{Verbatim}
-Tools > Spell Checking > Automatic spell checking (Flyspell)
-\end{Verbatim}
-se invece la si vuole tenere sempre abilitata, basta aggiungere la
-riga:
+Per abilitare \emacs{} e \auctex{} a lavorare con la lingua italiana bisogna
+installare il correttore ortografico. Le procedure, poiché differenti, vengono
+di seguito esposte per tutti e tre i sistemi operativi.  L'uso, invece è
+invariante.
+
+Per fare una revisione del documento che si sta scrivendo, bisogna premere la
+combinazione di tasti \verb!M-x! e scrivere \verb!ispell!: in questo modo il
+dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
+
+Un secondo modo, per scrivere correttamente, è attivare la modalità
+\emph{flyspell} (correzione al volo). Se la si vuole attivare solo sul documento
+corrente basta andare in \texttt{Tools > Spell Checking > Automatic spell
+  checking (Flyspell)}; se invece la si vuole tenere sempre abilitata si deve
+aggiungere la riga:
 \begin{Verbatim}
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 \end{Verbatim}
-al proprio file \emph{.emacs}. Quando viene rilevata una parola
-potenzialmente sbagliata, questa verrà visualizzata in rosso. La
-correzione può essere fatta a mano o con la combinazione \verb!M-$!,
-la quale proporrà possibili soluzioni.
+al proprio file \emph{.emacs}.
+
+Quando viene rilevata una parola potenzialmente non corretta, questa verrà
+colorata (in genere) in rosso. Alcuni termini, però, vengono segnalati come
+errati anche quando sono corretti, cosa che accade perché quel termine non è
+presente nel dizionario: si può aggiungerlo, premendo il tasto centrale del
+mouse quando questo è posizionato sulla parola e scegliere \texttt{Save word}.
 
 \subsection{Windows}
 \label{sec:aspellwin}
-Per installare il correttore ortografico in ambiente Windows, si può
-usare il programma GNU Aspell
+
+Per usare il correttore ortografico in \emacs, su un sistema operativo Windows,
+si può installare il programma GNU Aspell
 \sito{http://aspell.net/win32/}{GNU Aspell - Win32 version}. L'ultima
 versione stabile per Windows, seppur datata Dicembre 2002, è la 0.50-3.
 
@@ -470,7 +457,7 @@ riportati; si badi bene ad installarli nell'ordine in cui vengono
 dati:
 
 \begin{enumerate}
-\item l'installer completo
+\item il programma completo
   \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
   {Aspell-0-50-3-3-Setup.exe} (che rappresenta il programma
   vero e proprio);
@@ -479,21 +466,18 @@ dati:
   {Aspell-it-0.50-2-3.exe}.
 \end{enumerate}
 
-Alla stessa pagina di questi file sono disponibili tanti altri
-dizionari precompilati, più o meno aggiornati, di altre lingue.
-
-Resta qualche altra operazione da fare. Come prima cosa si deve
-copiare il percorso della cartella dove sono contenuti gli eseguibili
-di Aspell nella \textsf{PATH} di Windows. Secondo, aggiungere al
-proprio \emph{.emacs} le seguenti righe di codice:
-
+Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
+percorso della cartella dove sono contenuti gli eseguibili di Aspell nella
+variabile d'ambiente \textsf{PATH} di Windows. Secondo, aggiungere al proprio
+\emph{.emacs} le seguenti righe di codice:
 \begin{Verbatim}
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-extra-args '("--reverse"))
 (setq ispell-dictionary "italiano")
 \end{Verbatim}
-dove la seconda riga di codice serve a \emph{fixare} dei problemi con
-le versioni precedenti.
+dove, la prima e la terza sono quelle strettamente necessarie, mentre la seconda
+riga serve a risolvere dei problemi con le versioni precedenti di
+\emacs. % SICURO??? CHIEDERE
 
 \subsection{GNU/Linux}
 \label{sec:aspelllinux}
@@ -884,25 +868,20 @@ compilati.
 
 \vfill
 \phantomsection
-\addcontentsline{toc}{section}{Licenza d'uso}
+\addcontentsline{toc}{section}{Licenza d'uso \& Colophon}
 \section*{Licenza d'uso \& Colophon}
 \label{sec:lic}
 
-\mettifigura{\includegraphics[height=19pt]{by-nc-sa}\hspace{2mm}}\noindent
-Quest'opera è soggetta alla Creative Commons Public License versione
-3.0 o posteriore: Attribuzione - Non commerciale - Condividi allo
-stesso modo. L'enunciato integrale della Licenza in versione 3.0 è
-reperibile sul sito ufficiale
-\sito{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}%
-     {CC By-Nc-Sa}.\\
+Quest'opera è soggetta alla Creative Commons Public License versione 3.0 o
+posteriore: \emph{Attribuzione}, \emph{Non Commerciale}, \emph{Condividi} allo
+stesso modo. L'enunciato integrale della licenza è reperibile sul sito ufficiale
+(\url{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}).\\%
 
-\mettifigura{%
-  \includegraphics[height=19pt, width=54.3pt]{gitlogo}\hspace{2mm}}\noindent 
-La realizzazione di questo lavoro a sei mani si è resa possibile grazie al
-sistema di controllo di versione Git~\sito{http://git-scm.com/}{Git - Fast
-  Version Control System}. È gradita la segnalazione di errori o refusi.Per
-poter collaborare si può clonare il progetto tramite il sito Gitorius con 
-\verb!git clone git://gitorious.org/emacs-tutorial/emacs-tutorial.git!
+\noindent La realizzazione di questo lavoro a sei mani si è resa possibile
+grazie al sistema di controllo di versione Git (\url{http://git-scm.com}). Per
+poter collaborare si può clonare il progetto tramite il sito Gitorius con %
+\verb!git clone git://gitorious.org/emacs-tutorial/emacs-tutorial.git!. È
+gradita la segnalazione di errori o refusi.
 \end{document}
 
 %%% Local Variables:
