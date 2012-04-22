@@ -538,30 +538,29 @@ Come ultima cosa è necessario configurare \emacs\ aggiungendo al
 \section{Ricerca diretta-inversa}
 \label{sec:ricdirinv}
 
-Una delle principali funzioni che spesso l'utente \LaTeX{} cerca nel
-proprio editor, è quella della ricerca diretta-inversa, molto utile in
-fase di revisione finale del proprio documento, e specie quando
-quest'ultimo abbastanza corposo.
+Una delle principali funzioni che spesso gli utenti di \LaTeX{} cercano nel
+proprio editor è quella della ricerca diretta-inversa, molto utile in fase di
+revisione finale del proprio documento, e specie quando quest'ultimo è
+abbastanza corposo.
 
-Alcuni editor di testo hanno un visualizzatore integrato
-preconfigurato per effettuare la ricerca dal sorgente tex al file pdf
-e viceversa, come per esempio \TeX works; altri, come \emacs,
+Alcuni editor di testo hanno un visualizzatore integrato già configurato per
+effettuare la ricerca dal file sorgente tex al documento pdf e viceversa, come
+per esempio \TeX works, \TeX maker e qualche altro; altri, come \emacs,
 richiedono alcuni passaggi per arrivare allo scopo.
 
-Le procedure per abilitare tale funzione in \emacs{} variano per i tre
-sistemi operativi, ma non solo, variano anche i visualizzatori che
-permettono tale funzione infatti in ambiente Windows, l'unico
-visualizzatore capace di fare questo è SumatraPDF,
-\textcolor{red}{in ambiente Linux si può usare [\ldots]}, mentre in
-ambiente Mac OS si usa Skim.
+Le procedure per usare tale funzione in \emacs{} variano per i tre sistemi
+operativi citati in questa guida, quindi, come per le altre funzioni, saranno
+descritte in altrettanti paragrafi. A questo si deve aggiungere anche il
+visualizzatore che si presta per questa funzione non è unico: in ambiente
+Windows si utilizzerà SumatraPDF, \textcolor{red}{in ambiente Linux si può usare
+  [\ldots]}, mentre in ambiente Mac OS si usa Skim.
 
 \subsection{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
-Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug
-che da tempo segue il programma \emacs{} su Windows, in particolare i
-sistemi Windows Vista e Seven (su Xp non dovrebbero esserci problemi),
-ovvero il problema che si ha quando si abilita il server in
-emacs. % Specificare?
+Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che da tempo
+segue il programma \emacs{} su Windows, in particolare i sistemi Windows Vista e
+Seven (su Xp non dovrebbero esserci problemi), ovvero il problema che si ha
+quando si abilita il server in emacs. % Specificare?
 
 La soluzione a tale problema è riportata in~\parencite{emacsW32:wiki}
 alla voce
@@ -614,8 +613,8 @@ C:/Programmi/emacs/bin/site-lisp
 (require 'sumatra-forward)
 \end{Verbatim}
 ed infine accertarsi di avere nella cartella degli eseguibili di
-\emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da
-\sito{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}{ddeclient}.
+\emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da %
+\url{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}.
 
 Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio
