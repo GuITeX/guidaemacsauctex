@@ -550,10 +550,10 @@ richiedono alcuni passaggi per arrivare allo scopo.
 
 Le procedure per usare tale funzione in \emacs{} variano per i tre sistemi
 operativi citati in questa guida, quindi, come per le altre funzioni, saranno
-descritte in altrettanti paragrafi. A questo si deve aggiungere anche il
-visualizzatore che si presta per questa funzione non è unico: in ambiente
-Windows si utilizzerà SumatraPDF, \textcolor{red}{in ambiente Linux si può usare
-  [\ldots]}, mentre in ambiente Mac OS si usa Skim.
+descritte in altrettanti paragrafi. A questo si deve aggiungere anche una nota
+sul visualizzatore che si presta per questa funzione in quanto non è unico: in
+ambiente Windows si usa SumatraPDF, \textcolor{red}{in ambiente Linux si
+  può usare [\ldots]}, mentre in ambiente Mac OS si usa Skim.
 
 \subsection{Ricerca diretta-inversa su Windows}
 \label{sec:fiswin}
@@ -708,66 +708,65 @@ aggiungere queste righe al file \emph{.emacs}
 \subsection{Introduzione}
 \label{skelintro}
 
-La \emph{skeleton mode} è uno speciale (ma potente) minilinguaggio,
-scritto in Elisp (un dialetto di Lisp) ed incluso di default in
-\emacs. Maggiori informazioni si possono ottenere digitando
-\verb!C-h i d m Autotype! in \emacs.
+La \emph{skeleton mode} è uno speciale (ma potente) minilinguaggio, scritto in
+Elisp (un dialetto di Lisp) ed incluso di default in \emacs. Maggiori
+informazioni si possono ottenere digitando \verb!C-h i d m Autotype! in \emacs.
 
-La \emph{skeleton mode} permette in maniera molto semplice di crearsi
-dei blocchi di codice (che magari si usano spesso) e di associare a
-questi una combinazione di tasti per richiamarli nel proprio
-documento.
+La \emph{skeleton mode} permette in maniera molto semplice di crearsi dei
+blocchi di codice (che magari si usano spesso) e di associare a questi una
+combinazione di tasti per richiamarli nel proprio documento. Ad un livello
+successivo, si può anche usare questo linguaggio per creare dei veri e propri
+\emph{templates}. Lo vedremo più avanti.
 
-Ad un livello successivo, si può anche usare questo linguaggio per
-creare dei veri e propri \emph{templates}. Lo vedremo più avanti.
-
-Per semplicità, per mostrarne l'uso, vengono di seguito riportati
-degli esempi presi da una discussione sul forum del GuIT %% Il simbolo
-                                %% del pacchetto da dei warning
-
-I codici si
-commentano quasi da soli:
+Per semplicità, per mostrarne l'uso, vengono di seguito riportati degli esempi
+presi da una discussione sul forum del \guit; i codici si commentano quasi da
+soli:
 \begin{Verbatim}
-(define-skeleton TeX-dollar-sign-skeleton "Make a pair of dollar
-  signs and leave point inside" nil "$"_"$" )
+(define-skeleton TeX-dollar-sign-skeleton
+  "Make a pair of dollar"
+  "signs and leave point inside" nil
+  "$"_"$" )
 
-(global-set-key (kbd "C-x e") 'Tex-dollar-sign-skeleton)
-
-(define-skeleton TeX-square-skeleton "Make a pair of square brackets
-  and leave point inside" nil "\\[" \n _\n "\\]" )
+(global-set-key (kbd "C-x e") 'TeX-dollar-sign-skeleton)
+\end{Verbatim}
+e
+\begin{Verbatim}
+(define-skeleton TeX-square-skeleton
+  "Make a pair of square brackets"
+  "and leave point inside" nil
+  "\\[" \n _\n "\\]" )
 
 (global-set-key (kbd "C-x s") 'TeX-square-skeleton
 \end{Verbatim}
-Nella prima riga si dichiara lo \emph{scheletro} con un nome, che
-verrà poi utilizzato per poterlo richiamare nel codice. Segue quindi
-una breve descrizione (facoltativa ma consigliata), e poi il codice
-vero e proprio. Infine con \verb!global-set-key! viene creata una
-combinazione di tasti personali per richiamare lo \emph{scheletro}.
+Nella prima riga si dichiara lo \emph{scheletro} con un nome, che verrà poi
+utilizzato per poterlo richiamare nel codice. Segue quindi una breve descrizione
+(facoltativa ma consigliata), e poi il codice vero e proprio. Infine con
+\verb!global-set-key! viene creata una combinazione di tasti personali per
+richiamare lo \emph{scheletro}.
 
-Gli esempi appena mostrati sono veramente semplici e forse se ne
-potrebbe fare a meno, ma servono per far capire con quanta semplicità
-si possono \emph{automatizzare} certe operazioni.
+% Gli esempi appena mostrati sono veramente semplici e forse se ne potrebbe fare
+% a meno, ma servono per far capire con quanta semplicità si possono
+% \emph{automatizzare} certe operazioni.
 
 \subsection{Templates}
 \label{sec:skeltempl}
 
-Talvoltà può capitare di dover scrivere documenti che hanno una forma
-molto simile tra loro, o che, all'opposto, utilizziamo così raramente
-che averne un modello \emph{pronto uso} risulterebbe davvero comodo.
+Talvoltà può capitare di dover scrivere documenti che hanno una forma molto
+simile tra loro, o che, all'opposto, utilizziamo così raramente che averne un
+modello \emph{pronto uso} risulterebbe davvero comodo.
 
-Ecco che allora ci viene in mente di creare un file, un \emph{modello
-  di documento} già configurato, da richiamare nel nostro editor
-preferito.
+Ecco che allora ci viene in mente di creare un file, un \emph{modello di
+  documento} già configurato, da richiamare nel nostro editor preferito.
 
 Per \emacs{} esistono diversi pacchetti che consentono di creare
-\emph{template}, ognuno dei quali richiede una installazione. Per fare
-questo possiamo invece avvalerci anche della \emph{skeleton mode}
-inclusa già in \emacs{}.
+\emph{template}, ognuno dei quali richiede una installazione. Per fare questo
+possiamo invece avvalerci anche della \emph{skeleton mode} inclusa già in
+\emacs{}.
 
-Supponiamo di voler creare un \emph{modello di lettera} da usare
-velocemente all'occorrenza. Lo \emph{scheletro} di codice che verrà
-incluso nel documento va appunto nel file \emph{.emacs}. Un prototipo
-semplice potrebbe essere il seguente:
+Supponiamo di voler creare un \emph{modello di lettera} da usare velocemente
+all'occorrenza. Lo \emph{scheletro} di codice che verrà incluso nel documento va
+appunto nel file \emph{.emacs}. Un prototipo semplice potrebbe essere il
+seguente:
 
 \begin{Verbatim}
 (define-skeleton LaTeX-skeleton-letter "Inserts a Latex letter
@@ -787,27 +786,24 @@ buffers."  "Destinatario: "
 "\\end{document}\n")
 \end{Verbatim}
 
-Come già detto dopo aver dichiarato il nome dello \emph{scheletro}
-seguono una o due (o a piacere) righe di commento. La riga:
+Come già detto dopo aver dichiarato il nome dello \emph{scheletro} seguono una o
+due (o a piacere) righe di commento. La riga:
 \begin{Verbatim}
 "Destinatario: "
 \end{Verbatim}
-è una riga di prompt che userà il \emph{minibuffer} per interagire con
-l'utente quando verrà letto (o trovato) il simbolo \verb!str! nel
-codice; il valore inserito dall'utente verrà proprio sostituito a
-\verb!str!.
+è una riga di prompt che userà il \emph{minibuffer} per interagire con l'utente
+quando verrà letto (o trovato) il simbolo \verb!str! nel codice; il valore
+inserito dall'utente verrà proprio sostituito a \verb!str!.
 
-Il simbolo '\_' indica la posizione dove verrà posto il cursore quando
-il codice \emph{skeleton} è completamente inserito.
+Il simbolo '\_' indica la posizione dove verrà posto il cursore quando il codice
+\emph{skeleton} è completamente inserito.
 
-Il codice che si vuole inserire va sempre tra due doppi apici, i
-comandi vanno preceduti da un \emph{backslash} e per ritornare a capo
-si usa \verb!\n!.
+Il codice che si vuole inserire va sempre tra due doppi apici, i comandi vanno
+preceduti da un \emph{backslash} e per ritornare a capo si usa \verb!\n!.
 
-Infine, come precedentemente detto, si può richiamare il \emph{codice
-  pronto uso} con una combinazione di tasti personale, ad esempio se
-si vuole usare la combinazione \verb!C-c l!, bisogna scrivere nel file
-\emph{.emacs}:
+Infine, come precedentemente detto, si può richiamare il \emph{codice pronto
+  uso} con una combinazione di tasti personale, ad esempio se si vuole usare la
+combinazione \verb!C-c l!, bisogna scrivere nel file \emph{.emacs}:
 \begin{Verbatim}
 (global-set-key "\C-cl" 'LaTeX-skeleton-letter)
 \end{Verbatim}
