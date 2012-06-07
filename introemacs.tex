@@ -7,6 +7,10 @@
 
 \usepackage{preambolo,lipsum}
 
+%% BEGIN TEMP
+\usepackage{menukeys}
+%% END TEMP
+
 \begin{document}\maketitle
 \begin{abstract}
   \noindent In questo articolo vengono brevemente presentati il
@@ -430,8 +434,11 @@ dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
 
 Un secondo modo, per scrivere correttamente, è attivare la modalità
 \emph{flyspell} (correzione al volo). Se la si vuole attivare solo sul documento
-corrente basta andare in \texttt{Tools > Spell Checking > Automatic spell
-  checking (Flyspell)}; se invece la si vuole tenere sempre abilitata si deve
+corrente basta andare in %
+\menu[,]{Tools,Spell Checking,Automatic spel  checking (Flyspell)};
+%\texttt{Tools > Spell Checking > Automatic spell
+%  checking (Flyspell)}; %
+se invece la si vuole tenere sempre abilitata si deve
 aggiungere la riga:
 \begin{Verbatim}
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -625,11 +632,10 @@ diretta inversa, e per farlo si possono scrivere nel proprio
 (setq TeX-source-correlate-start-server t)
 \end{Verbatim}
 
-Per la ricerca inversa basta premere il tasto \textsf{F8} e nel
-visualizzatore verrà evidenziata la riga corrispondente; per le
-ricerca diretta invece, basta fare doppio click nel visualizzatore e
-nel file .tex il cursore si sposterà all'inizio della riga che
-contiene quella parola.
+Per la ricerca inversa basta premere il tasto \textsf{F8} e nel visualizzatore
+verrà evidenziata la riga corrispondente; per le ricerca diretta invece, basta
+fare doppio click nel visualizzatore e nel file .tex il cursore si sposterà
+all'inizio della riga che contiene quella parola.
 
 Si vuole infine dare un suggerimento al lettore, qualora
 \textsf{SumatraPDF} non sia il proprio visualizzatore
