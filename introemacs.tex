@@ -7,11 +7,26 @@
 
 \usepackage{preambolo,lipsum}
 
-%% BEGIN TEMP
-\usepackage{menukeys}
-%% END TEMP
+%%% TEMP
+\newcommand*{\myDraft}[1]{{%
+    \sffamily\LARGE%
+    \textcolor{blue!50}{\autori\ --- \textbf{BOZZA: \today}. %
+      Per informazioni:
+      \sito{http://www.guitex.org/home/it/forum/6-altri-programmi/67205-gnu-emacs-lavori-in-corso\#67205}{GNU
+        Emacs - Lavori in corso}}}}%
 
-\begin{document}\maketitle
+\usepackage{eso-pic} 
+\AddToShipoutPictureBG{%
+  \begin{picture}(0,0)\unitlength=1cm\relax
+   \put(1,0.2){\rotatebox{90}{\makebox(0,0)[l]{\myDraft}}}
+  \end{picture}%
+}
+%%% TEMP
+
+\begin{document}
+
+
+\maketitle
 \begin{abstract}
   \noindent In questo articolo vengono brevemente presentati il
   programma \emacs{} ed il pacchetto \auctex{} per le principali
@@ -289,8 +304,7 @@ Come visualizzatore principale si utilizza
 e inversa dal pdf, i dettagli sulla configurazione di \emacs{} e Skim sono
 riportati nel paragrafo \ref{sec:fismac}.
 
-\section{Personalizzare \emacs{} \& \auctex} % titolo cambiato per avere un
-% effetto migliore nell'indice, ma in realtà non mi piace
+\section{Personalizzare \emacs{} \& \auctex}
 \label{sec:personal}
 
 Una delle caratteristiche principali di \emacs{} è che è un editor di testo
@@ -301,7 +315,7 @@ personalizzazioni che possono risultare utili quando si lavora con documenti
 dialetto del Lisp sviluppato appositamente per \emacs{}.
 
 Per modificare le impostazioni relative alla gestione nativa di \TeX{} da parte
-di \emacs{} è possibile usare la funzione
+di \emacs{} è possibile usare la funzione 
 \verb!M-x customize-group RET tex RET!.  In questo modo si aprirà un buffer nel quale sarà possibile modificare,
 tramite l'interfaccia, le opzioni desiderate.  Per modificare in particolare
 \auctex{} è possibile usare la funzione
@@ -434,11 +448,8 @@ dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
 
 Un secondo modo, per scrivere correttamente, è attivare la modalità
 \emph{flyspell} (correzione al volo). Se la si vuole attivare solo sul documento
-corrente basta andare in %
-\menu[,]{Tools,Spell Checking,Automatic spel  checking (Flyspell)};
-%\texttt{Tools > Spell Checking > Automatic spell
-%  checking (Flyspell)}; %
-se invece la si vuole tenere sempre abilitata si deve
+corrente basta andare in \texttt{Tools > Spell Checking > Automatic spell
+  checking (Flyspell)}; se invece la si vuole tenere sempre abilitata si deve
 aggiungere la riga:
 \begin{Verbatim}
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
