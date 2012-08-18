@@ -7,13 +7,16 @@
 
 \usepackage{preambolo,lipsum}
 
+%%%
 %%% TEMP
+%%%
 \newcommand*{\myDraft}[1]{{%
-    \sffamily\LARGE%
-    \textcolor{blue!50}{\autori\ --- \textbf{BOZZA: \today}. %
-      Per informazioni:
-      \sito{http://www.guitex.org/home/it/forum/6-altri-programmi/67205-gnu-emacs-lavori-in-corso\#67205}{GNU
-        Emacs - Lavori in corso}}}}%
+ \sffamily\LARGE%
+  \textcolor{blue!50}{\autori\ --- \textbf{BOZZA: \today}. %
+  Per informazioni:
+  \sito{http://www.guitex.org/home/it/forum/6-altri-programmi/67205-gnu-emacs-lavori-in-corso\#67205}{GNU
+  Emacs - Lavori in corso}}}
+}%
 
 \usepackage{eso-pic} 
 \AddToShipoutPictureBG{%
@@ -21,10 +24,11 @@
    \put(1,0.2){\rotatebox{90}{\makebox(0,0)[l]{\myDraft}}}
   \end{picture}%
 }
+%%%
 %%% TEMP
+%%%
 
 \begin{document}
-
 
 \maketitle
 \begin{abstract}
