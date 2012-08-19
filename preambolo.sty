@@ -5,14 +5,13 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english,italian]{babel}
 
-% Caratteri
-\usepackage{tgtermes}            %[Serif Fonts]
-\usepackage[scale=0.85]{tgheros} %[Sans Serif Fonts]
-\usepackage{tgcursor}            %[Typewriter Fonts]
+% \usepackage{tgtermes}            %[Serif Fonts]
+% \usepackage[scale=0.85]{tgheros} %[Sans Serif Fonts]
+% \usepackage{tgcursor}            %[Typewriter Fonts]
 
-% \renewcommand{\rmdefault}{ptm}
-% \RequirePackage[scaled=0.890]{helvet}
-% \RequirePackage[scaled=0.850]{beramono}
+\renewcommand{\rmdefault}{ptm}
+\RequirePackage[scaled=0.890]{helvet}
+\RequirePackage{courier}
 \RequirePackage{microtype}
 
 \RequirePackage[%
@@ -38,7 +37,7 @@
 
 \usepackage{fancyvrb}
 \fvset{%
-  frame=single,%
+  %frame=single,%
   fontsize=\small,%
 }
 
@@ -68,24 +67,24 @@
 }
 
 
-\newcommand{\emacs}{Emacs}
-\newcommand{\auctex}{AUC\TeX{}}
-\newcommand{\simbolo}{{\small\Mundus}}
-\newcommand{\sito}[2]{(\href{#1}{\simbolo\ \scshape#2})}
-\newcommand{\script}{}  % TODO
-\newcommand{\extname}{} % TODO
-\newcommand{\prgname}{} % TODO
+\providecommand{\emacs}{Emacs}
+\providecommand{\auctex}{AUC\TeX{}}
+\providecommand{\simbolo}{{\small\Mundus}}
+\providecommand{\sito}[2]{(\href{#1}{\simbolo\ \scshape#2})}
+\providecommand{\script}{}  % TODO
+\providecommand{\extname}{} % TODO
+\providecommand{\prgname}{} % TODO
 
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
 
-\newlength\dimfig
-\newcommand*\mettifigura[1]{%
-\par\noindent
-\setbox\z@\hbox{#1}%
-\dimfig=\wd\z@%
-\hangindent\dimfig\hangafter-2\relax
-\raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
+% \newlength\dimfig
+% \newcommand*\mettifigura[1]{%
+% \par\noindent
+% \setbox\z@\hbox{#1}%
+% \dimfig=\wd\z@%
+% \hangindent\dimfig\hangafter-2\relax
+% \raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
 
 %%% Local Variables:
 %%% mode: latex
