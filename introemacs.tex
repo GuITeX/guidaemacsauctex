@@ -12,7 +12,7 @@
 %%%
 \newcommand*{\myDraft}[1]{{%
  \sffamily\LARGE%
-  \textcolor{blue!50}{\autori\ --- \textbf{BOZZA: \today}. %
+  \textcolor{blue}{\textbf{BOZZA: \today}. %
   Per informazioni:
   \sito{http://www.guitex.org/home/it/forum/6-altri-programmi/67205-gnu-emacs-lavori-in-corso\#67205}{GNU
   Emacs - Lavori in corso}}}
@@ -21,7 +21,7 @@
 \usepackage{eso-pic} 
 \AddToShipoutPictureBG{%
   \begin{picture}(0,0)\unitlength=1cm\relax
-   \put(1,0.2){\rotatebox{90}{\makebox(0,0)[l]{\myDraft}}}
+   \put(1,5){\rotatebox{90}{\makebox(0,0)[l]{\myDraft}}}
   \end{picture}%
 }
 %%%
@@ -911,7 +911,7 @@ stesso modo. L'enunciato integrale della licenza è reperibile sul sito ufficial
 
 \noindent La realizzazione di questo lavoro a sei mani si è resa possibile
 grazie al sistema di controllo di versione Git (\url{http://git-scm.com}). Per
-poter collaborare si può clonare il progetto tramite il sito Gitorius con %
+poter collaborare si può clonare il progetto con %
 \verb!git clone git://gitorious.org/emacs-tutorial/emacs-tutorial.git!. È
 gradita la segnalazione di errori o refusi.
 \end{document}
