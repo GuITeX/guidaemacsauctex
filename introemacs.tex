@@ -1,3 +1,16 @@
+%%  Copyright (C) 2012 M. Giordano, O. Iovino, M. Leccardi
+%%  
+%%  This program is free software; you can redistribute it and/or modify
+%%  it under the terms of the GNU General Public License as published by
+%%  the Free Software Foundation; either version 3 of the License, or
+%%  (at your option) any later version.
+%%  
+%%  This program is distributed in the hope that it will be useful,
+%%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%%  GNU General Public License for more details.
+
+
 \listfiles
 \documentclass[11pt,a4paper]{article}
 
@@ -50,6 +63,8 @@
 \section{Introduzione}
 \label{sec:intro}
 
+
+
 \textcolor{red}{\lipsum[1]}
 
 Lo sviluppo di \emacs{} è iniziato negli anni 1970 ai laboratori di Intelligenza
@@ -76,18 +91,22 @@ bisogna usare la combinazione \verb!M-x! si dovranno premere contemporaneamente
 il tasto \verb!Alt! e la lettera \verb!x! oppure premere il tasto \verb!Esc!,
 rilasciarlo e premere la lettera \verb!x!.
 
-Il manuale di \emacs{} può essere consultato all'interno dello stesso editor di
-testo con le combinazioni di tasti \verb!C-h r! (premere contemporaneamente il
-tasto \verb!Control! e la lettera \verb!h!, rilasciare questi tasti e premere la
-lettera \verb!r!) oppure \verb!C-h i d m Emacs RET! (premere contemporaneamente
-il tasto \verb!Control! e la lettera \verb!h!, rilasciare questi tasti e premere
-la lettera \verb!i!, poi la lettera \verb!d!, poi la lettera \verb!m!, poi
-scrivere \verb!Emacs! quindi premere il tasto \verb!Invio!).  Se si preferisce,
-il manuale può anche essere consultato dal menu
+Il manuale di \emacs{}~\cite{emacs:stallman} può essere consultato all'interno
+dello stesso editor di testo con le combinazioni di tasti \verb!C-h r! (premere
+contemporaneamente il tasto \verb!Control! e la lettera \verb!h!, rilasciare
+questi tasti e premere la lettera \verb!r!) oppure \verb!C-h i d m Emacs RET!
+(premere contemporaneamente il tasto \verb!Control! e la lettera \verb!h!,
+rilasciare questi tasti e premere la lettera \verb!i!, poi la lettera \verb!d!,
+poi la lettera \verb!m!, poi scrivere \verb!Emacs! quindi premere il tasto
+\verb!Invio!).  Se si preferisce, il manuale può anche essere consultato dal
+menu
 \begin{Verbatim}
 Help > Read the Emacs Manual
 \end{Verbatim}
 
+%%
+%% 2012/09/05: [TODO] PARLARE BREVEMENTE ANCHE DI AUCTEX
+%%
 
 \section{Installare \emacs}
 \label{sec:install}
@@ -118,7 +137,9 @@ cartella:
 C:/Programmi/emacs/bin
 \end{Verbatim}
 
+%%
 %% 2012/08/19: Verificare questa affermazione, su Windows 7 è così.
+%%
 A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX; l'utente
 infatti non deve specificare nessun percorso circa gli eseguibili della
 distribuzione installata: sarà \emacs{} stesso a trovarli.
@@ -228,10 +249,10 @@ Sia nell'archivio di \auctex{} che quello di \emacs, posizionato in precedenza
 nel percorso suddetto, vi è una cartella dal nome \emph{site-lisp}: i file
 contenuti in queste cartelle vanno uniti in una sola cartella.
 
-
+%%
 %% 2012/08/19: Quasta modifica dovrebbe valere per tutti e tre i sitemi operati:
-%% si potrebbe pensare di metterla in testa al paragrafo per poi specificare le
-%% procedure "vecchie".
+%%             si potrebbe pensare di metterla in testa al paragrafo per poi
+%%             specificare le procedure "vecchie".
 A partire dalla versione 24.1 si possono installare i pacchetti di estensine
 per \emacs{} direttamente da \emacs{}. Basta infatti scrivere 
 \verb!M-x list packages! e verranno visualizzati tutti i pacchetti disponibili, installati e
@@ -598,7 +619,11 @@ ambiente Windows si usa SumatraPDF, \textcolor{red}{in ambiente Linux si
 Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che da tempo
 segue il programma \emacs{} su Windows, in particolare i sistemi Windows Vista e
 Seven (su Xp non dovrebbero esserci problemi), ovvero il problema che si ha
-quando si abilita il server in emacs. % Specificare?
+quando si abilita il server in emacs. 
+
+%%
+%% 2012/09/05: SPECIFICARE QUESTA COSA
+%%
 
 La soluzione a tale problema è riportata in~\parencite{emacsW32:wiki}
 alla voce
