@@ -9,6 +9,7 @@
 *.run
 *.run.xml
 *.synctex.gz
+*.tar.gz
 *-blx.bib
 *.fdb_latexmk
 introemacs.pdf
