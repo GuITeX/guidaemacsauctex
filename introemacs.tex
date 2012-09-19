@@ -10,11 +10,10 @@
 %%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 %%  GNU General Public License for more details.
 
-
 \listfiles
 \documentclass[11pt,a4paper]{article}
 
-\title{\bfseries\titolo}
+\title{\sffamily\bfseries\titolo}
 \author{\autorea \and \autoreb \and \autorec}
 \date{\today}
 
@@ -24,17 +23,13 @@
 %%% TEMP
 %%%
 \newcommand*{\myDraft}[1]{{%
- \sffamily\LARGE%
-  \textcolor{blue}{\textbf{BOZZA: \today}. %
-  Per informazioni:
-  \sito{http://www.guitex.org/home/it/forum/6-altri-programmi/67205-gnu-emacs-lavori-in-corso\#67205}{GNU
-  Emacs - Lavori in corso}}}
-}%
+  \sffamily\Large\color{DarkRed}
+  Bozza~\the\month/\the\year\ -- \url{http://www.guitex.org/home/it/forum/6-altri-programmi/67205-gnu-emacs-lavori-in-corso\#67205}}}%
 
 \usepackage{eso-pic} 
 \AddToShipoutPictureBG{%
   \begin{picture}(0,0)\unitlength=1cm\relax
-   \put(1,5){\rotatebox{90}{\makebox(0,0)[l]{\myDraft}}}
+   \put(1,1){\rotatebox{90}{\makebox(0,0)[l]{\myDraft}}}
   \end{picture}%
 }
 %%%
@@ -45,15 +40,13 @@
 
 \maketitle
 \begin{abstract}
-  \noindent In questo articolo vengono brevemente presentati il
-  programma \emacs{} ed il pacchetto \auctex{} per le principali
-  piattaforme: Windows, GNU/Linux e Mac OS. Dopo una introduzione ai
-  programmi, verranno esposte le modalità per poter installare e
-  configurare \emacs{} e \auctex{} per poter scrivere documenti
-  \LaTeX{}. L'articolo non ha la pretesa di essere un \emph{manuale},
-  bensì un piccolo tutorial per far avvicinare gli utenti di \LaTeX{}
-  a questo programma, non così troppo complicato come spesso viene
-  indicato.
+  \noindent In questo articolo vengono brevemente presentati il programma
+  \emacs{} ed il pacchetto \auctex{} per le principali piattaforme: Windows,
+  GNU/Linux e Mac OS. Dopo una introduzione ai programmi, verranno esposte le
+  modalità per poter installare e configurare \emacs{} e \auctex{} per poter
+  scrivere documenti \LaTeX{}. L'articolo non ha la pretesa di essere un
+  manuale, bensì un piccolo tutorial per far avvicinare gli utenti di \LaTeX{} a
+  questo programma, non così troppo complicato come spesso viene indicato.
 \end{abstract}
 
 \begin{multicols}{2}
@@ -115,17 +108,14 @@ Help > Read the Emacs Manual
 \label{sec:installwin}
 
 
-Per sistemi operativi Microsoft Windows non esiste una vera e propria
-procedura di installazione. \emacs{} si può utilizzare semplicemente
-procurandosi l'archivio che contiene gli eseguibili.
+Per sistemi operativi Microsoft Windows non esiste una vera e propria procedura
+di installazione. {\emacs} si può utilizzare semplicemente procurandosi
+l'archivio che contiene gli eseguibili.
 
-Dal sito ufficiale di \emacs{} per Windows %
-\sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs\ for Windows} %
-si scarica l'archivio compresso %
-\href{http://ftp.gnu.org/pub/gnu/emacs/windows/emacs-23.4-barebin-i386.zip}
-{\textsf{emacs-23.4-barebin-i386.zip}} e lo si decomprime in una
-posizione di comodo; una buona soluzione, per esempio, è decomprimere
-il suddetto archivio in:
+All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarica
+l'archivio compresso \zipname{emacs-24.1-bin-i386.zip} e lo si decomprime in una
+posizione di comodo; una buona soluzione, per esempio, è decomprimere il
+suddetto archivio in:
 \begin{Verbatim}
 C:/Programmi/emacs/
 \end{Verbatim}
@@ -235,12 +225,9 @@ graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 \subsection{\auctex{} per Windows}
 \label{sec:auctexwin}
 
-Dal sito ufficiale di \auctex{} per Windows %
-\sito{http://www.gnu.org/software/auctex/download-for-windows.html}%
-{\auctex\ For Windows}, %
-si scarica l'archivio compresso %
-\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86-e23.2-msw.zip}%
-{\textsf{auctex-11.86-e23.2-msw.zip}} e lo si decomprime in
+All'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows}
+si scarica l'archivio compresso \zipname{auctex-11.86-e23.2-msw.zip} e lo si
+decomprime in
 \begin{Verbatim}
 C:/Programmi/emacs/
 \end{Verbatim}
@@ -253,11 +240,11 @@ contenuti in queste cartelle vanno uniti in una sola cartella.
 %% 2012/08/19: Quasta modifica dovrebbe valere per tutti e tre i sitemi operati:
 %%             si potrebbe pensare di metterla in testa al paragrafo per poi
 %%             specificare le procedure "vecchie".
-A partire dalla versione 24.1 si possono installare i pacchetti di estensine
-per \emacs{} direttamente da \emacs{}. Basta infatti scrivere 
-\verb!M-x list packages! e verranno visualizzati tutti i pacchetti disponibili, installati e
-non. \auctex, quindi, può essere installato anche in questo modo, premendo
-semplicemente su \emph{Install} dopo averlo selezionato.
+A partire dalla versione 24.1 si possono installare i pacchetti di estensine per
+\emacs{} direttamente da \emacs{}. Basta infatti scrivere
+\verb!M-x list packages! e verranno visualizzati tutti i pacchetti disponibili,
+installati e non. \auctex, quindi, può essere installato anche in questo modo,
+premendo semplicemente su \emph{Install} dopo averlo selezionato.
 
 \subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
@@ -345,7 +332,10 @@ Come visualizzatore principale si utilizza
 e inversa dal pdf, i dettagli sulla configurazione di \emacs{} e Skim sono
 riportati nel paragrafo \ref{sec:fismac}.
 
-\section{Personalizzare \emacs{} \& \auctex}
+%% 2012/09/19 : ho aggiunto il titolo breve perché con il font Latin
+%%              Modern il titolo lungo nell'indice non esce bene.  
+
+\section[Personalizzare \emacs]{Personalizzare \emacs{} \& \auctex}
 \label{sec:personal}
 
 Una delle caratteristiche principali di \emacs{} è che è un editor di testo
@@ -507,9 +497,9 @@ mouse quando questo è posizionato sulla parola e scegliere \texttt{Save word}.
 \label{sec:aspellwin}
 
 Per usare il correttore ortografico in \emacs, su un sistema operativo Windows,
-si può installare il programma GNU Aspell
-\sito{http://aspell.net/win32/}{GNU Aspell - Win32 version}. L'ultima
-versione stabile per Windows, seppur datata Dicembre 2002, è la 0.50-3.
+si può installare il programma GNU Aspell disponibile all'indirizzo
+\url{http://aspell.net/win32/}. L'ultima versione stabile per Windows, seppur
+datata Dicembre 2002, è la 0.50-3.
 
 I file che bisogna procurarsi sono quelli che vengono di seguito
 riportati; si badi bene ad installarli nell'ordine in cui vengono
@@ -517,12 +507,11 @@ dati:
 
 \begin{enumerate}
 \item il programma completo
-  \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
-  {Aspell-0-50-3-3-Setup.exe} (che rappresenta il programma
-  vero e proprio);
+      \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
+      {Aspell-0-50-3-3-Setup.exe} (che rappresenta il programma vero e proprio);
 \item il dizionario precompilato per l'italiano
-  \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
-  {Aspell-it-0.50-2-3.exe}.
+      \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
+      {Aspell-it-0.50-2-3.exe}.
 \end{enumerate}
 
 Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
@@ -536,7 +525,7 @@ variabile d'ambiente \textsf{PATH} di Windows. Secondo, aggiungere al proprio
 \end{Verbatim}
 dove, la prima e la terza sono quelle strettamente necessarie, mentre la seconda
 riga serve a risolvere dei problemi con le versioni precedenti di
-\emacs. % SICURO??? CHIEDERE
+\emacs.
 
 \subsection{GNU/Linux}
 \label{sec:aspelllinux}
@@ -619,13 +608,13 @@ ambiente Windows si usa SumatraPDF, \textcolor{red}{in ambiente Linux si
 Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che da tempo
 segue il programma \emacs{} su Windows, in particolare i sistemi Windows Vista e
 Seven (su Xp non dovrebbero esserci problemi), ovvero il problema che si ha
-quando si abilita il server in emacs. 
+quando si abilita il server in \emacs. 
 
 %%
 %% 2012/09/05: SPECIFICARE QUESTA COSA
 %%
 
-La soluzione a tale problema è riportata in~\parencite{emacsW32:wiki}
+La soluzione a tale problema è riportata in~\cite{emacsW32:wiki}
 alla voce
 \href{http://www.emacswiki.org/emacs/EmacsW32#toc49}{\emph{Waiting for
     Emacs server to start" is ownership problem on
@@ -661,7 +650,15 @@ scrivere la riga
 \begin{Verbatim}
 C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
-in \emph{Set inverse search command-line}.
+in \emph{Set inverse search command-line}. La figura~\ref{oi:fig:sumatra:setup}
+vale più di mille parole.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.50\textwidth]{SumatraPDF}
+  \caption{Impostazioni per il visualizzatore SumatraPDF.}
+  \label{oi:fig:sumatra:setup}
+\end{figure}
 
 Per la ricerca diretta si deve scaricare lo script
 sumatra-forward %
@@ -932,7 +929,7 @@ aggiungere queste righe al file \emph{.emacs}
 Quest'opera è soggetta alla Creative Commons Public License versione 3.0 o
 posteriore: \emph{Attribuzione}, \emph{Non Commerciale}, \emph{Condividi} allo
 stesso modo. L'enunciato integrale della licenza è reperibile sul sito ufficiale
-(\url{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}).\\%
+\url{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}.\\%
 
 \noindent La realizzazione di questo lavoro a sei mani si è resa possibile
 grazie al sistema di controllo di versione Git (\url{http://git-scm.com}). Per
@@ -946,7 +943,6 @@ gradita la segnalazione di errori o refusi.
 %%% coding: utf-8
 %%% TeX-master: t
 %%% fill-column: 80
-%%% reftex-default-bibliography: "biblio.bib"
 %%% End:
 
 % LocalWords:  mirror OS For dmg Git Fast Version Control System clonare git

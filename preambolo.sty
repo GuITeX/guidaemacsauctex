@@ -4,10 +4,7 @@
 \RequirePackage{textcomp}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english,italian]{babel}
-
-\renewcommand{\rmdefault}{ptm}
-\RequirePackage[scaled=0.890]{helvet}
-\RequirePackage{courier}
+\RequirePackage{lmodern}
 \RequirePackage{microtype}
 
 \RequirePackage[%
@@ -21,7 +18,7 @@
 \RequirePackage{marvosym}
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}
-\RequirePackage{xcolor}
+\RequirePackage[svgnames]{xcolor}
 \RequirePackage{guit}
 
 \RequirePackage[grid]{multicol}
@@ -33,12 +30,15 @@
 
 \usepackage{fancyvrb}
 \fvset{%
-  %frame=single,%
   fontsize=\small,%
 }
 
 \RequirePackage[babel]{csquotes}
-\RequirePackage[backend=biber]{biblatex}
+\RequirePackage[%
+  backend=biber,%
+  useprefix,%
+  natbib,%
+]{biblatex}
 \addbibresource{biblio.bib}
 
 
@@ -54,23 +54,30 @@
   pdfstartview=FitH,%
   linktocpage=true,%
   bookmarksnumbered=true,%
+  colorlinks=true,%
 ]{hyperref}
 \hypersetup{%
   pdftitle  ={\titolo},%
   pdfauthor ={\autori},%
   pdfsubject={Breve guida all'uso di GNU Emacs e AUCTeX per Windows,
               GNU Linux e Mac OS},%
-  pdfcreator={LaTeX}%
+  pdfcreator={LaTeX},%
+  linkcolor = DarkRed,%
+  citecolor = DarkRed,%
+  urlcolor = DarkRed,%
 }
 
 
 \providecommand{\emacs}{Emacs}
 \providecommand{\auctex}{AUC\TeX{}}
-\providecommand{\simbolo}{{\small\Mundus}}
-\providecommand{\sito}[2]{(\href{#1}{\simbolo\ \scshape#2})}
+%\providecommand{\simbolo}{{\small\Mundus}}
+\providecommand{\simbolo}{url:}
+\providecommand{\sito}[2]{(\href{#1}{\small\scshape\simbolo\ #2})}
+
 \providecommand{\script}{}  % TODO
 \providecommand{\extname}{} % TODO
 \providecommand{\prgname}{} % TODO
+\providecommand{\zipname}[1]{{\sffamily#1}}
 
 \setcounter{secnumdepth}{1}
 \setcounter{tocdepth}{1}
