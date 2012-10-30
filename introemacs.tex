@@ -242,7 +242,7 @@ contenuti in queste cartelle vanno uniti in una sola cartella.
 %%             specificare le procedure "vecchie".
 A partire dalla versione 24.1 si possono installare i pacchetti di estensine per
 \emacs{} direttamente da \emacs{}. Basta infatti scrivere
-\verb!M-x list packages! e verranno visualizzati tutti i pacchetti disponibili,
+\verb!M-x list-packages! e verranno visualizzati tutti i pacchetti disponibili,
 installati e non. \auctex, quindi, può essere installato anche in questo modo,
 premendo semplicemente su \emph{Install} dopo averlo selezionato.
 
@@ -267,7 +267,15 @@ OpenSUSE:
 $ sudo zypper install emacs-auctex
 \end{Verbatim}
 % $
-
+Su Debian e Ubuntu potrebbe essere raccomandata l'installazione della
+distribuzione TeX Live presente nei repository ufficiali del sistema operativo.
+Per evitare che questo avvenga, per esempio perché si utilizza una distribuzione
+TeX Live installata in altro modo, se si installa il pacchetto da terminale è
+sufficiente aggiungere l'opzione \verb|--no-install-recommends|
+\begin{Verbatim}
+$ sudo apt-get install --no-install-recommends auctex
+\end{Verbatim}
+% $
 
 \subsection{\auctex{} per Mac OS}
 \label{sec:auctexmac}
