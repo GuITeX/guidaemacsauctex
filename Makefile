@@ -1,4 +1,5 @@
 MAIN	 	= introemacs
+MAIN_TEX	= $(MAIN).tex
 ALL_TEX		= $(wildcard *.tex)
 ALL_BIB		= $(wildcard *.bib)
 TODAY		= $(shell date "+%Y%m%d")
@@ -9,7 +10,9 @@ PDF		= $(MAIN).pdf
 
 .PHONY: dist
 
+$(PDF): $(ALL_TEX) $(ALL_BIB) preambolo.sty
+	latexmk -pdf -recorder- $(MAIN_TEX)
+
 dist:
 	rm -f $(TAR_WILD)
-	tar -cf $(TAR_NAME) $(PDF)
-
+	tar -czf $(TAR_NAME) $(PDF)
