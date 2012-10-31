@@ -388,13 +388,19 @@ affollamento nelle proprie cartelle si potrebbe non voler attivare queste due
 opzioni.
 
 Come detto, \auctex{} conosce le macro dei pacchetti principali, ma naturalmente
-non conosce tutte i pacchetti.  Possiamo, però, fargli conoscere delle macro
-aggiuntive da utilizzare solo quando viene caricato nel documento \LaTeX{} il
-pacchetto che fornisce le relative macro.  Per esempio, \auctex{} non conosce le
-macro messe a disposizione dal pacchetto \verb!siunitx!.  Con il seguente codice
-da aggiungere nel file \verb!.emacs! apprenderà che questo pacchetto fornisce i
-comandi \verb!SI!, \verb!si! e \verb!num! di cui il primo accetta due argomenti,
-gli ultimi due solo uno:
+non conosce tutte i pacchetti.  Si può far in modo che \auctex{} analizzi tutti
+i file di stile della propria distribuzione \LaTeX{} eseguendo il comando
+\verb!M-x TeX-auto-generate-global!.  In questo modo verrà automaticamente
+aggiunto il supporto a tutti i pacchetti, almeno quelli non troppo complicati e
+che non siano basati su \LaTeX{}3.  L'operazione può richiedere alcuni minuti,
+soprattutto la prima volta che viene eseguito.  Per i pacchetti non
+correttamente analizzati da \auctex{}, possiamo aggiungere manualmente le macro
+da utilizzare solo quando viene caricato nel documento \LaTeX{} il pacchetto che
+fornisce le relative macro.  Per esempio, uno dei pacchetti basati su \LaTeX{}3
+è \verb!siunitx!.  Con il seguente codice da aggiungere nel file \verb!.emacs!
+apprenderà che questo pacchetto fornisce i comandi \verb!SI!, \verb!si!,
+\verb!ang! e \verb!num! di cui il primo accetta due argomenti, gli ultimi tre
+solo uno:
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -403,32 +409,40 @@ gli ultimi due solo uno:
       (TeX-add-symbols
        '("SI" 2)
        '("si" 1)
+       '("ang" 1)
        '("num" 1)))))
 \end{Verbatim}
-A volte in un documento \LaTeX{} non si carica un certo pacchetto \verb!A!
-poiché è automaticamente caricato da un altro pacchetto \verb!B! che viene
+A volte in un documento \LaTeX{} non si carica un certo pacchetto \verb!B!
+poiché è automaticamente caricato da un altro pacchetto \verb!A! che viene
 esplicitamente caricato.  In questi casi, però, \auctex{} potrebbe non rendersi
-conto che il pacchetto \verb!A! è stato effettivamente caricato e non fornirebbe
-le funzioni di autocompletamento per le macro del pacchetto \verb!A!, se è uno
-di quelli supportati.  Per ovviare a questo problema è possibile inserire il
-seguente codice nel file di inizializzazione
+conto che il pacchetto \verb!B! è stato effettivamente caricato e non fornirebbe
+le funzioni di autocompletamento per le macro del pacchetto \verb!B!, se è uno
+di quelli supportati.  Supponiamo inoltre che insieme a \verb!B!, il pacchetto
+\verb!A! carichi anche i pacchetti \verb!C! e \verb!D!.  Per ovviare a questo
+problema è possibile inserire il seguente codice nel file di inizializzazione
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
-    "B"
+    "A"
     (lambda ()
-      (TeX-run-style-hooks "B"))))
+      (TeX-run-style-hooks "B" "C" "D"))))
 \end{Verbatim}
-Per esempio, il pacchetto \verb!kpfonts! carica automaticamente il pacchetto
-\verb!amsmath! e non è quindi necessario inserire nel proprio sorgente \LaTeX{}
-l'istruzione \verb!\usepackage{amsmath}!.  Per far sapere ad \auctex{} questa
-situazione si userà il codice
+Per esempio, il pacchetto \verb!siunitx! carica automaticamente i pacchetti
+\verb!array! e \verb!amstext! e non è quindi necessario inserire nel proprio
+sorgente \LaTeX{} le istruzioni \verb!\usepackage{array}! e
+\verb!\usepackage{amstext}!.  Per far sapere ad \auctex{} questa situazione
+possiamo completare il codice precedente come segue
 \begin{Verbatim}
 (eval-after-load "tex"
   '(TeX-add-style-hook
-    "kpfonts"
+    "siunitx"
     (lambda ()
-      (TeX-run-style-hooks "amsmath"))))
+      (TeX-add-symbols
+       '("SI" 2)
+       '("si" 1)
+       '("ang" 1)
+       '("num" 1)
+      (TeX-run-style-hooks "array" "amstext")))))
 \end{Verbatim}
 
 Se si è soliti suddividere i propri documenti \LaTeX{} in più file da includere
