@@ -41,6 +41,13 @@
 ]{biblatex}
 \addbibresource{biblio.bib}
 
+\RequirePackage[os=win]{menukeys}
+\usetikzlibrary{shapes.geometric}
+% tasto Meta
+\newcommand{\Meta}{Meta
+  \tikz{\node[scale=0.5,shape=diamond,fill=black,
+    sharp corners,draw,
+    baseline=-\the\dimexpr\fontdimen22\textfont2\relax] {};}}
 
 \newcommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
 \newcommand{\autoreb}{Orlando Iovino}

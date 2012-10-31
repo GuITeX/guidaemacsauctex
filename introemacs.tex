@@ -56,10 +56,6 @@
 \section{Introduzione}
 \label{sec:intro}
 
-
-
-\textcolor{red}{\lipsum[1]}
-
 Lo sviluppo di \emacs{} è iniziato negli anni 1970 ai laboratori di Intelligenza
 Artificiale del MIT, cioè molto prima che si diffondesse l'informatica che
 conosciamo oggi.  Ciò comporta che \emacs{} utilizza una terminologia spesso
@@ -72,34 +68,46 @@ viene chiamata \emph{yanking}.
 
 \emacs{} è famoso per rendere possibile l'esecuzione di qualsiasi operazione
 usando solo la tastiera, cioè senza l'ausilio del mouse.  A ogni comando può
-essere associata una combinazione di tasti.  In questa guida seguiremo la
-notazione diffusa nel mondo di \emacs{} per indicare i tasti.  Quindi il tasto
-\verb!Control! verrà indicato con \verb!C!, l'\verb!Invio! viene indicato con
-\verb!RET!, mentre \verb!M! indica il tasto \verb!Meta!.  Sulle odierne tastiere
-questo tasto è scomparso, si può ottenere lo stesso risultato con il tasto
-\verb!Alt! oppure premendo e rilasciando il tasto \verb!Esc!.  Un trattino fra
-due tasti all'interno di una combinazione di tasti indica che i tasti vanno
-premuti contemporaneamente.  Così, quando si dirà che per eseguire un comando
-bisogna usare la combinazione \verb!M-x! si dovranno premere contemporaneamente
-il tasto \verb!Alt! e la lettera \verb!x! oppure premere il tasto \verb!Esc!,
-rilasciarlo e premere la lettera \verb!x!.
+essere associata una combinazione di tasti.  Sebbene questo fatto possa
+inizialmente spaventare, è un vero punto di forza di \emacs{}, perché permette
+di eseguire delle operazioni in maniera rapida, invece di dover spostare il
+mouse alla ricerca di appositi bottoni.  In questa guida seguiremo la notazione
+diffusa nel mondo di \emacs{} per indicare i tasti.  Quindi il tasto
+\keys{\ctrl} verrà indicato con \verb!C!, l'\keys{Invio} viene indicato con
+\verb!RET!, mentre \verb!M! indica il tasto \keys{\Meta}.  Sulle odierne
+tastiere questo tasto è scomparso, si può ottenere lo stesso risultato con il
+tasto \keys{\Alt} oppure premendo e rilasciando il tasto \keys{\esc}.  Nella
+notazione di queste scorciatoie, un trattino fra due tasti all'interno di una
+combinazione di tasti indica che i tasti vanno premuti contemporaneamente.
+Così, quando si dirà che per eseguire un comando bisogna usare la combinazione
+\verb!M-x! si dovranno premere contemporaneamente il tasto \keys{\Alt} e la
+lettera \keys{x} oppure premere il tasto \keys{\esc}, rilasciarlo e premere la
+lettera \keys{x}.
 
 Il manuale di \emacs{}~\cite{emacs:stallman} può essere consultato all'interno
 dello stesso editor di testo con le combinazioni di tasti \verb!C-h r! (premere
-contemporaneamente il tasto \verb!Control! e la lettera \verb!h!, rilasciare
-questi tasti e premere la lettera \verb!r!) oppure \verb!C-h i d m Emacs RET!
-(premere contemporaneamente il tasto \verb!Control! e la lettera \verb!h!,
-rilasciare questi tasti e premere la lettera \verb!i!, poi la lettera \verb!d!,
-poi la lettera \verb!m!, poi scrivere \verb!Emacs! quindi premere il tasto
-\verb!Invio!).  Se si preferisce, il manuale può anche essere consultato dal
-menu
-\begin{Verbatim}
-Help > Read the Emacs Manual
-\end{Verbatim}
+contemporaneamente il tasto \keys{\ctrl} e la lettera \keys{h}, rilasciare
+questi tasti e premere la lettera \keys{r}) oppure \verb!C-h i d m Emacs RET!
+(premere contemporaneamente il tasto \keys{\ctrl} e la lettera \keys{h},
+rilasciare questi tasti e premere la lettera \keys{i}, poi la lettera \keys{d},
+poi la lettera \keys{m}, poi scrivere \verb!Emacs! quindi premere il tasto
+\keys{Invio}).  Se si preferisce, il manuale può anche essere consultato dal
+menu \menu{Help > Read the Emacs Manual}.
 
-%%
-%% 2012/09/05: [TODO] PARLARE BREVEMENTE ANCHE DI AUCTEX
-%%
+% Mettere una tabella con le principali scorciatoie e corrispondenti comandi?
+
+Una delle caratteristiche principali di \emacs{} è che è un editor di testo
+personalizzabile in ogni suo aspetto ed espandibile, in modo da renderlo adatto
+alle proprie esigenze.  Il linguaggio utilizzato per espandere \emacs{}
+è l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.  Esistono
+migliaia di pacchetti scritti in Emacs Lisp che permettono di estendere
+ulteriormente le funzionalità di questo editor.
+
+La versione standard di \emacs{}, senza pacchetti aggiuntivi, fornisce già un
+discreto supporto alla creazione di documenti \LaTeX, ma il pacchetto \auctex{}
+mette a disposizione numerosi strumenti che rendono senza alcun dubbio \emacs{}
+uno degli editor di testo più potenti per la scrittura di documenti \LaTeX.  In
+questa guida vedremo alcune delle funzioni principali di \auctex.
 
 \section{Installare \emacs}
 \label{sec:install}
@@ -113,19 +121,13 @@ di installazione. {\emacs} si può utilizzare semplicemente procurandosi
 l'archivio che contiene gli eseguibili.
 
 All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarica
-l'archivio compresso \zipname{emacs-24.1-bin-i386.zip} e lo si decomprime in una
+l'archivio compresso \zipname{emacs-24.2-bin-i386.zip} e lo si decomprime in una
 posizione di comodo; una buona soluzione, per esempio, è decomprimere il
-suddetto archivio in:
-\begin{Verbatim}
-C:/Programmi/emacs/
-\end{Verbatim}
+suddetto archivio in \directory{C:/Programmi/emacs/}.
 
 Se si vuole creare un collegamento di \emacs{} nel menù Start, è
 sufficiente un doppio clic sul file \emph{addpm.exe} contenuto nella
-cartella:
-\begin{Verbatim}
-C:/Programmi/emacs/bin
-\end{Verbatim}
+cartella \directory{C:/Programmi/emacs/bin}.
 
 %%
 %% 2012/08/19: Verificare questa affermazione, su Windows 7 è così.
@@ -210,8 +212,9 @@ Il comando va ripetuto ogni volta che si installa qualche programma
 che modifica il valore di \texttt{PATH}, il caso che più probabilmente
 riguarda i lettori di questa guida è la distribuzione \TeX{}.
 
+% TODO: controllare che i tasti inseriti con `\keys{}' siano corretti
 Per gli utenti che usano la tastiera italiana è utile impostare il
-tasto \texttt{cmd} come \texttt{meta} e il tasto \texttt{alt} per
+tasto \keys{\cmdmac} come \keys{\Meta} e il tasto \keys{\Altmac} per
 scrivere i caratteri speciali, in particolare le parentesi quadre, le
 graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 \begin{Verbatim}
@@ -245,14 +248,10 @@ per Windows, GNU/Linux e Mac OS.
 
 All'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows}
 si scarica l'archivio compresso \zipname{auctex-11.86-e23.2-msw.zip} e lo si
-decomprime in
-\begin{Verbatim}
-C:/Programmi/emacs/
-\end{Verbatim}
-
-Sia nell'archivio di \auctex{} che quello di \emacs, posizionato in precedenza
-nel percorso suddetto, vi è una cartella dal nome \emph{site-lisp}: i file
-contenuti in queste cartelle vanno uniti in una sola cartella.
+decomprime in \directory{C:/Programmi/emacs/}.  Sia nell'archivio di \auctex{}
+che quello di \emacs, posizionato in precedenza nel percorso suddetto, vi è una
+cartella dal nome \emph{site-lisp}: i file contenuti in queste cartelle vanno
+uniti in una sola cartella.
 
 \subsection{\auctex{} per GNU/Linux}
 \label{sec:auctexlinux}
@@ -279,7 +278,7 @@ Su Debian e Ubuntu potrebbe essere raccomandata l'installazione della
 distribuzione TeX Live presente nei repository ufficiali del sistema operativo.
 Per evitare che questo avvenga, per esempio perché si utilizza una distribuzione
 TeX Live installata in altro modo, se si installa il pacchetto da terminale è
-sufficiente aggiungere l'opzione \verb|--no-install-recommends|
+sufficiente aggiungere l'opzione \verb!--no-install-recommends!
 \begin{Verbatim}
 $ sudo apt-get install --no-install-recommends auctex
 \end{Verbatim}
@@ -319,8 +318,8 @@ $ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
 sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando il
   terminale non bisogna utilizzare i nomi localizzati delle cartelle ma quelli
   reali, quindi \texttt{Application} è corretto anche se si utilizza la versione
-  italiana di Mac OS} la cartella in cui si trova Emacs, in questo modo tutti i
-file saranno contenuti nel bundle \texttt{Emacs.app}.
+  italiana di Mac OS} la cartella in cui si trova \emacs{}, in questo modo tutti
+i file saranno contenuti nel bundle \texttt{Emacs.app}.
 
 Compilare e installare con il comando
 \begin{Verbatim}
@@ -354,19 +353,13 @@ riportati nel paragrafo \ref{sec:fismac}.
 \section[Personalizzare \emacs]{Personalizzare \emacs{} \& \auctex}
 \label{sec:personal}
 
-Una delle caratteristiche principali di \emacs{} è che è un editor di testo
-personalizzabile in ogni suo aspetto ed espandibile, in modo da renderlo adatto
-alle proprie esigenze.  In questo paragrafo vedremo alcune delle
-personalizzazioni che possono risultare utili quando si lavora con documenti
-\LaTeX{}.  Il linguaggio utilizzato per espandere \emacs{} è l'Elisp, un
-dialetto del Lisp sviluppato appositamente per \emacs{}.
-
-Per modificare le impostazioni relative alla gestione nativa di \TeX{} da parte
-di \emacs{} è possibile usare la funzione
-\verb!M-x customize-group RET tex RET!.  In questo modo si aprirà un buffer nel quale sarà possibile modificare,
-tramite l'interfaccia, le opzioni desiderate.  Per modificare in particolare
-\auctex{} è possibile usare la funzione
-\verb!M-x customize-group RET AUCTeX RET!.
+In questo paragrafo vedremo alcune delle personalizzazioni che possono risultare
+utili quando si lavora con documenti \LaTeX{}.  Per modificare le impostazioni
+relative alla gestione nativa di \TeX{} da parte di \emacs{} è possibile usare
+la funzione \verb!M-x customize-group RET tex RET!.  In questo modo si aprirà un
+buffer nel quale sarà possibile modificare, tramite l'interfaccia, le opzioni
+desiderate.  Per modificare in particolare \auctex{} è possibile usare la
+funzione \verb!M-x customize-group RET AUCTeX RET!.
 
 Di seguito saranno suggerite alcune porzioni di codice Elisp che permettono di
 personalizzare \emacs{} e che vanno inserite nel file di inizializzazione
@@ -495,7 +488,7 @@ dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
 
 Un secondo modo, per scrivere correttamente, è attivare la modalità
 \emph{flyspell} (correzione al volo). Se la si vuole attivare solo sul documento
-corrente basta andare in \texttt{Tools > Spell Checking > Automatic spell
+corrente basta andare in \menu{Tools > Spell Checking > Automatic spell
   checking (Flyspell)}; se invece la si vuole tenere sempre abilitata si deve
 aggiungere la riga:
 \begin{Verbatim}
@@ -681,10 +674,8 @@ sumatra-forward %
 \sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
 {sumatra-forward.el} %
 e copiarlo in una cartella accessibile a \emacs{} per esempio
-\begin{Verbatim}
-C:/Programmi/emacs/bin/site-lisp
-\end{Verbatim}
- per poi richiamarlo all'interno del proprio file \emph{.init} con la riga
+\directory{C:/Programmi/emacs/bin/site-lisp}  per poi richiamarlo all'interno
+del proprio file \emph{.init} con la riga
 \begin{Verbatim}
 (require 'sumatra-forward)
 \end{Verbatim}
@@ -701,7 +692,7 @@ diretta inversa, e per farlo si possono scrivere nel proprio
 (setq TeX-source-correlate-start-server t)
 \end{Verbatim}
 
-Per la ricerca inversa basta premere il tasto \textsf{F8} e nel visualizzatore
+Per la ricerca inversa basta premere il tasto \keys{F8} e nel visualizzatore
 verrà evidenziata la riga corrispondente; per le ricerca diretta invece, basta
 fare doppio click nel visualizzatore e nel file .tex il cursore si sposterà
 all'inizio della riga che contiene quella parola.
