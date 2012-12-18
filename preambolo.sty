@@ -1,45 +1,7 @@
-\ProvidesPackage{preambolo}
-
-\RequirePackage[T1]{fontenc}
-\RequirePackage{textcomp}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[english,italian]{babel}
-\RequirePackage{lmodern}
-\RequirePackage{microtype}
-
-\RequirePackage[%
-  a4paper,%
-  top=2.5cm,%
-  bottom=2.5cm,%
-  left=3cm,%
-  right=3cm,%
-]{geometry}
-
 \RequirePackage{marvosym}
-\RequirePackage{graphicx}
 \RequirePackage{booktabs}
-\RequirePackage[svgnames]{xcolor}
-\RequirePackage{guit}
 
-\RequirePackage[grid]{multicol}
-\setlength{\columnsep}{3.5ex}
-
-\RequirePackage[titles]{tocloft}
-\renewcommand{\cftdotsep}{3}
-\renewcommand{\cftsecdotsep}{\cftdotsep}
-
-\usepackage{fancyvrb}
-\fvset{%
-  fontsize=\small,%
-}
-
-\RequirePackage[babel]{csquotes}
-\RequirePackage[%
-  backend=biber,%
-  useprefix,%
-  natbib,%
-]{biblatex}
-\addbibresource{biblio.bib}
+\fvset{fontsize=\small}
 
 \RequirePackage[os=win]{menukeys}
 \usetikzlibrary{shapes.geometric}
@@ -48,12 +10,6 @@
   \tikz{\node[scale=0.5,shape=diamond,fill=black,
     sharp corners,draw,
     baseline=-\the\dimexpr\fontdimen22\textfont2\relax] {};}}
-
-\newcommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
-\newcommand{\autoreb}{Orlando Iovino}
-\newcommand{\autorea}{Mosè Giordano}
-\newcommand{\autorec}{Matteo Leccardi}
-\newcommand{\autori}{\autorea, \autoreb, \autorec}
 
 \RequirePackage[%
   unicode,%
@@ -64,20 +20,14 @@
   colorlinks=true,%
 ]{hyperref}
 \hypersetup{%
-  pdftitle  ={\titolo},%
-  pdfauthor ={\autori},%
-  pdfsubject={Breve guida all'uso di GNU Emacs e AUCTeX per Windows,
-              GNU Linux e Mac OS},%
-  pdfcreator={LaTeX},%
-  linkcolor = DarkRed,%
-  citecolor = DarkRed,%
-  urlcolor = DarkRed,%
+  pdftitle   = {Una introduzione a GNU Emacs \& AUCTeX},%
+  pdfauthor  = {Mosè Giordano, Orlando Iovino, Matteo Leccardi},%
+  pdfsubject = {Breve guida all'uso di GNU Emacs e AUCTeX per Windows, GNU Linux e Mac OS},%
+  pdfcreator = {LaTeX},%
 }
-
 
 \providecommand{\emacs}{Emacs}
 \providecommand{\auctex}{AUC\TeX{}}
-%\providecommand{\simbolo}{{\small\Mundus}}
 \providecommand{\simbolo}{url:}
 \providecommand{\sito}[2]{(\href{#1}{\small\scshape\simbolo\ #2})}
 
@@ -85,17 +35,6 @@
 \providecommand{\extname}{} % TODO
 \providecommand{\prgname}{} % TODO
 \providecommand{\zipname}[1]{{\sffamily#1}}
-
-\setcounter{secnumdepth}{1}
-\setcounter{tocdepth}{1}
-
-% \newlength\dimfig
-% \newcommand*\mettifigura[1]{%
-% \par\noindent
-% \setbox\z@\hbox{#1}%
-% \dimfig=\wd\z@%
-% \hangindent\dimfig\hangafter-2\relax
-% \raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
 
 %%% Local Variables:
 %%% mode: latex
