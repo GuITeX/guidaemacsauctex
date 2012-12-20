@@ -1,6 +1,7 @@
 * Tasks
 ** TODO Completare il 'porting' della guida con la nuova classe guidatematica.cls
-** TODO Aggiungere la licenza all'inizio e vederne l'interazione con quella delle guide tematiche
+** DONE Aggiungere la licenza all'inizio e vederne l'interazione con quella delle guide tematiche
+   CLOSED: [2012-12-20 gio 15:33]
 ** TODO Modificare la presentazione iniziale della guida
 ** TODO Completare questo 'TODO' . . . :-)
 
