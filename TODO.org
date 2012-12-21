@@ -1,0 +1,14 @@
+* Tasks
+** TODO [#B] Completare il 'porting' della guida con la nuova classe guidatematica.cls
+** DONE [#B] Modificare la struttura della guida
+   CLOSED: [2012-12-20 gio 18:29]
+** DONE Modificare la struttura della cartella
+   CLOSED: [2012-12-20 gio 16:58]
+** DONE Aggiungere la licenza all'inizio e vederne l'interazione con quella delle guide tematiche
+   CLOSED: [2012-12-20 gio 15:33]
+** TODO Modificare la presentazione iniziale della guida: aggiungere gli indirizzi posta elettronica; ricordare il repository ufficiale per chi vuole collaborare;        
+** TODO Spiegare il file di .emacs e la sua posizione;
+** TODO Rivedere le epigrafi all'inizio dei capitoli
+** TODO Scrivere un README.md (esiste una bella markdown-mode per Emacs)
+** TODO Completare questo 'TODO' . . . :-)
+

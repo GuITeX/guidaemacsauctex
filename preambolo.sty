@@ -1,45 +1,29 @@
-\ProvidesPackage{preambolo}
+%%  Copyright (C) 2012 M. Giordano, O. Iovino, M. Leccardi
+%%
+%%  This program is free software; you can redistribute it and/or modify
+%%  it under the terms of the GNU General Public License as published by
+%%  the Free Software Foundation; either version 3 of the License, or
+%%  (at your option) any later version.
+%%
+%%  This program is distributed in the hope that it will be useful,
+%%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%%  GNU General Public License for more details.
 
-\RequirePackage[T1]{fontenc}
-\RequirePackage{textcomp}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[english,italian]{babel}
-\RequirePackage{lmodern}
-\RequirePackage{microtype}
+\RequirePackage{epigraph}
+\renewcommand{\epigraphflush}{flushleft}
+\setlength{\epigraphrule}{0pt}
+\setlength{\beforeepigraphskip}{-25pt}
+\setlength{\afterepigraphskip}{-25pt}
 
-\RequirePackage[%
-  a4paper,%
-  top=2.5cm,%
-  bottom=2.5cm,%
-  left=3cm,%
-  right=3cm,%
-]{geometry}
-
-\RequirePackage{marvosym}
-\RequirePackage{graphicx}
+\RequirePackage{ccicons}
 \RequirePackage{booktabs}
-\RequirePackage[svgnames]{xcolor}
-\RequirePackage{guit}
 
-\RequirePackage[grid]{multicol}
-\setlength{\columnsep}{3.5ex}
+% graphicx è caricato dalla classe
+\graphicspath{{figure/}}
 
-\RequirePackage[titles]{tocloft}
-\renewcommand{\cftdotsep}{3}
-\renewcommand{\cftsecdotsep}{\cftdotsep}
-
-\usepackage{fancyvrb}
-\fvset{%
-  fontsize=\small,%
-}
-
-\RequirePackage[babel]{csquotes}
-\RequirePackage[%
-  backend=biber,%
-  useprefix,%
-  natbib,%
-]{biblatex}
-\addbibresource{biblio.bib}
+% fancyvrb è caricato dalla classe
+\fvset{fontsize=\small}
 
 \RequirePackage[os=win]{menukeys}
 \usetikzlibrary{shapes.geometric}
@@ -48,12 +32,6 @@
   \tikz{\node[scale=0.5,shape=diamond,fill=black,
     sharp corners,draw,
     baseline=-\the\dimexpr\fontdimen22\textfont2\relax] {};}}
-
-\newcommand{\titolo}{Una introduzione a GNU Emacs \& AUC\TeX{}}
-\newcommand{\autoreb}{Orlando Iovino}
-\newcommand{\autorea}{Mosè Giordano}
-\newcommand{\autorec}{Matteo Leccardi}
-\newcommand{\autori}{\autorea, \autoreb, \autorec}
 
 \RequirePackage[%
   unicode,%
@@ -64,20 +42,17 @@
   colorlinks=true,%
 ]{hyperref}
 \hypersetup{%
-  pdftitle  ={\titolo},%
-  pdfauthor ={\autori},%
-  pdfsubject={Breve guida all'uso di GNU Emacs e AUCTeX per Windows,
-              GNU Linux e Mac OS},%
-  pdfcreator={LaTeX},%
-  linkcolor = DarkRed,%
-  citecolor = DarkRed,%
-  urlcolor = DarkRed,%
+  pdftitle   = {Una introduzione a GNU Emacs \& AUCTeX},%
+  pdfauthor  = {Mosè Giordano, Orlando Iovino, Matteo Leccardi},%
+  pdfsubject = {Guida tematica all'uso di GNU Emacs e AUCTeX su Windows, GNU Linux e Mac OS},%
+  pdfcreator = {LaTeX},%
+  linkcolor  = {blue},
+  citecolor  = {blue!80!black},
+  urlcolor   = {blue},
 }
-
 
 \providecommand{\emacs}{Emacs}
 \providecommand{\auctex}{AUC\TeX{}}
-%\providecommand{\simbolo}{{\small\Mundus}}
 \providecommand{\simbolo}{url:}
 \providecommand{\sito}[2]{(\href{#1}{\small\scshape\simbolo\ #2})}
 
@@ -85,17 +60,6 @@
 \providecommand{\extname}{} % TODO
 \providecommand{\prgname}{} % TODO
 \providecommand{\zipname}[1]{{\sffamily#1}}
-
-\setcounter{secnumdepth}{1}
-\setcounter{tocdepth}{1}
-
-% \newlength\dimfig
-% \newcommand*\mettifigura[1]{%
-% \par\noindent
-% \setbox\z@\hbox{#1}%
-% \dimfig=\wd\z@%
-% \hangindent\dimfig\hangafter-2\relax
-% \raisebox{-\baselineskip}[0pt][0pt]{\llap{\box\z@}}}
 
 %%% Local Variables:
 %%% mode: latex
