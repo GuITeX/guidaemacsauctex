@@ -79,7 +79,7 @@ segnalazione di errori, refusi, commenti e suggerimenti o ogni altra
 forma di collaborazione.
 
 \begin{tabular}{cc}
-\hspace{.34\textwidth} &                                                              \\
+\hspace{.32\textwidth} &                                                              \\
                        & \textsc{Mosè Giordano}                                       \\
                        & \textcolor{red}{\texttt{nome dot cognome at dominio dot it}} \\[1.5ex]
                        & \textsc{Orlando Iovino}                                      \\
@@ -184,12 +184,13 @@ distribuzione installata: sarà \emacs{} stesso a trovarli.
 \section{Installare AUC\TeX}
 \label{oi:sec:installauctex}
 
-All'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows}
-si scarica l'archivio compresso \zipname{auctex-11.86-e23.2-msw.zip} e lo si
-decomprime in \directory{C:/Programmi/emacs/}.  Sia nell'archivio di \auctex{}
-che quello di \emacs, posizionato in precedenza nel percorso suddetto, vi è una
-cartella dal nome \emph{site-lisp}: i file contenuti in queste cartelle vanno
-uniti in una sola cartella.
+Si scarica l'archivio compresso \zipname{auctex-11.86-e23.2-msw.zip}
+dall'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows} e
+lo si decomprime in \directory{C:/Programmi/emacs/}.  Sia nell'archivio di
+\auctex{}
+sia in quello di \emacs, posizionato in precedenza nel percorso suddetto, vi è
+una cartella dal nome \emph{site-lisp}: i file contenuti in queste cartelle
+vanno uniti in una sola cartella.
 
 \section{Correttore ortografico}
 \label{oi:sec:aspell}
@@ -216,11 +217,11 @@ Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
 percorso della cartella dove sono contenuti gli eseguibili di Aspell nella
 variabile d'ambiente \textsf{PATH} di Windows. Secondo, aggiungere al proprio
 \emph{.emacs} le seguenti righe di codice:
-\begin{Verbatim}
+\begin{lstlisting}
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-extra-args '("--reverse"))
 (setq ispell-dictionary "italiano")
-\end{Verbatim}
+\end{lstlisting}
 dove, la prima e la terza sono quelle strettamente necessarie, mentre la seconda
 riga serve a risolvere dei problemi con le versioni precedenti di
 \emacs.
@@ -268,9 +269,8 @@ diretta-inversa e fornito un modo per accedervi;
 A queste operazioni segue la configurazione di SumatraPDF e di \emacs,
 mediante il proprio file \emph{.emacs}.
 
-Per la ricerca inversa si deve aprire SumatraPDF, andare in
-\texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e
-scrivere la riga
+Per la ricerca inversa si deve aprire SumatraPDF, andare nel menu
+\texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e scrivere la riga
 \begin{Verbatim}
 C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
@@ -301,11 +301,11 @@ ed infine accertarsi di avere nella cartella degli eseguibili di
 Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio
 \emph{.init} file, le seguenti righe:
-\begin{Verbatim}
+\begin{lstlisting}
 (setq TeX-source-correlate-method (quote synctex))
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
-\end{Verbatim}
+\end{lstlisting}
 
 Per la ricerca inversa basta premere il tasto \keys{F8} e nel visualizzatore
 verrà evidenziata la riga corrispondente; per le ricerca diretta invece, basta
@@ -318,11 +318,14 @@ preferito. Infatti è possibile impostare \textsf{SumatraPDF} come
 visualizzatore predefinito di \emacs{} e non del sistema operativo
 (lasciando magari \textsf{Adobe Reader}), aggiungendo le seguenti
 righe a quelle sopra descritte:
-\begin{Verbatim}
-(setq TeX-view-program-list (quote (("SumatraPDF" "SumatraPDF %o"))))
-(setq TeX-view-program-selection (quote ( (output-pdf "SumatraPDF")
-(output-dvi "Yap") (output-html "start"))))
-\end{Verbatim}
+\begin{lstlisting}
+(setq TeX-view-program-list
+      '(("SumatraPDF" "SumatraPDF %o")))
+(setq TeX-view-program-selection
+      '((output-pdf "SumatraPDF")
+	(output-dvi "Yap")
+	(output-html "start")))
+\end{lstlisting}
 
 
 %% --------------------------------------------------------------------------
@@ -486,10 +489,10 @@ Per gli utenti che usano la tastiera italiana è utile impostare il
 tasto \keys{\cmdmac} come \keys{\Meta} e il tasto \keys{\Altmac} per
 scrivere i caratteri speciali, in particolare le parentesi quadre, le
 graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
-\begin{Verbatim}
+\begin{lstlisting}
 (setq ns-command-modifier 'meta)
 (setq ns-alternate-modifier nil)
-\end{Verbatim}
+\end{lstlisting}
 
 
 \section{Installare AUC\TeX}
@@ -537,19 +540,20 @@ $ make && make install
 
 Dopo l'installazione bisogna impostare i visualizzatori per i vari file creati
 con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
-\begin{Verbatim}
+\begin{lstlisting}
 (setq TeX-view-program-list
       '(("dvips and Skim" "%(o?)dvips %d -o &&\
-  /Applications/Skim.app/Contents/SharedSupport/displayline %n %f %b")
-         ("Skim" "/Applications/Skim.app/Contents/SharedSupport/\
-displayline %n %o %b")
+  /Applications/Skim.app/Contents/SharedSupport/\
+displayline %n %f %b")
+	("Skim" "/Applications/Skim.app/Contents/\
+SharedSupport/displayline %n %o %b")
         ("open" "open %o")))
 (setq TeX-view-program-selection
       '(((output-dvi style-pstricks) "dvips and Skim")
         (output-dvi "Skim")
         (output-pdf "Skim")
         (output-html "open")))
-\end{Verbatim}
+\end{lstlisting}
 Come visualizzatore principale si utilizza
 \href{http://skim-app.sourceforge.net/}{Skim} perché supporta la ricerca diretta
 e inversa dal pdf, i dettagli sulla configurazione di \emacs{} e Skim sono
@@ -584,10 +588,10 @@ $ sudo make install
 
 Come ultima cosa è necessario configurare \emacs\ aggiungendo al
 \emph{.emacs} le seguenti righe:
-\begin{Verbatim}
+\begin{lstlisting}
 (setq-default ispell-program-name "aspell")
 (setq ispell-dictionary "italiano")
-\end{Verbatim}
+\end{lstlisting}
 
 
 \section{Ricerca diretta inversa}
@@ -603,9 +607,8 @@ Dopo averlo installato occorre configurarlo impostando quanto segue
 nella pagina \emph{Sincronizza} delle preferenze:
 \begin{itemize}
 \item selezionare la checkbox \emph{Controlla cambiamenti del file}
-\item scrivere
-  \verb!/Applications/Emacs.app/Contents/MacOS/bin/emacsclient!  nel
-  campo \emph{Comando}
+\item nel campo \emph{Comando} scrivere \\
+  \verb!/Applications/Emacs.app/Contents/MacOS/bin/emacsclient!
 \item scrivere \verb!--no-wait +%line "%file"! nel campo
   \emph{Argomenti}
 \end{itemize}
@@ -625,11 +628,11 @@ senza chiedere conferma.
 
 La configurazione di \emacs{} è analoga a quella degli altri sistemi
 operativi, occorre scrivere queste righe in \emph{.emacs}
-\begin{Verbatim}
+\begin{lstlisting}
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
-\end{Verbatim}
+\end{lstlisting}
 
 Per passare dal file .tex al .pdf si utilizza la combinazione di tasti
 \verb!C-c C-v!, per ritornare al file .tex bisogna fare click sulla
@@ -638,11 +641,11 @@ parola che interessa tendendo premuto shift e cmd.
 Con alcune versioni di \emacs{} precedenti alla 23.3 resta in primo
 piano la finestra del visulizzatore, in tal caso è necessario
 aggiungere queste righe al file \emph{.emacs}
-\begin{Verbatim}
+\begin{lstlisting}
 (defun ns-raise-emacs ()
   (ns-do-applescript "tell application \"Emacs\" to activate"))
 (add-hook 'server-switch-hook 'ns-raise-emacs)
-\end{Verbatim}
+\end{lstlisting}
 
 
 
@@ -673,10 +676,10 @@ richiesto l'ordine \verb!n! della radice da inserire (premere direttamente
 modo che \auctex{} conosca quali pacchetti \LaTeX{} sono stati caricati bisogna
 permettergli di effettuare il parsing dei propri documenti e questo è possibile
 aggiungendo nel proprio file \verb!.emacs! il seguente codice
-\begin{Verbatim}
-(setq TeX-parse-self t) ; Attiva parsing al caricamento.
-(setq TeX-auto-save  t) ; Attiva parsing al salvataggio.
-\end{Verbatim}
+\begin{lstlisting}
+(setq TeX-parse-self t) ; Attiva parsing al caricamento
+(setq TeX-auto-save  t) ; Attiva parsing al salvataggio
+\end{lstlisting}
 In questo modo verrà creata una cartella chiamata \verb!auto! nella stessa
 directory in cui si trova il documento nella quale verranno registrate le
 informazioni relative al proprio documento \LaTeX{}, se non si desidera
@@ -697,7 +700,7 @@ fornisce le relative macro.  Per esempio, uno dei pacchetti basati su \LaTeX{}3
 apprenderà che questo pacchetto fornisce i comandi \verb!SI!, \verb!si!,
 \verb!ang! e \verb!num! di cui il primo accetta due argomenti, gli ultimi tre
 solo uno:
-\begin{Verbatim}
+\begin{lstlisting}
 (eval-after-load "tex"
   '(TeX-add-style-hook
     "siunitx"
@@ -707,7 +710,7 @@ solo uno:
        '("si" 1)
        '("ang" 1)
        '("num" 1)))))
-\end{Verbatim}
+\end{lstlisting}
 A volte in un documento \LaTeX{} non si carica un certo pacchetto \verb!B!
 poiché è automaticamente caricato da un altro pacchetto \verb!A! che viene
 esplicitamente caricato.  In questi casi, però, \auctex{} potrebbe non rendersi
@@ -716,19 +719,19 @@ le funzioni di autocompletamento per le macro del pacchetto \verb!B!, se è uno
 di quelli supportati.  Supponiamo inoltre che insieme a \verb!B!, il pacchetto
 \verb!A! carichi anche i pacchetti \verb!C! e \verb!D!.  Per ovviare a questo
 problema è possibile inserire il seguente codice nel file di inizializzazione
-\begin{Verbatim}
+\begin{lstlisting}
 (eval-after-load "tex"
   '(TeX-add-style-hook
     "A"
     (lambda ()
       (TeX-run-style-hooks "B" "C" "D"))))
-\end{Verbatim}
+\end{lstlisting}
 Per esempio, il pacchetto \verb!siunitx! carica automaticamente i pacchetti
 \verb!array! e \verb!amstext! e non è quindi necessario inserire nel proprio
 sorgente \LaTeX{} le istruzioni \verb!\usepackage{array}! e
 \verb!\usepackage{amstext}!.  Per far sapere ad \auctex{} questa situazione
 possiamo completare il codice precedente come segue
-\begin{Verbatim}
+\begin{lstlisting}
 (eval-after-load "tex"
   '(TeX-add-style-hook
     "siunitx"
@@ -739,14 +742,14 @@ possiamo completare il codice precedente come segue
        '("ang" 1)
        '("num" 1)
       (TeX-run-style-hooks "array" "amstext")))))
-\end{Verbatim}
+\end{lstlisting}
 
 Se si è soliti suddividere i propri documenti \LaTeX{} in più file da includere
 nel file principale con i comandi \verb!\input! o \verb!\include! può essere
 utile aggiungere al file \verb!.emacs!
-\begin{Verbatim}
+\begin{lstlisting}
 (setq-default TeX-master nil)
-\end{Verbatim}
+\end{lstlisting}
 In questo modo, all'apertura dei documenti \LaTeX{} \emacs{} chiederà qual è il
 file principale associato e sul quale saranno eseguiti i comandi di
 compilazione.
@@ -758,15 +761,15 @@ il simbolo \verb!\alpha! si potrà usare la scorciatoia \verb!` a!.  L'elenco
 delle altre scorciatoie per inserire i simboli può essere consultato dal menu
 \verb!Math! nella barra dei menu.  Per attivare automaticamente questa modalità
 ogni volta che si apre un documento \LaTeX{} bisogna aggiungere
-\begin{Verbatim}
+\begin{lstlisting}
 (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
-\end{Verbatim}
+\end{lstlisting}
 al proprio \verb!.emacs!.
 
 Il codice
-\begin{Verbatim}
+\begin{lstlisting}
 (setq TeX-electric-sub-and-superscript t)
-\end{Verbatim}
+\end{lstlisting}
 aggiunto al proprio \verb!.emacs!, permette di inserire automaticamente una
 coppia di parentesi graffe \verb!{}! quando si scrivono i simboli \verb!_! e
 \verb!^! in modalità matematica.
@@ -777,10 +780,10 @@ linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
 \verb!RET!.  Si può però fare in modo che si ottenga questo risultato anche
 premendo normalmente \verb!RET! aggiungendo il seguente codice al file di
 inizializzazione
-\begin{Verbatim}
+\begin{lstlisting}
 (setq TeX-newline-function 'newline-and-indent)
-\end{Verbatim}
-Se si mette \verb!reindent-then-newline-and-indent! al posto di
+\end{lstlisting}
+Se si utilizza la funzione \verb!reindent-then-newline-and-indent! al posto di
 \verb!newline-and-indent! si avrà, in più, l'effetto che la riga attuale viene
 indentata.
 
