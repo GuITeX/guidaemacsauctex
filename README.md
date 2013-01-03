@@ -9,11 +9,7 @@ In questa guida tematica si spiega come installare e configurare l'editor GNU Em
 Compilare il sorgente
 ----------
 
-Per compilare questa guida bisogna avere una distribuzione LaTeX
-aggiornata (si consiglia TeX Live 2012). Se si dispone del programma
-*make* basta scrivere in una shell ``make`` oppure ``M-x compile
-RET`` da Emacs.  Se non si ha il programma *make* i passi per la
-compilazione sono
+Per compilare questa guida bisogna avere una distribuzione LaTeX aggiornata (si consiglia TeX Live 2012). Se si dispone del programma *make* basta scrivere in una shell ``make`` oppure ``M-x compile RET`` da Emacs.  Se non si ha il programma *make* i passi per la compilazione sono
 ````
 pdflatex introemacs
 bibtex introemacs
@@ -24,10 +20,7 @@ pdflatex introemacs
 Licenza d'uso
 ----------
 
-Quest'opera è soggetta alla Creative Commons Public License versione
-3.0 o posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo
-stesso modo*. L'enunciato integrale della licenza è reperibile sul
-sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
+Quest'opera è soggetta alla Creative Commons Public License versione 3.0 o posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo stesso modo*. L'enunciato integrale della licenza è reperibile sul sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
 
 Colophon
 ----------
