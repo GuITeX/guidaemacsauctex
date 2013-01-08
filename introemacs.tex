@@ -246,26 +246,30 @@ riga serve a risolvere dei problemi con le versioni precedenti di
 \section{Ricerca diretta inversa}
 \label{oi:sec:ricdirinv}
 
-Prima di entrare nel vivo dell'argomento, bisogna ovviare ad un bug che da tempo
-segue il programma \emacs{} su Windows, in particolare i sistemi Windows Vista e
-Seven (su Xp non dovrebbero esserci problemi), ovvero il problema che si ha
-quando si abilita il server in \emacs.
+Prima di spiegare come attivare la ricerca diretta inversa, si spiega
+come risolvere il problema dei diritti di ammonistratore -- qualora
+l'account utente ne sia fornito --, per sistemi Windows Vista e Seven
+(su Xp non dovrebbero esserci problemi, per Windows 8 non è stato
+possibile provarlo). Infatti, in tale situazione è possibile avere
+problemi con la cartella \emph{server} del tipo
+\begin{lstlisting}[keywordstyle=\color{black}]
+error: The directory '~/.emacs.d/server' is unsafe
+\end{lstlisting}
 
-%%
-%% 2012/09/05: SPECIFICARE QUESTA COSA
-%%
+Un modo per risolvere il problema, riportato in~\cite{setupwindows}, è
+il seguente. Si deve aprire il prompt dei comandi e portarsi nella
+cartella che contiene, a sua volta, la cartella \emph{server} scirvendo nella
+riga di comando un'istruzione del tipo
+\begin{lstlisting}[language=bash]
+cd C:/Users/£\meta{nome utente}£/Roaming/.emacs.d
+\end{lstlisting}
+e poi
+\begin{lstlisting}
+takeown /f server
+\end{lstlisting}
 
-La soluzione a tale problema è riportata in~\cite{emacsW32:wiki}
-alla voce
-\href{http://www.emacswiki.org/emacs/EmacsW32#toc49}{\emph{Waiting for
-    Emacs server to start" is ownership problem on
-    ~/.emacs.d/server}}.
-
-Per i sistemi operativi Windows il solo visualizzatore capace di
-interagire con il file sorgente \textsf{.tex} creato con \emacs{} è
-SumatraPDF %
-\sito{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}%
-{SumatraPDF}.
+A questo punto, si può configurare \emacs{} per la ricerca diretta
+inversa con il visualizzatore SumatraPDF, scaricabile da sito \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
 Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
 supporta questa funzionalità, o meglio, non è ancora accessibile
