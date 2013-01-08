@@ -269,32 +269,15 @@ takeown /f server
 \end{lstlisting}
 
 A questo punto, si può configurare \emacs{} per la ricerca diretta
-inversa con il visualizzatore SumatraPDF, scaricabile da sito \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
-
-Per la verità, il visualizzatore sviluppato da Krzysztof Kowalczyk non
-supporta questa funzionalità, o meglio, non è ancora accessibile
-all'utente, pertanto, dopo averlo installato si può procedere nel
-seguente modo:
-\begin{enumerate}
-\item si scarica l'eseguibile Sumatra-\TeX{} %
-\sito{http://william.famille-blum.org/software/sumatra/}%
-     {SumatraPDF for \TeX\ users}
-di William Blum che ha sviluppato appunto la funzionalità di ricerca
-diretta-inversa e fornito un modo per accedervi;
-\item si rinomina l'eseguibile SumatraPDF-TeX in SumatraPDF;
-\item si copia tale file nella cartella dove è contenuto quello
-  installato precedentemente.
-\end{enumerate}
-
-A queste operazioni segue la configurazione di SumatraPDF e di \emacs,
-mediante il proprio file \emph{.emacs}.
+inversa con il visualizzatore SumatraPDF, scaricabile da sito
+\url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
 Per la ricerca inversa si deve aprire SumatraPDF, andare nel menu
 \texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e scrivere la riga
 \begin{Verbatim}
-C:/Programmi/emacs/bin/emacsclientw.exe +%l "%f"
+C:/Programmi/Emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
-in \emph{Set inverse search command-line}. La figura~\ref{oi:fig:sumatra:setup}
+in \emph{Imposta la ricerca inversa via riga di comando}. La figura~\ref{oi:fig:sumatra:setup}
 vale più di mille parole.
 
 \begin{figure}[t]
@@ -314,9 +297,6 @@ del proprio file \emph{.init} con la riga
 \begin{Verbatim}
 (require 'sumatra-forward)
 \end{Verbatim}
-ed infine accertarsi di avere nella cartella degli eseguibili di
-\emacs, l'applicazione \textsf{ddeclient}, altrimenti scaricabile da %
-\url{http://ftp.gnu.org/old-gnu/emacs/windows/docs/ntemacs/contrib/ddeclient.zip}.
 
 Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio
