@@ -653,6 +653,98 @@ aggiungere queste righe al file \emph{.emacs}
 \end{lstlisting}
 
 
+\chapter{Primi passi in \emacs} % titolo provvisorio, modificabile
+\label{cha:primi-passi-emacs}
+
+% In questa sezione dovremmo spiegare come utilizzare Emacs in sé,
+% indipendentemente da AUCTeX.  Poi si potrebbe fare un altro capitolo con le
+% istruzioni di base su AUCTeX e per finire il capitolo sulle personalizzazioni,
+% che c'è già adesso
+
+% abbozzo di cheat sheet fatto in casa.  Dovrebbe essere una tabella
+% riepilogativa, almeno le funzioni principali vanno descritte precedentemente
+% nel testo.  TODO: sistemare/completare la tabella (e anche la didascalia).
+% Spiegare che per utilizzare Emacs non è necessario imparare tutte queste
+% combinazioni di tasti a memoria sin da subito, però è molto utile imparare
+% almeno le prime.  Raccomandazione: Emacs ha centinaia di scorciatoie veramente
+% utili, qui mettiamo solo quelle abbastanza importanti
+\begin{longtable}{>{\ttfamily}l>{\ttfamily}lp{0.32\textwidth}}
+  % intestazione iniziale
+  \caption{Scorciatoia è la combinazione di tasti da premere per ottenere il
+    risultato descritto nell'ultima colonna.  La seconda colonna riporta la
+    funzione, da eseguire con \texttt{M-x}, a cui è legata a quella combinazione
+    di tasti.}
+  \label{tab:cheat-sheet} \\
+  \toprule
+  {\normalfont\scshape Scorciatoia} & {\normalfont\scshape Funzione} &
+  \textsc{Effetto} \\
+  \midrule
+  \endfirsthead
+  % intestazione normale
+  \multicolumn{3}{l}{\footnotesize\itshape
+    Continua dalla pagina precedente} \\
+  \toprule
+  {\normalfont\scshape Scorciatoia} & {\normalfont\scshape Funzione} &
+  \textsc{Effetto} \\
+  \midrule
+  \endhead
+  % piede normale
+  \midrule
+  \multicolumn{3}{r}{\footnotesize\itshape
+    Continua nella prossima pagina} \\
+  \endfoot
+  % piede finale
+  \bottomrule
+  \multicolumn{3}{r}{\footnotesize\itshape
+    Si conclude dalla pagina precedente} \\
+  \endlastfoot
+  % corpo della tabella
+  C-x C-f & find-file & Apre il file da specificare nel minibuffer \\
+  C-x C-s & save-buffer & Salva il buffer attuale \\
+  C-x C-w & write-file & Salva il file attuale nel file indicato nel minibuffer
+  \\
+  C-x C-c & - & Chiede se salvare i buffer aperti e
+  chiude Emacs \\
+  C-g & keyboard-quit & Interrompe il comando in esecuzione \\
+  C-x u & undo & Annulla l'ultima operazione \\
+  \midrule
+  \multicolumn{3}{c}{Ricerca e sostituisci} \\
+  \midrule
+  C-s & isearch-forward & Ricerca incrementale in avanti \\
+  C-r & isearch-backward & Ricerca incrementale indietro \\
+  M-g g & goto-line & Sposta il cursore alla riga specificata nel minibuffer \\
+  M-\% & query-replace & Ricerca e sostituzione \\
+  \midrule
+  \multicolumn{3}{c}{Copia e incolla} \\
+  \midrule
+  M-w & kill-ring-save & Copia la regione selezionata \\
+  C-y & yank & Incolla l'ultima selezione \\
+  C-w & kill-region & Taglia la regione selezionata \\
+  C-k & kill-line & Taglia il resto della riga attuale \\
+  \midrule
+  \multicolumn{3}{c}{Aiuto} \\
+  \midrule
+  C-h ? & help-for-help & Apre una finestra di aiuto \\
+  C-h k & describe-key & Mostra la documentazione della combinazione di tasti
+  che viene successivamente premuta \\
+  C-h f & describe-function & Mostra la documentazione della funzione
+  specificata nel minibuffer \\
+  \midrule
+  \multicolumn{3}{c}{Navigazione fra i buffer} \\
+  \midrule
+  C-x b & switch-to-buffer & Cambia buffer visualizzato \\
+  C-x C-b & list-buffers & Mostra l'elenco dei buffer \\
+  C-x k & kill-buffer & Chiude il buffer specificato nel minibuffer \\
+  \midrule
+  \multicolumn{3}{c}{``Window''} \\
+  \midrule
+  C-x 2 & - & Divide la ``window'' attuale in due, verticalmente \\
+  C-x 3 & - & Divide la ``window'' attuale in due, orizzontalmente \\
+  C-x o & other-window & Sposta il cursore nella ``window'' successiva \\
+  C-x 0 & delete-window & Chiude la ``window'' attuale \\
+  C-x 1 & - & Chiude tutte le ``windows'' tranne quella attuale \\
+\end{longtable}
+
 
 \chapter{Personalizzare \emacs{} \& \auctex}
 \label{chap:personal}
