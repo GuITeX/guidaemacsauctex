@@ -169,6 +169,7 @@ questa guida vedremo alcune delle funzioni principali di \auctex.
 %% Windows
 %% --------------------------------------------------------------------------
 
+
 \chapter{Emacs e AUC\TeX{}  su Windows}
 \label{oi:chap:windows}
 
@@ -181,74 +182,67 @@ Per sistemi operativi Microsoft Windows non esiste una vera e propria procedura
 di installazione. {\emacs} si può utilizzare semplicemente procurandosi
 l'archivio che contiene gli eseguibili.
 
-All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarica
-l'archivio compresso \zipname{emacs-24.2-bin-i386.zip} e lo si decomprime in una
-posizione di comodo; una buona soluzione, per esempio, è decomprimere il
-suddetto archivio in \directory{C:/Programmi/emacs/}.
+All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si
+scarica l'archivio compresso \zipname{emacs-24.2-bin-i386.zip} e lo si
+decomprime in una posizione di comodo; una buona soluzione, per
+esempio, è decomprimere il suddetto archivio in
+\directory{C:/Programmi/Emacs/} che assumeremo, da questo momento,
+come cartella di installazione.
 
 Se si vuole creare un collegamento di \emacs{} nel menù Start, è
-sufficiente un doppio clic sul file \emph{addpm.exe} contenuto nella
-cartella \directory{C:/Programmi/emacs/bin}.
+sufficiente eseguire il programma \progstyle{addpm.exe} contenuto nella
+cartella \directory{C:/Programmi/Emacs/bin}.
 
-%%
-%% 2012/08/19: Verificare questa affermazione, su Windows 7 è così.
-%%
-A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX; l'utente
-infatti non deve specificare nessun percorso circa gli eseguibili della
-distribuzione installata: sarà \emacs{} stesso a trovarli.
+A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX:
+l'utente infatti non deve specificare nessun percorso circa gli
+eseguibili della distribuzione \LaTeX\ installata perché \emacs{} li
+trova da solo.
 
 \section{Installare AUC\TeX}
 \label{oi:sec:installauctex}
 
 Si scarica l'archivio compresso \zipname{auctex-11.87-e24.2-msw.zip}
-dall'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows} e
-lo si decomprime in \directory{C:/Programmi/emacs/}.  Sia nell'archivio di
-\auctex{}
-sia in quello di \emacs, posizionato in precedenza nel percorso suddetto, vi è
-una cartella dal nome \emph{site-lisp}: i file contenuti in queste cartelle
-vanno uniti in una sola cartella.
+dall'indirizzo
+\url{http://www.gnu.org/software/auctex/download-for-windows} e lo si
+decomprime in \directory{C:/Programmi/Emacs/}.  Si noti che alcuni
+file sono gli stessi, perciò basta unire il contenuto dell'archivio di
+\auctex{} con quello di \emacs.
 
 \section{Correttore ortografico}
 \label{oi:sec:aspell}
 
-Per usare il correttore ortografico in \emacs, su un sistema operativo Windows,
-si può installare il programma GNU Aspell disponibile all'indirizzo
-\url{http://aspell.net/win32/}. L'ultima versione stabile per Windows, seppur
-datata Dicembre 2002, è la 0.50-3.
+Per usare il correttore ortografico in \emacs{} si deve installare il
+programma \progstyle{GNU Aspell} disponibile all'indirizzo
+\url{http://aspell.net/win32/}. L'ultima versione stabile è la 0.50-3
+datata Dicembre 2002.
 
-I file che bisogna procurarsi sono quelli che vengono di seguito
-riportati; si badi bene ad installarli nell'ordine in cui vengono
-dati:
-
+Si devono installare, nell'ordine
 \begin{enumerate}
-\item il programma completo
-      \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-0-50-3-3-Setup.exe}%
-      {Aspell-0-50-3-3-Setup.exe} (che rappresenta il programma vero e proprio);
-\item il dizionario precompilato per l'italiano
-      \href{http://ftp.gnu.org/gnu/aspell/w32/Aspell-it-0.50-2-3.exe}%
-      {Aspell-it-0.50-2-3.exe}.
+\item il programma \progstyle{Aspell-0-50-3-3-Setup.exe};
+\item il dizionario precompilato per l'italiano \progstyle{Aspell-it-0.50-2-3.exe}.
 \end{enumerate}
 
-Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
-percorso della cartella dove sono contenuti gli eseguibili di Aspell nella
-variabile d'ambiente \textsf{PATH} di Windows. Secondo, aggiungere al proprio
-\emph{.emacs} le seguenti righe di codice:
+Resta qualche altra operazione da fare. Come prima cosa si deve
+copiare il percorso della cartella dove sono contenuti gli eseguibili
+di \progstyle{Aspell} nella variabile d'ambiente
+\textsf{PATH}. Secondo, aggiungere al proprio file \filestyle{.init}
+le seguenti righe:
 \begin{lstlisting}
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-extra-args '("--reverse"))
 (setq ispell-dictionary "italiano")
 \end{lstlisting}
-dove, la prima e la terza sono quelle strettamente necessarie, mentre la seconda
-riga serve a risolvere dei problemi con le versioni precedenti di
-\emacs.
+dove, la prima e la terza sono quelle strettamente necessarie, mentre
+la seconda riga serve a risolvere dei problemi con le versioni
+precedenti di \emacs.
 
 
 \section{Ricerca diretta inversa}
 \label{oi:sec:ricdirinv}
 
-Prima di spiegare come attivare la ricerca diretta inversa, si spiega
-come risolvere il problema dei diritti di ammonistratore -- qualora
-l'account utente ne sia fornito --, per sistemi Windows Vista e Seven
+Prima di attivare la ricerca diretta inversa, si spiega
+come risolvere il problema dei diritti di amministratore --- qualora
+l'account utente ne sia fornito ---, per sistemi operativi Vista e Seven
 (su Xp non dovrebbero esserci problemi, per Windows 8 non è stato
 possibile provarlo). Infatti, in tale situazione è possibile avere
 problemi con la cartella \emph{server} del tipo
@@ -256,10 +250,10 @@ problemi con la cartella \emph{server} del tipo
 error: The directory '~/.emacs.d/server' is unsafe
 \end{lstlisting}
 
-Un modo per risolvere il problema, riportato in~\cite{setupwindows}, è
-il seguente. Si deve aprire il prompt dei comandi e portarsi nella
-cartella che contiene, a sua volta, la cartella \emph{server} scirvendo nella
-riga di comando un'istruzione del tipo
+Una possibile soluzione, riportata in~\cite{setupwindows}, è la
+seguente. Si deve aprire il prompt dei comandi e portarsi nella
+cartella che contiene, a sua volta, la cartella \emph{server}
+scrivendo nella riga di comando un'istruzione del tipo
 \begin{lstlisting}[language=bash]
 cd C:/Users/£\meta{nome utente}£/Roaming/.emacs.d
 \end{lstlisting}
@@ -267,19 +261,19 @@ e poi
 \begin{lstlisting}
 takeown /f server
 \end{lstlisting}
+Se l'operazione sarà andata a buon fine verrà segnalato.
 
 A questo punto, si può configurare \emacs{} per la ricerca diretta
-inversa con il visualizzatore SumatraPDF, scaricabile da sito
+inversa con il visualizzatore \progstyle{SumatraPDF}, che si scarica dal sito
 \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
-Per la ricerca inversa si deve aprire SumatraPDF, andare nel menu
-\texttt{Impostazioni} e quindi scegliere \texttt{Opzioni...} e scrivere la riga
+Per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare nel menu
+\emph{Impostazioni} e quindi scegliere \emph{Opzioni...} e scrivere la riga
 \begin{Verbatim}
 C:/Programmi/Emacs/bin/emacsclientw.exe +%l "%f"
 \end{Verbatim}
-in \emph{Imposta la ricerca inversa via riga di comando}. La figura~\ref{oi:fig:sumatra:setup}
-vale più di mille parole.
-
+in \emph{Imposta la ricerca inversa via riga di comando}, come si vede
+dalla figura~\ref{oi:fig:sumatra:setup}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.50\textwidth]{sumatrapdf}
@@ -287,16 +281,25 @@ vale più di mille parole.
   \label{oi:fig:sumatra:setup}
 \end{figure}
 
-Per la ricerca diretta si deve scaricare lo script
-sumatra-forward %
-\sito{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
-{sumatra-forward.el} %
-e copiarlo in una cartella accessibile a \emacs{} per esempio
-\directory{C:/Programmi/emacs/bin/site-lisp}  per poi richiamarlo all'interno
-del proprio file \emph{.init} con la riga
-\begin{Verbatim}
+% % % % % % % 
+% DA CAMBIARE
+%
+Per la ricerca diretta si deve scaricare il file
+\filestyle{sumatra-forward.el} alla pagina
+\url{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
+e copiarlo in una delle cartelle accessibili a \emacs{}. Si suggerisce
+di copiarlo in una cartella locale, che non dipende
+dall'installazione, ad esempio
+\begin{lstlisting}
+C:/Users/£\meta{nome utente}£/Emacs  
+\end{lstlisting}
+che va evidentemente creata. Si aggiunge, infine, il codice
+\begin{lstlisting}
+(add-to-list 'load-path "C:/Users/£\meta{nome utente}£/Emacs")
 (require 'sumatra-forward)
-\end{Verbatim}
+\end{lstlisting}
+nel file \filestyle{.init}.
+
 
 Fatto questo resta da far capire a \emacs{} che si vuole la ricera
 diretta inversa, e per farlo si possono scrivere nel proprio
@@ -326,7 +329,9 @@ righe a quelle sopra descritte:
 	(output-dvi "Yap")
 	(output-html "start")))
 \end{lstlisting}
-
+                                                                            %
+                                                                            % 
+                                                                  % % % % % % 
 
 %% --------------------------------------------------------------------------
 %% GNU/Linux
