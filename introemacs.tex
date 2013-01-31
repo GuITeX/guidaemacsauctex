@@ -257,20 +257,45 @@ scrivendo nella riga di comando un'istruzione del tipo
 \begin{lstlisting}[language=bash]
 cd C:/Users/£\meta{nome utente}£/Roaming/.emacs.d
 \end{lstlisting}
-e poi
+oppure
+\begin{lstlisting}[language=bash]
+cd %APPDATA%/.emacs.d
+\end{lstlisting}
+ed infine
 \begin{lstlisting}
 takeown /f server
 \end{lstlisting}
-Se l'operazione sarà andata a buon fine verrà segnalato.
+Se l'operazione sarà andata a buon fine verrà segnalato con qualcosa come
+\begin{lstlisting}
+OPERAZIONE RIUSCITA: il file o la cartella ...
+\end{lstlisting}
 
-A questo punto, si può configurare \emacs{} per la ricerca diretta
-inversa con il visualizzatore \progstyle{SumatraPDF}, che si scarica dal sito
+Si può ora configurare \emacs{} per la ricerca diretta inversa con il
+visualizzatore \progstyle{SumatraPDF} --- l'unico in grado di supportare
+questa funzione in sistemi Windows ---, che si scarica dal sito
 \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
-Per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare nel menu
-\emph{Impostazioni} e quindi scegliere \emph{Opzioni...} e scrivere la riga
+Per la ricerca diretta basta scrivere nel file di inizializzazione
+\filestyle{.init} il codice
+\begin{lstlisting}
+(setq TeX-source-correlate-method (quote synctex))
+(setq TeX-source-correlate-mode t)
+(setq TeX-source-correlate-start-server t)
+
+(setq TeX-view-program-list 
+      '(("Sumatra PDF" ("\"C:/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" -reuse-instance" 
+	  (mode-io-correlate " -forward-search %b %n") " %o"))))
+
+(setq TeX-view-program-selection 
+      '(((output-dvi style-pstricks) "dvips and start") 
+	(output-dvi "Yap") 
+	(output-pdf "Sumatra PDF") 
+	(output-html "start")))
+\end{lstlisting}
+invece, per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare
+nel menu \emph{Impostazioni}, quindi scegliere \emph{Opzioni...} e scrivere
 \begin{Verbatim}
-C:/Programmi/Emacs/bin/emacsclientw.exe +%l "%f"
+C:/Programmi/Emacs/bin/emacsclientw.exe --no-wait +%l "%f"
 \end{Verbatim}
 in \emph{Imposta la ricerca inversa via riga di comando}, come si vede
 dalla figura~\ref{oi:fig:sumatra:setup}.
@@ -281,57 +306,19 @@ dalla figura~\ref{oi:fig:sumatra:setup}.
   \label{oi:fig:sumatra:setup}
 \end{figure}
 
-% % % % % % % 
-% DA CAMBIARE
-%
-Per la ricerca diretta si deve scaricare il file
-\filestyle{sumatra-forward.el} alla pagina
-\url{http://william.famille-blum.org/software/sumatra/sumatra-forward.el}
-e copiarlo in una delle cartelle accessibili a \emacs{}. Si suggerisce
-di copiarlo in una cartella locale, che non dipende
-dall'installazione, ad esempio
-\begin{lstlisting}
-C:/Users/£\meta{nome utente}£/Emacs  
-\end{lstlisting}
-che va evidentemente creata. Si aggiunge, infine, il codice
-\begin{lstlisting}
-(add-to-list 'load-path "C:/Users/£\meta{nome utente}£/Emacs")
-(require 'sumatra-forward)
-\end{lstlisting}
-nel file \filestyle{.init}.
+Si faccia attenzione quando si copia e incolla il codice da questo documento:
+potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
+\emacs. Inoltre il codice in cui si modificano le variabili
+\verb!TeX-view-program-list! e \verb!TeX-view-program-selection! è qui
+spezzato in più righe per una questione di praticità, ma dovrebbe essere
+scritto su un'unica riga per ognuna della variabili.
 
-
-Fatto questo resta da far capire a \emacs{} che si vuole la ricera
-diretta inversa, e per farlo si possono scrivere nel proprio
-\emph{.init} file, le seguenti righe:
-\begin{lstlisting}
-(setq TeX-source-correlate-method (quote synctex))
-(setq TeX-source-correlate-mode t)
-(setq TeX-source-correlate-start-server t)
-\end{lstlisting}
-
-Per la ricerca inversa basta premere il tasto \keys{F8} e nel visualizzatore
-verrà evidenziata la riga corrispondente; per le ricerca diretta invece, basta
-fare doppio click nel visualizzatore e nel file .tex il cursore si sposterà
-all'inizio della riga che contiene quella parola.
-
-Si vuole infine dare un suggerimento al lettore, qualora
-\textsf{SumatraPDF} non sia il proprio visualizzatore
-preferito. Infatti è possibile impostare \textsf{SumatraPDF} come
-visualizzatore predefinito di \emacs{} e non del sistema operativo
-(lasciando magari \textsf{Adobe Reader}), aggiungendo le seguenti
-righe a quelle sopra descritte:
-\begin{lstlisting}
-(setq TeX-view-program-list
-      '(("SumatraPDF" "SumatraPDF %o")))
-(setq TeX-view-program-selection
-      '((output-pdf "SumatraPDF")
-	(output-dvi "Yap")
-	(output-html "start")))
-\end{lstlisting}
-                                                                            %
-                                                                            % 
-                                                                  % % % % % % 
+Con queste impostazioni il visualizzatore predefinito per \emacs\ -- non del
+sistema operativo -- sarà \progstyle{SumatraPDF}. Per usare la ricerca diretta
+si devono premere i tasti \verb!C-c C-v! ed il visualizzatore si
+aprirà/porterà in corrispondenza della riga di \emacs{} in cui è il
+cursore. Per la ricerca inversa basta invece un doppio clic nel
+visualizzatore.
 
 %% --------------------------------------------------------------------------
 %% GNU/Linux
