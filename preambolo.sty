@@ -22,8 +22,25 @@
 % graphicx è caricato dalla classe
 \graphicspath{{figure/}}
 
-% fancyvrb è caricato dalla classe
-\fvset{fontsize=\small}
+% listings è caricato dalla classe
+\lstset{
+  language=lisp,
+  morekeywords={add-hook,add-to-list,eval-after-load,quote,setq,setq-default},
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{red},
+  stringstyle=\color{purple},
+  breaklines=true,
+  showstringspaces=false,
+  belowcaptionskip=\bigskipamount,
+  escapeinside={£}{£},
+  literate=
+  {à}{{\`a}}1
+  {è}{{\`e}}1
+  {ì}{{\`i}}1
+  {ò}{{\`o}}1
+  {ù}{{\`u}}1,
+}
 
 \RequirePackage[os=win]{menukeys}
 \usetikzlibrary{shapes.geometric}
@@ -51,34 +68,15 @@
   urlcolor   = {blue},
 }
 
-\lstset{
-  language=lisp,
-  morekeywords={add-hook,add-to-list,eval-after-load,quote,setq,setq-default},
-  basicstyle=\small\ttfamily,
-  keywordstyle=\color{blue}\bfseries,
-  commentstyle=\color{red},
-  stringstyle=\color{purple},
-  breaklines=true,
-  showstringspaces=false,
-  belowcaptionskip=\bigskipamount,
-  escapeinside={£}{£},
-  literate=
-  {à}{{\`a}}1
-  {è}{{\`e}}1
-  {ì}{{\`i}}1
-  {ò}{{\`o}}1
-  {ù}{{\`u}}1,
-}
-
 \providecommand{\emacs}{Emacs}
 \providecommand{\auctex}{AUC\TeX{}}
 \providecommand{\simbolo}{url:}
 \providecommand{\sito}[2]{(\href{#1}{\small\scshape\simbolo\ #2})}
 
-\providecommand{\script}{}  % TODO
-\providecommand{\extname}{} % TODO
-\providecommand{\prgname}{} % TODO
-\providecommand{\zipname}[1]{{\sffamily#1}}
+%\providecommand{\script}{}  % TODO
+%\providecommand{\extname}{} % TODO
+%\providecommand{\prgname}{} % TODO
+ \providecommand{\zipname}[1]{{\sffamily#1}}
 
 %%% Local Variables:
 %%% mode: latex
