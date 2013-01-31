@@ -12,5 +12,5 @@
 *.tar.gz
 *-blx.bib
 *.fdb_latexmk
-introemacs.pdf
+guidaemacsauctex.pdf
 auto/*

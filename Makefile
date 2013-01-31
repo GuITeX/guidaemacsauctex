@@ -11,7 +11,7 @@
 
 ## Makefile per la compilazione della guida tematica introemacs.tex
 
-MAIN	 	= introemacs
+MAIN	 	= guidaemacsauctex
 MAIN_TEX	= $(MAIN).tex
 ALL_TEX		= $(wildcard *.tex)
 ALL_BIB		= $(wildcard *.bib)
@@ -26,7 +26,7 @@ PDF		= $(MAIN).pdf
 
 .PHONY: clean dist
 
-$(PDF): $(ALL_TEX) $(ALL_BIB) preambolo.sty
+$(PDF): $(ALL_TEX) $(ALL_BIB) $(MAIN)_preambolo.sty
 	latexmk -pdf -recorder- $(MAIN_TEX)
 
 clean:
