@@ -70,29 +70,20 @@ introduzione al programma, si spiega come installare (e configurare alcune
 funzioni) \emacs{} e \auctex{} per scrivere documenti \LaTeX. Per finire si dà
 qualche accenno per personalizzare e rendere più efficiente \emacs.
 
-Si tenga presente che la guida è ben lontana dall'essere esauriente
-per un editore di testi così importante come Emacs. Per ogni altro
-approfondimento non riportato in queste righe rimandiamo il lettore ai
-manuali ufficiali, in particolare a \cite{emacs:stallman} e
-\cite{auctex:manual}. Speriamo, con queste brevi note, di convincere
-il lettore che Emacs non è poi così complicato come spesso viene
-indicato.
+Si tenga presente che la guida è ben lontana dall'essere esauriente per un
+editore di testi così importante come Emacs. Per ogni altro approfondimento non
+riportato in queste righe rimandiamo il lettore ai manuali ufficiali, in
+particolare a \cite{emacs:stallman} e \cite{auctex:manual}. Speriamo, con queste
+brevi note, di convincere il lettore che Emacs non è poi così complicato come
+spesso viene indicato.
 
-Infine, qualche parola sulla composizione di questa guida tematica,
-scritta a \emph{sei mani} grazie sistema di controllo di versione Git
-(\url{http://git-scm.com}). Chi vuole collaborare può ``clonare'' il
-progetto dal repository ufficiale presente sul sito
-\url{http://gitorious.org/} alla pagina
-\url{https://gitorious.org/emacs-tutorial}. È inoltre gradita la
-segnalazione di errori, refusi, commenti e suggerimenti o ogni altra
-forma di collaborazione.
-
-% \begin{tabular}{r@{~}c@{~}l}
-%   \textsc{Mosè Giordano}   & \textbullet & \textcolor{red}{\texttt{nome dot cognome at dominio dot it}} \\
-%   \textsc{Orlando Iovino}  & \textbullet & \texttt{orlando dot iovino at yahoo dot it}                  \\
-%   \textsc{Matteo Leccardi} & \textbullet & \textcolor{red}{\texttt{nome dot cognome at dominio dot it}} \\
-% \end{tabular}
-
+Infine, qualche parola sulla composizione di questa guida tematica, scritta a
+\emph{sei mani} grazie sistema di controllo di versione Git
+(\url{http://git-scm.com}). Chi vuole collaborare può ``clonare'' il progetto
+dal repository ufficiale presente sul sito \url{http://gitorious.org/} alla
+pagina \url{https://gitorious.org/emacs-tutorial}. È inoltre gradita la
+segnalazione di errori, refusi, commenti e suggerimenti o ogni altra forma di
+collaborazione.
 
 \begin{tabular}{cc}
 \hspace{.32\textwidth} &                                                              \\
@@ -103,7 +94,6 @@ forma di collaborazione.
                        & \textsc{Matteo Leccardi}                                     \\
                        & \textcolor{red}{\texttt{nome dot cognome at dominio dot it}} \\
 \end{tabular}
-
 
 \newpage\tableofcontents*
 
@@ -141,21 +131,19 @@ lettera \keys{x} oppure premere il tasto \keys{\esc}, rilasciarlo e premere la
 lettera \keys{x}.
 
 Il manuale di \emacs{}~\cite{emacs:stallman} può essere consultato all'interno
-dello stesso editor di testo con le combinazioni di tasti \verb!C-h r! (premere
+dello stesso editor di testo con le combinazioni di tasti \verb!C-h r!  (premere
 contemporaneamente il tasto \keys{\ctrl} e la lettera \keys{h}, rilasciare
 questi tasti e premere la lettera \keys{r}) oppure \verb!C-h i d m Emacs RET!
 (premere contemporaneamente il tasto \keys{\ctrl} e la lettera \keys{h},
 rilasciare questi tasti e premere la lettera \keys{i}, poi la lettera \keys{d},
-poi la lettera \keys{m}, poi scrivere \verb!Emacs! quindi premere il tasto
+poi la lettera \keys{m}, poi scrivere \verb!Emacs!  quindi premere il tasto
 \keys{Invio}).  Se si preferisce, il manuale può anche essere consultato dal
 menu \menu{Help > Read the Emacs Manual}.
 
-% Mettere una tabella con le principali scorciatoie e corrispondenti comandi?
-
 Una delle caratteristiche principali di \emacs{} è che è un editor di testo
 personalizzabile in ogni suo aspetto ed espandibile, in modo da renderlo adatto
-alle proprie esigenze.  Il linguaggio utilizzato per espandere \emacs{}
-è l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.  Esistono
+alle proprie esigenze.  Il linguaggio utilizzato per espandere \emacs{} è
+l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.  Esistono
 migliaia di pacchetti scritti in Emacs Lisp che permettono di estendere
 ulteriormente le funzionalità di questo editor.
 
@@ -164,6 +152,22 @@ discreto supporto alla creazione di documenti \LaTeX, ma il pacchetto \auctex{}
 mette a disposizione numerosi strumenti che rendono senza alcun dubbio \emacs{}
 uno degli editor di testo più potenti per la scrittura di documenti \LaTeX.  In
 questa guida vedremo alcune delle funzioni principali di \auctex.
+
+% OI 2013/01/31: per ora scrivo qui il file di inizializzazione perché viene
+% citato più volte, poi vediamo dove è oppurtuno spiegarlo.
+\textcolor{red}{
+Per finire, prima di addentrarci nell'installazione di \emacs, \auctex e altri
+programmi accessori, è utile riportare qui qualche indicazione sul file di
+inizializzazione di \emacs, file che contiene codice Elisp per modificare il
+comportamento delle funzioni. Questo file ha diversi nomi e posti a seconda del
+sistema operativo. In particolare:
+\begin{itemize}
+%%% CONTROLLARE SU WINDOWS XP, VISTA, 8
+\item Su Windows 7, va posizionato in \ldots
+\item Su GNU/Linux, \ldots 
+\item Su MAC OS, \ldots
+\end{itemize}
+}
 
 %% --------------------------------------------------------------------------
 %% Windows
@@ -179,42 +183,44 @@ questa guida vedremo alcune delle funzioni principali di \auctex.
 \label{oi:sec:installemacs}
 
 Per sistemi operativi Microsoft Windows non esiste una vera e propria procedura
-di installazione. {\emacs} si può utilizzare semplicemente procurandosi
+di installazione. \emacs{} si può utilizzare semplicemente procurandosi
 l'archivio che contiene gli eseguibili.
 
-All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si
-scarica l'archivio compresso \filestyle{emacs-24.2-bin-i386.zip} e lo si
-decomprime in una posizione di comodo; una buona soluzione, per
-esempio, è decomprimere il suddetto archivio in
-\directory{C:/Programmi/Emacs/} che assumeremo, da questo momento,
-come cartella di installazione.
+All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarica
+l'archivio compresso \filestyle{emacs-24.2-bin-i386.zip} e lo si decomprime in
+una posizione di comodo; una buona soluzione, per esempio, è decomprimere il
+suddetto archivio in \directory{C:/Programmi/Emacs/} che assumeremo, da questo
+momento, come cartella di installazione.
 
-Se si vuole creare un collegamento di \emacs{} nel menù Start, è
-sufficiente eseguire il programma \progstyle{addpm.exe} contenuto nella
-cartella \directory{C:/Programmi/Emacs/bin}.
+Se si vuole creare un collegamento di \emacs{} nel menù Start, è sufficiente
+eseguire il programma \progstyle{addpm.exe} contenuto nella cartella
+\directory{C:/Programmi/Emacs/bin}.
 
-A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX:
-l'utente infatti non deve specificare nessun percorso circa gli
-eseguibili della distribuzione \LaTeX\ installata perché \emacs{} li
-trova da solo.
+A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX: l'utente
+infatti non deve specificare nessun percorso circa gli eseguibili della
+distribuzione \LaTeX\ installata perché \emacs{} li trova da solo.
+%% Con TeX Live è così, da verificare con MiKTeX.
 
 \section{Installare AUC\TeX}
 \label{oi:sec:installauctex}
 
 Si scarica l'archivio compresso \filestyle{auctex-11.87-e24.2-msw.zip}
-dall'indirizzo
-\url{http://www.gnu.org/software/auctex/download-for-windows} e lo si
-decomprime in \directory{C:/Programmi/Emacs/}.  Si noti che alcuni
-file sono gli stessi, perciò basta unire il contenuto dell'archivio di
-\auctex{} con quello di \emacs.
+dall'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows} e
+lo si decomprime in \directory{C:/Programmi/Emacs/}.  Si noti che alcuni file
+sono gli stessi, perciò basta unire il contenuto dell'archivio di \auctex{} con
+quello di \emacs.
+
+Dopo aver installato \auctex, \emacs{} caricherà da solo i file necessari per
+attivare la modalità \verb!latex-mode!, propria di \auctex, quando si apre e/o
+crea un file con estensione \texttt{.tex}.
 
 \section{Correttore ortografico}
 \label{oi:sec:aspell}
 
-Per usare il correttore ortografico in \emacs{} si deve installare il
-programma \progstyle{GNU Aspell} disponibile all'indirizzo
-\url{http://aspell.net/win32/}. L'ultima versione stabile è la 0.50-3
-datata Dicembre 2002.
+Per usare il correttore ortografico in \emacs{} si deve installare il programma
+\progstyle{GNU Aspell} disponibile all'indirizzo
+\url{http://aspell.net/win32/}. L'ultima versione stabile è la 0.50-3 datata
+Dicembre 2002.
 
 Si devono installare, nell'ordine
 \begin{enumerate}
@@ -222,38 +228,35 @@ Si devono installare, nell'ordine
 \item il dizionario precompilato per l'italiano \progstyle{Aspell-it-0.50-2-3.exe}.
 \end{enumerate}
 
-Resta qualche altra operazione da fare. Come prima cosa si deve
-copiare il percorso della cartella dove sono contenuti gli eseguibili
-di \progstyle{Aspell} nella variabile d'ambiente
-\textsf{PATH}. Secondo, aggiungere al proprio file \filestyle{.init}
-le seguenti righe:
+Resta qualche altra operazione da fare. Come prima cosa si deve copiare il
+percorso della cartella dove sono contenuti gli eseguibili di \progstyle{Aspell}
+nella variabile d'ambiente \textsf{PATH}. Secondo, aggiungere al proprio file
+\filestyle{.init} le seguenti righe:
 \begin{lstlisting}
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-extra-args '("--reverse"))
 (setq ispell-dictionary "italiano")
 \end{lstlisting}
-dove, la prima e la terza sono quelle strettamente necessarie, mentre
-la seconda riga serve a risolvere dei problemi con le versioni
-precedenti di \emacs.
+dove, la prima e la terza sono quelle strettamente necessarie, mentre la seconda
+riga serve a risolvere dei problemi con le versioni precedenti di \emacs.
 
 
 \section{Ricerca diretta inversa}
 \label{oi:sec:ricdirinv}
 
-Prima di attivare la ricerca diretta inversa, si spiega
-come risolvere il problema dei diritti di amministratore --- qualora
-l'account utente ne sia fornito ---, per sistemi operativi Vista e Seven
-(su Xp non dovrebbero esserci problemi, per Windows 8 non è stato
-possibile provarlo). Infatti, in tale situazione è possibile avere
-problemi con la cartella \emph{server} del tipo
+Prima di attivare la ricerca diretta inversa, si spiega come risolvere il
+problema dei diritti di amministratore --- qualora l'account utente ne sia
+fornito ---, per sistemi operativi Vista e Seven (su Xp non dovrebbero esserci
+problemi, per Windows 8 non è stato possibile provarlo). Infatti, in tale
+situazione è possibile avere problemi con la cartella \emph{server} del tipo
 \begin{lstlisting}[keywordstyle=\color{black}]
 error: The directory '~/.emacs.d/server' is unsafe
 \end{lstlisting}
 
-Una possibile soluzione, riportata in~\cite{setupwindows}, è la
-seguente. Si deve aprire il prompt dei comandi e portarsi nella
-cartella che contiene, a sua volta, la cartella \emph{server}
-scrivendo nella riga di comando un'istruzione del tipo
+Una possibile soluzione, riportata in~\cite{setupwindows}, è la seguente. Si
+deve aprire il prompt dei comandi e portarsi nella cartella che contiene, a sua
+volta, la cartella \emph{server} scrivendo nella riga di comando un'istruzione
+del tipo
 \begin{lstlisting}[language=bash]
 cd C:/Users/£\meta{nome utente}£/Roaming/.emacs.d
 \end{lstlisting}
@@ -271,8 +274,8 @@ OPERAZIONE RIUSCITA: il file o la cartella ...
 \end{lstlisting}
 
 Si può ora configurare \emacs{} per la ricerca diretta inversa con il
-visualizzatore \progstyle{SumatraPDF} --- l'unico in grado di supportare
-questa funzione in sistemi Windows ---, che si scarica dal sito
+visualizzatore \progstyle{SumatraPDF} --- l'unico in grado di supportare questa
+funzione in sistemi Windows ---, che si scarica dal sito
 \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
 Per la ricerca diretta basta scrivere nel file di inizializzazione
@@ -292,13 +295,13 @@ Per la ricerca diretta basta scrivere nel file di inizializzazione
 	(output-pdf "Sumatra PDF") 
 	(output-html "start")))
 \end{lstlisting}
-invece, per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare
-nel menu \emph{Impostazioni}, quindi scegliere \emph{Opzioni...} e scrivere
+invece, per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare nel
+menu \emph{Impostazioni}, quindi scegliere \emph{Opzioni...} e scrivere
 \begin{Verbatim}
 C:/Programmi/Emacs/bin/emacsclientw.exe --no-wait +%l "%f"
 \end{Verbatim}
-in \emph{Imposta la ricerca inversa via riga di comando}, come si vede
-dalla figura~\ref{oi:fig:sumatra:setup}.
+in \emph{Imposta la ricerca inversa via riga di comando}, come si vede dalla
+figura~\ref{oi:fig:sumatra:setup}.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.50\textwidth]{sumatrapdf}
@@ -309,16 +312,15 @@ dalla figura~\ref{oi:fig:sumatra:setup}.
 Si faccia attenzione quando si copia e incolla il codice da questo documento:
 potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
 \emacs. Inoltre il codice in cui si modificano le variabili
-\verb!TeX-view-program-list! e \verb!TeX-view-program-selection! è qui
-spezzato in più righe per una questione di praticità, ma dovrebbe essere
-scritto su un'unica riga per ognuna della variabili.
+\verb!TeX-view-program-list! e \verb!TeX-view-program-selection! è qui spezzato
+in più righe per una questione di praticità, ma dovrebbe essere scritto su
+un'unica riga per ognuna della variabili.
 
 Con queste impostazioni il visualizzatore predefinito per \emacs\ -- non del
 sistema operativo -- sarà \progstyle{SumatraPDF}. Per usare la ricerca diretta
-si devono premere i tasti \verb!C-c C-v! ed il visualizzatore si
-aprirà/porterà in corrispondenza della riga di \emacs{} in cui è il
-cursore. Per la ricerca inversa basta invece un doppio clic nel
-visualizzatore.
+si devono premere i tasti \verb!C-c C-v! ed il visualizzatore si aprirà/porterà
+in corrispondenza della riga di \emacs{} in cui è il cursore. Per la ricerca
+inversa basta invece un doppio clic nel visualizzatore.
 
 %% --------------------------------------------------------------------------
 %% GNU/Linux
@@ -880,15 +882,7 @@ indentata.
 
 \end{document}
 
-%%% Local Variables:
-%%% mode: latex
-%%% coding: utf-8
-%%% TeX-master: t
-%%% fill-column: 80
-%%% End:
 
-% LocalWords:  mirror OS For dmg Git Fast Version Control System clonare git
-% LocalWords:  clone
 
 
 
@@ -950,3 +944,13 @@ indentata.
 % mouse quando questo è posizionato sulla parola e scegliere \texttt{Save word}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8
+%%% TeX-master: t
+%%% fill-column: 80
+%%% End:
+
+% LocalWords:  mirror OS For dmg Git Fast Version Control System clonare git
+% LocalWords:  clone
