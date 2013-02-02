@@ -1,11 +1,11 @@
 %% Copyright (C) M. Giordano, O. Iovino, M. Leccardi, 2010-2013
-%%  
+%%
 %% Quest'opera è distribuita con licenza Creative Commons,
 %%  + Attribuzione
 %%  + Non commerciale
-%%  + Condividi allo stesso modo 
+%%  + Condividi allo stesso modo
 %% 3.0 Italia.
-%%  
+%%
 %% Il testo è disponibile alla pagina Internet
 %% http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
@@ -155,19 +155,22 @@ questa guida vedremo alcune delle funzioni principali di \auctex.
 
 % OI 2013/01/31: per ora scrivo qui il file di inizializzazione perché viene
 % citato più volte, poi vediamo dove è oppurtuno spiegarlo.
-\textcolor{red}{
-Per finire, prima di addentrarci nell'installazione di \emacs, \auctex e altri
+Per finire, prima di addentrarci nell'installazione di \emacs, \auctex{} e altri
 programmi accessori, è utile riportare qui qualche indicazione sul file di
 inizializzazione di \emacs, file che contiene codice Elisp per modificare il
-comportamento delle funzioni. Questo file ha diversi nomi e posti a seconda del
-sistema operativo. In particolare:
+comportamento delle funzioni.  Questo file ha diversi nomi e posti a seconda del
+sistema operativo.  In particolare:
 \begin{itemize}
-%%% CONTROLLARE SU WINDOWS XP, VISTA, 8
+  %%% CONTROLLARE SU WINDOWS XP, VISTA, 8
 \item Su Windows 7, va posizionato in \ldots
-\item Su GNU/Linux, \ldots 
+\item Su GNU/Linux, il file di inizializzazione deve avere percorso
+  \verb|~/.emacs|, \verb|~/.emacs.el| oppure \verb|~/.emacs.d/init.el|;
 \item Su MAC OS, \ldots
 \end{itemize}
-}
+Nel seguito ci riferiremo spesso al file di inizializzazione chiamandolo
+semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
+dall'effettivo nome utilizzato nel proprio sistema (\verb|.emacs|,
+\verb|.emacs.el| oppure \verb|init.el|).
 
 %% --------------------------------------------------------------------------
 %% Windows
@@ -285,14 +288,14 @@ Per la ricerca diretta basta scrivere nel file di inizializzazione
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
 
-(setq TeX-view-program-list 
-      '(("Sumatra PDF" ("\"C:/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" -reuse-instance" 
+(setq TeX-view-program-list
+      '(("Sumatra PDF" ("\"C:/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" -reuse-instance"
 	  (mode-io-correlate " -forward-search %b %n") " %o"))))
 
-(setq TeX-view-program-selection 
-      '(((output-dvi style-pstricks) "dvips and start") 
-	(output-dvi "Yap") 
-	(output-pdf "Sumatra PDF") 
+(setq TeX-view-program-selection
+      '(((output-dvi style-pstricks) "dvips and start")
+	(output-dvi "Yap")
+	(output-pdf "Sumatra PDF")
 	(output-html "start")))
 \end{lstlisting}
 invece, per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare nel
@@ -506,8 +509,8 @@ descritta nel paragrafo \ref{ml:sec:aspell}.
 Dalla pagina relativa a Mac OS
 \sito{http://www.gnu.org/software/auctex/download-for-macosx.html}%
 {\auctex\ For Mac OS X} bisogna scaricare l'archivio
-\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz}%
-{auctex-11.86.tar.gz}.
+\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.87.tar.gz}%
+{auctex-11.87.tar.gz}.
 
 Dopo aver estratto il contenuto dell'archivio in una cartella temporanea occorre
 aprire una sessione di terminale e portarsi nella cartella appena creata.
@@ -661,7 +664,7 @@ aggiungere queste righe al file \emph{.emacs}
   % intestazione iniziale
   \caption{Scorciatoia è la combinazione di tasti da premere per ottenere il
     risultato descritto nell'ultima colonna.  La seconda colonna riporta la
-    funzione, da eseguire con \texttt{M-x}, a cui è legata a quella combinazione
+    funzione, da eseguire con \texttt{M-x}, a cui è legata quella combinazione
     di tasti.}
   \label{tab:cheat-sheet} \\
   \toprule
@@ -748,7 +751,7 @@ funzione \verb!M-x customize-group RET AUCTeX RET!.
 
 Di seguito saranno suggerite alcune porzioni di codice Elisp che permettono di
 personalizzare \emacs{} e che vanno inserite nel file di inizializzazione
-\verb!~/.emacs!.  Per rendere effettive le modifiche bisogna riavviare \emacs{}.
+\verb!.emacs!.  Per rendere effettive le modifiche bisogna riavviare \emacs{}.
 
 Se si usa \auctex{}, è possibile inserire macro nei propri documenti \LaTeX{}
 con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{} conosce le
