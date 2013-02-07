@@ -10,7 +10,8 @@
 %% http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/01/08 v.0.0 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2013/01/08 v.0.0 Breve guida all'uso di
+Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex_preambolo}
 \usepackage{lipsum}
@@ -159,13 +160,21 @@ Per finire, prima di addentrarci nell'installazione di \emacs, \auctex{} e altri
 programmi accessori, è utile riportare qui qualche indicazione sul file di
 inizializzazione di \emacs, file che contiene codice Elisp per modificare il
 comportamento delle funzioni.  Questo file ha diversi nomi e posti a seconda del
-sistema operativo.  In particolare:
+sistema operativo, in particolare
 \begin{itemize}
-  %%% CONTROLLARE SU WINDOWS XP, VISTA, 8
-\item Su Windows 7, va posizionato in \ldots
-\item Su GNU/Linux, il file di inizializzazione deve avere percorso
-  \verb|~/.emacs|, \verb|~/.emacs.el| oppure \verb|~/.emacs.d/init.el|;
-\item Su MAC OS, \ldots
+  % 0. Sulla formattazione al momento non mi viene nulla in mente :-(
+  % 1. Ho dovuto usare \verb|...| perché \lstinline{...} non funziona con £
+\item Su Windows si chiama \filestyle{init.el} e va posizionato in
+      \begin{itemize}
+      \item \verb|C:\Documents and Settings\|\meta{nome
+              utente}\verb|\Application\| fino ad XP;
+      \item \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs.d\init.el|
+            da Vista in avanti;
+      \end{itemize}
+\item Su GNU/Linux si chiama \filestyle{.emacs} o \filestyle{init.el} e va
+      posizionato in \verb|~/.emacs|, \verb|~/.emacs.el| oppure
+      \verb|~/.emacs.d/init.el|;
+\item Su MAC OS \textcolor{red}{[\ldots]}
 \end{itemize}
 Nel seguito ci riferiremo spesso al file di inizializzazione chiamandolo
 semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
