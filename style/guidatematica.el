@@ -83,9 +83,15 @@
     '("class" "Nome della classe")
     '("file" "Nome del file")
     '("pack" "Nome del pacchetto")
-    '("prog" "Nome del programma")
-    ;; [TODO] RIPRENDI DA description
-    )
+    '("prog" "Nome del programma"))
+   ;; Ambienti
+   (LaTeX-add-environments
+    '("blockdescription" LaTeX-env-item) ;; MODIFICARE
+    '("plaindescription" LaTeX-env-item) ;; MODIFICARE
+    '("compactitemize" LaTeX-env-item)
+    '("compactenumerate" LaTeX-env-item)
+    '("compactdescription" LaTeX-env-item) ;; MODIFICARE
+    '("sintassi"))
    ;; Fontification
    (when (and (featurep 'font-latex)
 	      (eq TeX-install-font-lock 'font-latex-setup))
