@@ -6,7 +6,7 @@
 ;; Created: 2013-02-07
 ;; Keywords: tex
 
-;; This file is no part of guidatematica LaTeX class.
+;; This file is no part of AUCTeX.
 
 ;; AUCTeX is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
