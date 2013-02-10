@@ -466,11 +466,10 @@ $ sudo zypper install aspell-it
 \section{Installare Emacs}
 \label{ml:sec:installemacs}
 
-Sul mirror ufficiale %
-\sito{http://ftp.gnu.org/pub/gnu/emacs/windows/}{\emacs} non
+Sul mirror ufficiale \url{http://ftp.gnu.org/pub/gnu/emacs/} non
 è presente una versione già compilata per Mac OS X, queste versioni
 sono rese disponibili da vari volontari come ad esempio il gestore del
-sito \sito{http://emacsformacosx.com/}{Emacs for Mac OS X}. La
+sito \url{http://emacsformacosx.com/}. La
 procedura per l'installazione è quella consueta: scaricata la versione
 più recente si apre il file dmg (se non è già stato aperto
 automaticamente al termine del download) e si trascina Emacs nella
@@ -494,7 +493,7 @@ riguarda i lettori di questa guida è la distribuzione \TeX{}.
 Per gli utenti che usano la tastiera italiana è utile impostare il
 tasto \keys{\cmdmac} come \keys{\Meta} e il tasto \keys{\Altmac} per
 scrivere i caratteri speciali, in particolare le parentesi quadre, le
-graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
+graffe e la tilde, scrivendo queste righe nel file \filestyle{.emacs}
 \begin{lstlisting}
 (setq ns-command-modifier 'meta)
 (setq ns-alternate-modifier nil)
@@ -506,20 +505,18 @@ graffe e la tilde, scrivendo queste righe nel file \emph{.emacs}
 
 Come per \emacs{} non è disponibile una versione di \auctex{} già compilata per
 Mac OS, in questo caso non esistono neppure versioni non ufficiali ed è quindi
-necessario utilizzare l'utility \texttt{make}.  \texttt{make} viene installato
+necessario utilizzare il programma \progstyle{make}.  \progstyle{make} viene installato
 insieme all'ambiente di sviluppo
 \href{http://developer.apple.com/technologies/tools/whats-new.html}%
 {Xcode}, chi non intende dedicare svariati GB di disco a un software utile
-soltanto a chi sviluppa software può sfuttare il fatto che \texttt{make} viene
+soltanto a chi sviluppa software può sfuttare il fatto che \progstyle{make} viene
 installato anche dal correttore ortografico
 \href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione è
 descritta nel paragrafo \ref{ml:sec:aspell}.
 
 Dalla pagina relativa a Mac OS
-\sito{http://www.gnu.org/software/auctex/download-for-macosx.html}%
-{\auctex\ For Mac OS X} bisogna scaricare l'archivio
-\href{http://ftp.gnu.org/pub/gnu/auctex/auctex-11.87.tar.gz}%
-{auctex-11.87.tar.gz}.
+\href{http://www.gnu.org/software/auctex/download-for-macosx.html}%
+{\auctex\ For Mac OS X} bisogna scaricare l'archivio \filestyle{auctex-11.87.tar.gz}.
 
 Dopo aver estratto il contenuto dell'archivio in una cartella temporanea occorre
 aprire una sessione di terminale e portarsi nella cartella appena creata.
@@ -545,7 +542,7 @@ $ make && make install
 %$
 
 Dopo l'installazione bisogna impostare i visualizzatori per i vari file creati
-con \LaTeX{} scrivendo nel file \emph{.emacs} queste righe
+con \LaTeX{} scrivendo nel file \filestyle{.emacs} queste righe
 \begin{lstlisting}
 (setq TeX-view-program-list
       '(("dvips and Skim" "%(o?)dvips %d -o &&\
@@ -560,8 +557,8 @@ SharedSupport/displayline %n %o %b")
         (output-pdf "Skim")
         (output-html "open")))
 \end{lstlisting}
-Come visualizzatore principale si utilizza
-\href{http://skim-app.sourceforge.net/}{Skim} perché supporta la ricerca diretta
+Come visualizzatore principale si utilizza \progstyle{Skim}
+(\url{http://skim-app.sourceforge.net/}) perché supporta la ricerca diretta
 e inversa dal pdf, i dettagli sulla configurazione di \emacs{} e Skim sono
 riportati nel paragrafo~\ref{ml:sec:ricdirinv}.
 
@@ -569,8 +566,8 @@ riportati nel paragrafo~\ref{ml:sec:ricdirinv}.
 \section{Correttore ortografico}
 \label{ml:sec:aspell}
 
-Anche per Mac OS X è disponibile una versione di \textsf{GNU Aspell}
-\sito{http://cocoaspell.leuski.net/}{cocoAspell}
+Anche per Mac OS X è disponibile una versione di \progstyle{GNU Aspell}
+\href{http://cocoaspell.leuski.net/}{cocoAspell}
 
 Dopo aver installato \href{http://people.ict.usc.edu/~leuski/%
   cocoaspell/cocoAspell.2.1.dmg}{cocoAspell.2.1} si possono installare
@@ -593,7 +590,7 @@ $ sudo make install
 % $
 
 Come ultima cosa è necessario configurare \emacs\ aggiungendo al
-\emph{.emacs} le seguenti righe:
+\filestyle{.emacs} le seguenti righe:
 \begin{lstlisting}
 (setq-default ispell-program-name "aspell")
 (setq ispell-dictionary "italiano")
@@ -605,7 +602,7 @@ Come ultima cosa è necessario configurare \emacs\ aggiungendo al
 
 L'unico visualizzatore di file PDF per Mac OS X che supporta la
 ricerca diretta e inversa associato a \emacs{} è
-\href{http://skim-app.sourceforge.net/}{Skim}, già citato nel
+\href{http://skim-app.sourceforge.net/}{\progstyle{Skim}}, già citato nel
 paragrafo~\ref{ml:sec:installauctex}, relativo all'installazione di
 \auctex{}.
 
@@ -633,7 +630,7 @@ scegliendo Automatico successivi aggiornamenti vengono ricaricati
 senza chiedere conferma.
 
 La configurazione di \emacs{} è analoga a quella degli altri sistemi
-operativi, occorre scrivere queste righe in \emph{.emacs}
+operativi, occorre scrivere queste righe in \filestyle{.emacs}
 \begin{lstlisting}
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-mode t)
@@ -646,7 +643,7 @@ parola che interessa tendendo premuto shift e cmd.
 
 Con alcune versioni di \emacs{} precedenti alla 23.3 resta in primo
 piano la finestra del visulizzatore, in tal caso è necessario
-aggiungere queste righe al file \emph{.emacs}
+aggiungere queste righe al file \filestyle{.emacs}
 \begin{lstlisting}
 (defun ns-raise-emacs ()
   (ns-do-applescript "tell application \"Emacs\" to activate"))
