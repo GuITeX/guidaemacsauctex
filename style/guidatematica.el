@@ -6,7 +6,7 @@
 ;; Created: 2013-02-07
 ;; Keywords: tex
 
-;; This file is no part of AUCTeX.
+;; This file is not part of AUCTeX.
 
 ;; AUCTeX is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
@@ -92,6 +92,42 @@
     '("compactenumerate" LaTeX-env-item)
     '("compactdescription" LaTeX-env-item) ;; MODIFICARE
     '("sintassi"))
+
+   (TeX-run-style-hooks
+    "memoir"
+    "memoir10")
+   (if (member "ipertesto" TeX-active-styles)
+       (TeX-run-style-hooks
+	"hyperref"))
+   (if (eq TeX-engine 'xetex)
+       (TeX-run-style-hooks
+	"fontspec"
+	"unicode-math"
+	"polyglossia")
+     (TeX-run-style-hooks
+      "utf8"
+      "inputenc"
+      "T1"
+      "fontenc"
+      "italian"
+      "babel"
+      "cfr-lm"))
+   (TeX-run-style-hooks
+    "graphicx"
+    "metalogo"
+    "pict2e"
+    "microtype"
+    "etoolbox"
+    "xcolor"
+    "natbib"
+    "multicol"
+    "imakeidx"
+    "fancyvrb"
+    "afterpage"
+    "enumitem"
+    "listings"
+    "canoniclayout")
+
    ;; Fontification
    (when (and (featurep 'font-latex)
 	      (eq TeX-install-font-lock 'font-latex-setup))
@@ -146,8 +182,7 @@
 				("class" "{")
 				("file" "{")
 				("pack" "{")
-				("prog" "{")
-				)
+				("prog" "{"))
 			      'function))))
 
 (defvar LaTeX-guidatematica-class-options '("ipertesto")
