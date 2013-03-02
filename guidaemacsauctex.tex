@@ -154,16 +154,12 @@ mette a disposizione numerosi strumenti che rendono senza alcun dubbio \emacs{}
 uno degli editor di testo più potenti per la scrittura di documenti \LaTeX.  In
 questa guida vedremo alcune delle funzioni principali di \auctex.
 
-% OI 2013/01/31: per ora scrivo qui il file di inizializzazione perché viene
-% citato più volte, poi vediamo dove è oppurtuno spiegarlo.
 Per finire, prima di addentrarci nell'installazione di \emacs, \auctex{} e altri
 programmi accessori, è utile riportare qui qualche indicazione sul file di
 inizializzazione di \emacs, file che contiene codice Elisp per modificare il
 comportamento delle funzioni.  Questo file ha diversi nomi e posti a seconda del
 sistema operativo, in particolare
 \begin{itemize}
-  % 0. Sulla formattazione al momento non mi viene nulla in mente :-(
-  % 1. Ho dovuto usare \verb|...| perché \lstinline{...} non funziona con £
 \item Su Windows si chiama \filestyle{init.el} e va posizionato in
       \begin{itemize}
       \item \verb|C:\Documents and Settings\|\meta{nome
@@ -211,7 +207,7 @@ eseguire il programma \progstyle{addpm.exe} contenuto nella cartella
 A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX: l'utente
 infatti non deve specificare nessun percorso circa gli eseguibili della
 distribuzione \LaTeX\ installata perché \emacs{} li trova da solo.
-%% Con TeX Live è così, da verificare con MiKTeX.
+
 
 \section{Installare AUC\TeX}
 \label{oi:sec:installauctex}
@@ -400,29 +396,26 @@ Anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux. Come già detto
 per \emacs, per installare \auctex{} si consiglia di utilizzare il gestore
 pacchetti della propria distribuzione. Ecco i comandi da usare per installare da
 terminale il pacchetto nelle principali distribuzioni: Debian e Ubuntu:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo apt-get install auctex
-\end{Verbatim}
-% $
+\end{lstlisting}
 Fedora:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo yum install emacs-auctex
-\end{Verbatim}
-% $
+\end{lstlisting}
 OpenSUSE:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo zypper install emacs-auctex
-\end{Verbatim}
-% $
+\end{lstlisting}
+
 Su Debian e Ubuntu potrebbe essere raccomandata l'installazione della
 distribuzione TeX Live presente nei repository ufficiali del sistema operativo.
 Per evitare che questo avvenga, per esempio perché si utilizza una distribuzione
 TeX Live installata in altro modo, se si installa il pacchetto da terminale è
 sufficiente aggiungere l'opzione \verb!--no-install-recommends!
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo apt-get install --no-install-recommends auctex
-\end{Verbatim}
-% $
+\end{lstlisting}
 
 
 \section{Correttore ortografico}
@@ -433,20 +426,17 @@ su GNU/Linux utilizzando, come al solito, il gestore pacchetti della
 propria distribuzione. Il dizionario italiano di GNU Aspell si chiama
 \texttt{aspell-it} quindi da terminale può essere installato in Debian
 con il comando
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo apt-get install aspell-it
-\end{Verbatim}
-% $
+\end{lstlisting}
 in Fedora con
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo yum install aspell-it
-\end{Verbatim}
-% $
+\end{lstlisting}
 mentre in openSUSE si può eseguire il comando:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo zypper install aspell-it
-\end{Verbatim}
-% $
+\end{lstlisting}
 
 
 \section{Ricerca diretta inversa}
@@ -479,9 +469,9 @@ In Mac OS le applicazioni avviate dall'interfaccia grafica non hanno
 accesso ai valori delle variabili d'ambiente, per rendere disponibile
 ad \emacs{} la variabile \texttt{PATH} è necessario dare da terminale
 il comando
-\begin{Verbatim}
+\begin{lstlisting}
 $ defaults write ~/.MacOSX/environment PATH "$PATH"
-\end{Verbatim}
+\end{lstlisting}
 Le nuove impostazioni sono effettive dopo aver eseguito un logout e un
 successivo login.
 
@@ -505,12 +495,12 @@ graffe e la tilde, scrivendo queste righe nel file \filestyle{.emacs}
 
 Come per \emacs{} non è disponibile una versione di \auctex{} già compilata per
 Mac OS, in questo caso non esistono neppure versioni non ufficiali ed è quindi
-necessario utilizzare il programma \progstyle{make}.  \progstyle{make} viene installato
-insieme all'ambiente di sviluppo
+necessario utilizzare il programma \progstyle{make}.  \progstyle{make} viene
+installato insieme all'ambiente di sviluppo
 \href{http://developer.apple.com/technologies/tools/whats-new.html}%
 {Xcode}, chi non intende dedicare svariati GB di disco a un software utile
-soltanto a chi sviluppa software può sfuttare il fatto che \progstyle{make} viene
-installato anche dal correttore ortografico
+soltanto a chi sviluppa software può sfuttare il fatto che \progstyle{make}
+viene installato anche dal correttore ortografico
 \href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione è
 descritta nel paragrafo \ref{ml:sec:aspell}.
 
@@ -522,13 +512,12 @@ Dopo aver estratto il contenuto dell'archivio in una cartella temporanea occorre
 aprire una sessione di terminale e portarsi nella cartella appena creata.
 
 Configurare \auctex{} con il comando
-\begin{Verbatim}
+\begin{lstlisting}
 $ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
   --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs\
   --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/\
   --without-texmf-dir
-\end{Verbatim}
-% $
+\end{lstlisting}
 sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando il
   terminale non bisogna utilizzare i nomi localizzati delle cartelle ma quelli
   reali, quindi \texttt{Application} è corretto anche se si utilizza la versione
@@ -536,10 +525,9 @@ sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando il
 i file saranno contenuti nel bundle \texttt{Emacs.app}.
 
 Compilare e installare con il comando
-\begin{Verbatim}
+\begin{lstlisting}
 $ make && make install
-\end{Verbatim}
-%$
+\end{lstlisting}
 
 Dopo l'installazione bisogna impostare i visualizzatori per i vari file creati
 con \LaTeX{} scrivendo nel file \filestyle{.emacs} queste righe
@@ -582,12 +570,11 @@ Dopo aver scaricato i dizionari bisogna estarre il contento
 dell'archivio in una cartella temporanea, aprire una sessione di
 terminale e portarsi nella cartella appena creata. I dizionari si
 installano dando i seguenti comandi
-\begin{Verbatim}
+\begin{lstlisting}
 $ ./configure
 $ make
 $ sudo make install
-\end{Verbatim}
-% $
+\end{lstlisting}
 
 Come ultima cosa è necessario configurare \emacs\ aggiungendo al
 \filestyle{.emacs} le seguenti righe:
@@ -652,7 +639,7 @@ aggiungere queste righe al file \filestyle{.emacs}
 
 
 \chapter{Primi passi in \emacs} % titolo provvisorio, modificabile
-\label{cha:primi-passi-emacs}
+\label{chap:primi-passi-emacs}
 
 % In questa sezione dovremmo spiegare come utilizzare Emacs in sé,
 % indipendentemente da AUCTeX.  Poi si potrebbe fare un altro capitolo con le

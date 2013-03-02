@@ -26,7 +26,7 @@ PDF		= $(MAIN).pdf
 
 .PHONY: clean dist
 
-$(PDF): $(ALL_TEX) $(ALL_BIB) $(MAIN)_preambolo.sty
+$(PDF): $(ALL_TEX) $(ALL_BIB) $(MAIN).sty
 	latexmk -pdf -recorder- $(MAIN_TEX)
 
 clean:
