@@ -9,15 +9,18 @@
 %% Il testo è disponibile alla pagina Internet
 %% http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{guidaemacsauctex}[2013/03/02 v0.0 Preambolo di guidaemacsauctex.tex]
+
+\RequirePackage{ccicons}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+
 \RequirePackage{epigraph}
 \renewcommand{\epigraphflush}{flushleft}
 \setlength{\epigraphrule}{0pt}
 \setlength{\beforeepigraphskip}{-25pt}
 \setlength{\afterepigraphskip}{-25pt}
-
-\RequirePackage{ccicons}
-\RequirePackage{booktabs}
-\RequirePackage{longtable}
 
 % graphicx è caricato dalla classe
 \graphicspath{{figure/}}
@@ -70,8 +73,8 @@
 
 \providecommand{\emacs}{Emacs}
 \providecommand{\auctex}{AUC\TeX{}}
-\providecommand{\simbolo}{url:}
-\providecommand{\sito}[2]{(\href{#1}{\small\scshape\simbolo\ #2})}
+
+% end of file guidaemacsauctex.sty
 
 %%% Local Variables:
 %%% mode: latex
