@@ -744,7 +744,8 @@ funzione \verb!M-x customize-group RET AUCTeX RET!.
 
 Di seguito saranno suggerite alcune porzioni di codice Elisp che permettono di
 personalizzare \emacs{} e che vanno inserite nel file di inizializzazione
-\verb!.emacs!.  Per rendere effettive le modifiche bisogna riavviare \emacs{}.
+\filestyle{.emacs}.  Per rendere effettive le modifiche bisogna riavviare
+\emacs{}.
 
 Se si usa \auctex{}, è possibile inserire macro nei propri documenti \LaTeX{}
 con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{} conosce le
@@ -757,13 +758,13 @@ richiesto l'ordine \verb!n! della radice da inserire (premere direttamente
 \verb!RET! per non inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in
 modo che \auctex{} conosca quali pacchetti \LaTeX{} sono stati caricati bisogna
 permettergli di effettuare il parsing dei propri documenti e questo è possibile
-aggiungendo nel proprio file \verb!.emacs! il seguente codice
+aggiungendo nel proprio file \filestyle{.emacs} il seguente codice
 \begin{lstlisting}
 (setq TeX-parse-self t) ; Attiva parsing al caricamento
 (setq TeX-auto-save  t) ; Attiva parsing al salvataggio
 \end{lstlisting}
 In questo modo verrà creata una cartella chiamata \verb!auto! nella stessa
-directory in cui si trova il documento nella quale verranno registrate le
+cartella in cui si trova il documento nella quale verranno registrate le
 informazioni relative al proprio documento \LaTeX{}, se non si desidera
 affollamento nelle proprie cartelle si potrebbe non voler attivare queste due
 opzioni.
@@ -778,10 +779,10 @@ soprattutto la prima volta che viene eseguito.  Per i pacchetti non
 correttamente analizzati da \auctex{}, possiamo aggiungere manualmente le macro
 da utilizzare solo quando viene caricato nel documento \LaTeX{} il pacchetto che
 fornisce le relative macro.  Per esempio, uno dei pacchetti basati su \LaTeX{}3
-è \verb!siunitx!.  Con il seguente codice da aggiungere nel file \verb!.emacs!
-apprenderà che questo pacchetto fornisce i comandi \verb!SI!, \verb!si!,
-\verb!ang! e \verb!num! di cui il primo accetta due argomenti, gli ultimi tre
-solo uno:
+è \packstyle{siunitx}.  Con il seguente codice da aggiungere nel file
+\filestyle{.emacs} apprenderà che questo pacchetto fornisce i comandi \cs{SI},
+\cs{si}, \cs{ang} e \cs{num} di cui il primo accetta due argomenti, gli ultimi
+tre solo uno:
 \begin{lstlisting}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -793,14 +794,15 @@ solo uno:
        '("ang" 1)
        '("num" 1)))))
 \end{lstlisting}
-A volte in un documento \LaTeX{} non si carica un certo pacchetto \verb!B!
-poiché è automaticamente caricato da un altro pacchetto \verb!A! che viene
+A volte in un documento \LaTeX{} non si carica un certo pacchetto \packstyle{B}
+poiché è automaticamente caricato da un altro pacchetto \packstyle{A} che viene
 esplicitamente caricato.  In questi casi, però, \auctex{} potrebbe non rendersi
-conto che il pacchetto \verb!B! è stato effettivamente caricato e non fornirebbe
-le funzioni di autocompletamento per le macro del pacchetto \verb!B!, se è uno
-di quelli supportati.  Supponiamo inoltre che insieme a \verb!B!, il pacchetto
-\verb!A! carichi anche i pacchetti \verb!C! e \verb!D!.  Per ovviare a questo
-problema è possibile inserire il seguente codice nel file di inizializzazione
+conto che il pacchetto \packstyle{B} è stato effettivamente caricato e non
+fornirebbe le funzioni di autocompletamento per le macro del pacchetto
+\packstyle{B}, se è uno di quelli supportati.  Supponiamo inoltre che insieme a
+\packstyle{B}, il pacchetto \packstyle{A} carichi anche i pacchetti
+\packstyle{C} e \packstyle{D}.  Per ovviare a questo problema è possibile
+inserire il seguente codice nel file di inizializzazione
 \begin{lstlisting}
 (eval-after-load "tex"
   '(TeX-add-style-hook
@@ -808,9 +810,9 @@ problema è possibile inserire il seguente codice nel file di inizializzazione
     (lambda ()
       (TeX-run-style-hooks "B" "C" "D"))))
 \end{lstlisting}
-Per esempio, il pacchetto \verb!siunitx! carica automaticamente i pacchetti
-\verb!array! e \verb!amstext! e non è quindi necessario inserire nel proprio
-sorgente \LaTeX{} le istruzioni \verb!\usepackage{array}! e
+Per esempio, il pacchetto \packstyle{siunitx} carica automaticamente i pacchetti
+\packstyle{array} e \packstyle{amstext} e non è quindi necessario inserire nel
+proprio sorgente \LaTeX{} le istruzioni \verb!\usepackage{array}! e
 \verb!\usepackage{amstext}!.  Per far sapere ad \auctex{} questa situazione
 possiamo completare il codice precedente come segue
 \begin{lstlisting}
@@ -828,7 +830,7 @@ possiamo completare il codice precedente come segue
 
 Se si è soliti suddividere i propri documenti \LaTeX{} in più file da includere
 nel file principale con i comandi \verb!\input! o \verb!\include! può essere
-utile aggiungere al file \verb!.emacs!
+utile aggiungere al file \filestyle{.emacs}
 \begin{lstlisting}
 (setq-default TeX-master nil)
 \end{lstlisting}
@@ -846,19 +848,19 @@ ogni volta che si apre un documento \LaTeX{} bisogna aggiungere
 \begin{lstlisting}
 (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
 \end{lstlisting}
-al proprio \verb!.emacs!.
+al proprio \filestyle{.emacs}.
 
 Il codice
 \begin{lstlisting}
 (setq TeX-electric-sub-and-superscript t)
 \end{lstlisting}
-aggiunto al proprio \verb!.emacs!, permette di inserire automaticamente una
+aggiunto al proprio \filestyle{.emacs}, permette di inserire automaticamente una
 coppia di parentesi graffe \verb!{}! quando si scrivono i simboli \verb!_! e
 \verb!^! in modalità matematica.
 
 Normalmente, quando si preme \verb!RET! in un sorgente \LaTeX{} viene
 semplicemente aggiunta una nuova linea.  Se si vuole che andando a capo la nuova
-linea sia automaticamente indentata bisogna premere \verb!C-j! invece di
+linea sia automaticamente rientrata bisogna premere \verb!C-j! invece di
 \verb!RET!.  Si può però fare in modo che si ottenga questo risultato anche
 premendo normalmente \verb!RET! aggiungendo il seguente codice al file di
 inizializzazione
