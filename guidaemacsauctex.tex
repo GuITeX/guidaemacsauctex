@@ -644,18 +644,95 @@ aggiungere queste righe al file \filestyle{.emacs}
 \chapter{Primi passi in \emacs}
 \label{chap:primi-passi-emacs}
 
-% In questa sezione dovremmo spiegare come utilizzare Emacs in sé,
-% indipendentemente da AUCTeX.  Poi si potrebbe fare un altro capitolo con le
-% istruzioni di base su AUCTeX e per finire il capitolo sulle personalizzazioni,
-% che c'è già adesso
+Nei precedenti capitoli si è in sostanza parlato di come installare e
+configurare i principali componenti per scrivere documenti in \LaTeX\ con
+\emacs. In questo capitolo vediamo ora come si scrive in \emacs un documento
+\filestyle{.tex}.
 
-% abbozzo di cheat sheet fatto in casa.  Dovrebbe essere una tabella
-% riepilogativa, almeno le funzioni principali vanno descritte precedentemente
-% nel testo.  TODO: sistemare/completare la tabella (e anche la didascalia).
-% Spiegare che per utilizzare Emacs non è necessario imparare tutte queste
-% combinazioni di tasti a memoria sin da subito, però è molto utile imparare
-% almeno le prime.  Raccomandazione: Emacs ha centinaia di scorciatoie veramente
-% utili, qui mettiamo solo quelle abbastanza importanti
+\section{Ciao mondo}
+\label{sec:primodocumento}
+
+Su ogni sistema sistema operativo si ha la possibilità di aprire \emacs\ a partire
+da un collegamento al programma principale. Aperto \emacs, si dovrebbe avere davanti
+la finestra principale, come in figura~\ref{fig:principale}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{splash}
+  \caption{Schermata iniziale di GNU Emacs. L'immagine è presa dal sito
+    ufficiale \url{http://www.gnu.org/software/emacs/}.}
+  \label{fig:principale}
+\end{figure}
+
+Per creare un nuovo documento basta premere \verb|C-c C-f| ed Emacs chiederà di
+aprire/trovare un file. Scrivendo un nome che nella cartella di lavoro non
+esiste questo file sarà creato. Scritto il nome del file, per esempio
+\filestyle{primo.tex}, si può iniziare a scrivere in \LaTeX. Per gli amanti
+delle scorciatoie da tastiera (e di questo \emacs\ ne fa un suo punto di forza),
+scrivendo \verb|C-c C-e|, \emacs\ chiederà quale ambiente inserire; dato che a
+questo punto non c'è alcun documento attivo, l'ambiente \amb{document} sarà
+proposto come quello predefinito.
+\begin{lstlisting}
+Environment type: (default document) 
+\end{lstlisting}
+Dopo il primo \verb|RET| apparirà nel minibuffer la scritta
+\begin{lstlisting}
+Document class: (default article) 
+\end{lstlisting}
+in cui si può scegliere la classe che, per impostazione predefinita, è
+\classstyle{article}. A seguito del secondo \verb|RET| si avrà
+\begin{lstlisting}
+Options: 
+\end{lstlisting}
+in cui scrivere le opzioni della classe. Scelte queste ultime si darà un altro
+\verb|RET| e si avrà infine il classico
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\documentclass{article}
+
+\begin{document}
+£\meta{\textrm{cursore del mouse}}£
+\end{document}
+\end{lstlisting}
+
+Scritto quello che si vuole nel documento, per compilarlo si può
+\begin{compactitemize}
+\item premere sul pulsante presente nella \emph{toolbar}
+\item andare in \menu[,]{Command,LaTeX}
+\item scrivendo \verb|C-c C-c|. Solo in questo caso nel minibuffer si avrà
+\begin{lstlisting}
+\verb|Command: (default LaTeX) |
+\end{lstlisting}
+      e premendo \verb|RET| sarà lanciato \LaTeX.
+\end{compactitemize}
+Durante la compilazione del documento uscirà
+\begin{lstlisting}
+Type `C-c C-l' to display results of compilation.
+\end{lstlisting}
+e al termine, invece, se tutto è andato a buon fine senza errori, si avrà
+\begin{lstlisting}
+LaTeX: successfully formatted {1} page
+\end{lstlisting}
+Con questa procedura si scrive un nuovo documento in \LaTeX. Sembra difficile, e
+molti reputano \emacs\ tale, cioè un editor difficile da usare. Ma ci vuole di
+più a dirsi che a farsi. Le scorciatoie da tastiera si imparano in fretta e da
+questo se ne trae anche un grosso vantaggio.
+
+\section{Un documento più complesso}
+\label{sec:documento:complesso}
+
+\textcolor{red}{\lipsum[1]}
+
+\section{Sinossi delle principali scorciatoie}
+\label{sec:sinossi:sco}
+
+\emacs\ gode di una infinità di combinazioni di tasti per eseguire operazioni
+banali e non. Scriverle tutte sarabbe impossibile. Va da sé che per usare \emacs
+non è necessario ricordarle tutte ma almeno le principale sì, anche se con l'uso
+quotidiano, queste ultime si memorizzano automaticamente. Le principali sono qui
+riassunte nella tabella~\ref{tab:cheat-sheet}. Pur essendo abbastanza corposa,
+la tabella comunque non ricopre tutte le possibili combinazioni. Quelle
+strettamente necessarie sono le prime.
+
 \begin{longtable}{>{\ttfamily}l>{\ttfamily}lp{0.32\textwidth}}
   % intestazione iniziale
   \caption{Scorciatoia è la combinazione di tasti da premere per ottenere il
