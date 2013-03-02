@@ -498,30 +498,32 @@ Mac OS, in questo caso non esistono neppure versioni non ufficiali ed è quindi
 necessario utilizzare il programma \progstyle{make}.  \progstyle{make} viene
 installato insieme all'ambiente di sviluppo
 \href{http://developer.apple.com/technologies/tools/whats-new.html}%
-{Xcode}, chi non intende dedicare svariati GB di disco a un software utile
-soltanto a chi sviluppa software può sfuttare il fatto che \progstyle{make}
-viene installato anche dal correttore ortografico
-\href{http://cocoaspell.leuski.net/}{cocoaspell} la cui installazione è
-descritta nel paragrafo \ref{ml:sec:aspell}.
+{\progstyle{Xcode}}. Chi non intende dedicare svariati GB di disco a un software
+utile soltanto a chi sviluppa software può sfruttare il fatto che
+\progstyle{make} viene installato anche dal correttore ortografico
+\progstyle{cocoAspell} la cui installazione è descritta nel
+paragrafo~\ref{ml:sec:aspell}.
 
-Dalla pagina relativa a Mac OS
-\href{http://www.gnu.org/software/auctex/download-for-macosx.html}%
-{\auctex\ For Mac OS X} bisogna scaricare l'archivio \filestyle{auctex-11.87.tar.gz}.
+Dalla pagina relativa a Mac OS X,
+\url{http://www.gnu.org/software/auctex/download-for-macosx.html} bisogna
+scaricare l'archivio compresso \filestyle{auctex-11.87.tar.gz}.
 
 Dopo aver estratto il contenuto dell'archivio in una cartella temporanea occorre
 aprire una sessione di terminale e portarsi nella cartella appena creata.
 
 Configurare \auctex{} con il comando
-\begin{lstlisting}
-$ ./configure --prefix=/Applications/Emacs.app/Contents/Resources/\
-  --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs\
-  --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/\
-  --without-texmf-dir
+\begin{lstlisting}[flexiblecolumns]
+$ ./configure \
+ --prefix=/Applications/Emacs.app/Contents/Resources/ \
+ --with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs \
+ --with-lispdir=/Applications/Emacs.app/Contents/Resources \
+                  /site-lisp/ \
+ --without-texmf-dir
 \end{lstlisting}
 sostituendo se necessario a \texttt{Applications}\footnote{Utilizzando il
   terminale non bisogna utilizzare i nomi localizzati delle cartelle ma quelli
   reali, quindi \texttt{Application} è corretto anche se si utilizza la versione
-  italiana di Mac OS} la cartella in cui si trova \emacs{}, in questo modo tutti
+  italiana di Mac OS.} la cartella in cui si trova \emacs{}, in questo modo tutti
 i file saranno contenuti nel bundle \texttt{Emacs.app}.
 
 Compilare e installare con il comando
@@ -545,28 +547,28 @@ SharedSupport/displayline %n %o %b")
         (output-pdf "Skim")
         (output-html "open")))
 \end{lstlisting}
-Come visualizzatore principale si utilizza \progstyle{Skim}
-(\url{http://skim-app.sourceforge.net/}) perché supporta la ricerca diretta
-e inversa dal pdf, i dettagli sulla configurazione di \emacs{} e Skim sono
-riportati nel paragrafo~\ref{ml:sec:ricdirinv}.
+Come visualizzatore si usa \progstyle{Skim},
+\url{http://skim-app.sourceforge.net/}, perché supporta la ricerca diretta e
+inversa dal \filestyle{pdf}, i dettagli sulla configurazione di \emacs{} e
+\progstyle{Skim} sono riportati nel paragrafo~\ref{ml:sec:ricdirinv}.
 
 
 \section{Correttore ortografico}
 \label{ml:sec:aspell}
 
-Anche per Mac OS X è disponibile una versione di \progstyle{GNU Aspell}
-\href{http://cocoaspell.leuski.net/}{cocoAspell}
+Anche per Mac OS X è disponibile una versione di \progstyle{GNU Aspell} chiamata
+\progstyle{cocoAspell}, disponibile all'indirizzo
+\url{http://cocoaspell.leuski.net/}.
 
-Dopo aver installato \href{http://people.ict.usc.edu/~leuski/%
-  cocoaspell/cocoAspell.2.1.dmg}{cocoAspell.2.1} si possono installare
-i dizionari delle lingue che interessano scaricandoli direttamente dal
-sito di (\href{ftp://ftp.gnu.org/gnu/aspell/dict/}{\textsf{GNU
-    Aspell}}), ad esempio il dizionario italiano è contenuto
-nell'archivio
+Dopo aver installato la versione 2.1 (ad oggi l'ultima versione) si possono
+installare i dizionari delle lingue che interessano scaricandoli direttamente
+dal sito di \progstyle{GNU Aspell}, all'indirizzo
+\url{ftp://ftp.gnu.org/gnu/aspell/dict/}, ad esempio il dizionario italiano è
+contenuto nell'archivio
 \href{ftp://ftp.gnu.org/gnu/aspell/dict/it/aspell6-it-2.2_20050523-0.tar.bz2}%
-{aspell6-it-2.2\_20050523-0.tar.bz2}.
+{\filestyle{aspell6-it-2.2\_20050523-0.tar.bz2}}.
 
-Dopo aver scaricato i dizionari bisogna estarre il contento
+Dopo aver scaricato i dizionari bisogna estrarre il contento
 dell'archivio in una cartella temporanea, aprire una sessione di
 terminale e portarsi nella cartella appena creata. I dizionari si
 installano dando i seguenti comandi
@@ -587,7 +589,7 @@ Come ultima cosa è necessario configurare \emacs\ aggiungendo al
 \section{Ricerca diretta inversa}
 \label{ml:sec:ricdirinv}
 
-L'unico visualizzatore di file PDF per Mac OS X che supporta la
+L'unico visualizzatore di file \filestyle{pdf} per Mac OS X che supporta la
 ricerca diretta e inversa associato a \emacs{} è
 \href{http://skim-app.sourceforge.net/}{\progstyle{Skim}}, già citato nel
 paragrafo~\ref{ml:sec:installauctex}, relativo all'installazione di
@@ -598,9 +600,9 @@ nella pagina \emph{Sincronizza} delle preferenze:
 \begin{itemize}
 \item selezionare la checkbox \emph{Controlla cambiamenti del file}
 \item nel campo \emph{Comando} scrivere \\
-  \verb!/Applications/Emacs.app/Contents/MacOS/bin/emacsclient!
+      \verb!/Applications/Emacs.app/Contents/MacOS/bin/emacsclient!
 \item scrivere \verb!--no-wait +%line "%file"! nel campo
-  \emph{Argomenti}
+      \emph{Argomenti}
 \end{itemize}
 Nella figura~\ref{fig:skimpref} sono riportate le impostazioni
 corrette.
@@ -611,9 +613,9 @@ corrette.
   \label{fig:skimpref}
 \end{figure}
 
-La prima opzione fa sì che quando un file aperto in Skim viene
-modificato da un altro processo Skim chieda se deve essere ricaricato,
-scegliendo Automatico successivi aggiornamenti vengono ricaricati
+La prima opzione fa sì che quando un file aperto in \progstyle{Skim} viene
+modificato da un altro processo \progstyle{Skim} chieda se deve essere
+ricaricato, scegliendo Automatico successivi aggiornamenti vengono ricaricati
 senza chiedere conferma.
 
 La configurazione di \emacs{} è analoga a quella degli altri sistemi
@@ -624,12 +626,13 @@ operativi, occorre scrivere queste righe in \filestyle{.emacs}
 (setq TeX-source-correlate-start-server t)
 \end{lstlisting}
 
-Per passare dal file .tex al .pdf si utilizza la combinazione di tasti
-\verb!C-c C-v!, per ritornare al file .tex bisogna fare click sulla
-parola che interessa tendendo premuto shift e cmd.
+Per passare dal file \filestyle{.tex} al \filestyle{.pdf} si utilizza la
+combinazione di tasti \verb!C-c C-v!, per ritornare al file \filestyle{.tex}
+bisogna fare click sulla parola che interessa tendendo premuto \keys{\shift} e
+\keys{cmd}.
 
 Con alcune versioni di \emacs{} precedenti alla 23.3 resta in primo
-piano la finestra del visulizzatore, in tal caso è necessario
+piano la finestra del visualizzatore, in tal caso è necessario
 aggiungere queste righe al file \filestyle{.emacs}
 \begin{lstlisting}
 (defun ns-raise-emacs ()
@@ -638,7 +641,7 @@ aggiungere queste righe al file \filestyle{.emacs}
 \end{lstlisting}
 
 
-\chapter{Primi passi in \emacs} % titolo provvisorio, modificabile
+\chapter{Primi passi in \emacs}
 \label{chap:primi-passi-emacs}
 
 % In questa sezione dovremmo spiegare come utilizzare Emacs in sé,
