@@ -1,3 +1,5 @@
+#+STARTUP: showall logdone
+
 * guidaemacsauctex
 
 Contiene i sorgenti della guida tematica <TITOLO>
@@ -14,14 +16,14 @@ altra funzione di Emacs.
 ** Compilare il codice sorgente
 
 Per compilare questa guida si raccomanda di avere una distribuzione LaTeX
-aggiornata (si consiglia TeX Live 2012). Se si dispone del programma =make=
+aggiornata (si consiglia [[http://www.tug.org/texlive/][TeX Live]] 2012). Se si dispone del programma [[http://www.gnu.org/software/make/][make]]
 basta scrivere in un terminale =make= oppure =M-x compile RET= da Emacs.  Se
-non si ha il programma =make= i passi per la compilazione sono 
+non si ha il programma =make= i passi per la compilazione sono
 #+BEGIN_EXAMPLE
-pdflatex introemacs 
-bibtex introemacs 
-pdflatex introemacs 
-pdflatex introemacs
+pdflatex guidaemacsauctex 
+bibtex guidaemacsauctex 
+pdflatex guidaemacsauctex
+pdflatex guidaemacsauctex
 #+END_EXAMPLE
 
 ** Licenza d'uso
@@ -31,11 +33,11 @@ posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo stesso
 modo*. L'enunciato integrale della licenza è reperibile sul sito ufficiale
 http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
 
-+ tu sei libero:
++ *tu sei libero*:
  - Di riprodurre, distribuire, comunicare al pubblico, esporre in pubblico,
    rappresentare, eseguire e recitare quest'opera.
  - Di modificare quest'opera.
-+ alle seguenti condizioni:
++ *alle seguenti condizioni*:
  - Devi attribuire la paternità dell'opera nei modi indicati dall'autore o da
    chi ti ha dato l'opera in licenza e in modo tale da non suggerire che essi
    avallino te o il modo in cui tu usi l'opera.
