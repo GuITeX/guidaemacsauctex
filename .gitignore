@@ -1,3 +1,6 @@
+#
+# file ausiliari di compilazione
+#
 *.log
 *.aux
 *.out
@@ -12,5 +15,17 @@
 *.tar.gz
 *-blx.bib
 *.fdb_latexmk
+#
+# file pdf finale (binario)
+#
 guidaemacsauctex.pdf
+#
+# cartella di Emacs
+#
 auto/*
+#
+# file di backup
+#
+*.tex~
+*.bib~
+*.org~
