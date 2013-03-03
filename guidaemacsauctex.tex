@@ -700,7 +700,7 @@ Scritto quello che si vuole nel documento, per compilarlo si può
 \item andare in \menu[,]{Command,LaTeX}
 \item scrivendo \verb|C-c C-c|. Solo in questo caso nel minibuffer si avrà
 \begin{lstlisting}
-\verb|Command: (default LaTeX) |
+Command: (default LaTeX)
 \end{lstlisting}
       e premendo \verb|RET| sarà lanciato \LaTeX.
 \end{compactitemize}
@@ -720,7 +720,84 @@ questo se ne trae anche un grosso vantaggio.
 \section{Un documento più complesso}
 \label{sec:documento:complesso}
 
-\textcolor{red}{\lipsum[1]}
+Per documenti abbastanza corposi, come un libro, un manuale, una tesi \ldots,
+conviente suddividere il documento in un file principale, che chiameremo per
+esempio \filestyle{master.tex}, e altri file contenenti il materiale vero e
+proprio, ad esempio \filestyle{capitolouno.tex} e \filestyle{capitolodue.tex}.
+
+\emacs, come diversi altri editor di testo, consente di lanciare la compilazione
+direttamente dal file su cui si sta lavorando anche se questo non è il file
+principale, cioè il file \filestyle{master.tex} che conterrà qualcosa come
+\begin{lstlisting}[language={[LaTeX]TeX}]
+\documentclass{book}
+
+\begin{document}
+
+\input{capitolouno}
+\input{capitolodue}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+\end{lstlisting}
+
+Si nota subito una cosa non presente nel file del
+paragrafo~\ref{sec:primodocumento}: le varibili locali.
+
+Le variabili locali sono dei meta commenti che \LaTeX\ ignora --- in quanto
+commenti ---, ma \emacs\ no e che servono per impostare alcune preferenze sul
+proprio documento.
+
+Le variabili locali si possono specificare tra \verb|%%% Local Variables:| e
+\verb|%%% End:| alla fine del file oppure tra \verb|-*-| e \verb|-*-| all'inizio
+del file. Riferiamoci al primo caso.
+
+Prima di andare avanti è bene anche specificare che le variabili di cui
+parleremo sono però messe a disposizone di \auctex. La riga
+\verb|%%% mode: latex| indica che
+stiamo scrivendo un documento \LaTeX, mentre \verb|TeX-master: t| indica che il
+file in questione è il file principale su cui lanciare le compilazioni.
+
+I file \filestyle{capitolouno.tex} e \filestyle{capitolodue.tex}, oltre al
+proprio contenuto, conterrano invece alla fine le righe
+\begin{lstlisting}[language={[LaTeX]TeX}]
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End: 
+\end{lstlisting}
+in cui si specifica che la compilazione debba essere lanciata sul file
+\filestyle{master.tex} mediante la riga \verb|%%% TeX-master: "master"|.
+
+\section{Correzione ortografica}
+\label{sec:corr:orto:in:azione}
+
+Viste le modalità di installazione dei correttori ortografici specifichiamo in
+questo paragrafo come usarli.
+
+Per fare una revisione del documento che si sta scrivendo, bisogna premere la
+combinazione di tasti \verb!M-x! e scrivere \verb!ispell!: in questo modo il
+dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
+
+Un secondo modo, per scrivere correttamente, è attivare la modalità
+\emph{flyspell} (correzione al volo). Se la si vuole attivare solo sul documento
+corrente basta andare in \menu{Tools > Spell Checking > Automatic spell checking
+  (Flyspell)}; se invece la si vuole tenere sempre abilitata si deve aggiungere
+la riga:
+\begin{lstlisting}
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+\end{lstlisting}
+al proprio file \filestyle{.emacs}.
+
+Quando viene rilevata una parola potenzialmente non corretta, questa verrà
+colorata (in genere) in rosso. Alcuni termini, però, vengono segnalati come
+errati anche quando sono corretti, cosa che accade perché quel termine non è
+presente nel dizionario: si può aggiungerlo, premendo il tasto centrale del
+mouse quando questo è posizionato sulla parola e scegliere \texttt{Save word}.
+
 
 \section{Sinossi delle principali scorciatoie}
 \label{sec:sinossi:sco}
@@ -731,7 +808,9 @@ non è necessario ricordarle tutte ma almeno le principale sì, anche se con l'u
 quotidiano, queste ultime si memorizzano automaticamente. Le principali sono qui
 riassunte nella tabella~\ref{tab:cheat-sheet}. Pur essendo abbastanza corposa,
 la tabella comunque non ricopre tutte le possibili combinazioni. Quelle
-strettamente necessarie sono le prime.
+strettamente necessarie sono le prime. Per approfondire il discorso si possono
+anche consultare le \emph{Reference Card}, disponibili in genere nella propria
+installazione.
 
 \begin{longtable}{>{\ttfamily}l>{\ttfamily}lp{0.32\textwidth}}
   % intestazione iniziale
@@ -814,7 +893,7 @@ strettamente necessarie sono le prime.
 \chapter{Personalizzare \emacs{} \& \auctex}
 \label{chap:personal}
 
-In questo paragrafo vedremo alcune delle personalizzazioni che possono risultare
+In questo capitolo vedremo alcune delle personalizzazioni che possono risultare
 utili quando si lavora con documenti \LaTeX{}.  Per modificare le impostazioni
 relative alla gestione nativa di \TeX{} da parte di \emacs{} è possibile usare
 la funzione \verb!M-x customize-group RET tex RET!.  In questo modo si aprirà un
@@ -1001,25 +1080,6 @@ indentata.
 % di seguito esposte per tutti e tre i sistemi operativi.  L'uso, invece, è
 % invariante.
 
-% Per fare una revisione del documento che si sta scrivendo, bisogna premere la
-% combinazione di tasti \verb!M-x! e scrivere \verb!ispell!: in questo modo il
-% dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
-
-% Un secondo modo, per scrivere correttamente, è attivare la modalità
-% \emph{flyspell} (correzione al volo). Se la si vuole attivare solo sul documento
-% corrente basta andare in \menu{Tools > Spell Checking > Automatic spell
-%   checking (Flyspell)}; se invece la si vuole tenere sempre abilitata si deve
-% aggiungere la riga:
-% \begin{Verbatim}
-% (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-% \end{Verbatim}
-% al proprio file \emph{.emacs}.
-
-% Quando viene rilevata una parola potenzialmente non corretta, questa verrà
-% colorata (in genere) in rosso. Alcuni termini, però, vengono segnalati come
-% errati anche quando sono corretti, cosa che accade perché quel termine non è
-% presente nel dizionario: si può aggiungerlo, premendo il tasto centrale del
-% mouse quando questo è posizionato sulla parola e scegliere \texttt{Save word}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
