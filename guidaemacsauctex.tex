@@ -305,9 +305,9 @@ Per la ricerca diretta basta scrivere nel file di inizializzazione
 \end{lstlisting}
 invece, per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare nel
 menu \emph{Impostazioni}, quindi scegliere \emph{Opzioni...} e scrivere
-\begin{Verbatim}
+\begin{lstlisting}
 C:/Programmi/Emacs/bin/emacsclientw.exe --no-wait +%l "%f"
-\end{Verbatim}
+\end{lstlisting}
 in \emph{Imposta la ricerca inversa via riga di comando}, come si vede dalla
 figura~\ref{oi:fig:sumatra:setup}.
 \begin{figure}[t]
@@ -350,20 +350,17 @@ possono naturalmente utilizzare i gestori di pacchetti a interfaccia
 grafica, riportiamo qui inoltre i comandi da terminale che possono
 essere eseguiti per installare \emacs{} in alcune delle principali
 distribuzioni: Debian e Ubuntu:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo apt-get install emacs
-\end{Verbatim}
-% $
+\end{lstlisting}
 Fedora:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo yum install emacs
-\end{Verbatim}
-% $
+\end{lstlisting}
 OpenSUSE:
-\begin{Verbatim}
+\begin{lstlisting}
 $ sudo zypper install emacs
-\end{Verbatim}
-% $
+\end{lstlisting}
 
 Il metodo più difficile, per i non avvezzi all'uso del terminale,
 consiste nel compilare \emacs{} a partire dal codice sorgente,
@@ -371,22 +368,19 @@ tuttavia non è intenzione di questa guida spiegare come fare ciò.
 
 Dopo averlo installato, \emacs{} potrà essere avviato facendo clic sul
 suo lanciatore oppure eseguendo da terminale il comando
-\begin{Verbatim}
+\begin{lstlisting}
 $ emacs
-\end{Verbatim}
-% $
+\end{lstlisting}
 Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna
 aggiungere l'opzione \texttt{-nw} oppure \texttt{--no-window-system}:
-\begin{Verbatim}
+\begin{lstlisting}
 $ emacs -nw
-\end{Verbatim}
-% $
+\end{lstlisting}
 Possono essere aggiunti come argomenti da linea di comando il percorso
 del file (o dei file) che si vogliono modificare:
-\begin{Verbatim}
+\begin{lstlisting}
 $ emacs file1.tex file2.tex
-\end{Verbatim}
-% $
+\end{lstlisting}
 
 
 \section{Installare AUC\TeX}
