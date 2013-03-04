@@ -19,7 +19,7 @@ Emacs per LaTeX]
 
 \frontmatter*
 
-\title{Una introduzione a GNU Emacs \& AUC\TeX{}}
+\title{Guida pratica all'uso\\ di\\ GNU Emacs \& AUCTeX}
 \author{Mosè Giordano, Orlando Iovino, Matteo Leccardi}
 \GetFileInfo{guidaemacsauctex.tex}
 \date{\filename\ \fileversion\ del \filedate}
@@ -218,7 +218,7 @@ quello di \emacs.
 
 Dopo aver installato \auctex, \emacs{} caricherà da solo i file necessari per
 attivare la modalità \verb!latex-mode!, propria di \auctex, quando si apre e/o
-crea un file con estensione \texttt{.tex}.
+crea un file con estensione \filestyle{.tex}.
 
 \section{Correttore ortografico}
 \label{oi:sec:aspell}
@@ -302,7 +302,7 @@ Per la ricerca diretta basta scrivere nel file di inizializzazione
 \end{lstlisting}
 invece, per la ricerca inversa si deve aprire \progstyle{SumatraPDF}, andare nel
 menu \emph{Impostazioni}, quindi scegliere \emph{Opzioni...} e scrivere
-\begin{lstlisting}
+\begin{lstlisting}[flexiblecolumns]
 C:/Programmi/Emacs/bin/emacsclientw.exe --no-wait +%l "%f"
 \end{lstlisting}
 in \emph{Imposta la ricerca inversa via riga di comando}, come si vede dalla
@@ -632,8 +632,8 @@ configurare i principali componenti per scrivere documenti in \LaTeX\ con
 \section{Ciao mondo}
 \label{sec:primodocumento}
 
-Su ogni sistema sistema operativo si ha la possibilità di aprire \emacs\ a partire
-da un collegamento al programma principale. Aperto \emacs, si dovrebbe avere davanti
+Su ogni sistema operativo si ha la possibilità di aprire \emacs\ a partire da un
+collegamento al programma principale. Aperto \emacs, si dovrebbe avere davanti
 la finestra principale, come in figura~\ref{fig:principale}.
 
 \begin{figure}[ht]
@@ -644,14 +644,15 @@ la finestra principale, come in figura~\ref{fig:principale}.
   \label{fig:principale}
 \end{figure}
 
-Per creare un nuovo documento basta premere \verb|C-c C-f| ed Emacs chiederà di
-aprire/trovare un file. Scrivendo un nome che nella cartella di lavoro non
-esiste questo file sarà creato. Scritto il nome del file, per esempio
+Per creare un nuovo documento ci sono due modi: si può andare nel menu
+\menu{File > Visit New File...} oppure basta premere \verb|C-x C-f| ed Emacs
+chiederà di aprire/trovare un file. Scrivendo un nome che nella cartella di
+lavoro non esiste questo file sarà creato. Scritto il nome del file, per esempio
 \filestyle{primo.tex}, si può iniziare a scrivere in \LaTeX. Per gli amanti
 delle scorciatoie da tastiera (e di questo \emacs\ ne fa un suo punto di forza),
 scrivendo \verb|C-c C-e|, \emacs\ chiederà quale ambiente inserire; dato che a
-questo punto non c'è alcun documento attivo, l'ambiente \amb{document} sarà
-proposto come quello predefinito.
+questo punto non c'è alcun documento attivo, l'ambiente \ambstyle{document} sarà
+proposto come quello predefinito
 \begin{lstlisting}
 Environment type: (default document) 
 \end{lstlisting}
@@ -673,12 +674,13 @@ in cui scrivere le opzioni della classe. Scelte queste ultime si darà un altro
 £\meta{\textrm{cursore del mouse}}£
 \end{document}
 \end{lstlisting}
+con il cursore posizionato nell'ambiente \ambstyle{document}.
 
 Scritto quello che si vuole nel documento, per compilarlo si può
 \begin{compactitemize}
 \item premere sul pulsante presente nella \emph{toolbar}
-\item andare in \menu[,]{Command,LaTeX}
-\item scrivendo \verb|C-c C-c|. Solo in questo caso nel minibuffer si avrà
+\item andare in \menu{Command > LaTeX}
+\item scrivere \verb|C-c C-c|. Solo in questo caso nel minibuffer si avrà
 \begin{lstlisting}
 Command: (default LaTeX)
 \end{lstlisting}
@@ -692,10 +694,26 @@ e al termine, invece, se tutto è andato a buon fine senza errori, si avrà
 \begin{lstlisting}
 LaTeX: successfully formatted {1} page
 \end{lstlisting}
-Con questa procedura si scrive un nuovo documento in \LaTeX. Sembra difficile, e
-molti reputano \emacs\ tale, cioè un editor difficile da usare. Ma ci vuole di
-più a dirsi che a farsi. Le scorciatoie da tastiera si imparano in fretta e da
-questo se ne trae anche un grosso vantaggio.
+Con questa procedura si scrive un nuovo documento in \LaTeX. 
+
+Senza nessuna personale impostazione, con il procedimento di cui sopra viene
+creato un file \filestyle{.dvi}. Se si vuole creare un file \filestyle{.pdf} con
+gli stessi comandi accennati, si deve scrivere
+\begin{lstlisting}
+(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+\end{lstlisting}
+nel file \filestyle{.emacs}.
+
+Per visualizzare il documento prodotto, sia esso un file \filestyle{.dvi} o un
+\filestyle{.pdf}, si può
+\begin{compactitemize}
+\item premere sul pulsante presente nella \emph{toolbar}
+\item andare in \menu{Command > View} e dare poi \verb|RET|
+\item scrivere \verb|C-c C-C RET| o \verb|C-c C-v|.
+\end{compactitemize}
+In tutti e tre i casi, se \emacs\ e \auctex\ sono configurati per lavorare con
+ricerca diretta-inversa, il visualizzatore dovrebbe aprirsi sulla riga
+corrispondente del file sorgente.
 
 \section{Un documento più complesso}
 \label{sec:documento:complesso}
@@ -752,11 +770,19 @@ proprio contenuto, conterrano invece alla fine le righe
 in cui si specifica che la compilazione debba essere lanciata sul file
 \filestyle{master.tex} mediante la riga \verb|%%% TeX-master: "master"|.
 
+Per fare in modo che all'apertura di un nuovo documento sia chiesto se il file
+debba essere o meno un file \emph{master}, si deve scrivere 
+\begin{lstlisting}
+(setq-default TeX-master nil)
+\end{lstlisting}
+nel file \filestyle{.emacs}, come specificato anche nel
+capitolo~\ref{chap:personal}.
+
 \section{Correzione ortografica}
 \label{sec:corr:orto:in:azione}
 
 Viste le modalità di installazione dei correttori ortografici specifichiamo in
-questo paragrafo come usarli.
+questo paragrafo come usarli, indipendentemente dal sistema oprativo.
 
 Per fare una revisione del documento che si sta scrivendo, bisogna premere la
 combinazione di tasti \verb!M-x! e scrivere \verb!ispell!: in questo modo il
