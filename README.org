@@ -2,7 +2,7 @@
 
 * guidaemacsauctex
 
-Contiene i sorgenti della guida tematica <TITOLO>
+Contiene i sorgenti della guida tematica *Guida pratica all'uso di GNU Emacs & AUCTeX*
 
 ** Descrizione
 
@@ -45,3 +45,11 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
  - Se alteri o trasformi quest'opera, o se la usi per crearne un'altra, puoi
    distribuire l'opera risultante solo con una licenza identica o equivalente
    a questa.
+
+** File di stile per AUCTeX
+
+Questa guida tematica è stata composta con la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT —
+Gruppo Utilizzatori Italiani di TeX]].
+
+Al repository [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile *non
+ufficiale* =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
