@@ -775,15 +775,17 @@ definizione, qualcosa come
 \end{lstlisting}
 
 Si notano subito delle righe commentate non presenti nel file del
-paragrafo~\ref{sec:primodocumento}: le varibili locali.
+paragrafo~\ref{sec:primodocumento}: le varibili locali. Per capire subito cosa
+sono le variabili locali, si pensi alle famose righe magiche che si usano per
+esempio con \TeX works~\citep{texworks:gregorio}.
 
 Le variabili locali sono dei meta commenti che \LaTeX\ ignora --- in quanto
 commenti ---, ma \emacs\ no e che servono per impostare alcune preferenze sul
 documento su cui si sta lavorando.
 
 Le variabili locali si possono specificare tra \verb|%%% Local Variables:| e
-\verb|%%% End:| alla fine del file oppure tra \verb|% -*-| e \verb|-*-| all'inizio
-del file. Riferiamoci al primo caso.
+\verb|%%% End:| alla fine del file oppure tra \verb|% -*-| e \verb|-*-|
+all'inizio del file. Riferiamoci al primo caso.
 
 Prima di andare avanti è bene anche specificare che le variabili di cui
 parleremo sono però messe a disposizone da \auctex. La riga
@@ -844,13 +846,45 @@ errati anche quando sono corretti, cosa che accade perché quel termine non è
 presente nel dizionario: si può aggiungerlo, premendo il tasto centrale del
 mouse quando questo è posizionato sulla parola e scegliere \texttt{Save word}.
 
+\section{Le variabili locali}
+\label{sec:variabili:locali}
+
+Abbiamo già accennato alle variabili locali quando abbiamo parlato di come
+scrivere un documento complesso in \emacs. Ora vediamo la questione un po' più a
+fondo. Va subito specificato che ogni volta che si aggiunge una variabile locale
+si deve chiudere e riaprire \emacs\ affiché questa sia riconosciuta.
+
+Le variabile locali sono in genere inserite alla fine del file perché \emacs,
+quando apre un file legge prima la fine. Alle già citate variabili locali
+\verb|mode: latex| e \verb|TeX-master: t| si aggiungono diverse altre che
+risultano essere molto utili in un documento \filestyle{.tex}. Alcune di queste
+sono messe a disposizione da \emacs\ e altre da \auctex.
+
+Se per esempio si vuole impostare la codifica ad un particolare valore, \emacs\
+mette a disposizione la variabile \verb|coding|; in questo documento è impostata
+come \verb|coding: utf-8| per scrivere con la codifica Unicode ad $8$ bit. Un
+altro valore comune è per esempio \verb|coding: latin-1|. Per vedere tutte le
+codifiche supportate da \emacs\ basta un \verb|M-x list-coding-systems|.
+
+Tra le varie variabili locali di \auctex\ invece, segnaliamo qui quella che
+riguarda il motore di tipocomposizione. La variabile è \verb|TeX-engine:| che
+può essere impostata, per esempio, come \verb|TeX-engine: xetex| per far in modo
+che lanciando la compilazione con \verb|C-c C-c| sia lanciato direttamente
+\XeLaTeX.
+
+Infine, se nell'aggiungere una varibaile si è incerti sul nome e quindi si ha
+timore di cadere in errore, si può scrivere \verb|M-x add-file-local-variable|,
+poi \verb|RET| e quindi la variabile aiutandosi magari con l'autocompletamento
+con il tasto \keys{\tab}.
+
+
 \section{Sinossi delle principali scorciatoie}
 \label{sec:sinossi:sco}
 
 \emacs\ gode di una infinità di combinazioni di tasti per eseguire operazioni
-banali e non. Scriverle tutte sarabbe impossibile. Va da sé che per usare \emacs
-non è necessario ricordarle tutte ma almeno le principale sì, anche se con l'uso
-quotidiano, queste ultime si memorizzano automaticamente.
+banali e non. Scriverle tutte sarabbe impossibile. Va da sé che per usare
+\emacs\ non è necessario ricordarle tutte ma almeno le principale sì, anche se
+con l'uso quotidiano, queste ultime si memorizzano automaticamente.
 
 Le principali sono qui riassunte nella tabella~\ref{tab:cheat-sheet}. Pur
 essendo abbastanza corposa, la tabella comunque non ricopre tutte le possibili
