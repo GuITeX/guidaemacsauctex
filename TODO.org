@@ -1,15 +1,2 @@
 #+STARTUP: showall logdone
 
-* TODO [#B] Completare il 'porting' della guida con la nuova classe guidatematica.cls;
-* DONE [#B] Modificare la struttura della guida
-   CLOSED: [2012-12-20 gio 18:29]
-* DONE Modificare la struttura della cartella
-   CLOSED: [2012-12-20 gio 16:58]
-* DONE Aggiungere la licenza all'inizio e vederne l'interazione con quella delle guide tematiche
-   CLOSED: [2012-12-20 gio 15:33]
-* DONE Spiegare come risolvere il problema su Windows per la ricerca diretta-inversa;
-  CLOSED: [2013-01-31 gio 20:58] In realtà è cambiato tutto, anche per la ricerca diretta-inversa.
-* TODO Modificare la presentazione iniziale della guida: aggiungere gli indirizzi posta elettronica; ricordare il repository ufficiale per chi vuole collaborare;
-* TODO Spiegare il file di .emacs e la sua posizione;
-* TODO Rivedere le epigrafi all'inizio dei capitoli: danno una spaziatura differente;
-* TODO Scrivere un README.md con la markdown-mode;
