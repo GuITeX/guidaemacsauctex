@@ -317,7 +317,7 @@ figura~\ref{oi:fig:sumatra:setup}.
 Si faccia attenzione quando si copia e incolla il codice da questo documento:
 potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
 \emacs. Inoltre il codice in cui si modificano le variabili
-\verb!TeX-view-program-list! e \verb!TeX-view-program-selection! è qui spezzato
+\verb|TeX-view-program-list| e \verb|TeX-view-program-selection| è qui spezzato
 in più righe per una questione di praticità, ma dovrebbe essere scritto su
 un'unica riga per ognuna della variabili.
 
@@ -413,7 +413,7 @@ $ sudo apt-get install --no-install-recommends auctex
 Il correttore ortografico GNU Aspell può essere installato facilmente
 su GNU/Linux utilizzando, come al solito, il gestore pacchetti della
 propria distribuzione. Il dizionario italiano di GNU Aspell si chiama
-\texttt{aspell-it} quindi da terminale può essere installato in Debian
+\progstyle{aspell-it} quindi da terminale può essere installato in Debian
 con il comando
 \begin{lstlisting}
 $ sudo apt-get install aspell-it
@@ -626,8 +626,8 @@ aggiungere queste righe al file \filestyle{.emacs}
 
 Nei precedenti capitoli si è in sostanza parlato di come installare e
 configurare i principali componenti per scrivere documenti in \LaTeX\ con
-\emacs. In questo capitolo vediamo ora come si scrive in \emacs un documento
-\filestyle{.tex}.
+\emacs\ e \auctex. In questo capitolo vediamo ora come si scrive in \emacs\ un
+documento \filestyle{.tex} semplice e poi uno più complesso composto da più file.
 
 \section{Ciao mondo}
 \label{sec:primodocumento}
@@ -756,7 +756,8 @@ proprio, ad esempio \filestyle{capitolouno.tex} e \filestyle{capitolodue.tex}.
 
 \emacs, come diversi altri editor di testo, consente di lanciare la compilazione
 direttamente dal file su cui si sta lavorando anche se questo non è il file
-principale, cioè il file \filestyle{master.tex} che conterrà qualcosa come
+principale, cioè il file \filestyle{master.tex} che dovrà contenere, per
+definizione, qualcosa come
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \documentclass{book}
 
@@ -773,19 +774,19 @@ principale, cioè il file \filestyle{master.tex} che conterrà qualcosa come
 %%% End: 
 \end{lstlisting}
 
-Si nota subito una cosa non presente nel file del
+Si notano subito delle righe commentate non presenti nel file del
 paragrafo~\ref{sec:primodocumento}: le varibili locali.
 
 Le variabili locali sono dei meta commenti che \LaTeX\ ignora --- in quanto
 commenti ---, ma \emacs\ no e che servono per impostare alcune preferenze sul
-proprio documento.
+documento su cui si sta lavorando.
 
 Le variabili locali si possono specificare tra \verb|%%% Local Variables:| e
-\verb|%%% End:| alla fine del file oppure tra \verb|-*-| e \verb|-*-| all'inizio
+\verb|%%% End:| alla fine del file oppure tra \verb|% -*-| e \verb|-*-| all'inizio
 del file. Riferiamoci al primo caso.
 
 Prima di andare avanti è bene anche specificare che le variabili di cui
-parleremo sono però messe a disposizone di \auctex. La riga
+parleremo sono però messe a disposizone da \auctex. La riga
 \verb|%%% mode: latex| indica che
 stiamo scrivendo un documento \LaTeX, mentre \verb|TeX-master: t| indica che il
 file in questione è il file principale su cui lanciare le compilazioni.
@@ -798,8 +799,16 @@ proprio contenuto, conterrano invece alla fine le righe
 %%% TeX-master: "master"
 %%% End: 
 \end{lstlisting}
-in cui si specifica che la compilazione debba essere lanciata sul file
-\filestyle{master.tex} mediante la riga \verb|%%% TeX-master: "master"|.
+in cui si specifica che la compilazione deve essere lanciata sul file
+\filestyle{master.tex} mediante la riga \verb|%%% TeX-master: "master"|. In
+figura~\ref{fig:complex}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{complesso}
+  \caption{Lo schema di un documento complesso suddiviso in più file}
+  \label{fig:complex}
+\end{figure}
 
 Per fare in modo che all'apertura di un nuovo documento sia chiesto se il file
 debba essere o meno un file \emph{master}, si deve scrivere 
