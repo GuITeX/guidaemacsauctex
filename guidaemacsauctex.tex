@@ -10,7 +10,7 @@
 %% http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/01/08 v.0.0 Breve guida all'uso di
+\ProvidesFile{guidaemacsauctex.tex}[2013/03/06 v.0.0 Breve guida all'uso di
 Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
@@ -103,7 +103,7 @@ qui riportati.
 \begin{tabular}{cc}
 \hspace{.32\textwidth} & Gli autori,                                                  \\
                        & \textsc{Mosè Giordano}                                       \\
-                       & \textcolor{red}{\texttt{nome dot cognome at dominio dot it}} \\[0.5ex]
+                       & \texttt{giordano dot mose at libero dot it}                  \\[0.5ex]
                        & \textsc{Orlando Iovino}                                      \\
                        & \texttt{orlando dot iovino at yahoo dot it}                  \\[0.5ex]
                        & \textsc{Matteo Leccardi}                                     \\
@@ -670,23 +670,19 @@ l'utente~\citep{emacs:odebari}.
     % 
     % minibuffer
     % 
-    \draw[line] (8.2,0.15) -- (9,0.15);
-    \node[block] at (10,0.15) {minibuffer};
+    \draw[line] (8.2,0.15) -- (9,0.15) node[block,right=2] {minibuffer};
     % 
     % buffer
     % 
-    \draw[line] (8.2,3.5) -- (9,3.5);
-    \node[block] at (10,3.5) {buffer};
+    \draw[line] (8.2,3.5) -- (9,3.5) node[block,right=2] {buffer};
     % 
     % toolbar
     % 
-    \draw[line] (8.2,7) -- (10,7) -- (10,6.5);
-    \node[block] at (10,6.2) {toolbar};
+    \draw[line] (8.2,7) -- (10,7) -- (10,6.5) node[block,below=2] {toolbar};
     % 
     % menubar
     % 
-    \draw[line] (8.2,7.4) -- (9,7.4);
-    \node[block] at (10,7.4) {menubar};
+    \draw[line] (8.2,7.4) -- (9,7.4) node[block,right=2] {menubar};
   \end{tikzpicture}
   \caption{Una classica schermata iniziale di GNU Emacs}
   \label{fig:principale}
@@ -1140,6 +1136,7 @@ rientrata.
 %%% coding: utf-8
 %%% TeX-master: t
 %%% fill-column: 80
+%%% time-stamp-pattern: "13/\\\\ProvidesFile{.*}\\[%:y/%02m/%02d v"
 %%% End:
 
 % LocalWords:  mirror OS For dmg Git Fast Version Control System clonare git
