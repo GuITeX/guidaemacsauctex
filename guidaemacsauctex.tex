@@ -54,8 +54,12 @@ ufficiale \url{http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it}.
 \label{chap:presentazione}
 
 Emacs è uno dei più vecchi e potenti editor di testo in circolazione e può
-vantare fra i suoi utenti Donald Knuth (l'inventore di \TeX{}) e Laslie Lamport
-(l'autore di \LaTeX{}).
+vantare fra i suoi utenti Donald Knuth --- l'inventore di \TeX{} ---, e Laslie
+Lamport --- l'autore di \LaTeX.
+
+\auctex\ è invece un pacchetto per \emacs\ che estende notevolmente le
+funzionalità di \emacs\ per scrivere documenti in \LaTeX\ ed in altri formati
+legati al programma di tipocomposizione \TeX.
 % Fonti per Donald Knuth:
 % https://www.informit.com/articles/article.aspx?p=1193856
 % http://tex.loria.fr/litte/knuth-interview
@@ -64,26 +68,37 @@ vantare fra i suoi utenti Donald Knuth (l'inventore di \TeX{}) e Laslie Lamport
 % Mihai Budui è un ricercatore della Microsoft
 % (https://research.microsoft.com/en-us/people/mbudiu/), come Lamport, quindi
 % l'intervista dovrebbe essere attendibile.
-Questa guida tematica presenta il programma GNU Emacs ed il pacchetto \auctex{}
-per i principali sistemi operativi: Windows, GNU/Linux e Mac OS. Dopo una
-introduzione al programma, si spiega come installare (e configurare alcune
-funzioni) \emacs{} e \auctex{} per scrivere documenti \LaTeX. Per finire si dà
-qualche accenno per personalizzare e rendere più efficiente \emacs.
+
+In questa guida tematica parleremo del programma GNU Emacs (ovvero del
+programma \emacs\ del progetto GNU, non si accennerà alle diverse varianti) e del
+pacchetto \auctex. Si spiega come installare (per i principali sistemi operativi: Windows,
+GNU/Linux e Mac), configurare ed usare \emacs\ e \auctex\ per scrivere documenti
+\LaTeX. Per finire si dà qualche accenno per personalizzare e rendere più
+efficiente \emacs.
 
 Si tenga presente che la guida è ben lontana dall'essere esauriente per un
-editore di testi così importante come Emacs. Per ogni altro approfondimento non
+editore di testi così importante come \emacs. Per ogni altro approfondimento non
 riportato in queste righe rimandiamo il lettore ai manuali ufficiali, in
-particolare a \cite{emacs:stallman} e \cite{auctex:manual}. Speriamo, con queste
-brevi note, di convincere il lettore che Emacs non è poi così complicato come
-spesso viene indicato.
+particolare a \cite{emacs:stallman} per \emacs\ e \cite{auctex:manual} per
+\auctex. Speriamo, con queste brevi note, di convincere il lettore che \emacs\
+non è poi così complicato come spesso viene indicato.
 
-Infine, qualche parola sulla composizione di questa guida tematica, scritta a
-\emph{sei mani} grazie sistema di controllo di versione Git
-(\url{http://git-scm.com}). Chi vuole collaborare può ``clonare'' il progetto
-dal repository ufficiale presente sul sito \url{http://gitorious.org/} alla
-pagina \url{https://gitorious.org/emacs-tutorial}. È inoltre gradita la
-segnalazione di errori, refusi, commenti e suggerimenti o ogni altra forma di
-collaborazione.
+\section*{Colophon}
+\label{sec:colo:thanks}
+
+Questa guida tematica è stata scritta a \emph{sei mani} grazie al sistema di
+controllo di versione \progstyle{git}, che si scarica dal sito
+\url{http://git-scm.com}. Chi vuole collaborare può ``clonare'' il progetto dal
+repository ufficiale presente sul sito \url{https://github.com/} alla pagina
+\url{https://github.com/GuITeX/guidaemacsauctex}. Per compilare il codice
+sorgente si consigli di munirsi di una distribuzione \LaTeX\ aggiornata. È
+inoltre necesario scaricare ed installare nel proprio albero personale la classe
+\classstyle{guidatematica} disponibile alla pagina
+\url{https://github.com/GuITeX/guidatematica}.
+
+È gradita ogni forma di collaborazione. Chiunque voglia segnalare errori,
+refusi, commenti e suggerimenti può farlo agli indizizzi di posta elettronica
+qui riportati.
 
 \begin{tabular}{cc}
 \hspace{.32\textwidth} &                                                              \\
@@ -130,7 +145,7 @@ Così, quando si dirà che per eseguire un comando bisogna usare la combinazione
 lettera \keys{x} oppure premere il tasto \keys{\esc}, rilasciarlo e premere la
 lettera \keys{x}.
 
-Il manuale di \emacs{}~\cite{emacs:stallman} può essere consultato all'interno
+Il manuale di \emacs~\citep{emacs:stallman} può essere consultato all'interno
 dello stesso editor di testo con le combinazioni di tasti \verb!C-h r!  (premere
 contemporaneamente il tasto \keys{\ctrl} e la lettera \keys{h}, rilasciare
 questi tasti e premere la lettera \keys{r}) oppure \verb!C-h i d m Emacs RET!
@@ -153,11 +168,12 @@ mette a disposizione numerosi strumenti che rendono senza alcun dubbio \emacs{}
 uno degli editor di testo più potenti per la scrittura di documenti \LaTeX.  In
 questa guida vedremo alcune delle funzioni principali di \auctex.
 
-Per finire, prima di addentrarci nell'installazione di \emacs, \auctex{} e altri
-programmi accessori, è utile riportare qui qualche indicazione sul file di
-inizializzazione di \emacs, file che contiene codice Elisp per modificare il
-comportamento delle funzioni.  Questo file ha diversi nomi e posti a seconda del
-sistema operativo, in particolare
+Per finire, prima di addentrarci nell'installazione e nell'uso di \emacs,
+\auctex{} e altri programmi accessori, è utile riportare qui qualche indicazione
+sul file di inizializzazione di \emacs (il cui uso è di fondamentale importanza
+e sarà richiamato spesso in questo documento), file che contiene codice Elisp
+per modificare il comportamento delle funzioni.  Questo file ha diversi nomi e
+posti a seconda del sistema operativo, in particolare
 \begin{itemize}
 \item Su Windows si chiama \filestyle{init.el} e va posizionato in
       \begin{itemize}
@@ -1109,20 +1125,6 @@ inizializzazione
 Se si utilizza la funzione \verb!reindent-then-newline-and-indent! al posto di
 \verb!newline-and-indent! si avrà, in più, l'effetto che la riga attuale viene
 rientrata.
-
-\chapter{Conclusioni}
-\label{chap:fine}
-
-I questa guida tematica abbiamo spiegato come installare \emacs\ e \auctex\ sui
-sistemi operativi maggiormente conosciuti; abbiamo mostrato come usare \emacs
-per scrivere un documento semplice e poi uno più complesso. Per finire come
-usare il correttore ortografico.
-
-Crediamo che questo programma ed il pacchetto \auctex\ non siano così difficili
-da usare come, purtroppo, anche i più bravi guru di \LaTeX\ affermano. Forse è
-una questione di pregiudizi o di abitudini. Non intendiamo dire che \emacs\ sia
-il miglior editor di testo, anche perché questo dipende molto dalle proprie
-abitudini. 
 
 \bibliography{guidaemacsauctex}
 
