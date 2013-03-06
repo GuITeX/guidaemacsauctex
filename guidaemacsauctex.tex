@@ -670,23 +670,19 @@ l'utente~\citep{emacs:odebari}.
     % 
     % minibuffer
     % 
-    \draw[line] (8.2,0.15) -- (9,0.15);
-    \node[block] at (10,0.15) {minibuffer};
+    \draw[line] (8.2,0.15) -- (9,0.15) node[block,right=2] {minibuffer};
     % 
     % buffer
     % 
-    \draw[line] (8.2,3.5) -- (9,3.5);
-    \node[block] at (10,3.5) {buffer};
+    \draw[line] (8.2,3.5) -- (9,3.5) node[block,right=2] {buffer};
     % 
     % toolbar
     % 
-    \draw[line] (8.2,7) -- (10,7) -- (10,6.5);
-    \node[block] at (10,6.2) {toolbar};
+    \draw[line] (8.2,7) -- (10,7) -- (10,6.5) node[block,below=2] {toolbar};
     % 
     % menubar
     % 
-    \draw[line] (8.2,7.4) -- (9,7.4);
-    \node[block] at (10,7.4) {menubar};
+    \draw[line] (8.2,7.4) -- (9,7.4) node[block,right=2] {menubar};
   \end{tikzpicture}
   \caption{Una classica schermata iniziale di GNU Emacs}
   \label{fig:principale}
