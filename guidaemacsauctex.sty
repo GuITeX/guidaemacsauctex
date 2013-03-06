@@ -53,6 +53,19 @@
     sharp corners,draw,
     baseline=-\the\dimexpr\fontdimen22\textfont2\relax] {};}}
 
+\usetikzlibrary{arrows}
+\tikzset{grid/.style={help lines,color=blue!50}}
+\tikzset{arrow/.style = {> = stealth'}}
+\tikzset{line/.style  = {draw, -stealth'}}
+\tikzset{block/.style = {%
+    rectangle,
+    draw=gray!50,
+    thick,
+    fill=gray!15,
+    minimum width=5.5em,
+  }
+}
+
 \RequirePackage[%
   unicode,%
   pdfdisplaydoctitle=true,%

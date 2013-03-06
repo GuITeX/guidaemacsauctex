@@ -638,9 +638,35 @@ la finestra principale, come in figura~\ref{fig:principale}.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\textwidth]{splash}
-  \caption{Schermata iniziale di GNU Emacs. L'immagine è presa dal sito
-    ufficiale \url{http://www.gnu.org/software/emacs/}.}
+  \begin{tikzpicture}\footnotesize
+    % 
+    % immagine
+    % 
+    \pgfdeclareimage[width=0.70\textwidth]{splash}{figure/splash}
+    \pgftext[at=\pgfpoint{0}{0},left,base] {\pgfuseimage{splash}};
+    % \draw[help lines,step=0.1] (0,0) grid (0.70\textwidth,10);
+    % 
+    % minibuffer
+    % 
+    \draw[line] (8.2,0.15) -- (9,0.15);
+    \node[block] at (10,0.15) {minibuffer};
+    % 
+    % buffer
+    % 
+    \draw[line] (8.2,3.5) -- (9,3.5);
+    \node[block] at (10,3.5) {buffer};
+    % 
+    % toolbar
+    % 
+    \draw[line] (8.2,7) -- (10,7) -- (10,6.5);
+    \node[block] at (10,6.2) {toolbar};
+    % 
+    % menubar
+    % 
+    \draw[line] (8.2,7.4) -- (9,7.4);
+    \node[block] at (10,7.4) {menubar};
+  \end{tikzpicture}
+  \caption{Una classica schermata iniziale di GNU Emacs}
   \label{fig:principale}
 \end{figure}
 
