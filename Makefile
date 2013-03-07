@@ -6,8 +6,8 @@
 ##  + Condividi allo stesso modo 
 ## 3.0 Italia.
 ##  
-## Il testo è disponibile alla pagina Internet
-## http://creativecommons.org/licenses/by-nc-sa/3.0/it
+## Un riassunto in linguaggio accessibile a tutti della licenza è disponibile
+## alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 ## Makefile per la compilazione della guida tematica introemacs.tex
 

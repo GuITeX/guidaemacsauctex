@@ -31,7 +31,8 @@ pdflatex guidaemacsauctex
 
 Quest'opera è soggetta alla Creative Commons Public License versione 3.0 o
 posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo stesso
-modo*. L'enunciato integrale della licenza è reperibile sul sito ufficiale
+modo*. Un riassunto in linguaggio accessibile a tutti della licenza è
+reperibile sul sito ufficiale
 http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
 
 + *tu sei libero*:
