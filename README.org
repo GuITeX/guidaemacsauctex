@@ -6,12 +6,13 @@ Contiene i sorgenti della guida tematica *Guida pratica all'uso di GNU Emacs & A
 
 ** Descrizione
 
-In questa guida tematica si spiega come installare e configurare l'editor [[http://www.gnu.org/software/emacs/][GNU
-Emacs]] con l'estensione [[http://www.gnu.org/software/auctex/][AUCTeX]] per i più noti sistemi operativi: GNU/Linux,
-Windows, Mac OS. Il lettore di questa guida dovrebbe essere in grado di
-scrivere un documento [[http://www.latex-project.org/][LaTeX]] con questo editor usando le funzioni comuni di
-ogni editor (ricerca diretta-inversa, correzione ortografica) più qualche
-altra funzione di Emacs.
+In questa guida tematica si spiega come installare, usare e
+configurare l'editor [[http://www.gnu.org/software/emacs/][GNU Emacs]] con l'estensione [[http://www.gnu.org/software/auctex/][AUCTeX]] per i più noti
+sistemi operativi: GNU/Linux, Windows, Mac OS. Il lettore di questa
+guida dovrebbe essere in grado di scrivere un documento [[http://www.latex-project.org/][LaTeX]] con
+questo editor usando le funzioni comuni di ogni altro editor (ricerca
+diretta-inversa, correzione ortografica) più qualche altra funzione di
+Emacs.
 
 ** Compilare il codice sorgente
 
@@ -51,5 +52,5 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
 Questa guida tematica è stata composta con la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT —
 Gruppo Utilizzatori Italiani di TeX]].
 
-Al repository [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile *non
+Al deposito [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile *non
 ufficiale* =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
