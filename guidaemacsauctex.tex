@@ -71,18 +71,18 @@ documenti in \LaTeX\ e in altri formati legati al programma di tipocomposizione
 % (https://research.microsoft.com/en-us/people/mbudiu/), come Lamport, quindi
 % l'intervista dovrebbe essere attendibile.
 
-In questa guida tematica parleremo del programma GNU Emacs (ovvero del
-programma \emacs\ del progetto GNU, mentre non si accennerà alle sue diverse varianti) e del
-pacchetto \auctex. Si spiegherà come installarli e configurarli sui tre principali sistemi operativi 
-in circolazione (Windows, GNU/Linux e Mac~OS), e come usarli per scrivere documenti
-\LaTeX. Per finire si darà qualche indicazione per personalizzare e rendere più
-efficiente \emacs.
+In questa guida tematica parleremo del programma GNU Emacs (ovvero del programma
+\emacs\ del progetto GNU, mentre non si accennerà alle sue diverse varianti) e
+del pacchetto \auctex.  Si spiegherà come installarli e configurarli sui tre
+principali sistemi operativi in circolazione (Windows, GNU/Linux e Mac~OS), e
+come usarli per scrivere documenti \LaTeX.  Per finire si darà qualche
+indicazione per personalizzare e rendere più efficiente \emacs.
 
-Si tenga presente che, trattando di un programma così potente 
-come \emacs, la guida è ben lontana dall'essere esauriente. Per ogni altro approfondimento non
+Si tenga presente che, trattando di un programma così potente come \emacs, la
+guida è ben lontana dall'essere esauriente.  Per ogni altro approfondimento non
 riportato in queste righe rimandiamo il lettore ai manuali ufficiali, in
 particolare a \cite{emacs:stallman} per \emacs\ e \cite{auctex:manual} per
-\auctex. Speriamo, con queste brevi note, di convincere il lettore che \emacs\
+\auctex.  Speriamo, con queste brevi note, di convincere il lettore che \emacs{}
 non è poi così complicato come spesso viene considerato.
 
 \section*{Colophon \& ringraziamenti}
@@ -125,50 +125,49 @@ qui riportati.
 \chapter{Introduzione}
 \label{chap:intro}
 
-Lo sviluppo di \emacs{} è cominciato negli anni '70 del Novecento ai laboratori di Intelligenza
-Artificiale del MIT, cioè molto prima che si diffondesse l'informatica che
-conosciamo oggi.  Ciò comporta che \emacs{} utilizza una terminologia spesso
-diversa da quella utilizzata dalla stragrande maggioranza degli altri programmi
-che usiamo quotidianamente.  Perciò non bisogna sorprendersi se
-l'operazione di \emph{tagliare} il testo (generalmente indicata in inglese con
-\emph{cutting}) in \emacs{} viene chiamata \emph{killing} e quella di 
-\emph{incollare} il testo copiato (in inglese \emph{pasting})
-viene chiamata \emph{yanking}.
+Lo sviluppo di \emacs{} è cominciato negli anni '70 del Novecento ai laboratori
+di Intelligenza Artificiale del MIT, cioè molto prima che si diffondesse
+l'informatica che conosciamo oggi.  Ciò comporta che \emacs{} utilizza una
+terminologia spesso diversa da quella utilizzata dalla stragrande maggioranza
+degli altri programmi che usiamo quotidianamente.  Perciò non bisogna
+sorprendersi se l'operazione di \emph{tagliare} il testo (generalmente indicata
+in inglese con \emph{cutting}) in \emacs{} viene chiamata \emph{killing} e
+quella di \emph{incollare} il testo copiato (in inglese \emph{pasting}) viene
+chiamata \emph{yanking}.
 
 \emacs{} è famoso perché rende possibile eseguire \emph{qualsiasi} operazione
 usando solo la tastiera, cioè senza l'ausilio del mouse.  A ogni comando può
 essere associata una combinazione di tasti.  Sebbene questo fatto possa
 inizialmente spaventare, è un vero punto di forza di \emacs{}, perché permette
-di eseguire le operazioni in maniera rapida, invece di dover spostare il
-mouse alla ricerca di appositi pulsanti.  In questa guida seguiremo la notazione
+di eseguire le operazioni in maniera rapida, invece di dover spostare il mouse
+alla ricerca di appositi pulsanti.  In questa guida seguiremo la notazione
 diffusa nel mondo di \emacs{} per indicare i tasti.  Quindi il tasto
-\keys{\ctrl} verrà indicato con \verb!C!, l'\,\keys{Invio} con
-\verb!RET!, mentre \verb!M! indica il tasto \keys{\Meta} (sulle moderne
-tastiere quest'ultimo tasto è scomparso, ma si può ottenere lo stesso risultato con 
-\keys{\Alt} oppure premendo e rilasciando \keys{\esc}\,). Nella
-notazione di queste scorciatoie, il trattino che separa due tasti in una
-combinazione di tasti indica che i tasti vanno premuti contemporaneamente.
-Così, quando si dirà che per eseguire un comando bisogna usare la combinazione
-\verb!M-x!, si dovranno premere \emph{contemporaneamente} \keys{\Alt} e
-\keys{x} oppure premere \keys{\esc}\,, rilasciarlo e premere \emph{successivamente}
-\keys{x}\,.
+\keys{\ctrl} verrà indicato con \verb!C!, l'\,\keys{Invio} con \verb!RET!,
+mentre \verb!M! indica il tasto \keys{\Meta} (sulle moderne tastiere
+quest'ultimo tasto è scomparso, ma si può ottenere lo stesso risultato con
+\keys{\Alt} oppure premendo e rilasciando \keys{\esc}\,).  Nella notazione di
+queste scorciatoie, il trattino che separa due tasti in una combinazione di
+tasti indica che i tasti vanno premuti contemporaneamente.  Così, quando si dirà
+che per eseguire un comando bisogna usare la combinazione \verb!M-x!, si
+dovranno premere \emph{contemporaneamente} \keys{\Alt} e \keys{x} oppure premere
+\keys{\esc}\,, rilasciarlo e premere \emph{successivamente} \keys{x}\,.
 
 Il manuale di \emacs~\citep{emacs:stallman} può essere consultato dall'interno
 dello stesso programma con le combinazioni \verb!C-h r! (premere
-contemporaneamente \keys{\ctrl} e \keys{h}\,, rilasciarli
-e premere successivamente \keys{r}\,) oppure \verb!C-h i d m Emacs RET!
-(premere contemporaneamente \keys{\ctrl} e \keys{h}\,,
-rilasciarli e premere poi in successione \keys{i}\,, \keys{d}\,,
-\keys{m}\,, scrivere successivamente \verb!Emacs!, quindi premere 
-\keys{Invio}\,).  Se si preferisce, si può consultare il manuale anche tramite
-il menu \menu{Help > Read the Emacs Manual}\,.
+contemporaneamente \keys{\ctrl} e \keys{h}\,, rilasciarli e premere
+successivamente \keys{r}\,) oppure \verb!C-h i d m Emacs RET!  (premere
+contemporaneamente \keys{\ctrl} e \keys{h}\,, rilasciarli e premere poi in
+successione \keys{i}\,, \keys{d}\,, \keys{m}\,, scrivere successivamente
+\verb!Emacs!, quindi premere \keys{Invio}\,).  Se si preferisce, si può
+consultare il manuale anche tramite il menu
+\menu{Help > Read the Emacs Manual}\,.
 
-Una delle caratteristiche principali di \emacs{} è il fatto di essere un editor di testi
-completamente personalizzabile ed espandibile, in modo da risultare sempre adatto
-alle esigenze dell'utente.  Il linguaggio utilizzato per le espansioni è
-l'Elisp, un dialetto del Lisp sviluppato appositamente per \emacs{}.  Esistono
-migliaia di pacchetti scritti in Emacs Lisp che permettono di estenderne
-ulteriormente le funzionalità.
+Una delle caratteristiche principali di \emacs{} è il fatto di essere un editor
+di testi completamente personalizzabile ed espandibile, in modo da risultare
+sempre adatto alle esigenze dell'utente.  Il linguaggio utilizzato per le
+espansioni è l'Elisp, un dialetto del Lisp sviluppato appositamente per
+\emacs{}.  Esistono migliaia di pacchetti scritti in Emacs Lisp che permettono
+di estenderne ulteriormente le funzionalità.
 
 La versione standard di \emacs{}, senza pacchetti aggiuntivi, fornisce già un
 discreto supporto alla creazione di documenti \LaTeX, ma il pacchetto \auctex{}
@@ -178,10 +177,10 @@ questa guida vedremo alcune delle funzioni principali di \auctex.
 
 Per finire, prima di addentrarci nell'installazione e nell'utilizzo di \emacs,
 \auctex{} e di altri programmi accessori, è utile riportare qui qualche indicazione
-sul file di inizializzazione di \emacs, scritto in Elisp e di fondamentale importanza 
-per modificare il comportamento delle funzioni del programma.
-Questo file, che sarà richiamato spesso in questo documento, presenta diversi nomi e
-localizzazioni a seconda del sistema operativo usato. Deve essere creato perché
+sul file di inizializzazione di \emacs, scritto in Elisp e di fondamentale
+importanza per modificare il comportamento delle funzioni del programma.  Questo
+file, che sarà richiamato spesso in questo documento, presenta diversi nomi e
+localizzazioni a seconda del sistema operativo usato.  Deve essere creato perché
 inizialmente non esiste ed in particolare:
 \begin{itemize}
 \item su Windows si chiama \filestyle{init.el} e va messo in
@@ -200,9 +199,8 @@ semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
 dall'effettivo nome utilizzato nel proprio sistema (\verb|.emacs|,
 \verb|.emacs.el| oppure \verb|init.el| che sia).
 
-Inoltre, si faccia attenzione quando si copia e incolla il codice da questo documento:
-potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
-\emacs.
+Si faccia attenzione quando si copia e incolla il codice da questo documento:
+potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in \emacs.
 
 %% --------------------------------------------------------------------------
 %% Windows
@@ -223,7 +221,7 @@ l'archivio che ne contiene gli eseguibili.
 
 All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarichi
 l'archivio compresso \filestyle{emacs-24.2-bin-i386.zip} e lo si decomprima in
-una posizione di comodo; una buona soluzione, per esempio, è decomprimerlo 
+una posizione di comodo; una buona soluzione, per esempio, è decomprimerlo
 in \directory{C:/Programmi/Emacs/}, che assumeremo da questo
 momento come cartella d'installazione.
 
@@ -275,14 +273,14 @@ nella variabile d'ambiente \textsf{PATH}.
 (setq ispell-dictionary "italiano")
 \end{lstlisting}
 dove  la prima e la terza sono quelle strettamente necessarie, mentre la seconda
-serve a risolvere gli eventuali problemi presentati dalle versioni precedenti 
+serve a risolvere gli eventuali problemi presentati dalle versioni precedenti
 del programma.
 \end{enumerate}
 
 \section{Sincronizzare sorgente e anteprima}
 \label{oi:sec:ricdirinv}
 
-Prima di attivare la sincronizzazione tra il testo sorgente e l'anteprima del documento, 
+Prima di attivare la sincronizzazione tra il testo sorgente e l'anteprima del documento,
 si spiega come risolvere il
 problema dei diritti di amministratore --~qualora l'account utente ne sia
 fornito~-- per i  sistemi operativi Vista e 7 (su XP non dovrebbero esserci
@@ -313,7 +311,7 @@ OPERAZIONE RIUSCITA: il file o la cartella ...
 \end{lstlisting}
 
 Si può ora configurare \emacs{} per la sincronizzazione con il
-visualizzatore \progstyle{Sumatra~PDF} --~l'unico in grado di supportarla 
+visualizzatore \progstyle{Sumatra~PDF} --~l'unico in grado di supportarla
 nei sistemi Windows~-- scaricabile dal sito
 \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
@@ -325,7 +323,8 @@ Per la ricerca diretta basta scrivere nel file d'inizializzazione
 (setq TeX-source-correlate-start-server t)
 
 (setq TeX-view-program-list
-      '(("Sumatra PDF" ("\"C:/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" -reuse-instance"
+      '(("Sumatra PDF" ("\"C:/Program Files (x86)/\
+SumatraPDF/SumatraPDF.exe\" -reuse-instance"
 	  (mode-io-correlate " -forward-search %b %n") " %o"))))
 
 (setq TeX-view-program-selection
@@ -339,7 +338,7 @@ Si noti che il codice che modifica le due variabili
 in più righe per motivi di spazio, ma dovrebbe essere scritto su
 un'unica riga per ognuna delle variabili.
 
-Per la ricerca inversa, invece, si apra \progstyle{Sumatra~PDF}, si raggiunga 
+Per la ricerca inversa, invece, si apra \progstyle{Sumatra~PDF}, si raggiunga
 il menù \menu{Impostazioni > Opzioni\dots} e si scriva
 \begin{lstlisting}[flexiblecolumns]
 C:/Programmi/Emacs/bin/emacsclientw.exe --no-wait +%l "%f"
@@ -354,10 +353,10 @@ figura~\ref{oi:fig:sumatra:setup}.
 \end{figure}
 
 Con queste impostazioni il visualizzatore predefinito per \emacs\ -- ma non del
-sistema operativo -- sarà \progstyle{Sumatra~PDF}. Per la ricerca diretta
-vanno premuti i tasti \verb!C-c C-v! e il visualizzatore si aprirà (o porterà)
-in corrispondenza della riga del testo sorgente in cui si trova il cursore. Per la ricerca
-inversa, invece, basta un doppio clic nel visualizzatore.
+sistema operativo -- sarà \progstyle{Sumatra~PDF}.  Per la ricerca diretta vanno
+premuti i tasti \verb!C-c C-v! e il visualizzatore si aprirà (o porterà) in
+corrispondenza della riga del testo sorgente in cui si trova il cursore.  Per la
+ricerca inversa, invece, basta un doppio clic nel visualizzatore.
 
 %% --------------------------------------------------------------------------
 %% GNU/Linux
@@ -371,14 +370,12 @@ inversa, invece, basta un doppio clic nel visualizzatore.
 \section{Installare Emacs}
 \label{mg:sec:installemacs}
 
-\emacs{} fa parte del progetto GNU, quindi è presente in tutti i
-sistemi operativi della famiglia GNU/Linux. Se non fosse già installato, invece, 
-il metodo più semplice per ottenerlo è tramite
-il gestore di pacchetti della propria distribuzione (naturalmente, si
-possono utilizzare anche i gestori di pacchetti a interfaccia
-grafica). Riportiamo qui i comandi da terminale utili per 
-installare il programma in alcune delle principali
-distribuzioni.
+\emacs{} fa parte del progetto GNU, quindi è presente nei depositi di tutti i
+sistemi operativi della famiglia GNU/Linux.  Se non fosse già installato, il
+metodo più semplice per ottenerlo è tramite il gestore di pacchetti della
+propria distribuzione (naturalmente, si possono utilizzare anche i gestori di
+pacchetti a interfaccia grafica).  Riportiamo qui i comandi da terminale utili
+per installare il programma in alcune delle principali distribuzioni.
 
 Su Debian e Ubuntu:
 \begin{lstlisting}
@@ -393,23 +390,23 @@ Su OpenSUSE:
 $ sudo zypper install emacs
 \end{lstlisting}
 
-Il metodo più difficile, per i non avvezzi al terminale,
-consiste nel compilare \emacs{} a partire dal codice sorgente,
-ma non è intenzione di questa guida spiegare come farlo.
+Il metodo più difficile, per i non avvezzi al terminale, consiste nel compilare
+\emacs{} a partire dal codice sorgente, ma non è intenzione di questa guida
+spiegare come farlo.
 
-Dopo aver installato \emacs, lo si potrà avviare facendo clic sul
-suo \emph{launcher} oppure eseguendo da terminale il comando
+Dopo aver installato \emacs, lo si potrà avviare facendo clic sul suo
+\emph{launcher} oppure eseguendo da terminale il comando
 \begin{lstlisting}
 $ emacs
 \end{lstlisting}
-Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna
-aggiungere al comando appena visto 
-l'opzione \texttt{-nw} oppure \texttt{--no-window-system}:
+Se si desidera utilizzare \emacs{} con interfaccia testuale bisogna aggiungere
+al comando appena visto l'opzione \texttt{-nw} oppure
+\texttt{--no-window-system}:
 \begin{lstlisting}
 $ emacs -nw
 \end{lstlisting}
-Come argomento da linea di comando si può aggiungere il nome
-del file o dei file che si vogliono modificare:
+Come argomento da linea di comando si può aggiungere il nome del file o dei file
+che si vogliono modificare:
 \begin{lstlisting}
 $ emacs file1.tex file2.tex
 \end{lstlisting}
@@ -417,9 +414,10 @@ $ emacs file1.tex file2.tex
 \section{Installare AUC\TeX}
 \label{mg:sec:installauctex}
 
-Di solito anche il pacchetto \auctex{} è presente nei sistemi GNU/Linux e se non lo fosse, come già detto per \emacs{} si consiglia di installarlo con il gestore di
-pacchetti della propria distribuzione. Ecco i comandi da usare nelle principali 
-distribuzioni.
+Di solito anche il pacchetto \auctex{} è presente nei depositi dei sistemi
+GNU/Linux.  Come già detto per \emacs{} si consiglia di installarlo con il
+gestore di pacchetti della propria distribuzione.  Ecco i comandi da usare nelle
+principali distribuzioni.
 
 Su Debian e Ubuntu:
 \begin{lstlisting}
@@ -434,11 +432,11 @@ Su OpenSUSE:
 $ sudo zypper install emacs-auctex
 \end{lstlisting}
 
-Sulle prime due il gestore potrebbe raccomandare di installare la TeX~Live 
-presente nei depositi ufficiali del sistema operativo.
-Per evitare che questo avvenga, per esempio perché si utilizza una 
-TeX Live installata in altro modo, installando \auctex{} da terminale è
-sufficiente aggiungere l'opzione \verb!--no-install-recommends!:
+Sulle prime due il gestore potrebbe raccomandare di installare la TeX~Live
+presente nei depositi ufficiali del sistema operativo.  Per evitare che questo
+avvenga, per esempio perché si utilizza una TeX~Live installata in altro modo,
+installando \auctex{} da terminale è sufficiente aggiungere l'opzione
+\verb!--no-install-recommends!:
 \begin{lstlisting}
 $ sudo apt-get install --no-install-recommends auctex
 \end{lstlisting}
@@ -489,12 +487,12 @@ In Mac OS le applicazioni avviate dall'interfaccia grafica non hanno
 accesso ai valori delle variabili d'ambiente, per cui bisogna rendere
 disponibile a \emacs{} la variabile \texttt{PATH} dando da terminale
 il comando
-\begin{lstlisting}
+\begin{lstlisting}[language=bash]
 $ defaults write ~/.MacOSX/environment PATH "$PATH"
 \end{lstlisting}
 Si noti che le nuove impostazioni saranno effettive solo dopo aver eseguito un logout e un
 successivo login. Il comando va ripetuto ogni volta che si installa un programma
-che modifica il valore di \texttt{PATH}. (il caso che 
+che modifica il valore di \texttt{PATH}. (il caso che
 riguarda più da vicino i lettori di questa guida è la distribuzione \TeX).
 
 % TODO: controllare che i tasti inseriti con `\keys{}' siano corretti
@@ -518,12 +516,12 @@ installato insieme all'ambiente di sviluppo
 {\progstyle{Xcode}}. Chi non intende dedicare svariati GiB di disco a un software
 utile soltanto a chi sviluppa software può sfruttare il fatto che
 \progstyle{make} viene installato anche dal correttore ortografico
-\progstyle{cocoAspell}, descritto nel paragrafo~\ref{ml:sec:aspell}. 
+\progstyle{cocoAspell}, descritto nel paragrafo~\ref{ml:sec:aspell}.
 Ecco le istruzioni.
 
 Dalla pagina relativa a Mac OS X,
 \url{http://www.gnu.org/software/auctex/download-for-macosx.html}, bisogna scaricare
-l'archivio compresso \filestyle{auctex-11.87.tar.gz}. Se ne estragga poi il contenuto in una cartella temporanea, si apra una sessione 
+l'archivio compresso \filestyle{auctex-11.87.tar.gz}. Se ne estragga poi il contenuto in una cartella temporanea, si apra una sessione
 di terminale e ci si porti nella cartella appena creata. Bisogna poi configurare \auctex{} con il comando
 \begin{lstlisting}[flexiblecolumns]
 $ ./configure \
@@ -599,9 +597,9 @@ Infine si deve configurare \emacs\ aggiungendo al file
 \section{Sincronizzare sorgente e anteprima}
 \label{ml:sec:ricdirinv}
 
-L'unico visualizzatore di file PDF per Mac~OS~X associato a \emacs{} 
+L'unico visualizzatore di file PDF per Mac~OS~X associato a \emacs{}
 che supporti la sincronizzazione tra sorgente e anteprima  è
-\href{http://skim-app.sourceforge.net/}{\progstyle{Skim}} 
+\href{http://skim-app.sourceforge.net/}{\progstyle{Skim}}
 (si veda il paragrafo~\ref{ml:sec:installauctex}) che una volta installato
 va configurato nel pannello \menu{Skim > Preferenze\dots > Sincronizza}
 come segue e come mostra la figura~\ref{fig:skimpref}:
@@ -618,13 +616,13 @@ come segue e come mostra la figura~\ref{fig:skimpref}:
   \label{fig:skimpref}
 \end{figure}
 
-La prima opzione fa in modo che quando  
-un file aperto in \progstyle{Skim} viene modificato da un altro processo, 
+La prima opzione fa in modo che quando
+un file aperto in \progstyle{Skim} viene modificato da un altro processo,
 il programma chieda se il file modificato debba essere
 ricaricato: scegliendo \textsf{Automatico}, i successivi aggiornamenti verranno visualizzati
 senza chiedere ulteriori conferme.
 
-\emacs{} si configura scrivendo nel file \filestyle{.emacs} le righe 
+\emacs{} si configura scrivendo nel file \filestyle{.emacs} le righe
 \begin{lstlisting}
 (setq TeX-source-correlate-method 'synctex)
 (setq TeX-source-correlate-mode t)
@@ -632,12 +630,12 @@ senza chiedere ulteriori conferme.
 \end{lstlisting}
 
 Si passa dal sorgente al PDF con la
-combinazione \verb!C-c C-v!; si ottiene il contrario facendo clic sulla parola 
+combinazione \verb!C-c C-v!; si ottiene il contrario facendo clic sulla parola
 che interessa premendo contemporaneamente \keys{\shift} e
 \keys{cmd}\,.
 
 Se alcune versioni di \emacs{} precedenti alla 23.3 lasciassero in primo
-piano la finestra del visualizzatore, si aggiungano 
+piano la finestra del visualizzatore, si aggiungano
 queste righe al file \filestyle{.emacs}
 \begin{lstlisting}
 (defun ns-raise-emacs ()
@@ -657,66 +655,75 @@ semplice documento \filestyle{.tex} e come usare il correttore ortografico.
 \section{Ciao mondo}
 \label{sec:primodocumento}
 
-Ogni sistema operativo permette di aprire \emacs\ tramite un
-collegamento al programma principale, dopo di che sullo schermo dovrebbe comparire
-la finestra principale mostrata nella figura~\ref{fig:principale}. Tra gli elementi
-evidenziati, due meritano particolare attenzione: il \emph{buffer}, cioè
-lo spazio dove l'utente scrive, è la zona di principale
-interazione con il programma; il \emph{minibuffer}, 
-cioè lo spazio in cui \emacs\ scrive i comandi eseguiti di volta in volta, 
-è il luogo in cui \emacs\ dialoga con l'utente~\citep{emacs:odebari}.
+Ogni sistema operativo permette di aprire \emacs\ tramite un collegamento al
+programma principale, dopo di che sullo schermo dovrebbe comparire la finestra
+principale mostrata nella figura~\ref{fig:principale}.  Nel gergo di \emacs\ una
+finestra è chiamata \emph{frame}.  Ciascun \emph{frame} può essere suddiviso in
+una o più \emph{windows}, cioè lo spazio dove l'utente scrive, che è la zona di
+principale interazione con il programma.  Un'altra componente fondamentale di un
+\emph{frame} di \emacs, mostrata nella figura, è il \emph{minibuffer}.  Questo è
+il posto dove \emacs\ dialoga con l'utente mostrando messaggi di notifica oppure
+permettendo l'inserimento dell'input dei comandi eseguiti di volta in
+volta~\citep{emacs:odebari}.  Il testo che si sta modificando in \emacs\ è
+contenuto in un oggetto chiamato \emph{buffer}.  Quando si apre un file, il suo
+testo viene memorizzato in un buffer.  In prima approssimazione possiamo dire
+che il \emph{buffer} è il contenuto di un file, già esistente oppure che si sta
+creando.
 
 \begin{figure}[ht]
   \centering
   \begin{tikzpicture}\footnotesize\sffamily
-    % 
+    %
     % immagine
-    % 
+    %
     \pgfdeclareimage[width=0.70\textwidth]{splash}{figure/splash}
     \pgftext[at=\pgfpoint{0}{0},left,base] {\pgfuseimage{splash}};
     % \draw[help lines,step=0.1] (0,0) grid (0.70\textwidth,10);
-    % 
+    %
     % minibuffer
-    % 
+    %
     \draw[line] (8.2,0.15) -- (9,0.15) node[block,right=2] {minibuffer};
-    % 
-    % buffer
-    % 
-    \draw[line] (8.2,3.5) -- (9,3.5) node[block,right=2] {buffer};
-    % 
+    %
+    % window
+    %
+    \draw[line] (8.2,3.5) -- (9,3.5) node[block,right=2] {window};
+    %
     % toolbar
-    % 
+    %
     \draw[line] (8.2,7) -- (10,7) -- (10,6.5) node[block,below=2] {toolbar};
-    % 
+    %
     % menubar
-    % 
+    %
     \draw[line] (8.2,7.4) -- (9,7.4) node[block,right=2] {menubar};
   \end{tikzpicture}
-  \caption{Una classica schermata iniziale di GNU Emacs}
+  \caption{Un \emph{frame} di GNU Emacs che contiene la classica schermata
+    iniziale.}
   \label{fig:principale}
 \end{figure}
 
+Terminata questa breve carrellata terminologica, possiamo passare alla pratica.
 Per creare un nuovo documento ci sono due modi: raggiungendo il menù
-\menu{File > Visit New File\dots} oppure premendo \verb|C-x C-f|,
-dopo di che Emacs chiederà di aprire/trovare un file. 
-Scrivendo un nome che nella cartella di
-lavoro non esiste questo file sarà creato. Dopo averlo nominato, per esempio
+\menu{File > Visit New File\dots} oppure premendo \verb|C-x C-f|, dopo di che
+Emacs chiederà di aprire/trovare un file.  Scrivendo un nome che nella cartella
+di lavoro non esiste questo file sarà creato. Dopo averlo nominato, per esempio
 \filestyle{primo.tex}, si può cominciare a scrivere in \LaTeX. Per gli amanti
-delle scorciatoie da tastiera (autentico punto di forza di \emacs),
-scrivendo \verb|C-c C-e| \emacs\ chiederà quale ambiente inserire; dato che a
-questo punto non c'è ancora alcun documento attivo, verrà proposto l'ambiente 
-\ambstyle{document}:
+delle scorciatoie da tastiera (autentico punto di forza di \emacs), scrivendo
+\verb|C-c C-e| \emacs\ chiederà quale ambiente inserire.  Il cursore si sposterà
+nel \emph{minibuffer} e lì si potrà scrivere il nome dell'ambiente da inserire.
+Questo è il messaggio visualizzato:
 \begin{lstlisting}
-Environment type: (default document) 
+Environment type: (default document)
 \end{lstlisting}
-Dopo il primo \verb|RET| apparirà nel minibuffer la scritta
+In questo esempio, dato che non c'è ancora alcun documento attivo, l'ambiente
+\ambstyle{document} sarà proposto come quello predefinito.  Dopo il primo
+\verb|RET| apparirà nel minibuffer la scritta
 \begin{lstlisting}
-Document class: (default article) 
+Document class: (default article)
 \end{lstlisting}
 che permette di scegliere la classe che, per impostazione predefinita, è
 \classstyle{article}. Si dia ancora \verb|RET| e si vedrà
 \begin{lstlisting}
-Options: 
+Options:
 \end{lstlisting}
 che permette di scegliere le opzioni della classe. Si faccia la scelta, si dia un terzo \verb|RET| e si avrà infine il classico
 \begin{lstlisting}[language={[LaTeX]TeX}]
@@ -727,6 +734,21 @@ che permette di scegliere le opzioni della classe. Si faccia la scelta, si dia u
 \end{document}
 \end{lstlisting}
 con il cursore correttamente posizionato nell'ambiente \ambstyle{document}.
+
+Le macro \LaTeX\ possono, come è naturale che sia, essere inserite manualmente,
+ma \auctex\ facilità notevolmente il loro inserimento.  \auctex, infatti,
+conosce la sintassi delle macro e degli ambienti di un centinaio dei pacchetti
+\LaTeX\ più diffusi.  Per poter inserire una macro nel documento bisogna premere
+\verb|C-c RET| e nel \emph{minibuffer} sarà possibile inserire il nome della
+macro.  Si può utilizzare \verb|TAB| per l'autocompletamento.  Inoltre conosce
+gli argomenti e le opzioni delle macro: infatti, dando \verb!C-c RET frac RET!
+nel documento si otterrà \verb!\frac{}{}! e il cursore si posizionerà
+all'interno del primo paio di parentesi graffe.  Analogamente, con
+\verb!C-c RET sqrt RET! verrà richiesto l'ordine \verb!n! della radice da
+inserire (premere direttamente \verb!RET! per non inserire nulla) e si otterrà
+\verb!\sqrt[n]{}!.  Un altro esempio è la macro \verb|\verb|: \auctex\ chiederà
+di scegliere il carattere da utilizzare come delimitatore e poi di inserire il
+testo di argomento.
 
 Per comporre il documento, si può
 \begin{compactitemize}
@@ -746,7 +768,7 @@ e alla fine, se tutto è filato liscio senza errori, si avrà
 \begin{lstlisting}
 LaTeX: successfully formatted {1} page
 \end{lstlisting}
-Con questa procedura si scrive un nuovo documento \LaTeX. 
+Con questa procedura si scrive un nuovo documento \LaTeX.
 
 Senza nessuna impostazione personale, il procedimento appena descritto
 crea un file \filestyle{.dvi}. Se con gli stessi comandi
@@ -771,10 +793,10 @@ corrispondente del file sorgente.
 \label{sec:corr:orto:in:azione}
 
 Dopo aver descritto le modalità di installazione dei correttori ortografici,
-in questo paragrafo specifichiamo come usarli, indipendentemente dal sistema 
+in questo paragrafo specifichiamo come usarli, indipendentemente dal sistema
 operativo presente sulla propria macchina.
 
-Per fare una revisione del documento che si sta scrivendo, bisogna dare 
+Per fare una revisione del documento che si sta scrivendo, bisogna dare
 \verb!M-x! e scrivere \verb!ispell!: in questo modo il
 dizionario proporrà, in sequenza, la correzione dei termini che trova errati.
 
@@ -786,11 +808,11 @@ corrente, basta andare in \menu{Tools > Spell Checking > Automatic spell checkin
 \end{lstlisting}
 al proprio file \filestyle{.emacs}.
 
-Quando il correttore rileva una parola potenzialmente non corretta, la colora 
+Quando il correttore rileva una parola potenzialmente non corretta, la colora
 (in genere) in rosso. Alcuni termini, però, vengono segnalati come
-scorretti anche quando non lo sono, ma solo perché non sono presenti nel dizionario: 
+scorretti anche quando non lo sono, ma solo perché non sono presenti nel dizionario:
 vi possono essere aggiunti portando il puntatore
-del mouse sulla parola in questione, premendo il tasto centrale e scegliendo 
+del mouse sulla parola in questione, premendo il tasto centrale e scegliendo
 \texttt{Save word}.
 
 \chapter{Uso avanzato di \emacs}
@@ -818,15 +840,15 @@ definizione, qualcosa come
 
 \end{document}
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
-%%% End: 
+%%% End:
 \end{lstlisting}
 
 Si notano subito alcune righe commentate non presenti nel codice descritto nel
-paragrafo~\ref{sec:primodocumento}: sono le \emph{variabili locali}. 
-Per capire subito di che cosa si tratti, si pensi alle famose ‘righe magiche’ 
+paragrafo~\ref{sec:primodocumento}: sono le \emph{variabili locali}.
+Per capire subito di che cosa si tratti, si pensi alle famose ‘righe magiche’
 che si usano per esempio con \TeX works~\citep{texworks:gregorio}.
 
 Le variabili locali sono metacommenti ignorati da \LaTeX\ --~in quanto
@@ -835,19 +857,18 @@ documento in lavorazione. Esse si possono indicare tra \verb|%%% Local Variables
 \verb|%%% End:| alla fine del file oppure tra \verb|% -*-| e \verb|-*-|
 all'inizio del file. Ci riferiremo al primo caso.
 
-Prima di proseguire è bene ricordare che le due variabili di cui
-parleremo sono messe a disposizone da \auctex. La riga
-\verb|%%% mode: latex| indica che
-stiamo scrivendo un documento \LaTeX, mentre \verb|%%% TeX-master: t| indica che il
-file in questione è il file principale su cui lanciare le composizioni.
+Prima di proseguire è bene ricordare che le due variabili di cui parleremo sono
+messe a disposizione da \auctex.  La riga \verb|%%% mode: latex| indica che
+stiamo scrivendo un documento \LaTeX, mentre \verb|%%% TeX-master: t| indica che
+il file in questione è il file principale su cui lanciare le composizioni.
 
 I file \filestyle{capitolouno.tex} e \filestyle{capitolodue.tex}, invece, oltre al
 proprio contenuto conterrano alla fine le righe
 \begin{lstlisting}[language={[LaTeX]TeX}]
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "master"
-%%% End: 
+%%% End:
 \end{lstlisting}
 in cui mediante la riga \verb|%%% TeX-master: "master"| si specifica che la composizione
 deve essere lanciata sul file \filestyle{master.tex}. La figura~\ref{fig:complex} mostra un
@@ -856,12 +877,13 @@ documento complesso come quello appena descritto così come appare sullo schermo
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\textwidth]{complesso}
-  \caption{Lo schema di un documento complesso suddiviso in più file}
+  \caption{Lo schema di un documento complesso suddiviso in più file.  Il
+    \emph{frame} è diviso in tre \emph{windows}.}
   \label{fig:complex}
 \end{figure}
 
-Per fare in modo che all'apertura di un nuovo documento ci venga chiesto se il file
-debba essere o no un file \emph{master}, si deve scrivere 
+Per fare in modo che all'apertura di un nuovo documento ci venga chiesto se il
+file debba essere o no un file \emph{master}, si deve scrivere
 \begin{lstlisting}
 (setq-default TeX-master nil)
 \end{lstlisting}
@@ -871,23 +893,24 @@ nel file \filestyle{.emacs} (si veda il capitolo~\ref{chap:personal}).
 \section{Le variabili locali}
 \label{sec:variabili:locali}
 
-Abbiamo già accennato alle variabili locali nel paragrafo precedente. 
-Ora vediamo la questione un po' più a fondo. Va detto subito 
-che ogni volta che si aggiunge una variabile locale
-si deve chiudere e riaprire \emacs\ perché questa sia riconosciuta.
+Abbiamo già accennato alle variabili locali nel paragrafo precedente.  Ora
+vediamo la questione un po' più a fondo. Va detto subito che ogni volta che si
+aggiunge una variabile locale si deve ricaricare il file perché questa sia
+riconosciuta.  Questo può essere fatto aprendo e chiudendo \emacs, oppure, più
+semplicemente, eseguendo \verb|M-x revert-buffer RET yes RET|.
 
-In genere esse vanno inserite alla fine del file perché \emacs,
-quando apre un file, ne legge prima la fine. Alle già citate 
-\verb|mode: latex| e \verb|TeX-master: t| se ne aggiungono diverse altre 
-molto utili in un documento \filestyle{.tex}. Alcune di queste
-sono messe a disposizione da \emacs, altre da \auctex.
+Si consiglia di impostare le variabili locali con la modalità di inserimento tra
+\verb|%%% Local Variables:| e \verb|%%% End:| alla fine del file.  Alle già
+citate \verb|mode: latex| e \verb|TeX-master: t| se ne aggiungono diverse altre
+molto utili in un documento \filestyle{.tex}.  Alcune di queste sono messe a
+disposizione da \emacs\ e altre da \auctex.
 
-Se per esempio si vuole impostare la codifica del file sorgente 
-a un particolare valore, \emacs\ mette a disposizione la variabile \verb|coding|, 
-che in questo documento è impostata
-come \verb|coding: utf-8| per scrivere con la codifica Unicode a $8$~bit. Un
-altro valore comune è per esempio \verb|coding: latin-1|. Per vedere tutte le
-codifiche supportate da \emacs\ basta dare \verb|M-x list-coding-systems|.
+Se per esempio si vuole impostare la codifica del file sorgente a un particolare
+valore, \emacs\ mette a disposizione la variabile \verb|coding|, che in questo
+documento è impostata come \verb|coding: utf-8| per scrivere con la codifica
+Unicode a $8$~bit.  Un altro valore comune è per esempio \verb|coding: latin-1|.
+Per vedere tutte le codifiche supportate da \emacs\ basta dare
+\verb|M-x list-coding-systems|.
 
 Tra le varie variabili locali di \auctex\ invece, segnaliamo qui quella che
 riguarda il motore di tipocomposizione. La variabile è \verb|TeX-engine:|, che
@@ -904,11 +927,12 @@ poi \verb|RET| e quindi la variabile, aiutandosi magari con l'autocompletamento
 \label{sec:sinossi:sco}
 
 \emacs\ offre un'infinità di combinazioni di tasti per eseguire operazioni
-banali e meno banali, tanto che scriverle tutte sarebbe impossibile. 
-Va da sé, dunque, che per usare il programma non serve ricordarle tutte, ma solo le principali,
-mostrate nella tabella~\ref{tab:cheat-sheet}, che con l'uso quotidiano saranno automaticamente memorizzate. 
-Per approfondire il discorso si possono consultare anche le \emph{Reference Card}, 
-disponibili in genere nella propria cartella di installazione.
+banali e meno banali, tanto che scriverle tutte sarebbe impossibile.  Va da sé,
+dunque, che per usare il programma non serve ricordarle tutte, ma solo le
+principali, mostrate nella tabella~\ref{tab:cheat-sheet}, che con l'uso
+quotidiano saranno automaticamente memorizzate.  Per approfondire il discorso si
+possono consultare anche le \emph{Reference Card}, disponibili in genere nella
+propria cartella di installazione.
 
 \begin{longtable}{>{\ttfamily}l>{\ttfamily}lp{0.35\textwidth}}
   % intestazione iniziale
@@ -990,44 +1014,34 @@ disponibili in genere nella propria cartella di installazione.
 \chapter{Personalizzare \emacs{} e \auctex}
 \label{chap:personal}
 
-In questo capitolo vedremo alcune personalizzazioni utili 
-quando si lavora con documenti \LaTeX{}.  Per modificare le impostazioni
-con cui \emacs\ gestisce nativamente \TeX\ si può dare
-\verb!M-x customize-group RET tex RET!, che aprirà un
-buffer in cui modificare le opzioni desiderate tramite l'interfaccia. 
-Per modificare in particolare \auctex{} si può usare la
-funzione \verb!M-x customize-group RET AUCTeX RET!.
+In questo capitolo vedremo alcune personalizzazioni utili quando si lavora con
+documenti \LaTeX{}.  Per modificare le impostazioni relative al pacchetto
+\auctex{} è possibile eseguire la funzione
+\verb!M-x customize-group RET AUCTeX RET!.  In questo modo si aprirà un buffer
+in cui modificare le opzioni desiderate tramite l'interfaccia.
 
 Di seguito si suggeriscono alcune porzioni di codice Elisp per
 personalizzare \emacs{}, da inserire nel file di inizializzazione
 \filestyle{.emacs}.  Per rendere effettive le modifiche si ricordi di riavviare
 il programma.
 
-Se si usa \auctex{}, si possono inserire macro nei propri documenti \LaTeX{}
-con \verb!C-c RET!.  La comodità di questa funzione è che \auctex{} conosce le
-macro dei principali pacchetti \LaTeX{} e ne permette quindi l'autocompletamento
-con il tasto \keys{\tab}\,. Inoltre conosce gli argomenti e le opzioni accettati
-dalle macro: infatti, dando \verb!C-c RET frac RET! nel documento si otterrà
-\verb!\frac{}{}!  e il cursore si metterà correttamente all'interno del primo paio di
-parentesi graffe.  Analogamente, con \verb!C-c RET sqrt RET! verrà
-richiesto l'ordine \verb!n! della radice da inserire (premere direttamente
-\verb!RET! per non inserire nulla) e si otterrà \verb!\sqrt[n]{}!.  Per fare in
-modo che \auctex{} conosca i pacchetti \LaTeX{} caricati bisogna
-permettergli di effettuare il \emph{parsing} del documento 
-aggiungendo nel proprio file \filestyle{.emacs} il seguente codice:
+Per fare in modo che \auctex\ conosca i pacchetti \LaTeX\ caricati, e di
+conseguenza fornire le funzioni di autocompletamento per le macro, bisogna
+permettergli di effettuare il parsing del documento aggiungendo nel proprio file
+\filestyle{.emacs} il seguente codice:
 \begin{lstlisting}
 (setq TeX-parse-self t) ; Attiva parsing al caricamento
 (setq TeX-auto-save  t) ; Attiva parsing al salvataggio
 \end{lstlisting}
 In questo modo verrà creata una cartella \verb!auto! nella cartella
 di lavoro, in cui verranno registrate le
-informazioni sul proprio documento \LaTeX{} (se invece non si desidera 
+informazioni sul proprio documento \LaTeX{} (se invece non si desidera
 affollare inutilmente le proprie cartelle, non si attivino le due opzioni appena
 descritte).
 
 \auctex{} conosce le macro dei pacchetti principali, ma naturalmente
 non conosce \emph{tutti} i pacchetti. Però gli si può far analizzare tutti
-i file di stile della propria distribuzione \LaTeX{} dando 
+i file di stile della propria distribuzione \LaTeX{} dando
 \verb!M-x TeX-auto-generate-global!. In questo modo verrà automaticamente
 aggiunto il supporto a tutti i pacchetti (tranne quelli troppo complicati e
 quelli basati su \LaTeX{}3).  L'operazione può richiedere alcuni minuti,
@@ -1067,7 +1081,7 @@ file d'inizializzazione il seguente codice:
 \end{lstlisting}
 Per esempio, il pacchetto \packstyle{siunitx} carica automaticamente i pacchetti
 \packstyle{array} e \packstyle{amstext} e quindi non serve caricarli ulteriormente.
-Per farlo sapere ad \auctex, 
+Per farlo sapere ad \auctex,
 possiamo completare il codice precedente come segue:
 \begin{lstlisting}
 (eval-after-load "tex"
