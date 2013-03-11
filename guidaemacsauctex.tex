@@ -85,7 +85,7 @@ particolare a \cite{emacs:stallman} per \emacs\ e \cite{auctex:manual} per
 \auctex. Speriamo, con queste brevi note, di convincere il lettore che \emacs\
 non è poi così complicato come spesso viene considerato.
 
-\section*{Colophon}
+\section*{Colophon \& ringraziamenti}
 \label{sec:colo:thanks}
 
 Questa guida tematica è stata scritta a \emph{sei mani} grazie al sistema di
@@ -101,6 +101,10 @@ inoltre necessario scaricare e installare nel proprio albero personale la classe
 È gradita ogni forma di collaborazione. Chiunque voglia segnalare errori,
 refusi, commenti e suggerimenti può farlo agli indizizzi di posta elettronica
 qui riportati.
+
+Intanto ringraziamo qui Tommaso Gordini per aver, da letterato qual egli è, reso
+il testo più leggibile, oltre ad averci dato suggerimenti importanti per la
+comprensione della guida.
 
 \begin{tabular}{cc}
 \hspace{.32\textwidth} & \textsc{Gli autori}                           \\[1.5ex]
@@ -193,6 +197,10 @@ Nelle prossime pagine ci riferiremo spesso al file di inizializzazione chiamando
 semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
 dall'effettivo nome utilizzato nel proprio sistema (\verb|.emacs|,
 \verb|.emacs.el| oppure \verb|init.el| che sia).
+
+Inoltre, si faccia attenzione quando si copia e incolla il codice da questo documento:
+potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
+\emacs.
 
 %% --------------------------------------------------------------------------
 %% Windows
@@ -343,10 +351,6 @@ figura~\ref{oi:fig:sumatra:setup}.
   \label{oi:fig:sumatra:setup}
 \end{figure}
 
-Si faccia attenzione quando si copia e incolla il codice da questo documento:
-potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
-\emacs.
-
 Con queste impostazioni il visualizzatore predefinito per \emacs\ -- ma non del
 sistema operativo -- sarà \progstyle{Sumatra~PDF}. Per la ricerca diretta
 vanno premuti i tasti \verb!C-c C-v! e il visualizzatore si aprirà (o porterà)
@@ -440,11 +444,11 @@ $ sudo apt-get install --no-install-recommends auctex
 \section{Correttore ortografico}
 \label{mg:sec:aspell}
 
-Il correttore ortografico GNU Aspell può essere installato facilmente
-su GNU/Linux utilizzando, come al solito, il gestore di pacchetti della
-propria distribuzione. Il dizionario italiano di GNU Aspell per Linux si chiama
-\progstyle{aspell-it}, quindi in Debian si installa da terminale 
-con il comando
+Il correttore ortografico \progstyle{GNU Aspell} può essere installato
+facilmente su GNU/Linux utilizzando, come al solito, il gestore di pacchetti
+della propria distribuzione. Il dizionario italiano di \progstyle{GNU Aspell}
+per Linux si chiama \progstyle{aspell-it}, quindi in Debian si installa da
+terminale con il comando
 \begin{lstlisting}
 $ sudo apt-get install aspell-it
 \end{lstlisting}
@@ -476,7 +480,7 @@ sono rese disponibili da vari volontari come per esempio il gestore del
 sito \url{http://emacsformacosx.com/}. La
 procedura d'installazione è quella consueta: dopo aver scaricato la versione
 più recente, si apra il file \filestyle{.dmg} (se non è già stato aperto
-automaticamente al termine del download) e si trascini l'icona di Emacs nella
+automaticamente al termine del download) e si trascini l'icona di \emacs{} nella
 cartella \directory{Applicazioni}.
 
 In Mac OS le applicazioni avviate dall'interfaccia grafica non hanno
@@ -608,7 +612,7 @@ come segue e come mostra la figura~\ref{fig:skimpref}:
 \begin{figure}[tb]
   \centering
   \includegraphics[width=\textwidth]{preferenze_skim}
-  \caption{Preferenze di Skim per sincronizzare sorgente e anteprima.}
+  \caption{Preferenze di \progstyle{Skim} per sincronizzare sorgente e anteprima.}
   \label{fig:skimpref}
 \end{figure}
 
