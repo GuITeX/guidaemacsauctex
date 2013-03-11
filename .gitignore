@@ -15,6 +15,7 @@
 *.tar.gz
 *-blx.bib
 *.fdb_latexmk
+*.fls
 #
 # file pdf finale (binario)
 #
@@ -26,6 +27,4 @@ auto/*
 #
 # file di backup
 #
-*.tex~
-*.bib~
-*.org~
+*~
