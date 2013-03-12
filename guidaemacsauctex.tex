@@ -10,7 +10,7 @@
 %% alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/03/11 v.1.0 Breve guida all'uso di
+\ProvidesFile{guidaemacsauctex.tex}[2013/03/12 v.1.0 Breve guida all'uso di
 Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
@@ -208,12 +208,12 @@ potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in \emacs.
 %% --------------------------------------------------------------------------
 
 
-\chapter{Emacs e AUC\TeX{} su Windows}
+\chapter{\emacs{} e AUC\TeX{} su Windows}
 \label{oi:chap:windows}
 
 \epigraph{(\textit{a cura di} Orlando Iovino)}
 
-\section{Installare Emacs}
+\section{Installare \emacs}
 \label{oi:sec:installemacs}
 
 Per sistemi operativi Microsoft Windows non esiste una vera e propria procedura
@@ -359,12 +359,12 @@ ricerca inversa, invece, basta un doppio clic nel visualizzatore.
 %% GNU/Linux
 %% --------------------------------------------------------------------------
 
-\chapter{Emacs e AUC\TeX{} su GNU/Linux}
+\chapter{\emacs{} e AUC\TeX{} su GNU/Linux}
 \label{mg:chap:linux}
 
 \epigraph{(\textit{a cura di} Mosè Giordano)}
 
-\section{Installare Emacs}
+\section{Installare \emacs}
 \label{mg:sec:installemacs}
 
 \emacs{} fa parte del progetto GNU, quindi è presente nei depositi di tutti i
@@ -463,12 +463,12 @@ $ sudo zypper install aspell-it
 %% Mac OS
 %% --------------------------------------------------------------------------
 
-\chapter{Emacs e AUC\TeX{} su Mac OS}
+\chapter{\emacs{} e AUC\TeX{} su Mac OS}
 \label{ml:chap:linux}
 
 \epigraph{(\textit{a cura di} Matteo Leccardi)}
 
-\section{Installare Emacs}
+\section{Installare \emacs}
 \label{ml:sec:installemacs}
 
 Sul mirror ufficiale \url{http://ftp.gnu.org/pub/gnu/emacs/} non è presente una
@@ -853,8 +853,8 @@ per esempio con \TeX works~\citep{texworks:gregorio}.
 
 Le variabili locali sono metacommenti ignorati da \LaTeX\ --~in quanto
 commenti~-- ma non da \emacs\ e servono per impostare alcune preferenze del
-documento in lavorazione.  Esse si possono indicare tra
-\verb|%%% Local Variables:| e \verb|%%% End:| alla fine del file oppure tra
+documento in lavorazione.  Esse si possono indicare alla fine del file tra le
+righe \verb|%%% Local Variables:| e \verb|%%% End:| oppure in un'unica riga tra
 \verb|% -*-| e \verb|-*-| all'inizio del file. Ci riferiremo al primo caso.
 
 Prima di proseguire è bene ricordare che le due variabili di cui parleremo sono
