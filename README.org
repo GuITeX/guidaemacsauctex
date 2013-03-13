@@ -1,0 +1,57 @@
+#+STARTUP: showall logdone
+
+* guidaemacsauctex
+
+Contiene i sorgenti della guida tematica *Guida pratica all'uso di GNU Emacs & AUCTeX*
+
+** Descrizione
+
+In questa guida tematica si spiega come installare, usare e
+configurare l'editor [[http://www.gnu.org/software/emacs/][GNU Emacs]] con l'estensione [[http://www.gnu.org/software/auctex/][AUCTeX]] per i più noti
+sistemi operativi: GNU/Linux, Windows, Mac OS. Il lettore di questa
+guida dovrebbe essere in grado di scrivere un documento [[http://www.latex-project.org/][LaTeX]] con
+questo editor usando le funzioni comuni di ogni altro editor (ricerca
+diretta-inversa, correzione ortografica) più qualche altra funzione di
+Emacs.
+
+** Compilare il codice sorgente
+
+Per compilare questa guida si raccomanda di avere una distribuzione LaTeX
+aggiornata (si consiglia [[http://www.tug.org/texlive/][TeX Live]] 2012). Se si dispone del programma [[http://www.gnu.org/software/make/][make]]
+basta scrivere in un terminale =make= oppure =M-x compile RET= da Emacs.  Se
+non si ha il programma =make= i passi per la compilazione sono
+#+BEGIN_EXAMPLE
+pdflatex guidaemacsauctex 
+bibtex guidaemacsauctex 
+pdflatex guidaemacsauctex
+pdflatex guidaemacsauctex
+#+END_EXAMPLE
+
+** Licenza d'uso
+
+Quest'opera è soggetta alla Creative Commons Public License versione 3.0 o
+posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo stesso
+modo*. Un riassunto in linguaggio accessibile a tutti della licenza è
+reperibile sul sito ufficiale
+http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
+
++ *tu sei libero*:
+ - Di riprodurre, distribuire, comunicare al pubblico, esporre in pubblico,
+   rappresentare, eseguire e recitare quest'opera.
+ - Di modificare quest'opera.
++ *alle seguenti condizioni*:
+ - Devi attribuire la paternità dell'opera nei modi indicati dall'autore o da
+   chi ti ha dato l'opera in licenza e in modo tale da non suggerire che essi
+   avallino te o il modo in cui tu usi l'opera.
+ - Non puoi usare quest'opera per fini commerciali.
+ - Se alteri o trasformi quest'opera, o se la usi per crearne un'altra, puoi
+   distribuire l'opera risultante solo con una licenza identica o equivalente
+   a questa.
+
+** File di stile per AUCTeX
+
+Questa guida tematica è stata composta con la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT —
+Gruppo Utilizzatori Italiani di TeX]].
+
+Al deposito [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile *non
+ufficiale* =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].

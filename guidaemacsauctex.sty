@@ -1,0 +1,98 @@
+%% Copyright (C) M. Giordano, O. Iovino, M. Leccardi, 2010-2013
+%%  
+%% Quest'opera è distribuita con licenza Creative Commons,
+%%  + Attribuzione
+%%  + Non commerciale
+%%  + Condividi allo stesso modo 
+%% 3.0 Italia.
+%%  
+%% Un riassunto in linguaggio accessibile a tutti della licenza è disponibile
+%% alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{guidaemacsauctex}[2013/03/11 v.1.0 Preambolo di guidaemacsauctex.tex]
+
+\RequirePackage{ccicons}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+
+\RequirePackage{epigraph}
+\renewcommand{\epigraphflush}{flushleft}
+\setlength{\epigraphrule}{0pt}
+\setlength{\beforeepigraphskip}{-25pt}
+\setlength{\afterepigraphskip}{-25pt}
+
+% graphicx è caricato dalla classe
+\graphicspath{{figure/}}
+
+% listings è caricato dalla classe
+\lstset{
+  language=lisp,
+  morekeywords={add-hook,add-to-list,eval-after-load,quote,setq,setq-default},
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{red},
+  stringstyle=\color{purple},
+  breaklines=true,
+  showstringspaces=false,
+  belowcaptionskip=\bigskipamount,
+  escapechar={£},
+  literate=
+  {à}{{\`a}}1
+  {è}{{\`e}}1
+  {ì}{{\`i}}1
+  {ò}{{\`o}}1
+  {ù}{{\`u}}1,
+}
+
+\RequirePackage[os=win]{menukeys}
+\usetikzlibrary{shapes.geometric}
+% tasto Meta
+\newcommand{\Meta}{Meta
+  \tikz{\node[scale=0.5,shape=diamond,fill=black,
+    sharp corners,draw,
+    baseline=-\the\dimexpr\fontdimen22\textfont2\relax] {};}}
+
+\usetikzlibrary{arrows}
+\tikzset{grid/.style={help lines,color=blue!50}}
+\tikzset{arrow/.style = {> = stealth'}}
+\tikzset{line/.style  = {draw, -stealth'}}
+\tikzset{block/.style = {%
+    rectangle,
+    draw=gray!50,
+    thick,
+    fill=gray!15,
+    minimum width=5.5em,
+  }
+}
+
+\RequirePackage[%
+  unicode,%
+  pdfdisplaydoctitle=true,%
+  pdfstartview=FitH,%
+  linktocpage=true,%
+  bookmarksnumbered=true,%
+  colorlinks=true,%
+]{hyperref}
+\hypersetup{%
+  pdftitle   = {Guida pratica all'uso di GNU Emacs e AUCTeX},%
+  pdfauthor  = {Mosè Giordano, Orlando Iovino, Matteo Leccardi},%
+  pdfsubject = {Guida tematica all'uso di GNU Emacs e AUCTeX su Windows, GNU Linux e Mac OS},%
+  pdfkeywords = {GNU, Emacs, AUCTeX, LaTeX, TeX, GuIT},%
+  pdfcreator = {LaTeX},%
+  linkcolor  = {blue},
+  citecolor  = {blue!80!black},
+  urlcolor   = {blue},
+}
+
+% \progstyle dentro \emacs non funziona :-(
+\providecommand{\emacs}{\textsf{Emacs}}
+\providecommand{\auctex}{AUC\TeX{}}
+
+% end of file guidaemacsauctex.sty
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8
+%%% time-stamp-pattern: "13/\\\\ProvidesPackage{.*}\\[%:y/%02m/%02d v"
+%%% End:

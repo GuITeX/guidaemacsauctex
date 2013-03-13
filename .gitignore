@@ -1,0 +1,30 @@
+#
+# file ausiliari di compilazione
+#
+*.log
+*.aux
+*.out
+*.toc
+*.blg
+*.bbl
+*.bcf
+*.blx.bib
+*.run
+*.run.xml
+*.synctex.gz
+*.tar.gz
+*-blx.bib
+*.fdb_latexmk
+*.fls
+#
+# file pdf finale (binario)
+#
+guidaemacsauctex.pdf
+#
+# cartella di Emacs
+#
+auto/*
+#
+# file di backup
+#
+*~
