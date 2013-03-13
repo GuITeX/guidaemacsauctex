@@ -2,7 +2,7 @@
 
 * guidaemacsauctex
 
-Contiene i sorgenti della guida tematica *Guida pratica all'uso di GNU Emacs & AUCTeX*
+Contiene i sorgenti della guida tematica [[http://www.guitex.org/home/images/doc/GuideGuIT/guidaemacsauctex.pdf][Guida pratica all'uso di GNU Emacs & AUCTeX]].
 
 ** Descrizione
 
