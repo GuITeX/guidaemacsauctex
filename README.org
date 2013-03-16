@@ -16,10 +16,16 @@ Emacs.
 
 ** Compilare il codice sorgente
 
-Per compilare questa guida si raccomanda di avere una distribuzione LaTeX
-aggiornata (si consiglia [[http://www.tug.org/texlive/][TeX Live]] 2012). Se si dispone del programma [[http://www.gnu.org/software/make/][make]]
-basta scrivere in un terminale =make= oppure =M-x compile RET= da Emacs.  Se
-non si ha il programma =make= i passi per la compilazione sono
+*** Prerequisiti
+
+Per poter compilare la guida è necessario
+
++ la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT — Gruppo Utilizzatori Italiani di TeX]];
++ una distribuzione LaTeX aggiornata (si consiglia [[http://www.tug.org/texlive/][TeX Live]] 2012).
+
+*** Compilazione
+Se si dispone del programma [[http://www.gnu.org/software/make/][make]] basta scrivere =make= in un terminale. Se non
+si ha il programma =make= i passi per la compilazione sono
 #+BEGIN_EXAMPLE
 pdflatex guidaemacsauctex 
 bibtex guidaemacsauctex 
@@ -39,6 +45,7 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
  - Di riprodurre, distribuire, comunicare al pubblico, esporre in pubblico,
    rappresentare, eseguire e recitare quest'opera.
  - Di modificare quest'opera.
+
 + *alle seguenti condizioni*:
  - Devi attribuire la paternità dell'opera nei modi indicati dall'autore o da
    chi ti ha dato l'opera in licenza e in modo tale da non suggerire che essi
@@ -49,9 +56,6 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
    a questa.
 
 ** File di stile per AUCTeX
-
-Questa guida tematica è stata composta con la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT —
-Gruppo Utilizzatori Italiani di TeX]].
 
 Al deposito [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile non
 ufficiale =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
