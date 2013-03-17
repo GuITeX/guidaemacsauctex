@@ -207,13 +207,13 @@ potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in \emacs.
 %% Windows
 %% --------------------------------------------------------------------------
 
+\chapter{Installare \emacs{} e AUCTeX}
+\label{chap:installazione}
 
-\chapter{\emacs{} e AUC\TeX{} su Windows}
-\label{oi:chap:windows}
+\section{Windows}
+\label{oi:sec:windows}
 
-\epigraph{(\textit{a cura di} Orlando Iovino)}
-
-\section{Installare \emacs}
+\subsection{Installare \emacs}
 \label{oi:sec:installemacs}
 
 Per sistemi operativi Microsoft Windows non esiste una vera e propria procedura
@@ -234,7 +234,7 @@ A questo punto \emacs{} è pronto per scrivere documenti in \LaTeX: l'utente
 infatti non deve specificare nessun percorso degli eseguibili della
 distribuzione \LaTeX\ installata perché \emacs{} li trova da solo.
 
-\section{Installare AUC\TeX}
+\subsection{Installare AUC\TeX}
 \label{oi:sec:installauctex}
 
 Si scarichi l'archivio compresso \filestyle{auctex-11.87-e24.2-msw.zip}
@@ -247,7 +247,7 @@ Dopo aver installato \auctex, \emacs{} caricherà da solo i file necessari per
 attivare la modalità \verb!latex-mode!, propria di \auctex, quando si apre o si
 crea un file con estensione \filestyle{.tex}.
 
-\section{Correttore ortografico}
+\subsection{Correttore ortografico}
 \label{oi:sec:aspell}
 
 Per usare il correttore ortografico in \emacs{} si deve installare il programma
@@ -278,7 +278,7 @@ serve a risolvere gli eventuali problemi presentati dalle versioni precedenti
 del programma.
 \end{enumerate}
 
-\section{Sincronizzare sorgente e anteprima}
+\subsection{Sincronizzare sorgente e anteprima}
 \label{oi:sec:ricdirinv}
 
 Prima di attivare la sincronizzazione tra il testo sorgente e l'anteprima del
@@ -359,12 +359,10 @@ ricerca inversa, invece, basta un doppio clic nel visualizzatore.
 %% GNU/Linux
 %% --------------------------------------------------------------------------
 
-\chapter{\emacs{} e AUC\TeX{} su GNU/Linux}
-\label{mg:chap:linux}
+\section{GNU/Linux}
+\label{mg:sec:linux}
 
-\epigraph{(\textit{a cura di} Mosè Giordano)}
-
-\section{Installare \emacs}
+\subsection{Installare \emacs}
 \label{mg:sec:installemacs}
 
 \emacs{} fa parte del progetto GNU, quindi è presente nei depositi di tutti i
@@ -408,7 +406,7 @@ che si vogliono modificare:
 $ emacs file1.tex file2.tex
 \end{lstlisting}
 
-\section{Installare AUC\TeX}
+\subsection{Installare AUC\TeX}
 \label{mg:sec:installauctex}
 
 Di solito anche il pacchetto \auctex{} è presente nei depositi dei sistemi
@@ -438,7 +436,7 @@ installando \auctex{} da terminale è sufficiente aggiungere l'opzione
 $ sudo apt-get install --no-install-recommends auctex
 \end{lstlisting}
 
-\section{Correttore ortografico}
+\subsection{Correttore ortografico}
 \label{mg:sec:aspell}
 
 Il correttore ortografico \progstyle{GNU Aspell} può essere installato
@@ -463,12 +461,10 @@ $ sudo zypper install aspell-it
 %% Mac OS
 %% --------------------------------------------------------------------------
 
-\chapter{\emacs{} e AUC\TeX{} su Mac OS}
-\label{ml:chap:linux}
+\section{Mac OS}
+\label{ml:sec:linux}
 
-\epigraph{(\textit{a cura di} Matteo Leccardi)}
-
-\section{Installare \emacs}
+\subsection{Installare \emacs}
 \label{ml:sec:installemacs}
 
 Sul mirror ufficiale \url{http://ftp.gnu.org/pub/gnu/emacs/} non è presente una
@@ -502,7 +498,7 @@ graffe e tilde) scrivendo queste righe nel file \filestyle{.emacs}:
 (setq ns-alternate-modifier nil)
 \end{lstlisting}
 
-\section{Installare AUC\TeX}
+\subsection{Installare AUC\TeX}
 \label{ml:sec:installauctex}
 
 Come per \emacs, non è disponibile una versione di \auctex{} già compilata per
@@ -562,7 +558,7 @@ Come visualizzatore si usa \progstyle{Skim},
 sorgente e anteprima. La procedura di configurazione di \emacs{} e
 \progstyle{Skim} è descritta nel paragrafo~\ref{ml:sec:ricdirinv}.
 
-\section{Correttore ortografico}
+\subsection{Correttore ortografico}
 \label{ml:sec:aspell}
 
 Anche per Mac OS X è disponibile una versione di \progstyle{GNU Aspell}, chiamata
@@ -593,7 +589,7 @@ Infine si deve configurare \emacs\ aggiungendo al file
 (setq ispell-dictionary "italiano")
 \end{lstlisting}
 
-\section{Sincronizzare sorgente e anteprima}
+\subsection{Sincronizzare sorgente e anteprima}
 \label{ml:sec:ricdirinv}
 
 L'unico visualizzatore di file PDF per Mac~OS~X associato a \emacs{}
