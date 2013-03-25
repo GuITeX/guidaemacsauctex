@@ -10,7 +10,7 @@
 %% alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/03/12 v.1.0 Breve guida all'uso di
+\ProvidesFile{guidaemacsauctex.tex}[2013/03/25 v.1.0 Breve guida all'uso di
 Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
@@ -1130,6 +1130,26 @@ d'inizializzazione
 \end{lstlisting}
 Se si utilizza la funzione \verb!reindent-then-newline-and-indent! al posto di
 \verb!newline-and-indent! si avrà, in più, il rientro sulla riga corrente.
+
+\emacs\ permette di limitare automaticamente il numero di caratteri per riga di
+codice in un documento attivando la modalità \verb|auto-fill-mode| con la
+combinazione di tasti \verb|M-x auto-fill-mode RET|.  È possibile riformattare
+un paragrafo mediante la funzione \verb|M-x fill-paragraph RET| che è legata
+alla scorciatoia \verb|M-q|.  Se si vuole attivare automaticamente la modalità
+\verb|auto-fill-mode| ogni volta che si apre un documento \LaTeX\ è sufficiente
+aggiungere questo codice al proprio \filestyle{.emacs}:
+\begin{lstlisting}
+(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+\end{lstlisting}
+Il numero massimo di caratteri che devono essere contenuti in ciascuna riga è
+definito nella variabile \verb|fill-column| il cui valore predefinito è 70.  Se
+lo si vuole cambiare, per esempio in 80, bisogna aggiungere il seguente codice
+al proprio \filestyle{.emacs}:
+\begin{lstlisting}
+(setq-default fill-column 80)
+\end{lstlisting}
+La variabile \verb|fill-column| può essere impostata anche come variabile
+locale.
 
 \bibliography{guidaemacsauctex}
 
