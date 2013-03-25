@@ -1,2 +1,6 @@
 #+STARTUP: showall logdone
 
+* AUCTeX 11.88
+  Quando uscirà la prossima versione di AUCTeX si potrebbe parlare delle nuove
+  funzionalità a disposizione, come per esempio della variabile
+  `TeX-math-close-single-dollar'.
