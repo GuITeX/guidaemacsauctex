@@ -1,6 +1,16 @@
 #+STARTUP: showall logdone
 
-* AUCTeX 11.88
-  Quando uscirà la prossima versione di AUCTeX si potrebbe parlare delle nuove
-  funzionalità a disposizione, come per esempio della variabile
+* TODO
+
++ Quando uscirà la prossima versione di AUCTeX (11.88) si potrebbe parlare delle
+  nuove funzionalità a disposizione, come per esempio della variabile
   `TeX-math-close-single-dollar'.
+
++ Scrivere che l'apice è quello dove sta il punto esclamativo (by Roberto
+  Giacomelli)
+
++ Scrivere che SumatraPDF ha un baco, per cui si deve prima aprire un PDF da
+  Emacs e poi si imposta SumatraPDF.
+
++ Scrivere che in Xp la cartella dove si trova init.el non è Application ma Dati
+  Applicazioni (by Roberto Giacomelli)
