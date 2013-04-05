@@ -1090,6 +1090,19 @@ possiamo completare il codice precedente come segue:
       (TeX-run-style-hooks "array" "amstext")))))
 \end{lstlisting}
 
+Quando si inseriscono gli ambienti \ambstyle{figure} e \ambstyle{table} con la
+combinazione di tasti \verb|C-c C-e table|, verrà data la possibilità di
+scrivere una didascalia, inserita nel sorgente \LaTeX\ usando il classico
+comando \verb|\caption|.  In maniera predefinita \auctex\ aggiunge il
+\verb|\caption| dopo la figura o la tabella, però è possibile indicare per quali
+ambienti si preferisce inserire la didascalia all'inizio elencandoli nella
+variabile \verb|LaTeX-top-caption-list|.  Per esempio, se si vuole inserire la
+didascalia prima di una tabella, bisogna aggiungere nel proprio
+\filestyle{.emacs} il seguente codice
+\begin{lstlisting}
+(setq LaTeX-top-caption-list '("table"))
+\end{lstlisting}
+
 Se si è soliti suddividere i propri documenti \LaTeX{} in più file da includere
 nel file principale con i comandi \verb!\input! o \verb!\include!, può essere
 utile aggiungere al file \filestyle{.emacs}
