@@ -7,8 +7,8 @@
 + Scrivere che l'apice è quello dove sta il punto esclamativo (by Roberto
   Giacomelli)
 
-+ +strike-through+Scrivere che in Xp la cartella dove si trova init.el non è Application ma Dati
-  Applicazioni (by Roberto Giacomelli)+strike-through+
++ +Scrivere che in Xp la cartella dove si trova init.el non è Application ma Dati
+  Applicazioni (by Roberto Giacomelli)+
 
 + Scrivere che SumatraPDF ha un baco, per cui si deve prima aprire un PDF da
   Emacs e poi si imposta SumatraPDF. Per questo si deve anche specificare prima
