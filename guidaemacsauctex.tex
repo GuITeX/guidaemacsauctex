@@ -10,8 +10,7 @@
 %% alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/04/05 v.1.0.1 Breve guida all'uso di
-Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2013/04/06 v.1.0.2 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -348,6 +347,23 @@ figura~\ref{oi:fig:sumatra:setup}.
   \caption{Impostazioni per il visualizzatore \progstyle{Sumatra~PDF}.}
   \label{oi:fig:sumatra:setup}
 \end{figure}
+
+Potrebbe capitare, dopo aver installato \progstyle{Sumatra~PDF}, che non sia
+possibile accedere al campo \menu{Impostazioni > Opzioni\dots}. Per ovviare a
+questo problema si procede come segue. Se il percorso di \progstyle{Sumatra~PDF}
+-- indicato con \meta{SumatraPDF} -- è per esempio
+\begin{lstlisting}
+C:\Program Files (x86)\SumatraPDF\SumatraPDF.exe
+\end{lstlisting}
+e quello del programma \progstyle{emacsclientw.exe} -- indicato con
+\meta{emacsclientw} -- è
+\begin{lstlisting}
+C:\Programmi\Emacs\bin\emacsclientw.exe
+\end{lstlisting}
+allora basterà aprire il \progstyle{Prompt dei comandi} e scrivere
+\begin{lstlisting}[flexiblecolumns, breaklines=false]
+"£\meta{SumatraPDF}£" -inverse-search "£\meta{emacsclientw}£ --no-wait +%l \"%f\""
+\end{lstlisting}
 
 Con queste impostazioni il visualizzatore predefinito per \emacs\ -- ma non del
 sistema operativo -- sarà \progstyle{Sumatra~PDF}.  Per la ricerca diretta vanno
