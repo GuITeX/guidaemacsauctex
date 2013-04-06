@@ -1,4 +1,4 @@
-## Copyright (C) M. Giordano, O. Iovino, M. Leccardi, 2010-2013
+## Copyright (C) 2010-2013 M. Giordano, O. Iovino, M. Leccardi.
 ##  
 ## Quest'opera è distribuita con licenza Creative Commons,
 ##  + Attribuzione
@@ -6,8 +6,8 @@
 ##  + Condividi allo stesso modo 
 ## 3.0 Italia.
 ##  
-## Un riassunto in linguaggio accessibile a tutti della licenza è disponibile
-## alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
+## Un riassunto della licenza in linguaggio accessibile a tutti è reperibile sul
+## sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 ## Makefile per la compilazione della guida tematica guidaemacsauctex.tex
 
