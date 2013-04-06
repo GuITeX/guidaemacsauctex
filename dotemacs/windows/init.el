@@ -54,16 +54,16 @@
 (setq TeX-source-correlate-mode t)
 (setq TeX-source-correlate-start-server t)
 
-(setq TeX-view-program-list 
+(setq TeX-view-program-list
       '(("Sumatra PDF" ("\"C:/Program Files (x86)/SumatraPDF/SumatraPDF.exe\" -reuse-instance" (mode-io-correlate " -forward-search %b %n") " %o"))))
 
-(setq TeX-view-program-selection 
-      '(((output-dvi style-pstricks) "dvips and start") 
-	(output-dvi "Yap") 
-	(output-pdf "Sumatra PDF") 
+(setq TeX-view-program-selection
+      '(((output-dvi style-pstricks) "dvips and start")
+	(output-dvi "Yap")
+	(output-pdf "Sumatra PDF")
 	(output-html "start")))
 
-;; Coppia di graffe automatica per _ e ^   
+;; Coppia di graffe automatica per _ e ^
 (setq TeX-electric-sub-and-superscript t)
 
 ;; Didascalia tabelle sopra
