@@ -730,16 +730,16 @@ Come è naturale che sia, le macro \LaTeX\ possono essere inserite manualmente,
 ma \auctex\ facilità notevolmente il loro inserimento.  \auctex, infatti,
 conosce la sintassi delle macro e degli ambienti di un centinaio dei pacchetti
 \LaTeX\ più diffusi.  Per poter inserire una macro nel documento bisogna premere
-\verb|C-c RET| e nel \emph{minibuffer} sarà possibile inserire il nome della
-macro.  Si può utilizzare \verb|TAB| per l'autocompletamento.  Inoltre conosce
-gli argomenti e le opzioni delle macro: infatti, dando \verb!C-c RET frac RET!
-nel documento si otterrà \verb!\frac{}{}! e il cursore si posizionerà
-all'interno del primo paio di parentesi graffe.  Analogamente, con
-\verb!C-c RET sqrt RET! verrà richiesto l'ordine \verb!n! della radice da
-inserire (premere direttamente \verb!RET! per non inserire nulla) e si otterrà
-\verb!\sqrt[n]{}!.  Un altro esempio è la macro \verb|\verb|: \auctex\ chiederà
-di scegliere il carattere da utilizzare come delimitatore e poi di inserire il
-testo di argomento.
+\verb|C-c RET| (oppure \verb|C-c C-m|) e nel \emph{minibuffer} sarà possibile
+inserire il nome della macro.  Si può utilizzare \verb|TAB| per
+l'autocompletamento.  Inoltre conosce gli argomenti e le opzioni delle macro:
+infatti, dando \verb!C-c RET frac RET! nel documento si otterrà \verb!\frac{}{}!
+e il cursore si posizionerà all'interno del primo paio di parentesi graffe.
+Analogamente, con \verb!C-c RET sqrt RET! verrà richiesto l'ordine \verb!n!
+della radice da inserire (premere direttamente \verb!RET! per non inserire
+nulla) e si otterrà \verb!\sqrt[n]{}!.  Un altro esempio è la macro
+\verb|\verb|: \auctex\ chiederà di scegliere il carattere da utilizzare come
+delimitatore e poi di inserire il testo di argomento.
 
 Per comporre il documento, si può
 \begin{compactitemize}
@@ -1091,9 +1091,9 @@ possiamo completare il codice precedente come segue:
 \end{lstlisting}
 
 Quando si inseriscono gli ambienti \ambstyle{figure} e \ambstyle{table} con la
-combinazione di tasti \verb|C-c C-e table|, verrà data la possibilità di
-scrivere una didascalia, inserita nel sorgente \LaTeX\ usando il classico
-comando \verb|\caption|.  In maniera predefinita \auctex\ aggiunge il
+combinazione di tasti \texttt{C-c C-e \meta{ambiente}}, verrà data la
+possibilità di scrivere una didascalia, inserita nel sorgente \LaTeX\ usando il
+classico comando \verb|\caption|.  In maniera predefinita \auctex\ aggiunge il
 \verb|\caption| dopo la figura o la tabella, però è possibile indicare per quali
 ambienti si preferisce inserire la didascalia all'inizio elencandoli nella
 variabile \verb|LaTeX-top-caption-list|.  Per esempio, se si vuole inserire la
