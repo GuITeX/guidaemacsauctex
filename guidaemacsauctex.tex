@@ -1,4 +1,4 @@
-%% Copyright (C) 2010-2013 M. Giordano, O. Iovino, M. Leccardi.
+%% Copyright (C) M. Giordano, O. Iovino, M. Leccardi, 2010-2013
 %%
 %% Quest'opera è distribuita con licenza Creative Commons,
 %%  + Attribuzione
@@ -6,11 +6,11 @@
 %%  + Condividi allo stesso modo
 %% 3.0 Italia.
 %%
-%% Un riassunto della licenza in linguaggio accessibile a tutti è reperibile sul
-%% sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
+%% Un riassunto in linguaggio accessibile a tutti della licenza è disponibile
+%% alla pagina Internet http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/04/06 v.1.0.2 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2013/04/06 v.1.1.2 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -208,6 +208,16 @@ potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in \emacs.
 
 \chapter{Installare \emacs{} e AUCTeX}
 \label{chap:installazione}
+
+In questo capitolo vedremo come installare \emacs, \auctex, il
+correttore ortografico e -- dove possibile --, come impostare la
+sincronizzazione del visualizzatore del \filestyle{pdf} con il sorgente
+\filestyle{tex}.
+
+Dalla versione 24 di \emacs\ si possono installare dei pacchetti mediante il
+deposito ELPA, con \verb|M-x list-packages|. Tuttavia, non consigliamo questa
+strada perché la versione di \auctex\ che viene proposta non è l'ultima. Si
+consiglia, pertanto, di seguire le procedure riportate in seguito.
 
 \section{Windows}
 \label{oi:sec:windows}
@@ -652,7 +662,7 @@ la finestra del visualizzatore, si aggiungano queste righe al file
 \chapter{Primi passi in \emacs}
 \label{chap:primi-passi-emacs}
 
-Nei precedenti capitoli si è spiegato come installare e configurare i principali
+Nel capitolo precedente si è spiegato come installare e configurare i principali
 componenti per usare \LaTeX\ con \emacs\ e \auctex. In questo capitolo vedremo
 come si scrive in \emacs\ un semplice documento \filestyle{.tex} e come usare il
 correttore ortografico.
@@ -702,7 +712,7 @@ creando.
     %
     \draw[line] (8.2,7.4) -- (9,7.4) node[block,right=2] {menubar};
   \end{tikzpicture}
-  \caption{Un \emph{frame} di \filestyle{GNU Emacs} che contiene la classica
+  \caption{Un \emph{frame} di \progstyle{GNU Emacs} che contiene la classica
     schermata iniziale.}
   \label{fig:principale}
 \end{figure}
