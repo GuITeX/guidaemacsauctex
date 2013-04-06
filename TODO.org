@@ -12,9 +12,9 @@
 + +Scrivere che in Xp la cartella dove si trova init.el non è Application ma Dati
   Applicazioni (by Roberto Giacomelli).+
 
-+ Scrivere che SumatraPDF ha un baco, per cui si deve prima aprire un PDF da
++ +Scrivere che SumatraPDF ha un baco, per cui si deve prima aprire un PDF da
   Emacs e poi si imposta SumatraPDF. Per questo si deve anche specificare prima
-  come attivare la pdf-mode.
+  come attivare la pdf-mode.+
 
 + Aggiungere una cartella contenente dei file semplici di inizializzazione con
   le impostazioni suggerite nella guida (by Roberto Giacomelli).
