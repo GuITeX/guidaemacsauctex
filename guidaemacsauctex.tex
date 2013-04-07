@@ -10,7 +10,7 @@
 %% sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/04/06 v.1.1.2 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2013/04/07 v.1.1.3 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -21,7 +21,7 @@
 \title{Guida pratica all'uso\\ di\\ GNU Emacs e AUC\TeX}
 \author{Mosè Giordano, Orlando Iovino, Matteo Leccardi}
 \GetFileInfo{guidaemacsauctex.tex}
-\date{\filename\ \fileversion\ del \filedate}
+\date{Versione~\fileversion\ del \filedate}
 \maketitle
 
 \chapter{Licenza d'uso}
@@ -100,6 +100,10 @@ inoltre necessario scaricare e installare nel proprio albero personale la classe
 Ringraziamo qui Tommaso Gordini per aver, da letterato qual egli è, reso il
 testo più leggibile, oltre ad averci dato suggerimenti importanti per la
 comprensione della guida.
+
+Va anche a Roberto Giacomelli il ringraziamento per aver suggerito alcune
+correzioni utili a rendere l'installazione e la configurazione su Windows più
+semplice (oltre a diverse altre idee).
 
 È gradita ogni forma di collaborazione. Chiunque voglia segnalare errori,
 refusi, commenti e suggerimenti può farlo agli indirizzi di posta elettronica
@@ -186,7 +190,7 @@ inizialmente non esiste ed in particolare:
 \item su Windows si chiama \filestyle{init.el} e va messo in
       \begin{itemize}[leftmargin=*]
       \item \verb|C:\Documents and Settings\|\meta{nome
-              utente}\verb|\Dati Applicazioni\| (fino a XP);
+              utente}\verb|\Dati Applicazioni\.emacs.d\init.el| (fino a XP);
       \item \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs.d\init.el|
             (da Vista in poi);
       \end{itemize}
@@ -200,7 +204,9 @@ dall'effettivo nome utilizzato nel proprio sistema (\verb|.emacs|,
 \verb|.emacs.el| oppure \verb|init.el| che sia).
 
 Si faccia attenzione quando si copia e incolla il codice da questo documento:
-potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in \emacs.
+potrebbe essere necessario riscrivere i caratteri \verb|"| e \verb|'| in
+\emacs. Facciamo presente, inoltre, che \verb|'| è il carattere l'apice semplice
+che si ottiene con il tasto \keys{?}.
 
 %% --------------------------------------------------------------------------
 %% Windows
@@ -230,7 +236,7 @@ di installazione. \emacs{} si può utilizzare semplicemente procurandosi
 l'archivio che ne contiene gli eseguibili.
 
 All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarichi
-l'archivio compresso \filestyle{emacs-24.2-bin-i386.zip} e lo si decomprima in
+l'archivio compresso \filestyle{emacs-24.3-bin-i386.zip} e lo si decomprima in
 una posizione di comodo; una buona soluzione, per esempio, è decomprimerlo
 in \directory{C:/Programmi/Emacs/}, che assumeremo da questo
 momento come cartella d'installazione.
