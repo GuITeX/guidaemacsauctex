@@ -6,8 +6,8 @@
 
 + Valutare se aggiungere anche un capitolo su RefTeX.
 
-+ Scrivere che l'apice è quello dove sta il punto esclamativo (by Roberto
-  Giacomelli).
++ +Scrivere che l'apice è quello dove sta il punto esclamativo (by Roberto
+  Giacomelli).+
 
 + +Scrivere che in Xp la cartella dove si trova init.el non è Application ma Dati
   Applicazioni (by Roberto Giacomelli).+
@@ -18,3 +18,10 @@
 
 + Aggiungere una cartella contenente dei file semplici di inizializzazione con
   le impostazioni suggerite nella guida (by Roberto Giacomelli).
+
++ Scrivere nella guida la presenza di queste cartelle.
+
++ Come è emerso dalla dsicussione sul forum, alcuni passaggi che riguardano
+  l'installazione su Windows andrebbero rivisti. Infatti alcuni di questi
+  richiedono che sia già stato scritto un documento con Emacs.
+
