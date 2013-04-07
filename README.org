@@ -12,13 +12,13 @@ sistemi operativi: GNU/Linux, Windows, Mac OS. Il lettore di questa
 guida dovrebbe essere in grado di scrivere un documento [[http://www.latex-project.org/][LaTeX]] con
 questo editor usando le funzioni comuni di ogni altro editor (ricerca
 diretta-inversa, correzione ortografica) più qualche altra funzione di
-Emacs.
+Emacs e AUCTeX.
 
 ** Compilare il codice sorgente
 
 *** Prerequisiti
 
-Per poter compilare la guida è necessario
+Per compilare la guida è necessario
 
 + la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT — Gruppo Utilizzatori Italiani di TeX]];
 + una distribuzione LaTeX aggiornata (si consiglia [[http://www.tug.org/texlive/][TeX Live]] 2012).
@@ -36,10 +36,11 @@ pdflatex guidaemacsauctex
 ** Licenza d'uso
 
 Quest'opera è soggetta alla Creative Commons Public License versione 3.0 o
-posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo stesso
-modo*. Un riassunto in linguaggio accessibile a tutti della licenza è
-reperibile sul sito ufficiale
-http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
+posteriore: *Attribuzione*, *Non Commerciale*, *Condividi allo stesso modo*. Un
+riassunto della licenza in linguaggio accessibile a tutti è reperibile sul sito
+ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
+
+In breve:
 
 + *tu sei libero*:
  - Di riprodurre, distribuire, comunicare al pubblico, esporre in pubblico,
@@ -57,5 +58,5 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/deed.it.
 
 ** File di stile per AUCTeX
 
-Al deposito [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile non
-ufficiale =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
+Al deposito [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile /non
+ufficiale/ =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
