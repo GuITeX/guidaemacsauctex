@@ -10,7 +10,7 @@
 %% sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2013/04/07 v.1.1.3 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2013/05/29 v.1.1.3 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -488,6 +488,45 @@ mentre in openSUSE si può dare
 $ sudo zypper install aspell-it
 \end{lstlisting}
 
+\subsection{Sincronizzare sorgente e anteprima}
+\label{mg:sec:ricdirinv}
+
+Se si utilizza \progstyle{Evince} come visualizzatore di documenti, per attivare
+in \auctex{} la ricerca diretta e inversa con questo programma bisogna
+aggiungere le seguenti righe di codice al proprio file di inizializzazione
+\filestyle{.emacs}
+\begin{lstlisting}
+(setq TeX-source-correlate-mode t
+      TeX-source-correlate-start-server t
+      TeX-view-program-selection
+      '(((output-dvi style-pstricks) "dvips and gv")
+	(output-dvi "Evince")
+	(output-pdf "Evince")
+	(output-html "xdg-open")))
+\end{lstlisting}
+Per eseguire la ricerca diretta da \emacs{} a \progstyle{Evince} è sufficiente
+usare la combinazione \verb|C-c C-v|, per eseguire ricerca inversa da
+\progstyle{Evince} a \emacs{} bisogna premere \keys{\ctrl} mentre si fa clic con
+il tasto sinistro del mouse.
+
+Se invece si utilizza \progstyle{Okular} come visualizzatore di documenti,
+bisogna sostituire \lstinline|"Okular"| a \lstinline|"Evince"| nel precedente
+codice, cioè si deve aggiungere al proprio file di inizializzazione il codice
+\begin{lstlisting}
+(setq TeX-source-correlate-mode t
+      TeX-source-correlate-start-server t
+      TeX-view-program-selection
+      '(((output-dvi style-pstricks) "dvips and gv")
+	(output-dvi "Okular")
+	(output-pdf "Okular")
+	(output-html "xdg-open")))
+\end{lstlisting}
+% NOTA: non riesco a far funzionare la ricerca diretta.
+In \progstyle{Okular}, nel menu \menu{Impostazioni > Configura Okular...},
+scheda ``Editor'', selezionare ``Emacs client'' nel menu a discesa.  A questo
+punto sarà possibile eseguire la ricerca inversa da \progstyle{Okular} a
+\emacs{} tenendo premuto \keys{\shift} mentre si fa clic con il tasto sinistro
+del mouse.
 
 %% --------------------------------------------------------------------------
 %% Mac OS
