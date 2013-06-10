@@ -47,6 +47,26 @@
 ;; Attiva automaticamente correttore ortografico per documenti LaTeX
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
+;; Ricerca diretta e inversa
+(setq TeX-source-correlate-mode t
+      TeX-source-correlate-start-server t)
+
+;; Imposta Evince come visualizzatore predefinito di DVI e PDF (commenta se non
+;; utilizzi questo programma)
+(setq TeX-view-program-selection
+      '(((output-dvi style-pstricks) "dvips and gv")
+	(output-dvi "Evince")
+	(output-pdf "Evince")
+	(output-html "xdg-open")))
+
+;; Imposta Okular come visualizzatore predefinito di DVI e PDF (decommenta le
+;; seguenti righe se Okular è il tuo visualizzatore preferito)
+;; (setq TeX-view-program-selection
+;;       '(((output-dvi style-pstricks) "dvips and gv")
+;; 	(output-dvi "Okular")
+;; 	(output-pdf "Okular")
+;; 	(output-html "xdg-open")))
+
 ;; Coppia di graffe automatica per _ e ^
 (setq TeX-electric-sub-and-superscript t)
 

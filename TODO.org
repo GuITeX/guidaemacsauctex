@@ -25,3 +25,8 @@
   l'installazione su Windows andrebbero rivisti. Infatti alcuni di questi
   richiedono che sia già stato scritto un documento con Emacs.
 
++ Presentare i vantaggi dell’uso di Emacs.  Alcuni argomenti sono esposti [[http://www.guitex.org/home/it/forum/10-corsi-e-didattica/82928-guida-guida-pratica-alluso-di-gnu-emacs-a-auctex?limit=15&start=15][qui]] e
+  nella pagina successiva.  Fra le altre cose, su può accennare al fatto che
+  Emacs ha un buon supporto ai sistemi di controllo delle revisioni (CVS, SVN,
+  git, hg, bzr e altri), gli altri editor di testo per LaTeX che conosco
+  supportano al massimo SVN.
