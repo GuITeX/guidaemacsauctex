@@ -41,11 +41,11 @@
 
 \RequirePackage[os=win]{menukeys}
 \usetikzlibrary{shapes.geometric}
-% tasto Meta
-\newcommand{\Meta}{Meta
+\tw@make@key@box{Meta}{Meta
   \tikz{\node[scale=0.5,shape=diamond,fill=black,
     sharp corners,draw,
     baseline=-\the\dimexpr\fontdimen22\textfont2\relax] {};}}
+\tw@make@key@macro{\Meta}
 
 \usetikzlibrary{arrows}
 \tikzset{grid/.style={help lines,color=blue!50}}
