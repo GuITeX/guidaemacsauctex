@@ -180,24 +180,24 @@ uno degli editor di testo più potenti in questo senso. In
 questa guida vedremo alcune delle funzioni principali di \auctex.
 
 Per finire, prima di addentrarci nell'installazione e nell'utilizzo di \emacs,
-\auctex{} e di altri programmi accessori, è utile riportare qui qualche indicazione
-sul file di inizializzazione di \emacs, scritto in Elisp e di fondamentale
-importanza per modificare il comportamento delle funzioni del programma.  Questo
-file, che sarà richiamato spesso in questo documento, presenta diversi nomi e
-localizzazioni a seconda del sistema operativo usato.  Deve essere creato perché
-inizialmente non esiste ed in particolare:
-\begin{itemize}[leftmargin=*]
-\item su Windows si chiama \filestyle{init.el} e va messo in
-      \begin{itemize}[leftmargin=*]
-      \item \verb|C:\Documents and Settings\|\meta{nome
-              utente}\verb|\Dati Applicazioni\.emacs.d\init.el| (fino a XP);
-      \item \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs.d\init.el|
-            (da Vista in poi);
-      \end{itemize}
-\item su GNU/Linux e Mac~OS si chiama \filestyle{.emacs} o \filestyle{init.el} e
-      va messo in \verb|~/.emacs|, \verb|~/.emacs.el| oppure in
+\auctex{} e di altri programmi accessori, è utile riportare qui qualche
+indicazione sul file di inizializzazione di \emacs, che contiene codice in
+linguaggio Elisp e di fondamentale importanza per modificare il comportamento
+delle funzioni del programma.  Questo file, che sarà richiamato spesso in questo
+documento, presenta diversi nomi (\filestyle{.emacs}, \filestyle{.emacs.el} o
+\filestyle{init.el}) e localizzazioni a seconda del sistema operativo. Va creato
+perché inizialmente non esiste ed in particolare per:
+\begin{blockdescription}[leftmargin=*]
+\item[Windows XP] va messo in\\
+      \verb|C:\Documents and Settings\|\meta{nome utente}\verb|\Dati Applicazioni\.emacs.d\init.el|;
+\item[Windows Vista/7] va messo in:\\
+      \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs.d\init.el|;\\
+      \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs|;
+\item[GNU/Linux, Mac~OS] va messo in \\
+      \verb|~/.emacs|\\
+      \verb|~/.emacs.el|\\
       \verb|~/.emacs.d/init.el|.
-\end{itemize}
+\end{blockdescription}
 Nelle prossime pagine ci riferiremo spesso al file di inizializzazione chiamandolo
 semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
 dall'effettivo nome utilizzato nel proprio sistema (\verb|.emacs|,
