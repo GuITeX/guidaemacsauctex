@@ -69,7 +69,7 @@ displayline %n %o %b")
              (output-pdf "Skim")
              (output-html "open")))
 
-;; Se con la ricerca inversa la finestra di emacs non è torna in primo
+;; Se con la ricerca inversa la finestra di emacs non torna in primo
 ;; piano togliere i segni di commento dalle tre righe seguenti
 
 ;; (defun ns-raise-emacs ()
