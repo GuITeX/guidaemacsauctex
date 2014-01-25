@@ -29,6 +29,9 @@
 
 ;; Code:
 
+;; Attiva i package installati da ELPA
+(package-initialize)
+
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode); ...... attiva di default la pdflatex-mode
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode); ... attiva di default la math-mode
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex); .... attiva di default la reftex-mode

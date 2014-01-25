@@ -221,9 +221,18 @@ sincronizzazione del visualizzatore del \filestyle{pdf} con il sorgente
 \filestyle{tex}.
 
 Dalla versione 24 di \emacs\ si possono installare dei pacchetti mediante il
-deposito ELPA, con \verb|M-x list-packages|. Tuttavia, non consigliamo questa
-strada perché la versione di \auctex\ che viene proposta non è l'ultima. Si
-consiglia, pertanto, di seguire le procedure riportate in seguito.
+deposito ELPA, parte del progetto GNU, e altri depositi non ufficiali come
+Marmalade\footnote{\url{http://marmalade-repo.org/}} e
+MELPA\footnote{\url{http://melpa.milkbox.net/}}. \auctex\ è disponibile nel
+deposito ufficiale e può quindi essere installato con
+\verb|M-x package-install RET auctex| aggiungendo soltanto la seguente riga al
+file \filestyle{.emacs:}
+\begin{lstlisting}
+(package-initialize)
+\end{lstlisting}
+
+Nei paragrafi che seguono descriveremo anche la procedura di installazione
+specifica per ogni sistema operativo, indicando caso per caso quale consigliamo.
 
 \section{Windows}
 \label{oi:sec:windows}
@@ -604,11 +613,17 @@ Infine si deve configurare \emacs\ aggiungendo al file
 \label{ml:sec:installauctex}
 
 Come per \emacs, non è disponibile una versione di \auctex{} già compilata per
-Mac~OS, ma purtroppo in questo caso non ne esistono neppure versioni non ufficiali. È quindi
-necessario utilizzare il programma \progstyle{make}, che viene
-installato insieme al  correttore ortografico
-\progstyle{cocoAspell}, descritto nel paragrafo~\ref{ml:sec:aspell}.
-Ecco le istruzioni.
+Mac~OS, ma purtroppo in questo caso non ne esistono neppure versioni non
+ufficiali, quindi consigliamo di installarlo dal deposito ELPA come descritto
+all'inizio del capitolo. Se, come talvolta può capitare, la versione disponibile
+in ELPA non è la più recente oppure si utilizza un computer a cui accedono più
+utenti\footnote{I package installati da ELPA si trovano nella cartella
+  \filestyle{~/.emacs.d} e di conseguenza sono disponibili solo per l'utente che
+  li installa.} bisognerà valutare di volta in volta se i vantaggi dell'uso di
+ELPA superano gli svantaggi. Per installare \auctex{} senza usare ELPA è
+necessario utilizzare il programma \progstyle{make}, che viene installato
+insieme al correttore ortografico \progstyle{cocoAspell}, descritto nel
+paragrafo~\ref{ml:sec:aspell}. Ecco le istruzioni.
 
 Dalla pagina relativa a Mac OS X,
 \url{http://www.gnu.org/software/auctex/download-for-macosx.html},
