@@ -10,7 +10,7 @@
 %% sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2014/01/28 v.1.1.5 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2014/01/28 v.1.1.6 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -291,7 +291,7 @@ Infine rimane da eseguire qualche altra operazione:
 percorso della cartella dove sono contenuti gli eseguibili di \progstyle{Aspell}
 nella variabile d'ambiente \textsf{PATH}.
 \item Si deve aggiungere al proprio file
-\filestyle{.init} le seguenti righe:
+\filestyle{.emacs} le seguenti righe:
 \begin{lstlisting}
 (setq-default ispell-program-name "aspell")
 (setq-default ispell-extra-args '("--reverse"))
@@ -341,7 +341,7 @@ nei sistemi Windows~-- scaricabile dal sito
 \url{http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html}.
 
 Per la ricerca diretta basta scrivere nel file d'inizializzazione
-\filestyle{.init}
+\filestyle{.emacs}
 \begin{lstlisting}
 (setq TeX-source-correlate-method (quote synctex))
 (setq TeX-source-correlate-mode t)
