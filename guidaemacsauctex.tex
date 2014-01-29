@@ -10,7 +10,7 @@
 %% sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2014/01/28 v.1.1.8 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2014/01/29 v.1.1.9 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -186,18 +186,25 @@ linguaggio Elisp e di fondamentale importanza per modificare il comportamento
 delle funzioni del programma.  Questo file, che sarà richiamato spesso in questo
 documento, presenta diversi nomi (\filestyle{.emacs}, \filestyle{.emacs.el} o
 \filestyle{init.el}) e localizzazioni a seconda del sistema operativo. Va creato
-perché inizialmente non esiste ed in particolare per:
-\begin{blockdescription}[leftmargin=*]
-\item[Windows XP] va messo in\\
-      \verb|C:\Documents and Settings\|\meta{nome utente}\verb|\Dati Applicazioni\.emacs.d\init.el|;
-\item[Windows Vista/7] va messo in:\\
-      \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs.d\init.el|;\\
-      \verb|C:\Users\|\meta{nome utente}\verb|\AppData\.emacs|;
-\item[GNU/Linux, Mac~OS] va messo in \\
-      \verb|~/.emacs|\\
-      \verb|~/.emacs.el|\\
-      \verb|~/.emacs.d/init.el|.
-\end{blockdescription}
+perché inizialmente non esiste. Se indichiamo con \verb|~/| la cartella
+\begin{lstlisting}[language=bash]
+C:/Documents and Settings/£\meta{nome utente}£/Dati Applicazioni
+\end{lstlisting}
+per Windows XP,
+\begin{lstlisting}[language=bash]
+C:/Users/£\meta{nome utente}£/AppData/
+\end{lstlisting}
+per Windows Vista/7 e
+\begin{lstlisting}[language=bash]
+$HOME
+\end{lstlisting}
+per GNU/Linux e Mac~OS, questo file può essere così sistemato:
+\begin{description}[leftmargin=*]
+\item[Windows XP] \filestyle{~/.emacs.d/init.el}
+\item[Windows Vista/7] \filestyle{~/.emacs.d/init.el} o \filestyle{~/.emacs}
+\item[GNU/Linux, Mac~OS] \filestyle{~/.emacs}, \filestyle{~/.emacs.el} o
+      \filestyle{~/.emacs.d/init.el}
+\end{description}
 Nelle prossime pagine ci riferiremo spesso al file di inizializzazione chiamandolo
 semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
 dall'effettivo nome utilizzato nel proprio sistema (\verb|.emacs|,
@@ -632,9 +639,9 @@ estragga poi il contenuto in una cartella temporanea, si apra una sessione di
 terminale e ci si porti nella cartella appena creata.  Bisogna poi configurare
 \auctex{} con il comando
 \begin{lstlisting}[flexiblecolumns, breaklines=false, language=bash]
-$ ./configure 
---prefix=/Applications/Emacs.app/Contents/Resources/ 
---with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs 
+$ ./configure
+--prefix=/Applications/Emacs.app/Contents/Resources/
+--with-emacs=/Applications/Emacs.app/Contents/MacOS/Emacs
 --with-lispdir=/Applications/Emacs.app/Contents/Resources/site-lisp/
 --without-texmf-dir
 \end{lstlisting}
