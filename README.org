@@ -21,7 +21,7 @@ Emacs e AUCTeX.
 Per compilare la guida è necessario
 
 + la classe [[https://github.com/GuITeX/guidatematica][guidatematica]] del [[http://www.guitex.org/home/][GuIT — Gruppo Utilizzatori Italiani di TeX]];
-+ una distribuzione LaTeX aggiornata (si consiglia [[http://www.tug.org/texlive/][TeX Live]] 2012).
++ una distribuzione LaTeX aggiornata.
 
 *** Compilazione
 Se si dispone del programma [[http://www.gnu.org/software/make/][make]] basta scrivere =make= in un terminale. Se non
