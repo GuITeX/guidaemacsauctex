@@ -27,8 +27,8 @@ Per compilare la guida è necessario
 Se si dispone del programma [[http://www.gnu.org/software/make/][make]] basta scrivere =make= in un terminale. Se non
 si ha il programma =make= i passi per la compilazione sono
 #+BEGIN_EXAMPLE
-pdflatex guidaemacsauctex 
-bibtex guidaemacsauctex 
+pdflatex guidaemacsauctex
+bibtex guidaemacsauctex
 pdflatex guidaemacsauctex
 pdflatex guidaemacsauctex
 #+END_EXAMPLE
@@ -58,5 +58,5 @@ In breve:
 
 ** File di stile per AUCTeX
 
-Al deposito [[https://github.com/orlyfurious/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile /non
+Al deposito [[https://github.com/oiovino/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile /non
 ufficiale/ =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
