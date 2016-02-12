@@ -58,5 +58,5 @@ In breve:
 
 ** File di stile per AUCTeX
 
-Al deposito [[https://github.com/oiovino/auctex_style_guidatematica][auctex_style_guidatematica]] è disponibile il file di stile /non
-ufficiale/ =guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
+Al deposito [[https://github.com/orlandoiovino/auctex-guidatematica][auctex-guidatematica]] è disponibile il file di stile /non ufficiale/
+=guidatematica.el= per [[http://www.gnu.org/software/auctex/][AUCTeX]].
