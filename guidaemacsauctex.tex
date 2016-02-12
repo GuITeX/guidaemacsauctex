@@ -10,7 +10,7 @@
 %% sito ufficiale http://creativecommons.org/licenses/by-nc-sa/3.0/it
 
 \documentclass[b5paper,11pt,oneside]{guidatematica}
-\ProvidesFile{guidaemacsauctex.tex}[2014/07/12 v.1.1.9 Breve guida all'uso di Emacs per LaTeX]
+\ProvidesFile{guidaemacsauctex.tex}[2016/01/23 v.1.2.0 Breve guida all'uso di Emacs per LaTeX]
 
 \usepackage{guidaemacsauctex}
 
@@ -23,6 +23,8 @@
 \GetFileInfo{guidaemacsauctex.tex}
 \date{Versione~\fileversion\ del \filedate}
 \maketitle
+
+\contribguit
 
 \chapter{Licenza d'uso}
 \label{chap:licenza}
@@ -200,10 +202,12 @@ $HOME
 \end{lstlisting}
 per GNU/Linux e Mac~OS, questo file può essere così sistemato:
 \begin{description}[leftmargin=*]
-\item[Windows XP] \filestyle{~/.emacs.d/init.el}
-\item[Windows Vista/7] \filestyle{~/.emacs.d/init.el} o \filestyle{~/.emacs}
-\item[GNU/Linux, Mac~OS] \filestyle{~/.emacs}, \filestyle{~/.emacs.el} o
-      \filestyle{~/.emacs.d/init.el}
+\item[Windows XP] \filestyle{\textasciitilde{}/.emacs.d/init.el}
+\item[Windows Vista/7] \filestyle{\textasciitilde{}/.emacs.d/init.el} o
+  \filestyle{\textasciitilde{}/.emacs}
+\item[GNU/Linux, Mac~OS] \filestyle{\textasciitilde{}/.emacs},
+  \filestyle{\textasciitilde{}/.emacs.el} o
+  \filestyle{\textasciitilde{}/.emacs.d/init.el}
 \end{description}
 Nelle prossime pagine ci riferiremo spesso al file di inizializzazione chiamandolo
 semplicemente \verb|.emacs|, indipendentemente dalla posizione in cui si trova e
@@ -232,8 +236,8 @@ deposito ELPA, parte del progetto GNU, e altri depositi non ufficiali come
 Marmalade\footnote{\url{http://marmalade-repo.org/}} e
 MELPA\footnote{\url{http://melpa.milkbox.net/}}. \auctex\ è disponibile nel
 deposito ufficiale e può quindi essere installato con
-\verb|M-x package-install RET auctex| aggiungendo soltanto la seguente riga al
-file \filestyle{.emacs:}
+\verb|M-x package-install RET auctex RET| aggiungendo soltanto la seguente riga
+al file \filestyle{.emacs:}
 \begin{lstlisting}
 (package-initialize)
 \end{lstlisting}
@@ -252,9 +256,9 @@ di installazione. \emacs{} si può utilizzare semplicemente procurandosi
 l'archivio che ne contiene gli eseguibili.
 
 All'indirizzo \url{http://ftp.gnu.org/pub/gnu/emacs/windows/} si scarichi
-l'archivio compresso \filestyle{emacs-24.3-bin-i386.zip} e lo si decomprima in
-una posizione di comodo; una buona soluzione, per esempio, è decomprimerlo
-in \directory{C:/Programmi/Emacs/}, che assumeremo da questo
+l'archivio compresso \filestyle{emacs-24.5-bin-i686-mingw32.zip} e lo si
+decomprima in una posizione di comodo; una buona soluzione, per esempio, è
+decomprimerlo in \directory{C:/Programmi/Emacs/}, che assumeremo da questo
 momento come cartella d'installazione.
 
 Se si vuole creare un collegamento di \emacs{} nel menù Start, è sufficiente
@@ -268,7 +272,7 @@ distribuzione \LaTeX\ installata perché \emacs{} li trova da solo.
 \subsection{Installare AUC\TeX}
 \label{oi:sec:installauctex}
 
-Si scarichi l'archivio compresso \filestyle{auctex-11.87-e24.2-msw.zip}
+Si scarichi l'archivio compresso \filestyle{auctex-11.89-e24.5-msw.zip}
 dall'indirizzo \url{http://www.gnu.org/software/auctex/download-for-windows} e
 lo si decomprima in \directory{C:/Programmi/Emacs/}.  Si noti che alcuni file
 sono gli stessi, perciò basta unire il contenuto dell'archivio di \auctex{} con
@@ -454,13 +458,19 @@ che si vogliono modificare:
 $ emacs file1.tex file2.tex
 \end{lstlisting}
 
-\subsection{Installare AUC\TeX}
+\subsection{Installare \auctex}
 \label{mg:sec:installauctex}
 
-Di solito anche il pacchetto \auctex{} è presente nei depositi dei sistemi
-GNU/Linux.  Come già detto per \emacs{} si consiglia di installarlo con il
-gestore di pacchetti della propria distribuzione.  Ecco i comandi da usare nelle
-principali distribuzioni.
+\auctex{} può essere installato sia dal deposito ELPA, attraverso il gestore
+pacchetti interno di \emacs{}, sia dai depositi dei sistemi GNU/Linux.
+Generalmente in ELPA è presente l'ultima versione, quindi suggeriamo il metodo
+di installazione descritto all'inizio del capitolo, dato che è più semplice e
+non richiede permessi di amministratore per l'installazione.
+
+Per chi non disponesse di una versione di \emacs{} sufficientemente recente, 24
+o successiva, allora si deve procedere per un'altra strada.  Come già detto per
+\emacs{} si consiglia di installare \auctex{} con il gestore di pacchetti della
+propria distribuzione.  Ecco i comandi da usare nelle principali distribuzioni.
 
 Su Debian e Ubuntu:
 \begin{lstlisting}
@@ -625,16 +635,16 @@ ufficiali, quindi consigliamo di installarlo dal deposito ELPA come descritto
 all'inizio del capitolo. Se, come talvolta può capitare, la versione disponibile
 in ELPA non è la più recente oppure si utilizza un computer a cui accedono più
 utenti\footnote{I package installati da ELPA si trovano nella cartella
-  \filestyle{~/.emacs.d} e di conseguenza sono disponibili solo per l'utente che
-  li installa.} bisognerà valutare di volta in volta se i vantaggi dell'uso di
-ELPA superano gli svantaggi. Per installare \auctex{} senza usare ELPA è
-necessario utilizzare il programma \progstyle{make}, che viene installato
-insieme al correttore ortografico \progstyle{cocoAspell}, descritto nel
-paragrafo~\ref{ml:sec:aspell}. Ecco le istruzioni.
+  \filestyle{\textasciitilde{}/.emacs.d} e di conseguenza sono disponibili solo
+  per l'utente che li installa.} bisognerà valutare di volta in volta se i
+vantaggi dell'uso di ELPA superano gli svantaggi. Per installare \auctex{} senza
+usare ELPA è necessario utilizzare il programma \progstyle{make}, che viene
+installato insieme al correttore ortografico \progstyle{cocoAspell}, descritto
+nel paragrafo~\ref{ml:sec:aspell}. Ecco le istruzioni.
 
 Dalla pagina relativa a Mac OS X,
 \url{http://www.gnu.org/software/auctex/download-for-macosx.html},
-bisogna scaricare l'archivio compresso \filestyle{auctex-11.87.tar.gz}.  Se ne
+bisogna scaricare l'archivio compresso \filestyle{auctex-11.89.tar.gz}.  Se ne
 estragga poi il contenuto in una cartella temporanea, si apra una sessione di
 terminale e ci si porti nella cartella appena creata.  Bisogna poi configurare
 \auctex{} con il comando
@@ -1023,10 +1033,11 @@ propria cartella di installazione.
 
 \begin{longtable}{>{\ttfamily}l>{\ttfamily}lp{0.35\textwidth}}
   % intestazione iniziale
-  \caption{\emph{Scorciatoia} è la combinazione di tasti da premere per ottenere
-    il risultato descritto nell'ultima colonna.  La seconda colonna riporta la
-    \emph{funzione}, da eseguire con \texttt{M-x}, a cui è legata quella
-    particolare combinazione di tasti.}
+  \caption{Scorciatoie di alcuni comuni comandi di \emacs.  \emph{Scorciatoia} è
+    la combinazione di tasti da premere per ottenere il risultato descritto
+    nell'ultima colonna.  La seconda colonna riporta la \emph{funzione}, da
+    eseguire con \texttt{M-x}, a cui è legata quella particolare combinazione di
+    tasti.}
   \label{tab:cheat-sheet} \\
   \toprule
   {\normalfont\scshape Scorciatoia} & {\normalfont\scshape Funzione} &
@@ -1096,6 +1107,114 @@ propria cartella di installazione.
   C-x o & other-window & Sposta il cursore nella ``window'' successiva \\
   C-x 0 & delete-window & Chiude la ``window'' attuale \\
   C-x 1 & - & Chiude tutte le ``windows'' tranne quella attuale \\
+\end{longtable}
+
+Un'attenzione particolare meritano le scorciatoie specifiche di \auctex{}, che
+sono quindi utilizzabili solo quando si lavora in un documento \TeX{} o
+\LaTeX{}.  La tabella~\ref{tab:auctex-cheat-sheet} riporta le principali
+scorciatoie per eseguire un comando sul file (come compilazione, visualizzazione
+del documento finale), inserire comandi, selezionare il carattere e formattare
+il codice sorgente.
+
+Anche in questo caso, non è necessario impararle tutti subito a memoria, la
+pratica aiuterà a memorizzarle, però facciamo notare che la maggior parte di
+queste scorciatoie sono effettivamente molto facili da ricordare grazie alla
+loro denominazione logica.  Le più comuni scorciatoie sono del tipo \texttt{C-c
+  C-\meta{key}}, in cui \meta{key} è una lettera che richiama la funzione da
+eseguire.  Così, per esempio, \texttt{C-c C-s} serve per inserire un nuovo
+comando di \emph{\textbf{s}ezionamento}.
+
+\begin{longtable}{>{\small\ttfamily}l>{\small\ttfamily}lp{0.3\textwidth}}
+  % intestazione iniziale
+  \caption{Scorciatoie dei principali comandi specifici di \auctex{}.
+    \emph{Scorciatoia} è la combinazione di tasti da premere per ottenere il
+    risultato descritto nell'ultima colonna.  La seconda colonna riporta la
+    \emph{funzione}, da eseguire con \texttt{M-x}, a cui è legata quella
+    particolare combinazione di tasti.  Nella terza colonna è riportato
+    l'effetto della scorciatoia, insieme alla parola chiave inglese utile per
+    ricordarla facilmente.}
+  \label{tab:auctex-cheat-sheet} \\
+  \toprule
+  {\normalfont\scshape Scorciatoia} & {\normalfont\scshape Funzione} &
+  \textsc{Effetto} \\
+  \midrule
+  \endfirsthead
+  % intestazione normale
+  \multicolumn{3}{l}{\footnotesize\itshape
+    Continua dalla pagina precedente} \\
+  \toprule
+  {\normalfont\scshape Scorciatoia} & {\normalfont\scshape Funzione} &
+  \textsc{Effetto} \\
+  \midrule
+  \endhead
+  % piede normale
+  \midrule
+  \multicolumn{3}{r}{\footnotesize\itshape
+    Continua nella prossima pagina} \\
+  \endfoot
+  % piede finale
+  \bottomrule
+  \multicolumn{3}{r}{\footnotesize\itshape
+    Si conclude dalla pagina precedente} \\
+  \endlastfoot
+  % corpo della tabella
+  \multicolumn{3}{c}{Compilazione e visualizzazione} \\
+  \midrule
+  C-c C-c & TeX-command-master & Esegue diversi comandi sul documento attuale:
+  compila, esegue il motore bibliografico, compila l'indice analitico, elimina i
+  file temporanei, eccetera.  Parola chiave: \emph{\textbf{c}ommand}
+  (comando) \\
+  C-c C-v & TeX-view & Apre il documento finale con il visualizzatore esterno.
+  Parola chiave: \emph{\textbf{v}iew} (visualizza) \\
+  C-c C-a & TeX-command-run-all & Compila tutto il documento fino a quando è
+  pronto e apre il visualizzatore se non ci sono errori.  Parola
+  chiave: \emph{\textbf{a}ll} (tutto) \\
+  \midrule
+  \multicolumn{3}{c}{Inserimento di comandi} \\
+  \midrule
+  C-c C-e & LaTeX-environment & Inserisce un nuovo ambiente \LaTeX{}, con
+  autocompletamento del nome e degli eventuali argomenti opzionali.  Parola
+  chiave: \emph{\textbf{e}nvironment} (ambiente) \\
+  C-u C-c C-e & & Sostituisce l'ambiente \LaTeX{} attuale con uno nuovo \\
+  C-c C-s & LaTeX-section & Inserisce un nuovo comando di sezionamento \LaTeX{}
+  (\verb|\chapter|, \verb|\section|, eccetera) con autocompletamento del nome.
+  Parola chiave: \emph{\textbf{s}ection} (sezione) \\
+  C-c C-m & TeX-insert-macro & Inserisce una macro con autocompletamento del
+  nome e degli argomenti, quando possibile.  Si può eseguire anche con
+  \texttt{C-c RET}.  Parola chiave: \emph{\textbf{m}acro} (comando \TeX{}) \\
+  \midrule
+  \multicolumn{3}{c}{Selezione del carattere} \\
+  \midrule
+  C-c C-f C-b & & Inserisce testo in \textbf{neretto}.  Parole chiave:
+  \emph{\textbf{b}old \textbf{f}ont} \\
+  C-c C-f C-i & & Inserisce testo in \textit{corsivo}.  Parole chiave:
+  \emph{\textbf{i}talics \textbf{f}ont} \\
+  C-c C-f C-r & & Inserisce testo con \textrm{carattere romano} (o scrittura
+  rotonda, diritto).  Parole chiave: \emph{\textbf{r}oman \textbf{f}ont} \\
+  C-c C-f C-e & & Inserisce testo \emph{enfatizzato}.  Parole chiave:
+  \emph{\textbf{e}mphasized \textbf{f}ont} \\
+  C-c C-f C-t & & Inserisce testo con carattere a \texttt{spaziatura fissa}.
+  Parole chiave: \emph{\textbf{t}ypewriter \textbf{f}ont} \\
+  C-c C-f C-s & & Inserisce testo con \textsl{carattere obliquo}.  Parole
+  chiave: \emph{\textbf{s}lanted \textbf{f}ont} \\
+  C-c C-f C-c & & Inserisce testo in \textrm{maiuscoletto}.  Parole chiave:
+  \emph{small \textbf{c}aps \textbf{f}ont} \\
+  C-c C-f C-d & & Rimuove il comando di selezione del carattere attorno al
+  cursore.  Parole chiave: \emph{\textbf{d}elete \textbf{f}ont} \\
+  C-u C-c C-f C-\meta{key} & & Sostituisce il comando di selezione del carattere
+  attorno al cursore con un font specificato da \meta{key} (\texttt{C-b} per il
+  neretto, \texttt{C-i} per l'italico, \texttt{C-r} per il romano, eccetera) \\
+  \midrule
+  \multicolumn{3}{c}{Formattazione del codice sorgente} \\
+  \midrule
+  TAB & indent-for-tab-command & Indenta il codice \\
+  M-q & fill-paragraph & Riformatta il capoverso corrente \\
+  C-c . & LaTeX-mark-environment & Seleziona l'ambiente \LaTeX{} corrente \\
+  C-c * & LaTeX-mark-section & Seleziona la sezione \LaTeX{} corrente \\
+  C-c ; & & Commenta o decommenta la regione
+  selezionata \\
+  C-c \% & & Commenta o decommenta il
+  capoverso corrente
 \end{longtable}
 
 \chapter{Personalizzare \emacs{} e \auctex}
